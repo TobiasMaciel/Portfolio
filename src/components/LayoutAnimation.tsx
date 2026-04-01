@@ -254,7 +254,7 @@ export default function LayoutAnimation() {
             lineHeight: "100px",
           }}
         >
-          {isEsLang ? "E" : "A"}
+          A
         </div>
 
         {lines.map((line, i) => {

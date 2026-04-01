@@ -13,36 +13,20 @@
   },
   "about": {
     "cv_text": {
-      "es": "studiante avanzado de Ingeniería en Sistemas en la UTN con formación en programación, análisis de datos y tecnologías modernas. Me caracterizo por el aprendizaje rápido, el trabajo colaborativo y la resolución de problemas a gran escala.\n\n\"El rendimiento no es un añadido, es la esencia del diseño. Desarrollar sistemas académicos me enseñó que cada milisegundo ahorrado impacta a miles de estudiantes.\"\n\nExperiencia Destacada\nSecr. de Ciencia y Tecnología (Mar 2023 - Pres.)\nDesarrollo y mantenimiento del sistema de gestión integral que centraliza la información de la Facultad Regional, abarcando el 100% de investigadores, proyectos e I+D. Stack: Node.js, Express, Prisma, MySQL, React, TypeScript y Vite.\n\nSistema TUP (Mar 2024 - Dic 2024)\nDesarrollo full-stack del sistema académico con Django, React y TypeScript. CI/CD con Docker y GitHub Actions: de 30 min a menos de 5 de despliegue.\n\nHabilidades Técnicas\nFrontend: React, Next.js, TS, Vite, HTML, CSS. Backend: Python, Django, Node.js, Express, SQL. DevOps: Docker, Kubernetes, GitHub Actions, AWS.",
-      "en": "dvanced Systems Engineering student at UTN with background in programming, data analysis, and modern tech. Known for rapid learning, collaboration, and large-scale problem solving.\n\n\"Performance is not an afterthought — it is the essence of design. Building academic systems taught me that every millisecond saved impacts thousands of students.\"\n\nHighlighted Experience\nSec. of Science and Technology (Mar 2023 - Present)\nDeveloped and maintained the integral management system centralizing 100% of the Faculty's researchers, R&D projects and grants. Stack: Node.js, Express, Prisma, MySQL, React, TypeScript, Vite.\n\nTUP Academic System (Mar 2024 - Dec 2024)\nFull-stack development with Django, React and TypeScript. CI/CD with Docker & GitHub Actions: deployment time cut from 30 min to under 5.\n\nTechnical Skills\nFrontend: React, Next.js, TS, Vite, HTML, CSS. Backend: Python, Django, Node.js, Express, SQL. DevOps: Docker, Kubernetes, GitHub Actions, AWS."
+      "es": "nalista Desarrollador Universitario y estudiante avanzado de Ingeniería en Sistemas con más de 3 años de experiencia en el ecosistema tecnológico. Me considero un profesional entusiasta y siempre en constante evolución. Me apasiona y busco siempre desempeñarme en tres grandes áreas: el desarrollo de software, el análisis de datos y la inteligencia artificial.\n\n\"Cuento con experiencia trabajando a la par del Product Owner en relevamiento de requisitos, integrando metodologías ágiles para asegurar la entrega de herramientas innovadoras y perfectamente alineadas a las necesidades del negocio.\"\n\nDurante mi trayectoria, me he enfocado en diseñar arquitecturas escalables y mantener flujos de trabajo robustos mediante el uso de contenedores e integración continua. Ya sea desarrollando APIs o aportando valor mediante los datos, disfruto resolver problemas complejos y transformar ideas en soluciones de alto impacto.",
+      "en": "nalyst Developer and Advanced Systems Engineering student with over 3 years of experience in the tech ecosystem. I consider myself an enthusiastic professional, always in continuous evolution. I am passionate about and always seek to work in three main areas: software development, data analysis, and artificial intelligence.\n\n\"I have experience working alongside Product Owners in requirements gathering, integrating agile methodologies to ensure the delivery of innovative tools perfectly aligned with business needs.\"\n\nThroughout my career, I've focused on designing scalable architectures and maintaining robust workflows using containers and continuous integration. Whether developing APIs or adding value through data, I enjoy solving complex problems and transforming ideas into high-impact solutions."
     },
     "headers": {
-      "es": [
-        "Experiencia Destacada",
-        "Secr. de Ciencia y Tecnología (Mar 2023 - Pres.)",
-        "Sistema TUP (Mar 2024 - Dic 2024)",
-        "Habilidades Técnicas",
-        "Frontend:",
-        "Backend:",
-        "DevOps:"
-      ],
-      "en": [
-        "Highlighted Experience",
-        "Sec. of Science and Technology (Mar 2023 - Present)",
-        "TUP Academic System (Mar 2024 - Dec 2024)",
-        "Technical Skills",
-        "Frontend:",
-        "Backend:",
-        "DevOps:"
-      ]
+      "es": [],
+      "en": []
     },
     "highlights": {
-      "es": ["Frontend:", "Backend:", "DevOps:"],
-      "en": ["Frontend:", "Backend:", "DevOps:"]
+      "es": [],
+      "en": []
     },
     "quotes": {
-      "es": ["\"El rendimiento", "estudiantes.\""],
-      "en": ["\"Performance is", "students.\""]
+      "es": ["\"Cuento con experiencia", "negocio.\""],
+      "en": ["\"I have experience", "needs.\""]
     }
   },
   "socialLinks": [
