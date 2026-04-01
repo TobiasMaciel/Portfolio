@@ -4,41 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { useMotionValue } from "framer-motion";
 import { prepareWithSegments, layoutNextLine } from "@chenglou/pretext";
 
-const CV_TEXT = `studiante avanzado de Ingeniería en Sistemas con formación en programación, análisis de datos y tecnologías modernas. Me caracterizo por la capacidad de aprendizaje rápido, la colaboración y la resolución de problemas de gran escala.
-
-"El rendimiento no es un añadido, es la esencia del diseño. Desarrollar sistemas académicos me enseñó que cada milisegundo ahorrado impacta a miles de estudiantes."
-
-Experiencia Destacada
-Secr. de Ciencia y Tecnología (2023 - Pres.)
-Sistemas de gestión integral que centraliza info de toda la Facultad, abarcando a investigadores y grupos de I+D usando Node.js, Prisma y MySQL. Módulos frontend full con React y Vite.
-
-TUP Gestión Académica (2024)
-Desarrollo integral con Django, React y TypeScript. Infraestructura con Docker y pipelines CI/CD que redujeron tiempos de despliegue de 30 a menos de 5 minutos, garantizando calidad con pruebas exhaustivas.
-
-Habilidades Técnicas
-Frontend: React, Next.js, TS, Tailwind CSS. Backend: Python, Node.js, Django, SQL. DevOps: Docker, GitHub Actions, AWS.`;
-
-const HEADERS = [
-  "Experiencia Destacada",
-  "Secr. de Ciencia y Tecnología (2023 - Pres.)",
-  "TUP Gestión Académica (2024)",
-  "Habilidades Técnicas",
-  "Frontend:",
-  "Backend:",
-  "DevOps:",
-];
-
-const headerRanges = HEADERS.map((h) => {
-  let start = CV_TEXT.indexOf(h);
-  return { start, end: start + h.length };
-});
-
-const quoteRanges = [
-  {
-    start: CV_TEXT.indexOf('"El rendimiento'),
-    end: CV_TEXT.indexOf('estudiantes."') + 'estudiantes."'.length,
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 type LineData = {
   text: string;
@@ -51,13 +17,19 @@ type LineData = {
 
 export default function LayoutAnimation() {
   const containerRef = useRef<HTMLDivElement>(null);
+  const { t } = useLanguage();
+  const CV_TEXT = t("cv_text");
+  const HEADERS = t("headers");
+  const QUOTES = t("quotes");
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
 
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const [lines, setLines] = useState<LineData[]>([]);
-  const [containerHeight, setContainerHeight] = useState(800);
+
+  // Smooth mouse: follows real mouse with lag for slow text reflow
+  const smoothMouse = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleResize = () => {
@@ -108,15 +80,34 @@ export default function LayoutAnimation() {
     let animationFrameId: number;
 
     const render = () => {
-      const mx = mouseX.get();
-      const my = mouseY.get();
+      // Lerp the smooth mouse toward the real mouse (0.04 = very slow/laggy)
+      const LERP_FACTOR = 0.04;
+      smoothMouse.current.x +=
+        (mouseX.get() - smoothMouse.current.x) * LERP_FACTOR;
+      smoothMouse.current.y +=
+        (mouseY.get() - smoothMouse.current.y) * LERP_FACTOR;
+
+      const mx = smoothMouse.current.x;
+      const my = smoothMouse.current.y;
+
+      const headerRanges = HEADERS.map((h) => {
+        const start = CV_TEXT.indexOf(h);
+        return { start, end: start + h.length };
+      });
+
+      const quoteRanges = [
+        {
+          start: CV_TEXT.indexOf(QUOTES[0]),
+          end: CV_TEXT.indexOf(QUOTES[1]) + QUOTES[1].length,
+        },
+      ];
 
       let cursor = { segmentIndex: 0, graphemeIndex: 0 };
       const newLines: LineData[] = [];
 
-      const startLeft = dimensions.width < 1024 ? 20 : 0;
+      const calcStartLeft = dimensions.width < 1024 ? 20 : 0;
       const paddingRight = 40;
-      const totalWidth = dimensions.width - startLeft - paddingRight;
+      const totalWidth = dimensions.width - calcStartLeft - paddingRight;
 
       const numColumns = dimensions.width < 768 ? 1 : 2;
       const gap = 80;
@@ -128,7 +119,6 @@ export default function LayoutAnimation() {
       let colIndex = 0;
       let lineIndexInCol = 0;
       let searchCursor = 0;
-      let maxComputedY = 0;
 
       while (true) {
         if (
@@ -143,7 +133,7 @@ export default function LayoutAnimation() {
         const lineCenterY = currentTargetY + lineHeight / 2;
         const dy = Math.abs(lineCenterY - my);
 
-        let startX = startLeft + colIndex * (colWidth + gap);
+        let startX = calcStartLeft + colIndex * (colWidth + gap);
         let availableWidth = colWidth;
 
         let nextCharIndex = searchCursor;
@@ -154,10 +144,10 @@ export default function LayoutAnimation() {
           nextCharIndex++;
         }
 
-        let isNextQuote = quoteRanges.some(
+        const isNextQuote = quoteRanges.some(
           (r) => nextCharIndex >= r.start && nextCharIndex < r.end,
         );
-        let isDropCapLine = colIndex === 0 && lineIndexInCol < 3;
+        const isDropCapLine = colIndex === 0 && lineIndexInCol < 3;
 
         if (isDropCapLine) {
           startX += 95;
@@ -201,7 +191,7 @@ export default function LayoutAnimation() {
         const text = line.text;
 
         let isH = false;
-        let foundIndex = CV_TEXT.indexOf(text.trim(), searchCursor);
+        const foundIndex = CV_TEXT.indexOf(text.trim(), searchCursor);
         if (foundIndex !== -1 && text.trim().length > 0) {
           searchCursor = foundIndex + text.trim().length;
           isH =
@@ -227,21 +217,16 @@ export default function LayoutAnimation() {
         cursor = line.end;
         currentTargetY += lineHeight;
         lineIndexInCol++;
-
-        if (currentTargetY > maxComputedY) {
-          maxComputedY = currentTargetY;
-        }
       }
 
       setLines(newLines);
-      setContainerHeight(maxComputedY + 60);
 
       animationFrameId = requestAnimationFrame(render);
     };
 
     render();
     return () => cancelAnimationFrame(animationFrameId);
-  }, [dimensions, mouseX, mouseY]);
+  }, [dimensions, mouseX, mouseY, CV_TEXT, HEADERS, QUOTES]);
 
   const startLeft = dimensions.width < 1024 ? 20 : 0;
 
@@ -249,9 +234,10 @@ export default function LayoutAnimation() {
     <div
       ref={containerRef}
       className="relative w-full overflow-hidden"
-      style={{ height: containerHeight }}
+      style={{ height: 800 }}
+      suppressHydrationWarning
     >
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none font-playfair text-[20px] leading-9 text-zinc-300 z-10">
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none font-playfair text-[20px] leading-9 z-10 text-zinc-700 dark:text-zinc-300">
         <div
           className="absolute font-playfair font-bold text-[#A78BFA] leading-none pointer-events-auto"
           style={{
@@ -267,11 +253,12 @@ export default function LayoutAnimation() {
         {lines.map((line, i) => {
           if (line.text.trim() === "") return null;
 
-          let color = line.isHeader
-            ? "white"
-            : line.isQuote
-              ? "#A78BFA"
-              : "inherit";
+          let colorClass = "text-inherit";
+          if (line.isHeader) {
+            colorClass = "text-black dark:text-white";
+          } else if (line.isQuote) {
+            colorClass = "text-[#A78BFA]";
+          }
 
           const isHighlight =
             line.text.includes("Frontend:") ||
@@ -284,7 +271,10 @@ export default function LayoutAnimation() {
             htmlText = splitted.map((segment, idx) => {
               if (["Frontend:", "Backend:", "DevOps:"].includes(segment)) {
                 return (
-                  <span key={idx} className="font-bold text-white">
+                  <span
+                    key={idx}
+                    className="font-bold text-zinc-900 dark:text-white"
+                  >
                     {segment}
                   </span>
                 );
@@ -296,7 +286,7 @@ export default function LayoutAnimation() {
           return (
             <div
               key={i}
-              className="absolute pointer-events-auto transition-all duration-75 text-left"
+              className={`absolute pointer-events-auto text-left ${colorClass}`}
               style={{
                 left: line.x,
                 top: line.y,
@@ -304,7 +294,6 @@ export default function LayoutAnimation() {
                 whiteSpace: "nowrap",
                 fontWeight: line.isHeader ? 700 : line.isQuote ? 500 : 400,
                 fontStyle: line.isQuote ? "italic" : "normal",
-                color: color,
                 borderLeft: line.isQuote ? "2px solid #A78BFA" : "none",
                 paddingLeft: line.isQuote ? "12px" : "0",
               }}

@@ -1,20 +1,21 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
+import { Providers } from "@/components/Providers";
 import "./globals.css";
 
 const playfair = Playfair_Display({
-  variable: "--font-playfair",
   subsets: ["latin"],
+  variable: "--font-playfair",
 });
 
 const inter = Inter({
-  variable: "--font-inter",
   subsets: ["latin"],
+  variable: "--font-inter",
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio",
-  description: "Mi portfolio personal interactivo",
+  title: "Tobías Alejandro Maciel Meister | Portfolio",
+  description: "Desarrollador Full-Stack & DevOps",
 };
 
 export default function RootLayout({
@@ -22,13 +23,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // next-themes requiere suppressHydrationWarning en el html
   return (
-    <html
-      lang="es"
-      className={`${playfair.variable} ${inter.variable} h-full antialiased dark`}
-    >
-      <body className="min-h-full flex flex-col bg-[#0a0a0a] text-[#ededed]">
-        {children}
+    <html lang="es" suppressHydrationWarning>
+      <body
+        className={`${inter.variable} ${playfair.variable} antialiased selection:bg-[#A78BFA]/30 selection:text-[#A78BFA]`}
+      >
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
