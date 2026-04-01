@@ -9,6 +9,7 @@ import AmbientGlow from "@/components/AmbientGlow";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/context/LanguageContext";
+import portfolioData from "@/data/portfolio.json";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -642,152 +643,76 @@ export default function Home() {
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-  const projects: Project[] = [
-    {
-      id: "sgi",
-      period: isEsLang ? "MAR 2023 — PRESENTE" : "MAR 2023 — PRESENT",
-      title: isEsLang
-        ? "Sistema de Gestión Integral (SGI)"
-        : "Integral Management System (SGI)",
-      subtitle: isEsLang
-        ? "Secretaría de Ciencia y Tecnología — UTN"
-        : "Sec. of Science & Technology — UTN",
-      role: isEsLang ? "Desarrollador Full-Stack" : "Full-Stack Developer",
-      description: isEsLang
-        ? "Plataforma centralizada que gestiona el 100% de los investigadores, proyectos de I+D y grupos de investigación de la Facultad Regional. Incluye módulos de gestión de becas, diseño del modelo de datos (DER), pantallas UI y control total de versiones vía Git/GitHub."
-        : "Centralized platform managing 100% of the Faculty's researchers, R&D projects and grants. Includes scholarship management, data model design (ERD), UI screens, and full version control via Git/GitHub.",
-      bullets: isEsLang
-        ? [
-            "Node.js, Express, Prisma y MySQL para el backend robusto.",
-            "Módulos frontend completos con React, TypeScript y Vite.",
-            "DER, UI y control de versiones con Git/GitHub.",
-          ]
-        : [
-            "Node.js, Express, Prisma and MySQL for robust backend.",
-            "Full frontend modules with React, TypeScript and Vite.",
-            "ERD, UI and version control with Git/GitHub.",
-          ],
-      stack: [
-        "Node.js",
-        "Express",
-        "Prisma",
-        "MySQL",
-        "React",
-        "TypeScript",
-        "Vite",
-        "Git",
-      ],
-      github: "https://github.com/tobiasmaciel",
-      images: [
-        "/sgi-preview.png",
-        "/sgi-preview-2.png",
-        "/sgi-preview-3.png",
-      ].map((img) => `${basePath}${img}`),
-    },
-    {
-      id: "tup",
-      period: "MAR 2024 — DIC 2024",
-      title: isEsLang ? "Sistema Académico TUP" : "TUP Academic System",
-      subtitle: isEsLang
-        ? "Tecnicatura Universitaria en Programación — UTN"
-        : "University Programming Technician — UTN",
-      role: isEsLang
-        ? "Desarrollador Full-Stack & DevOps"
-        : "Full-Stack Developer & DevOps",
-      description: isEsLang
-        ? "Sistema académico integral conectando bedelías, profesores y alumnos. CI/CD con GitHub Actions: despliegue reducido de 30 min a menos de 5. QA completo, revisión de código y seguimiento en Jira."
-        : "Integral academic system connecting admin staff, professors and students. CI/CD with GitHub Actions reducing deployment from 30 to under 5 min. Full QA, code review, Jira tracking.",
-      bullets: isEsLang
-        ? [
-            "Django, React, TypeScript y Vite para el stack completo.",
-            "Docker + Docker Compose para infraestructura homogénea.",
-            "CI/CD con GitHub Actions: 30 min → menos de 5 min.",
-          ]
-        : [
-            "Django, React, TypeScript and Vite for the full stack.",
-            "Docker + Docker Compose for homogeneous infrastructure.",
-            "CI/CD with GitHub Actions: 30 min → under 5 min.",
-          ],
-      stack: [
-        "Django",
-        "React",
-        "TypeScript",
-        "Docker",
-        "Docker Compose",
-        "GitHub Actions",
-        "Jira",
-      ],
-      github: "https://github.com/tobiasmaciel",
-      images: [
-        "/tup-preview.png",
-        "/tup-preview-2.png",
-        "/tup-preview-3.png",
-      ].map((img) => `${basePath}${img}`),
-    },
-  ];
+  const projects: Project[] = portfolioData.projects.map((p) => ({
+    id: p.id,
+    period: isEsLang ? p.period.es : p.period.en,
+    title: isEsLang ? p.title.es : p.title.en,
+    subtitle: isEsLang ? p.subtitle.es : p.subtitle.en,
+    role: isEsLang ? p.role.es : p.role.en,
+    description: isEsLang ? p.description.es : p.description.en,
+    bullets: isEsLang ? p.bullets.es : p.bullets.en,
+    stack: p.stack,
+    github: p.github,
+    images: p.images.map((img) => `${basePath}${img}`),
+  }));
 
-  const socialLinks = [
-    {
-      href: "mailto:tobiasmaciel03@gmail.com",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <rect width="20" height="16" x="2" y="4" rx="2" />
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
-        </svg>
-      ),
-    },
-    {
-      href: "https://linkedin.com/in/tobiasmaciel",
-      target: "_blank",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-          <rect width="4" height="12" x="2" y="9" />
-          <circle cx="4" cy="4" r="2" />
-        </svg>
-      ),
-    },
-    {
-      href: "https://github.com/tobiasmaciel",
-      target: "_blank",
-      icon: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a5.5 5.5 0 0 0-1.5-3.8 5.5 5.5 0 0 0 .2-3.8s-1.2-.4-3.9 1.8a13.2 13.2 0 0 0-7 0C6.2 3.4 5 3.8 5 3.8a5.5 5.5 0 0 0 .2 3.8A5.5 5.5 0 0 0 3 11.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4" />
-          <path d="M9 18c-4.5 1.6-5-2.5-5-2.5" />
-        </svg>
-      ),
-    },
-  ];
+  const socialIcons: Record<string, React.ReactNode> = {
+    email: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect width="20" height="16" x="2" y="4" rx="2" />
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" />
+      </svg>
+    ),
+    linkedin: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+        <rect width="4" height="12" x="2" y="9" />
+        <circle cx="4" cy="4" r="2" />
+      </svg>
+    ),
+    github: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.2c3-.3 6-1.5 6-6.5a5.5 5.5 0 0 0-1.5-3.8 5.5 5.5 0 0 0 .2-3.8s-1.2-.4-3.9 1.8a13.2 13.2 0 0 0-7 0C6.2 3.4 5 3.8 5 3.8a5.5 5.5 0 0 0 .2 3.8A5.5 5.5 0 0 0 3 11.5c0 5 3 6.2 6 6.5a4.8 4.8 0 0 0-1 3.2v4" />
+        <path d="M9 18c-4.5 1.6-5-2.5-5-2.5" />
+      </svg>
+    ),
+  };
+
+  const socialLinks = portfolioData.socialLinks.map((l) => ({
+    href: l.href,
+    target: l.platform === "email" ? undefined : "_blank",
+    icon: socialIcons[l.platform] || null,
+  }));
 
   return (
     <main className="bg-slate-50 dark:bg-[#0A0A0B] text-zinc-900 dark:text-zinc-200 relative min-h-screen overflow-x-hidden selection:bg-[#A78BFA]/30 selection:text-[#A78BFA] transition-colors duration-700">
@@ -818,15 +743,15 @@ export default function Home() {
             variants={fadeUpBlur}
             className="font-playfair text-6xl md:text-7xl xl:text-[5.1rem] tracking-tight leading-none text-zinc-900 dark:text-white font-bold w-full drop-shadow-md dark:drop-shadow-lg relative z-10"
           >
-            TOBÍAS ALEJANDRO
+            {portfolioData.hero.name}
             <br />
-            <span className="text-zinc-500">MACIEL MEISTER</span>
+            <span className="text-zinc-500">{portfolioData.hero.surname}</span>
           </motion.h1>
           <motion.p
             variants={fadeUpBlur}
-            className="font-sans text-xl mt-6 text-zinc-600 dark:text-zinc-400 font-light tracking-wide relative z-10"
+            className="font-sans text-xl mt-6 text-[#A78BFA] font-medium tracking-wide relative z-10"
           >
-            {t("role")}
+            {isEsLang ? portfolioData.hero.role.es : portfolioData.hero.role.en}
           </motion.p>
           <motion.nav
             variants={fadeUpText}
@@ -865,15 +790,15 @@ export default function Home() {
             variants={fadeUpBlur}
             className="font-playfair text-6xl tracking-tight leading-none text-zinc-900 dark:text-white font-bold w-full drop-shadow-md relative z-10"
           >
-            TOBÍAS ALEJANDRO
+            {portfolioData.hero.name}
             <br />
-            <span className="text-zinc-500">MACIEL MEISTER</span>
+            <span className="text-zinc-500">{portfolioData.hero.surname}</span>
           </motion.h1>
           <motion.p
             variants={fadeUpBlur}
-            className="font-sans text-xl mt-4 text-zinc-600 dark:text-zinc-400 font-light tracking-wide relative z-10"
+            className="font-sans text-xl mt-4 text-[#A78BFA] font-medium tracking-wide relative z-10"
           >
-            {t("role")}
+            {isEsLang ? portfolioData.hero.role.es : portfolioData.hero.role.en}
           </motion.p>
           <motion.nav
             variants={fadeUpText}
@@ -1033,48 +958,24 @@ export default function Home() {
             {isEsLang ? "Educación" : "Education"}
           </h2>
           <div className="flex flex-col gap-10">
-            <div className="group relative">
-              <p className="text-[#A78BFA] text-sm font-semibold tracking-wider mb-2">
-                2021 — {isEsLang ? "PRESENTE" : "PRESENT"}
-              </p>
-              <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#A78BFA] transition-colors mb-1">
-                {isEsLang
-                  ? "Ingeniería en Sistemas de Información"
-                  : "Systems Information Engineering"}
-              </h3>
-              <h4 className="text-zinc-600 dark:text-zinc-400 mb-2 font-medium text-lg">
-                Universidad Tecnológica Nacional (UTN)
-              </h4>
-              <p className="text-zinc-500 leading-relaxed max-w-3xl">
-                {isEsLang
-                  ? "5to Año. Formación avanzada en arquitectura de software, análisis de sistemas y gobierno de datos. Participación activa en I+D."
-                  : "5th Year. Advanced training in software architecture, systems analysis and data governance. Active R&D participation."}
-              </p>
-            </div>
-            <div className="group relative">
-              <p className="text-[#A78BFA] text-sm font-semibold tracking-wider mb-2">
-                2021 — 2025
-              </p>
-              <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#A78BFA] transition-colors mb-1">
-                {isEsLang
-                  ? "Analista Desarrollador Universitario en Sistemas"
-                  : "University Systems Developer Analyst"}
-              </h3>
-              <h4 className="text-zinc-600 dark:text-zinc-400 font-medium text-lg">
-                Universidad Tecnológica Nacional (UTN)
-              </h4>
-            </div>
-            <div className="group relative">
-              <p className="text-[#A78BFA] text-sm font-semibold tracking-wider mb-2">
-                2014 — 2020
-              </p>
-              <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#A78BFA] transition-colors mb-1">
-                {isEsLang ? "Inglés Intermedio B2" : "Intermediate English B2"}
-              </h3>
-              <h4 className="text-zinc-600 dark:text-zinc-400 font-medium text-lg">
-                Instituto Josefina Contte
-              </h4>
-            </div>
+            {portfolioData.education.map((item) => (
+              <div key={item.id} className="group relative">
+                <p className="text-[#A78BFA] text-sm font-semibold tracking-wider mb-2">
+                  {isEsLang ? item.period.es : item.period.en}
+                </p>
+                <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#A78BFA] transition-colors mb-1">
+                  {isEsLang ? item.title.es : item.title.en}
+                </h3>
+                <h4 className="text-zinc-600 dark:text-zinc-400 mb-2 font-medium text-lg">
+                  {item.institution}
+                </h4>
+                {(isEsLang ? item.description.es : item.description.en) && (
+                  <p className="text-zinc-500 leading-relaxed max-w-3xl">
+                    {isEsLang ? item.description.es : item.description.en}
+                  </p>
+                )}
+              </div>
+            ))}
           </div>
         </motion.section>
 
@@ -1091,82 +992,9 @@ export default function Home() {
             {isEsLang ? "Habilidades" : "Skills"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {[
-              {
-                label: "Frontend",
-                color: "#A78BFA",
-                hb: "hover:border-[#A78BFA]/50",
-                ht: "hover:text-[#A78BFA]",
-                tags: [
-                  "React",
-                  "React Native",
-                  "Next.js",
-                  "TypeScript",
-                  "JavaScript",
-                  "Vite",
-                  "HTML",
-                  "CSS",
-                ],
-              },
-              {
-                label: isEsLang ? "Backend & Datos" : "Backend & Data",
-                color: "#34D399",
-                hb: "hover:border-emerald-400/50",
-                ht: "hover:text-emerald-500",
-                tags: [
-                  "Python",
-                  "Django",
-                  "Node.js",
-                  "Express",
-                  "SQL",
-                  "MySQL",
-                  "PostgreSQL",
-                  "Prisma ORM",
-                ],
-              },
-              {
-                label: "DevOps & Cloud",
-                color: "#38BDF8",
-                hb: "hover:border-sky-400/50",
-                ht: "hover:text-sky-400",
-                tags: [
-                  "Docker",
-                  "Docker Compose",
-                  "Kubernetes",
-                  "GitHub Actions",
-                  "AWS",
-                  "Azure",
-                  "Render",
-                  "Supabase",
-                  "Grafana",
-                  "Prometheus",
-                ],
-              },
-              {
-                label: isEsLang
-                  ? "Metodologías & Herramientas"
-                  : "Methodologies & Tools",
-                color: "#E879F9",
-                hb: "hover:border-fuchsia-400/50",
-                ht: "hover:text-fuchsia-400",
-                tags: [
-                  "Git",
-                  "GitHub",
-                  "Postman",
-                  "Jira",
-                  "VS Code",
-                  "Slack",
-                  "Teams",
-                  "D2",
-                  "Mermaid",
-                  "Excel",
-                  "Word",
-                  "PowerPoint",
-                ],
-              },
-            ].map((cat) => (
+            {portfolioData.skills.categories.map((cat) => (
               <div
-                key={cat.label}
+                key={cat.label.en}
                 className="group p-6 bg-white dark:bg-[#0C0C0D] border border-zinc-200 dark:border-zinc-800/80 rounded-2xl hover:border-zinc-300 dark:hover:border-zinc-700 transition-all duration-300"
               >
                 <div className="flex items-center gap-3 mb-5">
@@ -1178,14 +1006,14 @@ export default function Home() {
                     }}
                   />
                   <h3 className="text-sm font-bold tracking-widest text-zinc-400 dark:text-zinc-500 uppercase">
-                    {cat.label}
+                    {isEsLang ? cat.label.es : cat.label.en}
                   </h3>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {cat.tags.map((s) => (
                     <span
                       key={s}
-                      className={`px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs font-medium rounded-full border border-zinc-200 dark:border-zinc-800 ${cat.hb} ${cat.ht} transition-colors cursor-default`}
+                      className={`px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs font-medium rounded-full border border-zinc-200 dark:border-zinc-800 ${cat.borderHover} ${cat.textHover} transition-colors cursor-default`}
                     >
                       {s}
                     </span>
@@ -1204,22 +1032,19 @@ export default function Home() {
                 </h3>
               </div>
               <div className="flex flex-wrap gap-3">
-                <div className="flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800">
-                  <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
-                    🇦🇷 {isEsLang ? "Español" : "Spanish"}
-                  </span>
-                  <span className="text-xs text-zinc-400 font-medium">
-                    {isEsLang ? "Nativo" : "Native"}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800">
-                  <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
-                    🇺🇸 {isEsLang ? "Inglés" : "English"}
-                  </span>
-                  <span className="text-xs text-zinc-400 font-medium">
-                    {isEsLang ? "Intermedio B2" : "Intermediate B2"}
-                  </span>
-                </div>
+                {portfolioData.skills.languages.map((lang) => (
+                  <div
+                    key={lang.name.en}
+                    className="flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800"
+                  >
+                    <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
+                      {lang.flag} {isEsLang ? lang.name.es : lang.name.en}
+                    </span>
+                    <span className="text-xs text-zinc-400 font-medium">
+                      {isEsLang ? lang.level.es : lang.level.en}
+                    </span>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -1238,42 +1063,22 @@ export default function Home() {
             {isEsLang ? "Logros" : "Achievements"}
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-            <div className="flex items-start gap-5">
-              <div className="mt-[8px] h-2 w-2 rounded-full bg-[#A78BFA] shadow-[0_0_12px_rgba(167,139,250,0.8)] flex-shrink-0" />
-              <div>
-                <p className="text-[#A78BFA] text-xs font-bold tracking-widest mb-1">
-                  2025
-                </p>
-                <h3 className="text-xl font-bold text-zinc-800 dark:text-zinc-100">
-                  {isEsLang
-                    ? "Finalista Nacional — Certamen CUBESAT"
-                    : "National Finalist — CUBESAT Contest"}
-                </h3>
-                <p className="text-zinc-500 mt-2 max-w-xl leading-relaxed">
-                  {isEsLang
-                    ? "Diseño y desarrollo de un satélite a escala (CubeSat) para la toma y análisis de datos."
-                    : "Design and development of a scale satellite (CubeSat) for data collection and analysis."}
-                </p>
+            {portfolioData.achievements.map((ach) => (
+              <div key={ach.id} className="flex items-start gap-5">
+                <div className="mt-[8px] h-2 w-2 rounded-full bg-[#A78BFA] shadow-[0_0_12px_rgba(167,139,250,0.8)] flex-shrink-0" />
+                <div>
+                  <p className="text-[#A78BFA] text-xs font-bold tracking-widest mb-1">
+                    {ach.year}
+                  </p>
+                  <h3 className="text-xl font-bold text-zinc-800 dark:text-zinc-100">
+                    {isEsLang ? ach.title.es : ach.title.en}
+                  </h3>
+                  <p className="text-zinc-500 mt-2 max-w-xl leading-relaxed">
+                    {isEsLang ? ach.description.es : ach.description.en}
+                  </p>
+                </div>
               </div>
-            </div>
-            <div className="flex items-start gap-5">
-              <div className="mt-[8px] h-2 w-2 rounded-full bg-[#A78BFA] shadow-[0_0_12px_rgba(167,139,250,0.8)] flex-shrink-0" />
-              <div>
-                <p className="text-[#A78BFA] text-xs font-bold tracking-widest mb-1">
-                  2024
-                </p>
-                <h3 className="text-xl font-bold text-zinc-800 dark:text-zinc-100">
-                  {isEsLang
-                    ? "3° Puesto — Rally Latinoamericano de Innovación"
-                    : "3rd Place — Latin American Innovation Rally"}
-                </h3>
-                <p className="text-zinc-500 mt-2 max-w-xl leading-relaxed">
-                  {isEsLang
-                    ? "Categoría Impacto Social. Solución tecnológica completa desarrollada en 24 horas."
-                    : "Social Impact category. Complete technological solution developed in 24 hours."}
-                </p>
-              </div>
-            </div>
+            ))}
           </div>
         </motion.section>
       </div>

@@ -1,0 +1,248 @@
+{
+  "hero": {
+    "name": "TOBÍAS ALEJANDRO",
+    "surname": "MACIEL MEISTER",
+    "role": {
+      "es": "Desarrollador Full-Stack",
+      "en": "Full-Stack Developer"
+    },
+    "description": {
+      "es": "Estudiante avanzado de Ingeniería en Sistemas de Información, enfocado en resolución de problemas complejos. Con experiencia en diseño de arquitecturas escalables robustas y liderando en equipos ágiles.",
+      "en": "Advanced Information Systems Engineering student, focused on complex problem solving. Experienced in designing robust scalable architectures and leading agile teams."
+    }
+  },
+  "about": {
+    "cv_text": {
+      "es": "studiante avanzado de Ingeniería en Sistemas en la UTN con formación en programación, análisis de datos y tecnologías modernas. Me caracterizo por el aprendizaje rápido, el trabajo colaborativo y la resolución de problemas a gran escala.\n\n\"El rendimiento no es un añadido, es la esencia del diseño. Desarrollar sistemas académicos me enseñó que cada milisegundo ahorrado impacta a miles de estudiantes.\"\n\nExperiencia Destacada\nSecr. de Ciencia y Tecnología (Mar 2023 - Pres.)\nDesarrollo y mantenimiento del sistema de gestión integral que centraliza la información de la Facultad Regional, abarcando el 100% de investigadores, proyectos e I+D. Stack: Node.js, Express, Prisma, MySQL, React, TypeScript y Vite.\n\nSistema TUP (Mar 2024 - Dic 2024)\nDesarrollo full-stack del sistema académico con Django, React y TypeScript. CI/CD con Docker y GitHub Actions: de 30 min a menos de 5 de despliegue.\n\nHabilidades Técnicas\nFrontend: React, Next.js, TS, Vite, HTML, CSS. Backend: Python, Django, Node.js, Express, SQL. DevOps: Docker, Kubernetes, GitHub Actions, AWS.",
+      "en": "dvanced Systems Engineering student at UTN with background in programming, data analysis, and modern tech. Known for rapid learning, collaboration, and large-scale problem solving.\n\n\"Performance is not an afterthought — it is the essence of design. Building academic systems taught me that every millisecond saved impacts thousands of students.\"\n\nHighlighted Experience\nSec. of Science and Technology (Mar 2023 - Present)\nDeveloped and maintained the integral management system centralizing 100% of the Faculty's researchers, R&D projects and grants. Stack: Node.js, Express, Prisma, MySQL, React, TypeScript, Vite.\n\nTUP Academic System (Mar 2024 - Dec 2024)\nFull-stack development with Django, React and TypeScript. CI/CD with Docker & GitHub Actions: deployment time cut from 30 min to under 5.\n\nTechnical Skills\nFrontend: React, Next.js, TS, Vite, HTML, CSS. Backend: Python, Django, Node.js, Express, SQL. DevOps: Docker, Kubernetes, GitHub Actions, AWS."
+    },
+    "headers": {
+      "es": [
+        "Experiencia Destacada",
+        "Secr. de Ciencia y Tecnología (Mar 2023 - Pres.)",
+        "Sistema TUP (Mar 2024 - Dic 2024)",
+        "Habilidades Técnicas",
+        "Frontend:",
+        "Backend:",
+        "DevOps:"
+      ],
+      "en": [
+        "Highlighted Experience",
+        "Sec. of Science and Technology (Mar 2023 - Present)",
+        "TUP Academic System (Mar 2024 - Dec 2024)",
+        "Technical Skills",
+        "Frontend:",
+        "Backend:",
+        "DevOps:"
+      ]
+    },
+    "highlights": {
+      "es": ["Frontend:", "Backend:", "DevOps:"],
+      "en": ["Frontend:", "Backend:", "DevOps:"]
+    },
+    "quotes": {
+      "es": ["\"El rendimiento", "estudiantes.\""],
+      "en": ["\"Performance is", "students.\""]
+    }
+  },
+  "socialLinks": [
+    {
+      "platform": "email",
+      "href": "mailto:tobiasmaciel03@gmail.com"
+    },
+    {
+      "platform": "linkedin",
+      "href": "https://linkedin.com/in/tobiasmaciel"
+    },
+    {
+      "platform": "github",
+      "href": "https://github.com/tobiasmaciel"
+    }
+  ],
+  "projects": [
+    {
+      "id": "sgi",
+      "period": {
+        "es": "MAR 2023 — PRESENTE",
+        "en": "MAR 2023 — PRESENT"
+      },
+      "title": {
+        "es": "Sistema de Gestión Integral (SGI)",
+        "en": "Integral Management System (SGI)"
+      },
+      "subtitle": {
+        "es": "Secretaría de Ciencia y Tecnología — UTN",
+        "en": "Sec. of Science & Technology — UTN"
+      },
+      "role": {
+        "es": "Desarrollador Full-Stack",
+        "en": "Full-Stack Developer"
+      },
+      "description": {
+        "es": "Plataforma centralizada que gestiona el 100% de los investigadores, proyectos de I+D y grupos de investigación de la Facultad Regional. Incluye módulos de gestión de becas, diseño del modelo de datos (DER), pantallas UI y control total de versiones vía Git/GitHub.",
+        "en": "Centralized platform managing 100% of the Faculty's researchers, R&D projects and grants. Includes scholarship management, data model design (ERD), UI screens, and full version control via Git/GitHub."
+      },
+      "bullets": {
+        "es": [
+          "Node.js, Express, Prisma y MySQL para el backend robusto.",
+          "Módulos frontend completos con React, TypeScript y Vite.",
+          "DER, UI y control de versiones con Git/GitHub."
+        ],
+        "en": [
+          "Node.js, Express, Prisma and MySQL for robust backend.",
+          "Full frontend modules with React, TypeScript and Vite.",
+          "ERD, UI and version control with Git/GitHub."
+        ]
+      },
+      "stack": ["Node.js", "Express", "Prisma", "MySQL", "React", "TypeScript", "Vite", "Git"],
+      "github": "https://github.com/tobiasmaciel",
+      "images": ["/sgi-preview.png", "/sgi-preview-2.png", "/sgi-preview-3.png"]
+    },
+    {
+      "id": "tup",
+      "period": {
+        "es": "MAR 2024 — DIC 2024",
+        "en": "MAR 2024 — DEC 2024"
+      },
+      "title": {
+        "es": "Sistema Académico TUP",
+        "en": "TUP Academic System"
+      },
+      "subtitle": {
+        "es": "Tecnicatura Universitaria en Programación — UTN",
+        "en": "University Programming Technician — UTN"
+      },
+      "role": {
+        "es": "Desarrollador Full-Stack & DevOps",
+        "en": "Full-Stack Developer & DevOps"
+      },
+      "description": {
+        "es": "Sistema académico integral conectando bedelías, profesores y alumnos. CI/CD con GitHub Actions: despliegue reducido de 30 min a menos de 5. QA completo, revisión de código y seguimiento en Jira.",
+        "en": "Integral academic system connecting admin staff, professors and students. CI/CD with GitHub Actions reducing deployment from 30 to under 5 min. Full QA, code review, Jira tracking."
+      },
+      "bullets": {
+        "es": [
+          "Django, React, TypeScript y Vite para el stack completo.",
+          "Docker + Docker Compose para infraestructura homogénea.",
+          "CI/CD con GitHub Actions: 30 min → menos de 5 min."
+        ],
+        "en": [
+          "Django, React, TypeScript and Vite for the full stack.",
+          "Docker + Docker Compose for homogeneous infrastructure.",
+          "CI/CD with GitHub Actions: 30 min → under 5 min."
+        ]
+      },
+      "stack": ["Django", "React", "TypeScript", "Docker", "Docker Compose", "GitHub Actions", "Jira"],
+      "github": "https://github.com/tobiasmaciel",
+      "images": ["/tup-preview.png", "/tup-preview-2.png", "/tup-preview-3.png"]
+    }
+  ],
+  "education": [
+    {
+      "id": "isi",
+      "period": {
+        "es": "2021 — PRESENTE",
+        "en": "2021 — PRESENT"
+      },
+      "title": {
+        "es": "Ingeniería en Sistemas de Información",
+        "en": "Systems Information Engineering"
+      },
+      "institution": "Universidad Tecnológica Nacional (UTN)",
+      "description": {
+        "es": "5to Año. Formación avanzada en arquitectura de software, análisis de sistemas y gobierno de datos. Participación activa en I+D.",
+        "en": "5th Year. Advanced training in software architecture, systems analysis and data governance. Active R&D participation."
+      }
+    },
+    {
+      "id": "analista",
+      "period": {
+        "es": "2021 — 2025",
+        "en": "2021 — 2025"
+      },
+      "title": {
+        "es": "Analista Desarrollador Universitario en Sistemas",
+        "en": "University Systems Developer Analyst"
+      },
+      "institution": "Universidad Tecnológica Nacional (UTN)",
+      "description": {
+        "es": "",
+        "en": ""
+      }
+    },
+    {
+      "id": "english",
+      "period": {
+        "es": "2014 — 2020",
+        "en": "2014 — 2020"
+      },
+      "title": {
+        "es": "Inglés Intermedio B2",
+        "en": "Intermediate English B2"
+      },
+      "institution": "Instituto Josefina Contte",
+      "description": {
+        "es": "",
+        "en": ""
+      }
+    }
+  ],
+  "skills": {
+    "categories": [
+      {
+        "label": { "es": "Frontend", "en": "Frontend" },
+        "color": "#A78BFA",
+        "borderHover": "hover:border-[#A78BFA]/50",
+        "textHover": "hover:text-[#A78BFA]",
+        "tags": ["React", "React Native", "Next.js", "TypeScript", "JavaScript", "Vite", "HTML", "CSS"]
+      },
+      {
+        "label": { "es": "Backend & Datos", "en": "Backend & Data" },
+        "color": "#34D399",
+        "borderHover": "hover:border-emerald-400/50",
+        "textHover": "hover:text-emerald-500",
+        "tags": ["Python", "Django", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Prisma ORM"]
+      },
+      {
+        "label": { "es": "DevOps & Cloud", "en": "DevOps & Cloud" },
+        "color": "#38BDF8",
+        "borderHover": "hover:border-sky-400/50",
+        "textHover": "hover:text-sky-400",
+        "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "Grafana", "Prometheus"]
+      },
+      {
+        "label": { "es": "Metodologías & Herramientas", "en": "Methodologies & Tools" },
+        "color": "#E879F9",
+        "borderHover": "hover:border-fuchsia-400/50",
+        "textHover": "hover:text-fuchsia-400",
+        "tags": ["Git", "GitHub", "Postman", "Jira", "VS Code", "Slack", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
+      }
+    ],
+    "languages": [
+      {
+        "flag": "🇦🇷",
+        "name": { "es": "Español", "en": "Spanish" },
+        "level": { "es": "Nativo", "en": "Native" }
+      },
+      {
+        "flag": "🇺🇸",
+        "name": { "es": "Inglés", "en": "English" },
+        "level": { "es": "Intermedio B2", "en": "Intermediate B2" }
+      }
+    ]
+  },
+  "achievements": [
+    {
+      "id": "cubesat",
+      "year": "2025",
+      "title": { "es": "Finalista Nacional — Certamen CUBESAT", "en": "National Finalist — CUBESAT Contest" },
+      "description": { "es": "Diseño y desarrollo de un satélite a escala (CubeSat) para la toma y análisis de datos.", "en": "Design and development of a scale satellite (CubeSat) for data collection and analysis." }
+    },
+    {
+      "id": "rally",
+      "year": "2024",
+      "title": { "es": "3° Puesto — Rally Latinoamericano de Innovación", "en": "3rd Place — Latin American Innovation Rally" },
+      "description": { "es": "Categoría Impacto Social. Solución tecnológica completa desarrollada en 24 horas.", "en": "Social Impact category. Complete technological solution developed in 24 hours." }
+    }
+  ]
+}

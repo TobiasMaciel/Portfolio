@@ -5,6 +5,7 @@ import { useMotionValue } from "framer-motion";
 import { prepareWithSegments, layoutNextLine } from "@chenglou/pretext";
 
 import { useLanguage } from "@/context/LanguageContext";
+import portfolioData from "@/data/portfolio.json";
 
 type LineData = {
   text: string;
@@ -18,9 +19,15 @@ type LineData = {
 export default function LayoutAnimation() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
-  const CV_TEXT = t("cv_text");
-  const HEADERS = t("headers");
-  const QUOTES = t("quotes");
+  const isEsLang = t("experience") === "EXPERIENCIA";
+
+  const aboutData = portfolioData.about;
+  const CV_TEXT = isEsLang ? aboutData.cv_text.es : aboutData.cv_text.en;
+  const HEADERS = isEsLang ? aboutData.headers.es : aboutData.headers.en;
+  const QUOTES = isEsLang ? aboutData.quotes.es : aboutData.quotes.en;
+  const HIGHLIGHTS = isEsLang
+    ? aboutData.highlights.es
+    : aboutData.highlights.en;
 
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
@@ -247,7 +254,7 @@ export default function LayoutAnimation() {
             lineHeight: "100px",
           }}
         >
-          E
+          {isEsLang ? "E" : "A"}
         </div>
 
         {lines.map((line, i) => {
@@ -260,16 +267,14 @@ export default function LayoutAnimation() {
             colorClass = "text-[#A78BFA]";
           }
 
-          const isHighlight =
-            line.text.includes("Frontend:") ||
-            line.text.includes("Backend:") ||
-            line.text.includes("DevOps:");
+          const isHighlight = HIGHLIGHTS.some((h) => line.text.includes(h));
           let htmlText: any = line.text;
 
           if (isHighlight) {
-            const splitted = line.text.split(/(Frontend:|Backend:|DevOps:)/);
+            const regex = new RegExp(`(${HIGHLIGHTS.join("|")})`);
+            const splitted = line.text.split(regex);
             htmlText = splitted.map((segment, idx) => {
-              if (["Frontend:", "Backend:", "DevOps:"].includes(segment)) {
+              if (HIGHLIGHTS.includes(segment)) {
                 return (
                   <span
                     key={idx}
