@@ -23,9 +23,11 @@ export default function LayoutAnimation() {
 
   const aboutData = portfolioData.about;
   const CV_TEXT = isEsLang ? aboutData.cv_text.es : aboutData.cv_text.en;
-  const HEADERS = isEsLang ? aboutData.headers.es : aboutData.headers.en;
-  const QUOTES = isEsLang ? aboutData.quotes.es : aboutData.quotes.en;
-  const HIGHLIGHTS = isEsLang
+  const HEADERS: string[] = isEsLang
+    ? aboutData.headers.es
+    : aboutData.headers.en;
+  const QUOTES: string[] = isEsLang ? aboutData.quotes.es : aboutData.quotes.en;
+  const HIGHLIGHTS: string[] = isEsLang
     ? aboutData.highlights.es
     : aboutData.highlights.en;
 
@@ -102,12 +104,13 @@ export default function LayoutAnimation() {
         return { start, end: start + h.length };
       });
 
-      const quoteRanges = [
-        {
+      const quoteRanges: { start: number; end: number }[] = [];
+      if (QUOTES.length >= 2) {
+        quoteRanges.push({
           start: CV_TEXT.indexOf(QUOTES[0]),
           end: CV_TEXT.indexOf(QUOTES[1]) + QUOTES[1].length,
-        },
-      ];
+        });
+      }
 
       let cursor = { segmentIndex: 0, graphemeIndex: 0 };
       const newLines: LineData[] = [];
