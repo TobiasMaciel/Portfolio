@@ -358,17 +358,16 @@ function ProjectModal({
                 className="relative w-full rounded-lg overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800 cursor-pointer select-none"
                 style={{ aspectRatio: "16/9" }}
                 onPointerDown={(e) => {
+                  if ((e.target as HTMLElement).closest("button")) return;
                   dragX.current = e.clientX;
                   didDrag.current = false;
-                  (e.currentTarget as HTMLElement).setPointerCapture(
-                    e.pointerId,
-                  );
                 }}
                 onPointerMove={(e) => {
                   if (Math.abs(e.clientX - dragX.current) > 8)
                     didDrag.current = true;
                 }}
                 onPointerUp={(e) => {
+                  if ((e.target as HTMLElement).closest("button")) return;
                   if (didDrag.current) {
                     const d = e.clientX - dragX.current;
                     if (Math.abs(d) > 30) go(current + (d < 0 ? 1 : -1));
@@ -421,8 +420,10 @@ function ProjectModal({
                 {n > 1 && (
                   <>
                     <button
-                      onPointerDown={(e) => e.stopPropagation()}
-                      onClick={() => go(current - 1)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        go(current - 1);
+                      }}
                       className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded bg-black/40 text-white border border-white/10 hover:bg-black/60 transition-all z-10"
                     >
                       <svg
@@ -440,8 +441,10 @@ function ProjectModal({
                       </svg>
                     </button>
                     <button
-                      onPointerDown={(e) => e.stopPropagation()}
-                      onClick={() => go(current + 1)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        go(current + 1);
+                      }}
                       className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded bg-black/40 text-white border border-white/10 hover:bg-black/60 transition-all z-10"
                     >
                       <svg
@@ -521,14 +524,15 @@ function MiniCarousel({ images, title }: { images: string[]; title: string }) {
         className="relative w-full rounded-xl overflow-hidden bg-zinc-100 dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-800/80 select-none"
         style={{ aspectRatio: "16/9" }}
         onPointerDown={(e) => {
+          if ((e.target as HTMLElement).closest("button")) return;
           dragX.current = e.clientX;
           didDrag.current = false;
-          (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
         }}
         onPointerMove={(e) => {
           if (Math.abs(e.clientX - dragX.current) > 8) didDrag.current = true;
         }}
         onPointerUp={(e) => {
+          if ((e.target as HTMLElement).closest("button")) return;
           if (didDrag.current) {
             const d = e.clientX - dragX.current;
             if (Math.abs(d) > 30) go(current + (d < 0 ? 1 : -1));
@@ -558,8 +562,10 @@ function MiniCarousel({ images, title }: { images: string[]; title: string }) {
         {n > 1 && (
           <>
             <button
-              onPointerDown={(e) => e.stopPropagation()}
-              onClick={() => go(current - 1)}
+              onClick={(e) => {
+                e.stopPropagation();
+                go(current - 1);
+              }}
               className="absolute left-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm text-white border border-white/10 hover:bg-black/60 transition-all z-10"
             >
               <svg
@@ -577,8 +583,10 @@ function MiniCarousel({ images, title }: { images: string[]; title: string }) {
               </svg>
             </button>
             <button
-              onPointerDown={(e) => e.stopPropagation()}
-              onClick={() => go(current + 1)}
+              onClick={(e) => {
+                e.stopPropagation();
+                go(current + 1);
+              }}
               className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 flex items-center justify-center rounded-full bg-black/40 backdrop-blur-sm text-white border border-white/10 hover:bg-black/60 transition-all z-10"
             >
               <svg

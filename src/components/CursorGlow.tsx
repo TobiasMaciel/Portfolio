@@ -12,7 +12,8 @@ export default function CursorGlow() {
   const mouse = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
-    setMounted(true);
+    const t = setTimeout(() => setMounted(true), 0);
+    return () => clearTimeout(t);
   }, []);
 
   useEffect(() => {
