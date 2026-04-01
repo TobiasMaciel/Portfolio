@@ -640,6 +640,7 @@ export default function Home() {
   const { t } = useLanguage();
   const isEsLang = t("experience") === "EXPERIENCIA";
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
   const projects: Project[] = [
     {
@@ -677,7 +678,11 @@ export default function Home() {
         "Git",
       ],
       github: "https://github.com/tobiasmaciel",
-      images: ["/sgi-preview.png", "/sgi-preview-2.png", "/sgi-preview-3.png"],
+      images: [
+        "/sgi-preview.png",
+        "/sgi-preview-2.png",
+        "/sgi-preview-3.png",
+      ].map((img) => `${basePath}${img}`),
     },
     {
       id: "tup",
@@ -713,7 +718,11 @@ export default function Home() {
         "Jira",
       ],
       github: "https://github.com/tobiasmaciel",
-      images: ["/tup-preview.png", "/tup-preview-2.png", "/tup-preview-3.png"],
+      images: [
+        "/tup-preview.png",
+        "/tup-preview-2.png",
+        "/tup-preview-3.png",
+      ].map((img) => `${basePath}${img}`),
     },
   ];
 
