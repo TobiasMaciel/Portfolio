@@ -31,18 +31,35 @@
   },
   "socialLinks": [
     {
+      "platform": "phone",
+      "href": "tel:+543794144509",
+      "target": "_self"
+    },
+    {
       "platform": "email",
       "href": "mailto:tobiasmaciel03@gmail.com"
     },
     {
       "platform": "linkedin",
-      "href": "https://linkedin.com/in/tobiasmaciel"
+      "href": "https://www.linkedin.com/in/tobias-alejandro-maciel-meister-41ba39218/",
+      "target": "_blank"
     },
     {
       "platform": "github",
-      "href": "https://github.com/tobiasmaciel"
+      "href": "https://github.com/TobiasMaciel",
+      "target": "_blank"
     }
   ],
+  "contact": {
+    "email": "tobiasmaciel03@gmail.com",
+    "phone": "+54 3794144509",
+    "location": {
+      "es": "Corrientes, Argentina",
+      "en": "Corrientes, Argentina"
+    },
+    "linkedin": "https://www.linkedin.com/in/tobias-alejandro-maciel-meister-41ba39218/",
+    "github": "https://github.com/TobiasMaciel"
+  },
   "projects": [
     {
       "id": "sgi",
@@ -51,36 +68,50 @@
         "en": "MAR 2023 — PRESENT"
       },
       "title": {
-        "es": "Sistema de Gestión Integral (SGI)",
-        "en": "Integral Management System (SGI)"
+        "es": "FRRe SCyT Research Manager",
+        "en": "FRRe SCyT Research Manager"
       },
       "subtitle": {
-        "es": "Secretaría de Ciencia y Tecnología — UTN",
-        "en": "Sec. of Science & Technology — UTN"
+        "es": "Secretaría de Ciencia y Tecnología — UTN FRRe",
+        "en": "Sec. of Science & Technology — UTN FRRe"
       },
       "role": {
         "es": "Desarrollador Full-Stack",
         "en": "Full-Stack Developer"
       },
+      "summary": {
+        "es": "Sistema cliente-servidor que centraliza al 100% la información de investigadores, proyectos e I+D de la Facultad Regional con autenticación segura.",
+        "en": "Client-server system centralizing 100% of the Faculty's researchers, projects and R&D with secure authentication."
+      },
       "description": {
-        "es": "Plataforma centralizada que gestiona el 100% de los investigadores, proyectos de I+D y grupos de investigación de la Facultad Regional. Incluye módulos de gestión de becas, diseño del modelo de datos (DER), pantallas UI y control total de versiones vía Git/GitHub.",
-        "en": "Centralized platform managing 100% of the Faculty's researchers, R&D projects and grants. Includes scholarship management, data model design (ERD), UI screens, and full version control via Git/GitHub."
+        "es": "Plataforma de gestión integral desarrollada para la Secretaría de Ciencia y Tecnología de la UTN-FRRe. Centraliza al 100% la información de investigadores, proyectos e I+D de la Facultad Regional bajo una arquitectura cliente-servidor escalable. El sistema incluye módulos completos de ABM, control de becas, diseño del modelo de datos (DER) y exportación de reportes, con autenticación segura basada en JWT.",
+        "en": "Integral management platform developed for the Science and Technology Secretariat of UTN-FRRe. Centralizes 100% of the Faculty's researchers, projects and R&D under a scalable client-server architecture. The system includes full CRUD modules, scholarship management, data model design (ERD) and report exports, with secure JWT-based authentication."
       },
       "bullets": {
         "es": [
-          "Node.js, Express, Prisma y MySQL para el backend robusto.",
-          "Módulos frontend completos con React, TypeScript y Vite.",
-          "DER, UI y control de versiones con Git/GitHub."
+          "Desarrollo y soporte full-stack trabajando a la par del Product Owner en el relevamiento de requisitos funcionales.",
+          "Diseño y mantenimiento del modelo de datos (DER) y pantallas UI limpias con Chakra UI y React Query.",
+          "Integración de librerías como Prisma, jQuery y React para optimizar el rendimiento y la experiencia de usuario.",
+          "Autenticación segura vía JWT y Bcrypt, con exportación de reportes interactivos en formato XLSX."
         ],
         "en": [
-          "Node.js, Express, Prisma and MySQL for robust backend.",
-          "Full frontend modules with React, TypeScript and Vite.",
-          "ERD, UI and version control with Git/GitHub."
+          "Full-stack development and support, working alongside the Product Owner for precise requirement gathering.",
+          "Database modeling (ERD) maintenance and clean UI screens with Chakra UI and React Query.",
+          "Integration of Prisma, jQuery and React libraries to optimize performance and user experience.",
+          "Secure auth via JWT & Bcrypt, with native interactive XLSX report exports."
         ]
       },
-      "stack": ["Node.js", "Express", "Prisma", "MySQL", "React", "TypeScript", "Vite", "Git"],
-      "github": "https://github.com/tobiasmaciel",
-      "images": ["/sgi-preview.png", "/sgi-preview-2.png", "/sgi-preview-3.png"]
+      "stack": ["Node.js", "Express", "Prisma ORM", "MySQL", "React", "Vite", "Chakra UI", "React Query", "JWT", "Git"],
+      "github": "https://github.com/SixtoArrejin/frre-scyt-research-manager",
+      "images": [
+        "/proyectos/secretaria/scyt-1.png",
+        "/proyectos/secretaria/scyt-2.png",
+        "/proyectos/secretaria/scyt-3.png",
+        "/proyectos/secretaria/scyt-4.png",
+        "/proyectos/secretaria/scyt-5.png",
+        "/proyectos/secretaria/scyt-7.png",
+        "/proyectos/secretaria/scyt-6.png"
+      ]
     },
     {
       "id": "tup",
@@ -100,9 +131,13 @@
         "es": "Desarrollador Full-Stack & DevOps",
         "en": "Full-Stack Developer & DevOps"
       },
+      "summary": {
+        "es": "Plataforma integral de gestión académica para la Tecnicatura Universitaria en Programación (TUP) de la UTN-FRRe, centrada en digitalizar procesos administrativos entre bedelía, docentes y alumnos.",
+        "en": "Integral academic management platform for the University Programming Technician (TUP) at UTN-FRRe, focused on digitalizing administrative processes between administration, faculty, and students."
+      },
       "description": {
-        "es": "Sistema académico integral conectando bedelías, profesores y alumnos. CI/CD con GitHub Actions: despliegue reducido de 30 min a menos de 5. QA completo, revisión de código y seguimiento en Jira.",
-        "en": "Integral academic system connecting admin staff, professors and students. CI/CD with GitHub Actions reducing deployment from 30 to under 5 min. Full QA, code review, Jira tracking."
+        "es": "Sistema académico full-stack desarrollado para la Tecnicatura Universitaria en Programación (TUP) de la UTN. Permite la gestión completa de cursadas, alumnos y profesores. Se implementó un pipeline CI/CD con GitHub Actions y Docker, logrando reducir el tiempo de despliegue manual de 30 minutos a menos de 5. Se realizó QA completo, revisión de código y seguimiento de tareas via Jira bajo metodologías ágiles.",
+        "en": "Full-stack academic system developed for the UTN University Programming Technician program. Manages courses, students and professors across the institution. A CI/CD pipeline with GitHub Actions and Docker was implemented, cutting deployment time from 30 minutes to under 5. Included full QA, code reviews, and Jira task tracking under agile methodologies."
       },
       "bullets": {
         "es": [
@@ -117,8 +152,15 @@
         ]
       },
       "stack": ["Django", "React", "TypeScript", "Docker", "Docker Compose", "GitHub Actions", "Jira"],
-      "github": "https://github.com/tobiasmaciel",
-      "images": ["/tup-preview.png", "/tup-preview-2.png", "/tup-preview-3.png"]
+      "github": "https://github.com/Seminario-Integrador-2024/GestionTUP",
+      "images": [
+        "/proyectos/tup/tup-preview.png",
+        "/proyectos/tup/tup-preview-2.png",
+        "/proyectos/tup/tup-preview-3.png",
+        "/proyectos/tup/tup-preview-4.png",
+        "/proyectos/tup/tup-preview-5.png",
+        "/proyectos/tup/tup-preview-6.png"
+      ]
     }
   ],
   "education": [
@@ -178,14 +220,14 @@
         "color": "#A78BFA",
         "borderHover": "hover:border-[#A78BFA]/50",
         "textHover": "hover:text-[#A78BFA]",
-        "tags": ["React", "React Native", "Next.js", "TypeScript", "JavaScript", "Vite", "HTML", "CSS"]
+        "tags": ["React", "React Native", "Next.js", "TypeScript", "JavaScript", "Vite", "HTML", "CSS", "Chakra UI", "React Query"]
       },
       {
         "label": { "es": "Backend & Datos", "en": "Backend & Data" },
         "color": "#34D399",
         "borderHover": "hover:border-emerald-400/50",
         "textHover": "hover:text-emerald-500",
-        "tags": ["Python", "Django", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Prisma ORM"]
+        "tags": ["Python", "Django", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Prisma ORM", "JWT", "Bcrypt"]
       },
       {
         "label": { "es": "DevOps & Cloud", "en": "DevOps & Cloud" },
@@ -217,16 +259,32 @@
   },
   "achievements": [
     {
+      "id": "aws-cert",
+      "year": "2026",
+      "title": { "es": "Certificación AWS & IA — Data Science Research Perú", "en": "AWS & AI Certification — Data Science Research Peru" },
+      "description": { "es": "Participación en el grupo de estudio avanzado sobre AWS, Fundamentos de IA, Machine Learning y Amazon Q.", "en": "Participation in the advanced study group on AWS, AI Fundamentals, Machine Learning and Amazon Q." },
+      "file": "/Certificaciones/AWS_DataScience.jpg"
+    },
+    {
       "id": "cubesat",
       "year": "2025",
       "title": { "es": "Finalista Nacional — Certamen CUBESAT", "en": "National Finalist — CUBESAT Contest" },
-      "description": { "es": "Diseño y desarrollo de un satélite a escala (CubeSat) para la toma y análisis de datos.", "en": "Design and development of a scale satellite (CubeSat) for data collection and analysis." }
+      "description": { "es": "Diseño y desarrollo de un satélite a escala (CubeSat) para la toma y análisis de datos.", "en": "Design and development of a scale satellite (CubeSat) for data collection and analysis." },
+      "file": "/Certificaciones/certificadoCubesat.jpg"
     },
     {
-      "id": "rally",
+      "id": "rally-3",
       "year": "2024",
       "title": { "es": "3° Puesto — Rally Latinoamericano de Innovación", "en": "3rd Place — Latin American Innovation Rally" },
-      "description": { "es": "Categoría Impacto Social. Solución tecnológica completa desarrollada en 24 horas.", "en": "Social Impact category. Complete technological solution developed in 24 hours." }
+      "description": { "es": "Categoría Impacto Social. Solución tecnológica completa desarrollada en 24 horas.", "en": "Social Impact category. Complete technological solution developed in 24 hours." },
+      "file": "/Certificaciones/certificado_sede_impacto_social_63731.pdf"
+    },
+    {
+      "id": "scrum-cert",
+      "year": "2024",
+      "title": { "es": "Scrum Fundamentals Certified (SFC)", "en": "Scrum Fundamentals Certified (SFC)" },
+      "description": { "es": "Certificación internacional sobre los principios y procesos del marco de trabajo Scrum.", "en": "International certification on the principles and processes of the Scrum framework." },
+      "file": "/Certificaciones/ScrumFundamentalsCertified-TOBIASALEJANDROMACIELMEISTER.-1040109.pdf"
     }
   ]
 }
