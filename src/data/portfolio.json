@@ -167,8 +167,8 @@
     {
       "id": "isi",
       "period": {
-        "es": "2021 — PRESENTE",
-        "en": "2021 — PRESENT"
+        "es": "2021 — PRESENTE (EST. JUL 2026)",
+        "en": "2021 — PRESENT (EST. JUL 2026)"
       },
       "title": {
         "es": "Ingeniería en Sistemas de Información",
@@ -176,8 +176,8 @@
       },
       "institution": "Universidad Tecnológica Nacional (UTN)",
       "description": {
-        "es": "5to Año. Formación avanzada en arquitectura de software, análisis de sistemas y gobierno de datos. Participación activa en I+D.",
-        "en": "5th Year. Advanced training in software architecture, systems analysis and data governance. Active R&D participation."
+        "es": "",
+        "en": ""
       }
     },
     {
