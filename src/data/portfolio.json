@@ -227,6 +227,59 @@
       ]
     },
     {
+      "id": "ai-sales-agent",
+      "period": {
+        "es": "ENERO 2026 — FEBRERO 2026",
+        "en": "JANUARY 2026 — FEBRUARY 2026"
+      },
+      "title": {
+        "es": "Agente de Ventas Transaccional IA",
+        "en": "AI Transactional Sales Agent"
+      },
+      "subtitle": {
+        "es": "Arquitectura de Agentes y MCP Backend",
+        "en": "Agent Architecture & MCP Backend"
+      },
+      "role": {
+        "es": "AI Engineer",
+        "en": "AI Engineer"
+      },
+      "summary": {
+        "es": "Diseño e implementación de un agente de IA autónomo para ventas integrando LLMs, CRM (Chatwoot) y WhatsApp mediante arquitectura MCP.",
+        "en": "Design and implementation of an autonomous AI sales agent integrating LLMs, CRM (Chatwoot), and WhatsApp using MCP architecture."
+      },
+      "description": {
+        "es": "Desarrollo de un ecosistema de ventas automatizado que orquesta Modelos de Lenguaje de Gran Escala (LLMs) con herramientas de negocio en tiempo real. La arquitectura utiliza el Model Context Protocol (MCP) desplegado sobre Cloudflare Workers para gestionar inventarios, carritos de compra y lógica transaccional con latencia mínima, garantizando una experiencia de usuario fluida y segura en el Edge.",
+        "en": "Development of an automated sales ecosystem orchestrating Large Language Models (LLMs) with real-time business tools. The architecture uses the Model Context Protocol (MCP) deployed on Cloudflare Workers to manage inventory, shopping carts, and transactional logic with minimal latency, ensuring a smooth and secure user experience at the Edge."
+      },
+      "bullets": {
+        "es": [
+          "Integración de GPT-5-Chat mediante WhatsApp y Chatwoot CRM para automatización de ventas en tiempo real.",
+          "MCP Backend sobre Cloudflare Workers gestionando inventario y carritos mediante bases de datos D1.",
+          "Implementación de herramientas (tools) para búsqueda de productos, gestión de stock e integraciones externas.",
+          "Prompteado avanzado y control de contexto para minimizar alucinaciones y optimizar tokens.",
+          "Diseño de flujos de compra seguros con validaciones de tipo en TypeScript.",
+          "Testing de escenarios reales y guardrails para asegurar respuestas consistentes del agente."
+        ],
+        "en": [
+          "GPT-5-Chat integration via WhatsApp and Chatwoot CRM for real-time sales automation.",
+          "MCP Backend on Cloudflare Workers managing inventory and carts through D1 databases.",
+          "Tool implementation for product search, stock management, and external integrations.",
+          "Advanced prompting and context control to minimize hallucinations and optimize tokens.",
+          "Secure checkout flows design with TypeScript type safety validations.",
+          "Real-world scenario testing and guardrails to ensure consistent agent responses."
+        ]
+      },
+      "stack": ["LLM", "MCP Protocol", "Cloudflare D1", "Cloudflare Workers", "Hono", "TypeScript", "Chatwoot", "WhatsApp Integration", "GitHub Actions"],
+      "images": [
+        "/proyectos/agenteVentas/1.jpeg",
+        "/proyectos/agenteVentas/2.jpeg",
+        "/proyectos/agenteVentas/3.jpeg",
+        "/proyectos/agenteVentas/4.jpeg",
+        "/proyectos/agenteVentas/5.jpeg"
+      ]
+    },
+    {
       "id": "devops-k8s",
       "period": {
         "es": "OCTUBRE 2025 — NOVIEMBRE 2025",
@@ -450,21 +503,21 @@
         "color": "#38BDF8",
         "borderHover": "hover:border-sky-400/50",
         "textHover": "hover:text-sky-400",
-        "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "OpenTelemetry", "Grafana", "Prometheus"]
+        "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "Cloudflare", "OpenTelemetry", "Grafana", "Prometheus"]
       },
       {
         "label": { "es": "Metodologías y Herramientas", "en": "Methodologies & Tools" },
         "color": "#E879F9",
         "borderHover": "hover:border-fuchsia-400/50",
         "textHover": "hover:text-fuchsia-400",
-        "tags": ["Git", "GitHub", "Postman", "OpenAPI", "Jira", "VS Code", "Slack", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
+        "tags": ["Git", "GitHub", "Postman", "OpenAPI", "MCP Protocol", "Jira", "VS Code", "Slack", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
       },
       {
         "label": { "es": "Inteligencia Artificial", "en": "Artificial Intelligence" },
         "color": "#F87171",
         "borderHover": "hover:border-red-400/50",
         "textHover": "hover:text-red-400",
-        "tags": ["Google Gemini AI"]
+        "tags": ["Google Gemini AI", "GPT-5-Chat"]
       }
     ],
     "languages": [
