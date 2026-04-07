@@ -142,8 +142,8 @@
         "en": "Comprehensive academic management platform for TUP, integrating Django, React, and CI/CD workflows with Docker and Google Cloud."
       },
       "description": {
-        "es": "Sistema de gestión para la Tecnicatura Universitaria en Programación (TUP) de la UTN-FRRe. El proyecto consiste en una aplicación web dividida en un frontend desarrollado con React/TS/Vite y un backend en Python con Django/DRF, incluyendo documentación con Swagger y ReDoc.",
-        "en": "Management system for the University Programming Technician (TUP) at UTN-FRRe. The project consists of a web application divided into a frontend developed with React/TS/Vite and a backend in Python with Django/DRF, including documentation with Swagger and ReDoc."
+        "es": "Sistema de gestión para la Tecnicatura Universitaria en Programación (TUP) de la UTN-FRRe. El proyecto consiste en una aplicación web dividida en un frontend desarrollado con React/TS/Vite y un backend en Python con Django, incluyendo documentación con Swagger y ReDoc.",
+        "en": "Management system for the University Programming Technician (TUP) at UTN-FRRe. The project consists of a web application divided into a frontend developed with React/TS/Vite and a backend in Python with Django, including documentation with Swagger and ReDoc."
       },
       "bullets": {
         "es": [
