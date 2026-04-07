@@ -64,8 +64,8 @@
     {
       "id": "sgi",
       "period": {
-        "es": "MAR 2023 — PRESENTE",
-        "en": "MAR 2023 — PRESENT"
+        "es": "ABRIL 2023 — PRESENTE",
+        "en": "APRIL 2023 — PRESENT"
       },
       "title": {
         "es": "FRRe SCyT Research Manager",
@@ -80,28 +80,34 @@
         "en": "Full-Stack Developer"
       },
       "summary": {
-        "es": "Sistema cliente-servidor que centraliza al 100% la información de investigadores, proyectos e I+D de la Facultad Regional con autenticación segura.",
-        "en": "Client-server system centralizing 100% of the Faculty's researchers, projects and R&D with secure authentication."
+        "es": "Plataforma de gestión integral que centraliza al 100% la información de investigadores, proyectos e I+D de la Facultad Regional.",
+        "en": "Comprehensive management platform centralizing 100% of the Faculty's researchers, projects and R&D information."
       },
       "description": {
-        "es": "Plataforma de gestión integral desarrollada para la Secretaría de Ciencia y Tecnología de la UTN-FRRe. Centraliza al 100% la información de investigadores, proyectos e I+D de la Facultad Regional bajo una arquitectura cliente-servidor escalable. El sistema incluye módulos completos de ABM, control de becas, diseño del modelo de datos (DER) y exportación de reportes, con autenticación segura basada en JWT.",
-        "en": "Integral management platform developed for the Science and Technology Secretariat of UTN-FRRe. Centralizes 100% of the Faculty's researchers, projects and R&D under a scalable client-server architecture. The system includes full CRUD modules, scholarship management, data model design (ERD) and report exports, with secure JWT-based authentication."
+        "es": "Plataforma de gestión integral desarrollada para la Secretaría de Ciencia y Tecnología de la UTN-FRRe. Centraliza al 100% la información de investigadores, proyectos e I+D de la Facultad Regional bajo una arquitectura cliente-servidor escalable. El sistema incluye módulos completos de ABM, diseño del modelo de datos (DER) y exportación de reportes, con autenticación segura basada en JWT.",
+        "en": "Comprehensive management platform developed for the Science and Technology Secretariat of UTN-FRRe. Centralizes 100% of the Faculty's researchers, projects and R&D information under a scalable client-server architecture. The system includes full CRUD modules, data model design (ERD) and report exports, with secure JWT-based authentication."
       },
       "bullets": {
         "es": [
-          "Desarrollo y soporte full-stack trabajando a la par del Product Owner en el relevamiento de requisitos funcionales.",
-          "Diseño y mantenimiento del modelo de datos (DER) y pantallas UI limpias con Chakra UI y React Query.",
-          "Integración de librerías como Prisma, jQuery y React para optimizar el rendimiento y la experiencia de usuario.",
-          "Autenticación segura vía JWT y Bcrypt, con exportación de reportes interactivos en formato XLSX."
+          "Diseño e implementación de interfaces con React.js, ChakraUI y TanStack Query.",
+          "Desarrollo de API REST con Node.js y Express bajo arquitectura multicapa.",
+          "Base de datos PostgreSQL con Prisma ORM.",
+          "Ciclo completo: relevamiento, diseño, desarrollo, pruebas y despliegue continuo en Render.",
+          "Desarrollo y soporte del sistema integral utilizando Node.js, Express, Prisma y PostgreSQL.",
+          "Diseño y mantenimiento del modelo de datos y pantallas trabajando a la par del Product Owner.",
+          "Realización de pruebas y control de versiones con Git/GitHub, garantizando calidad y escalabilidad."
         ],
         "en": [
-          "Full-stack development and support, working alongside the Product Owner for precise requirement gathering.",
-          "Database modeling (ERD) maintenance and clean UI screens with Chakra UI and React Query.",
-          "Integration of Prisma, jQuery and React libraries to optimize performance and user experience.",
-          "Secure auth via JWT & Bcrypt, with native interactive XLSX report exports."
+          "Interface design and implementation using React.js, ChakraUI, and TanStack Query.",
+          "REST API development with Node.js and Express under multi-layer architecture.",
+          "PostgreSQL database with Prisma ORM.",
+          "Full cycle: requirement gathering, design, development, testing, and continuous deployment on Render.",
+          "Development and support of the integral system using Node.js, Express, Prisma, and PostgreSQL.",
+          "Data model and screen design and maintenance working alongside the Product Owner.",
+          "Testing and version control with Git/GitHub, ensuring quality and scalability."
         ]
       },
-      "stack": ["Node.js", "Express", "Prisma ORM", "MySQL", "React", "Vite", "Chakra UI", "React Query", "JWT", "Git"],
+      "stack": ["Node.js", "Express", "Prisma ORM", "PostgreSQL", "React", "Vite", "Chakra UI", "TanStack Query", "JWT", "Git", "Render"],
       "github": "https://github.com/SixtoArrejin/frre-scyt-research-manager",
       "images": [
         "/proyectos/secretaria/scyt-1.png",
@@ -132,26 +138,32 @@
         "en": "Full-Stack Developer & DevOps"
       },
       "summary": {
-        "es": "Plataforma integral de gestión académica para la Tecnicatura Universitaria en Programación (TUP) de la UTN-FRRe, centrada en digitalizar procesos administrativos entre bedelía, docentes y alumnos.",
-        "en": "Integral academic management platform for the University Programming Technician (TUP) at UTN-FRRe, focused on digitalizing administrative processes between administration, faculty, and students."
+        "es": "Plataforma integral de gestión académica para la TUP, integrando Django, React y flujos CI/CD con Docker y Google Cloud.",
+        "en": "Comprehensive academic management platform for TUP, integrating Django, React, and CI/CD workflows with Docker and Google Cloud."
       },
       "description": {
-        "es": "Sistema académico full-stack desarrollado para la Tecnicatura Universitaria en Programación (TUP) de la UTN. Permite la gestión completa de cursadas, alumnos y profesores. Se implementó un pipeline CI/CD con GitHub Actions y Docker, logrando reducir el tiempo de despliegue manual de 30 minutos a menos de 5. Se realizó QA completo, revisión de código y seguimiento de tareas via Jira bajo metodologías ágiles.",
-        "en": "Full-stack academic system developed for the UTN University Programming Technician program. Manages courses, students and professors across the institution. A CI/CD pipeline with GitHub Actions and Docker was implemented, cutting deployment time from 30 minutes to under 5. Included full QA, code reviews, and Jira task tracking under agile methodologies."
+        "es": "Sistema de gestión para la Tecnicatura Universitaria en Programación (TUP) de la UTN-FRRe. El proyecto consiste en una aplicación web dividida en un frontend desarrollado con React/TS/Vite y un backend en Python con Django/DRF, incluyendo documentación con Swagger y ReDoc.",
+        "en": "Management system for the University Programming Technician (TUP) at UTN-FRRe. The project consists of a web application divided into a frontend developed with React/TS/Vite and a backend in Python with Django/DRF, including documentation with Swagger and ReDoc."
       },
       "bullets": {
         "es": [
-          "Django, React, TypeScript y Vite para el stack completo.",
-          "Docker + Docker Compose para infraestructura homogénea.",
-          "CI/CD con GitHub Actions: 30 min → menos de 5 min."
+          "Desarrollo integral del sistema y APIs utilizando Python, Django, React, TypeScript y Vite.",
+          "Administración y despliegue de aplicaciones en contenedores utilizando Docker y Docker Compose.",
+          "Implementación de pipelines CI/CD para automatización de builds, tests y deploys (30 min → menos de 5 min).",
+          "Gestión de calidad: QA, revisión de código y seguimiento de tareas en Jira bajo metodologías ágiles.",
+          "Infraestructura escalable desplegada en Google Cloud.",
+          "Documentación completa de API con drf-spectacular (Swagger UI y ReDoc)."
         ],
         "en": [
-          "Django, React, TypeScript and Vite for the full stack.",
-          "Docker + Docker Compose for homogeneous infrastructure.",
-          "CI/CD with GitHub Actions: 30 min → under 5 min."
+          "Comprehensive system and API development using Python, Django, React, TypeScript, and Vite.",
+          "Containerized application management and deployment using Docker and Docker Compose.",
+          "CI/CD pipeline implementation for automated builds, tests, and deploys (30 min → under 5 min).",
+          "Quality management: QA, code review, and task tracking in Jira under agile methodologies.",
+          "Scalable infrastructure deployed on Google Cloud.",
+          "Full API documentation (Swagger UI and ReDoc)."
         ]
       },
-      "stack": ["Django", "React", "TypeScript", "Docker", "Docker Compose", "GitHub Actions", "Jira"],
+      "stack": ["Python", "Django", "React", "TypeScript", "Vite", "Docker", "Docker Compose", "GitHub Actions", "Google Cloud", "Jira", "PostgreSQL"],
       "github": "https://github.com/Seminario-Integrador-2024/GestionTUP",
       "images": [
         "/proyectos/tup/tup-preview.png",
