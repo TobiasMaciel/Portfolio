@@ -75,7 +75,9 @@ export default function AmbientGlow() {
     window.addEventListener("mousemove", handleMouseMove);
 
     const render = (time: number) => {
-      const dt = (time - lastTime) / 16.66;
+      let delta = time - lastTime;
+      if (delta > 200) delta = 16.66; // Reset if tab was inactive to prevent "physics explosion"
+      const dt = delta / 16.66;
       lastTime = time;
 
       const mx = mouse.current.x;

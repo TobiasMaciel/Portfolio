@@ -192,7 +192,7 @@
       },
       "description": {
         "es": "Elepad es una solución tecnológica diseñada para mejorar la calidad de vida de adultos mayores mediante IA Generativa (Google Gemini), permitiendo compartir recuerdos, gestionar agendas y entrenar la mente. Originada como propuesta ganadora del Rally Latinoamericano de Innovación 2024 (3er puesto Impacto Social), evoluciona a un sistema complejo monorepo con despliegue continuo. Disponible en Google Play Store.",
-        "en": "Elepad is a technological solution designed to improve seniors' quality of life using Generative AI (Google Gemini) for sharing memories, managing schedules, and mind training. Originated as the winning proposal of the 2024 Latin American Innovation Rally (3rd place Social Impact), it evolved into a complex monorepo system with continuous deployment. Available on Google Play Store."
+        "en": "Elepad is a technological solution designed to improve seniors' quality of life using Generative AI (Google Gemini) for sharing memories, managing schedules, and mind training. Originated as the winning proposal of the 2024 Latin American innovation Rally (3rd place Social Impact), it evolved into a complex monorepo system with continuous deployment. Available on Google Play Store."
       },
       "bullets": {
         "es": [
@@ -313,64 +313,6 @@
         ]
       },
       "stack": ["Azure", "Docker", "GitHub Actions", "Next.js", "Flask", "Redis", "CI/CD"]
-    },
-    {
-      "id": "elepad",
-      "period": {
-        "es": "MARZO 2025 — MARZO 2026",
-        "en": "MARCH 2025 — MARCH 2026"
-      },
-      "title": {
-        "es": "Elepad — Bienestar Cognitivo con IA",
-        "en": "Elepad — Cognitive Wellbeing with AI"
-      },
-      "subtitle": {
-        "es": "Proyecto Final de Grado — UTN FRRe",
-        "en": "Final Graduation Project — UTN FRRe"
-      },
-      "role": {
-        "es": "Desarrollador Full-Stack",
-        "en": "Full-Stack Developer"
-      },
-      "summary": {
-        "es": "Aplicación móvil multiplataforma que integra Google Gemini AI para transformar recuerdos en álbumes digitales narrativos y bienestar cognitivo.",
-        "en": "Cross-platform mobile application integrating Google Gemini AI to transform memories into narrative digital albums and cognitive wellbeing."
-      },
-      "description": {
-        "es": "Elepad es una solución tecnológica diseñada para mejorar la calidad de vida de adultos mayores mediante IA Generativa (Google Gemini), permitiendo compartir recuerdos, gestionar agendas y entrenar la mente. Originada como propuesta ganadora del Rally Latinoamericano de Innovación 2024 (3er puesto Impacto Social), evoluciona a un sistema complejo monorepo con despliegue continuo. Disponible en Google Play Store.",
-        "en": "Elepad is a technological solution designed to improve seniors' quality of life using Generative AI (Google Gemini) for sharing memories, managing schedules, and mind training. Originated as the winning proposal of the 2024 Latin American innovation Rally (3rd place Social Impact), it evolved into a complex monorepo system with continuous deployment. Available on Google Play Store."
-      },
-      "bullets": {
-        "es": [
-          "Integración de Google Gemini AI para la síntesis de recuerdos y creación automatizada de álbumes narrativos.",
-          "Desarrollo móvil con React Native + Expo y TypeScript para iOS/Android/Web.",
-          "Arquitectura Backend Serverless con Cloudflare Workers, Hono y OpenAPI.",
-          "Supabase para PostgreSQL, Auth (Google OAuth), Storage y Realtime.",
-          "Estructura de Monorepo con Turborepo, optimizando tiempos de build y desarrollo.",
-          "CI/CD automatizado con GitHub Actions hacia Cloudflare y Expo EAS.",
-          "Gestión de equipo bajo metodología Scrum con 7 releases documentadas."
-        ],
-        "en": [
-          "Google Gemini AI integration for memory synthesis and automated narrative album creation.",
-          "Mobile development with React Native + Expo and TypeScript for iOS/Android/Web.",
-          "Serverless Backend Architecture with Cloudflare Workers, Hono, and OpenAPI.",
-          "Supabase for PostgreSQL, Auth (Google OAuth), Storage, and Realtime.",
-          "Monorepo structure with Turborepo, optimizing build and development times.",
-          "Automated CI/CD with GitHub Actions to Cloudflare and Expo EAS.",
-          "Team management under Scrum methodology with 7 documented releases."
-        ]
-      },
-      "stack": ["Google Gemini AI", "React Native", "Expo", "TypeScript", "Cloudflare Workers", "Hono", "Supabase", "PostgreSQL", "Turborepo", "GitHub Actions", "Zod", "OpenAPI"],
-      "github": "https://github.com/elepad-org/Elepad",
-      "googleplay": "https://play.google.com/store/apps/details?id=com.proyectoelepad.elepad",
-      "images": [
-        "/proyectos/elepad/image95.jpg",
-        "/proyectos/elepad/image101.jpg",
-        "/proyectos/elepad/image117.jpg",
-        "/proyectos/elepad/image127.jpg",
-        "/proyectos/elepad/image141.jpg",
-        "/proyectos/elepad/image161.jpg"
-      ]
     },
     {
       "id": "tup",
@@ -501,21 +443,28 @@
         "color": "#34D399",
         "borderHover": "hover:border-emerald-400/50",
         "textHover": "hover:text-emerald-500",
-        "tags": ["Python", "Django", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Prisma ORM", "JWT", "Bcrypt"]
+        "tags": ["Python", "Django", "Flask", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Redis", "Prisma ORM", "JWT", "Bcrypt"]
       },
       {
         "label": { "es": "DevOps y Cloud", "en": "DevOps & Cloud" },
         "color": "#38BDF8",
         "borderHover": "hover:border-sky-400/50",
         "textHover": "hover:text-sky-400",
-        "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "Grafana", "Prometheus"]
+        "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "OpenTelemetry", "Grafana", "Prometheus"]
       },
       {
         "label": { "es": "Metodologías y Herramientas", "en": "Methodologies & Tools" },
         "color": "#E879F9",
         "borderHover": "hover:border-fuchsia-400/50",
         "textHover": "hover:text-fuchsia-400",
-        "tags": ["Git", "GitHub", "Postman", "Jira", "VS Code", "Slack", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
+        "tags": ["Git", "GitHub", "Postman", "OpenAPI", "Jira", "VS Code", "Slack", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
+      },
+      {
+        "label": { "es": "Inteligencia Artificial", "en": "Artificial Intelligence" },
+        "color": "#F87171",
+        "borderHover": "hover:border-red-400/50",
+        "textHover": "hover:text-red-400",
+        "tags": ["Google Gemini AI"]
       }
     ],
     "languages": [

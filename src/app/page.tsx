@@ -748,26 +748,26 @@ export default function Home() {
   const [viewerDoc, setViewerDoc] = useState<{ url: string; title: string; subtitle?: string } | null>(null);
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-  const projects: Project[] = portfolioData.projects.map((p) => ({
+  const projects: Project[] = (portfolioData.projects as unknown as any[]).map((p) => ({
     id: p.id,
-    period: isEsLang ? p.period.es : p.period.en,
-    title: isEsLang ? p.title.es : p.title.en,
-    subtitle: isEsLang ? p.subtitle.es : p.subtitle.en,
-    role: isEsLang ? p.role.es : p.role.en,
-    summary: isEsLang ? p.summary.es : p.summary.en,
-    description: isEsLang ? p.description.es : p.description.en,
-    bullets: isEsLang ? p.bullets.es : p.bullets.en,
-    stack: p.stack,
+    period: isEsLang ? p.period?.es : p.period?.en,
+    title: isEsLang ? p.title?.es : p.title?.en,
+    subtitle: isEsLang ? p.subtitle?.es : p.subtitle?.en,
+    role: isEsLang ? p.role?.es : p.role?.en,
+    summary: isEsLang ? p.summary?.es : p.summary?.en,
+    description: isEsLang ? p.description?.es : p.description?.en,
+    bullets: isEsLang ? p.bullets?.es : p.bullets?.en,
+    stack: p.stack || [],
     github: p.github,
-    images: p.images?.map((img) => `${basePath}${img}`) || [],
+    images: p.images?.map((img: string) => `${basePath}${img}`) || [],
   }));
 
-  const education = portfolioData.education.map((e) => ({
+  const education = (portfolioData.education as unknown as Education[]).map((e) => ({
     id: e.id,
-    period: isEsLang ? e.period.es : e.period.en,
-    title: isEsLang ? e.title.es : e.title.en,
-    institution: isEsLang ? e.institution.es : e.institution.en,
-    description: isEsLang ? e.description.es : e.description.en,
+    period: isEsLang ? e.period?.es : e.period?.en,
+    title: isEsLang ? e.title?.es : e.title?.en,
+    institution: isEsLang ? e.institution?.es : e.institution?.en,
+    description: isEsLang ? e.description?.es : e.description?.en,
   }));
 
   const [expandedStacks, setExpandedStacks] = useState<Record<string, boolean>>({});
