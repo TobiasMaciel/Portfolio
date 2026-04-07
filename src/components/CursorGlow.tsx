@@ -96,11 +96,11 @@ export default function CursorGlow() {
       {/* Glow secundario (Amarillo/Dorado) */}
       <div
         ref={cursor1Ref}
-        className={`absolute top-0 left-0 w-[450px] h-[450px] rounded-full blur-[120px] ${isDark ? "opacity-60" : "opacity-100"}`}
+        className={`absolute top-0 left-0 w-[450px] h-[450px] rounded-full blur-[80px] ${isDark ? "opacity-80" : "opacity-100"}`}
         style={{
           background: isDark
-            ? "radial-gradient(circle, rgba(234,179,8,0.3) 0%, transparent 70%)"
-            : "radial-gradient(circle, rgba(234,179,8,0.9) 0%, transparent 70%)",
+            ? "radial-gradient(circle, rgba(234,179,8,0.45) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(234,179,8,1) 0%, transparent 70%)",
           transformOrigin: "center center",
           willChange: "transform",
         }}
@@ -108,11 +108,11 @@ export default function CursorGlow() {
       {/* Glow primario central (Violeta) */}
       <div
         ref={cursor2Ref}
-        className={`absolute top-0 left-0 w-[350px] h-[350px] rounded-full blur-[100px] ${isDark ? "opacity-50" : "opacity-100"}`}
+        className={`absolute top-0 left-0 w-[350px] h-[350px] rounded-full blur-[70px] ${isDark ? "opacity-75" : "opacity-100"}`}
         style={{
           background: isDark
-            ? "radial-gradient(circle, rgba(139,92,246,0.4) 0%, transparent 70%)"
-            : "radial-gradient(circle, rgba(139,92,246,0.9) 0%, transparent 70%)",
+            ? "radial-gradient(circle, rgba(139,92,246,0.55) 0%, transparent 70%)"
+            : "radial-gradient(circle, rgba(139,92,246,1) 0%, transparent 70%)",
           transformOrigin: "center center",
           willChange: "transform",
         }}

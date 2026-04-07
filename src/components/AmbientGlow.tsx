@@ -34,7 +34,7 @@ export default function AmbientGlow() {
         phaseY: Math.PI / 2,
         speedX: 0.0004,
         speedY: 0.0005,
-        radius: 300,
+        radius: 150,
         offsetX: 0,
         offsetY: 0,
         vx: 0,
@@ -46,7 +46,7 @@ export default function AmbientGlow() {
         phaseY: Math.PI,
         speedX: 0.0006,
         speedY: 0.0003,
-        radius: 350,
+        radius: 200,
         offsetX: 0,
         offsetY: 0,
         vx: 0,
@@ -58,7 +58,7 @@ export default function AmbientGlow() {
         phaseY: Math.PI / 3,
         speedX: 0.0003,
         speedY: 0.0007,
-        radius: 250,
+        radius: 125,
         offsetX: 0,
         offsetY: 0,
         vx: 0,
@@ -162,12 +162,12 @@ export default function AmbientGlow() {
         ref={orb1Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-700"
         style={{
-          width: 600,
-          height: 600,
+          width: 300,
+          height: 300,
           background: isDark
-            ? "radial-gradient(circle, rgba(16,185,129,0.15) 0%, rgba(16,185,129,0) 70%)"
-            : "radial-gradient(circle, rgba(16,185,129,0.4) 0%, rgba(16,185,129,0) 70%)",
-          filter: "blur(60px)",
+            ? "radial-gradient(circle, rgba(16,185,129,0.3) 0%, rgba(16,185,129,0) 70%)"
+            : "radial-gradient(circle, rgba(16,185,129,0.5) 0%, rgba(16,185,129,0) 70%)",
+          filter: "blur(40px)",
           willChange: "transform",
         }}
       />
@@ -176,12 +176,12 @@ export default function AmbientGlow() {
         ref={orb2Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-700"
         style={{
-          width: 700,
-          height: 700,
+          width: 400,
+          height: 400,
           background: isDark
-            ? "radial-gradient(circle, rgba(217,70,239,0.15) 0%, rgba(217,70,239,0) 70%)"
-            : "radial-gradient(circle, rgba(217,70,239,0.4) 0%, rgba(217,70,239,0) 70%)",
-          filter: "blur(60px)",
+            ? "radial-gradient(circle, rgba(217,70,239,0.3) 0%, rgba(217,70,239,0) 70%)"
+            : "radial-gradient(circle, rgba(217,70,239,0.5) 0%, rgba(217,70,239,0) 70%)",
+          filter: "blur(40px)",
           willChange: "transform",
         }}
       />
@@ -190,12 +190,12 @@ export default function AmbientGlow() {
         ref={orb3Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-700"
         style={{
-          width: 500,
-          height: 500,
+          width: 250,
+          height: 250,
           background: isDark
-            ? "radial-gradient(circle, rgba(59,130,246,0.15) 0%, rgba(59,130,246,0) 70%)"
-            : "radial-gradient(circle, rgba(59,130,246,0.4) 0%, rgba(59,130,246,0) 70%)",
-          filter: "blur(60px)",
+            ? "radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(59,130,246,0) 70%)"
+            : "radial-gradient(circle, rgba(59,130,246,0.5) 0%, rgba(59,130,246,0) 70%)",
+          filter: "blur(40px)",
           willChange: "transform",
         }}
       />
