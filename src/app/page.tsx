@@ -55,6 +55,29 @@ const NavLink = ({ href, label }: { href: string; label: string }) => (
   </a>
 );
 
+const Tooltip = ({ children, content }: { children: React.ReactNode; content: string }) => {
+  const [show, setShow] = useState(false);
+  return (
+    <div className="relative flex flex-col items-center group/tt" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
+      {children}
+      <AnimatePresence>
+        {show && (
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 5, scale: 0.95 }}
+            transition={{ duration: 0.15, ease: "easeOut" }}
+            className="absolute bottom-full mb-3 px-3 py-1.5 bg-zinc-900/90 dark:bg-white/90 backdrop-blur-md text-white dark:text-zinc-900 text-[10px] font-bold rounded-lg border border-white/10 dark:border-black/10 whitespace-nowrap z-[100] pointer-events-none shadow-xl"
+          >
+            {content}
+            <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-2 h-2 border-l border-t border-inherit bg-inherit rotate-[225deg]" />
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
+
 const GitHubIcon = ({ size = 14 }: { size?: number }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -815,6 +838,7 @@ export default function Home() {
   const socialLinks = [
     ...portfolioData.socialLinks.map((l) => ({
       platform: l.platform,
+      label: l.platform.charAt(0).toUpperCase() + l.platform.slice(1),
       href: l.href,
       target:
         (l as { target?: string }).target ??
@@ -823,6 +847,7 @@ export default function Home() {
     })),
     {
       platform: "cv",
+      label: isEsLang ? "Ver / Descargar CV" : "View / Download CV",
       href: "#",
       target: undefined,
       icon: socialIcons["cv"],
@@ -887,23 +912,23 @@ export default function Home() {
             className="flex gap-4 mt-16 relative z-30"
           >
             {socialLinks.map((l, i) => (
-              <a
-                key={i}
-                href={l.href}
-                target={(l as { target?: string }).target}
-                onClick={(e) => {
-                  if ("isCV" in l && l.isCV) {
-                    e.preventDefault();
-                    setShowCV(true);
-                  }
-                }}
-                title={"isCV" in l && l.isCV ? (isEsLang ? "Ver / Descargar CV" : "View / Download CV") : undefined}
-                className="flex items-center justify-center w-11 h-11 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/5 dark:border-white/5 rounded-full transition-all duration-300 text-zinc-700 dark:text-zinc-300 backdrop-blur-md group"
-              >
-                <div className="group-hover:scale-110 transition-transform duration-300">
-                   {l.icon}
-                </div>
-              </a>
+              <Tooltip key={i} content={l.label}>
+                <a
+                  href={l.href}
+                  target={(l as { target?: string }).target}
+                  onClick={(e) => {
+                    if ("isCV" in l && l.isCV) {
+                      e.preventDefault();
+                      setShowCV(true);
+                    }
+                  }}
+                  className="flex items-center justify-center w-11 h-11 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/5 dark:border-white/5 rounded-full transition-all duration-300 text-zinc-700 dark:text-zinc-300 backdrop-blur-md group"
+                >
+                  <div className="group-hover:scale-110 transition-transform duration-300">
+                    {l.icon}
+                  </div>
+                </a>
+              </Tooltip>
             ))}
           </motion.div>
         </motion.section>
@@ -954,21 +979,21 @@ export default function Home() {
             className="flex gap-4 mt-8 relative z-30"
           >
             {socialLinks.map((l, i) => (
-              <a
-                key={i}
-                href={l.href}
-                target={(l as { target?: string }).target}
-                onClick={(e) => {
-                  if ("isCV" in l && l.isCV) {
-                    e.preventDefault();
-                    setShowCV(true);
-                  }
-                }}
-                title={"isCV" in l && l.isCV ? (isEsLang ? "Ver / Descargar CV" : "View / Download CV") : undefined}
-                className="flex items-center justify-center w-11 h-11 bg-zinc-200/80 dark:bg-zinc-900/80 rounded-full hover:bg-zinc-300 dark:hover:bg-zinc-800 transition-colors text-zinc-700 dark:text-zinc-300 backdrop-blur-md"
-              >
-                {l.icon}
-              </a>
+              <Tooltip key={i} content={l.label}>
+                <a
+                  href={l.href}
+                  target={(l as { target?: string }).target}
+                  onClick={(e) => {
+                    if ("isCV" in l && l.isCV) {
+                      e.preventDefault();
+                      setShowCV(true);
+                    }
+                  }}
+                  className="flex items-center justify-center w-11 h-11 bg-zinc-200/80 dark:bg-zinc-900/80 rounded-full hover:bg-zinc-300 dark:hover:bg-zinc-800 transition-colors text-zinc-700 dark:text-zinc-300 backdrop-blur-md"
+                >
+                  {l.icon}
+                </a>
+              </Tooltip>
             ))}
           </motion.div>
         </motion.section>
