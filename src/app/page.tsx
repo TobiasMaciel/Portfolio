@@ -167,7 +167,7 @@ function Lightbox({
       <AnimatePresence mode="wait">
         <motion.div
           key={current}
-          className="relative w-full h-full max-w-5xl mx-auto px-12 flex items-center"
+          className="relative w-full h-full max-w-5xl mx-auto px-4 sm:px-12 flex items-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -266,14 +266,14 @@ function ProjectModal({
   return (
     <>
       <motion.div
-        className="fixed inset-0 z-[100] flex items-center justify-center p-4 sm:p-8 bg-black/40 backdrop-blur-[2px]"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-6 md:p-8 bg-black/40 backdrop-blur-[2px]"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
         onClick={onClose}
       >
         <motion.div
-          className="relative w-full max-w-6xl h-[92vh] bg-white/90 dark:bg-zinc-900/40 backdrop-blur-2xl rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border border-zinc-100/50 dark:border-zinc-800/50"
+          className="relative w-full max-w-6xl h-full lg:h-[92vh] bg-white/90 dark:bg-zinc-900/40 backdrop-blur-2xl rounded-3xl md:rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border border-zinc-100/50 dark:border-zinc-800/50"
           initial={{ scale: 0.9, opacity: 0, y: 40 }}
           animate={{ scale: 1, opacity: 1, y: 0 }}
           exit={{ scale: 0.9, opacity: 0, y: 40 }}
@@ -286,11 +286,11 @@ function ProjectModal({
               <div className="w-10 h-10 rounded-2xl bg-[#A78BFA]/10 flex items-center justify-center text-[#A78BFA] border border-[#A78BFA]/10 flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 18a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2"/><path d="M7 18a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/><path d="M12 12h.01"/></svg>
               </div>
-              <div className="min-w-0">
-                <h2 className="font-playfair text-xl sm:text-2xl font-bold text-zinc-900 dark:text-white truncate">
+              <div className="min-w-0 pr-2">
+                <h2 className="font-playfair text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 dark:text-white leading-tight">
                   {project.title}
                 </h2>
-                <p className="text-[10px] font-bold tracking-widest text-[#A78BFA] uppercase">
+                <p className="text-[10px] font-bold tracking-widest text-[#A78BFA] uppercase mt-0.5">
                   {project.subtitle} · {project.role}
                 </p>
               </div>
@@ -305,9 +305,9 @@ function ProjectModal({
 
           {/* Scrollable Body — Two Column Desktop Layout */}
           <div className="flex-1 overflow-y-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-12 h-full">
+            <div className="grid grid-cols-1 md:grid-cols-12 h-full">
               {/* Left Column: Info */}
-              <div className="lg:col-span-5 p-8 sm:p-10 border-b lg:border-b-0 lg:border-r border-zinc-100/50 dark:border-zinc-800/50 space-y-8 bg-white/20 dark:bg-white/5">
+              <div className="md:col-span-5 p-6 sm:p-10 border-b md:border-b-0 md:border-r border-zinc-100/50 dark:border-zinc-800/50 space-y-8 bg-white/20 dark:bg-white/5">
                 <div>
                   <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-3">
                     {isEs ? "Sobre el Proyecto" : "About Project"}
@@ -364,7 +364,7 @@ function ProjectModal({
               </div>
 
               {/* Right Column: Imagery */}
-              <div className="lg:col-span-7 bg-zinc-50 dark:bg-black/20 flex flex-col">
+              <div className="md:col-span-7 bg-zinc-50 dark:bg-black/20 flex flex-col">
                 <div className="flex-1 p-8 sm:p-10 flex flex-col gap-6">
                   {/* Main Gallery Frame */}
                   <div 
@@ -626,17 +626,17 @@ function DocumentViewer({
 }) {
   return (
     <motion.div
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/40 backdrop-blur-[2px] p-4 sm:p-8"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/60 backdrop-blur-sm p-2 sm:p-4 md:p-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       onClick={onClose}
     >
       <motion.div
-        className="relative w-full max-w-6xl h-[92vh] bg-white/90 dark:bg-zinc-900/40 backdrop-blur-2xl rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border border-zinc-100/50 dark:border-zinc-800/50"
-        initial={{ scale: 0.9, opacity: 0, y: 40 }}
+        className="bg-white dark:bg-[#121214] w-[98%] sm:w-[92%] md:w-[88%] lg:w-full max-w-5xl h-[95vh] lg:h-[88vh] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border border-zinc-200 dark:border-zinc-800"
+        initial={{ scale: 0.9, opacity: 0, y: 20 }}
         animate={{ scale: 1, opacity: 1, y: 0 }}
-        exit={{ scale: 0.9, opacity: 0, y: 40 }}
+        exit={{ scale: 0.9, opacity: 0, y: 20 }}
         transition={{ type: "spring", damping: 28, stiffness: 300 }}
         onClick={(e) => e.stopPropagation()}
       >
@@ -749,6 +749,9 @@ export default function Home() {
     github: p.github,
     images: p.images.map((img) => `${basePath}${img}`),
   }));
+
+  const [expandedStacks, setExpandedStacks] = useState<Record<string, boolean>>({});
+  const toggleStack = (id: string) => setExpandedStacks(prev => ({ ...prev, [id]: !prev[id] }));
 
   const socialIcons: Record<string, React.ReactNode> = {
     email: (
@@ -882,7 +885,7 @@ export default function Home() {
           <AmbientGlow />
           <motion.h1
             variants={fadeUpBlur}
-            className="font-playfair text-6xl md:text-7xl xl:text-[5.1rem] tracking-tight leading-none text-zinc-900 dark:text-white font-bold w-full drop-shadow-md dark:drop-shadow-lg relative z-10"
+            className="font-playfair text-4xl sm:text-5xl md:text-7xl xl:text-[5.1rem] tracking-tight leading-none text-zinc-900 dark:text-white font-bold w-full drop-shadow-md dark:drop-shadow-lg relative z-10"
           >
             {portfolioData.hero.name}
             <br />
@@ -937,7 +940,7 @@ export default function Home() {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="lg:hidden w-full px-10 pt-16 pb-8 z-20 relative"
+          className="lg:hidden w-full px-6 sm:px-10 pt-12 pb-8 z-20 relative"
         >
           <AmbientGlow />
           <motion.h1
@@ -1015,7 +1018,7 @@ export default function Home() {
       </div>
 
       {/* SECCIONES */}
-      <div className="flex flex-col w-full relative z-10 px-10 lg:px-16 xl:px-20 space-y-32 pb-40 font-sans">
+      <div className="flex flex-col w-full relative z-10 px-6 sm:px-10 lg:px-16 xl:px-20 space-y-32 pb-40 font-sans">
         {/* PROYECTOS */}
         <motion.section
           id="proyectos"
@@ -1034,7 +1037,7 @@ export default function Home() {
                 {/* CV-style Corner Glow */}
                 <div className="absolute -top-32 -right-32 w-80 h-80 bg-[#A78BFA]/5 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                 
-                <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
                   <div className="relative pl-6 border-l-2 border-zinc-200 dark:border-zinc-800 group-hover:border-[#A78BFA] transition-colors duration-300">
                     <p className="text-[#A78BFA] text-xs font-bold tracking-widest mb-1">
                       {p.period}
@@ -1060,19 +1063,37 @@ export default function Home() {
                     <p className="text-zinc-500 leading-relaxed mb-5 text-sm">
                       {p.summary}
                     </p>
-                    <div className="flex flex-wrap gap-1.5 mb-5">
-                      {p.stack.slice(0, 4).map((s) => (
-                        <span
-                          key={s}
-                          className="px-3 py-1 bg-[#A78BFA]/10 text-[#A78BFA] text-xs font-semibold rounded-full border border-[#A78BFA]/20"
+                    <div className="flex flex-wrap gap-1.5 mb-5 overflow-hidden">
+                      <AnimatePresence initial={false}>
+                        {(expandedStacks[p.id] ? p.stack : p.stack.slice(0, 4)).map((s) => (
+                          <motion.span
+                            key={s}
+                            layout
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="px-3 py-1 bg-[#A78BFA]/10 text-[#A78BFA] text-xs font-semibold rounded-full border border-[#A78BFA]/20"
+                          >
+                            {s}
+                          </motion.span>
+                        ))}
+                      </AnimatePresence>
+                      
+                      {p.stack.length > 4 && !expandedStacks[p.id] && (
+                        <button
+                          onClick={() => toggleStack(p.id)}
+                          className="px-3 py-1 text-zinc-400 hover:text-[#A78BFA] hover:border-[#A78BFA]/30 text-xs font-semibold rounded-full border border-zinc-200 dark:border-zinc-800 transition-colors"
                         >
-                          {s}
-                        </span>
-                      ))}
-                      {p.stack.length > 4 && (
-                        <span className="px-3 py-1 text-zinc-400 text-xs font-semibold rounded-full border border-zinc-200 dark:border-zinc-800">
-                          +{p.stack.length - 4} más
-                        </span>
+                          +{p.stack.length - 4} {isEsLang ? "más" : "more"}
+                        </button>
+                      )}
+
+                      {expandedStacks[p.id] && (
+                        <button
+                          onClick={() => toggleStack(p.id)}
+                          className="px-3 py-1 text-[#A78BFA] text-xs font-bold rounded-full border border-[#A78BFA]/20 hover:bg-[#A78BFA]/5 transition-colors"
+                        >
+                          {isEsLang ? "Ver menos" : "Show less"}
+                        </button>
                       )}
                     </div>
                     <button

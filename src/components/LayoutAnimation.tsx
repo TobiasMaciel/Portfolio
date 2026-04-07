@@ -78,11 +78,13 @@ export default function LayoutAnimation() {
       .getPropertyValue("--font-playfair");
     if (computed) fontFamily = computed;
 
-    const fontString = `20px ${fontFamily}`;
+    const isMobile = dimensions.width < 640;
+    const fontSize = isMobile ? 17 : 20;
+    const lineHeight = isMobile ? 30 : 36;
+    const fontString = `${fontSize}px ${fontFamily}`;
     const prepared = prepareWithSegments(CV_TEXT, fontString, {
       whiteSpace: "pre-wrap",
     });
-    const lineHeight = 36;
 
     const radius = 35;
 
@@ -244,17 +246,23 @@ export default function LayoutAnimation() {
     <div
       ref={containerRef}
       className="relative w-full overflow-hidden"
-      style={{ height: 800 }}
+      style={{ height: dimensions.width < 640 ? 1000 : 800 }}
       suppressHydrationWarning
     >
-      <div className="absolute top-0 left-0 w-full h-full pointer-events-none font-playfair text-[20px] leading-9 z-10 text-zinc-700 dark:text-zinc-300">
+      <div 
+        className="absolute top-0 left-0 w-full h-full pointer-events-none font-playfair z-10 text-zinc-700 dark:text-zinc-300"
+        style={{ 
+          fontSize: dimensions.width < 640 ? "17px" : "20px",
+          lineHeight: dimensions.width < 640 ? "30px" : "36px"
+        }}
+      >
         <div
           className="absolute font-playfair font-bold text-[#A78BFA] leading-none pointer-events-auto"
           style={{
             left: startLeft,
             top: 5,
-            fontSize: "110px",
-            lineHeight: "100px",
+            fontSize: dimensions.width < 640 ? "80px" : "110px",
+            lineHeight: dimensions.width < 640 ? "75px" : "100px",
           }}
         >
           A

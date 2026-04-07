@@ -120,10 +120,68 @@
       ]
     },
     {
+      "id": "elepad",
+      "period": {
+        "es": "MARZO 2025 — MARZO 2026",
+        "en": "MARCH 2025 — MARCH 2026"
+      },
+      "title": {
+        "es": "Elepad — Bienestar Cognitivo con IA",
+        "en": "Elepad — Cognitive Wellbeing with AI"
+      },
+      "subtitle": {
+        "es": "Proyecto Final de Grado — UTN FRRe",
+        "en": "Final Graduation Project — UTN FRRe"
+      },
+      "role": {
+        "es": "Full-Stack Developer & DevOps",
+        "en": "Full-Stack Developer & DevOps"
+      },
+      "summary": {
+        "es": "Aplicación móvil multiplataforma que integra Google Gemini AI para transformar recuerdos en álbumes digitales narrativos y bienestar cognitivo.",
+        "en": "Cross-platform mobile application integrating Google Gemini AI to transform memories into narrative digital albums and cognitive wellbeing."
+      },
+      "description": {
+        "es": "Elepad es una solución tecnológica diseñada para mejorar la calidad de vida de adultos mayores mediante IA Generativa (Google Gemini), permitiendo compartir recuerdos, gestionar agendas y entrenar la mente. Originada como propuesta ganadora del Rally Latinoamericano de Innovación 2024 (3er puesto Impacto Social), evoluciona a un sistema complejo monorepo con despliegue continuo. Disponible en Google Play Store.",
+        "en": "Elepad is a technological solution designed to improve seniors' quality of life using Generative AI (Google Gemini) for sharing memories, managing schedules, and mind training. Originated as the winning proposal of the 2024 Latin American Innovation Rally (3rd place Social Impact), it evolved into a complex monorepo system with continuous deployment. Available on Google Play Store."
+      },
+      "bullets": {
+        "es": [
+          "Integración de Google Gemini AI para la síntesis de recuerdos y creación automatizada de álbumes narrativos.",
+          "Desarrollo móvil con React Native + Expo y TypeScript para iOS/Android/Web.",
+          "Arquitectura Backend Serverless con Cloudflare Workers, Hono y OpenAPI.",
+          "Supabase para PostgreSQL, Auth (Google OAuth), Storage y Realtime.",
+          "Estructura de Monorepo con Turborepo, optimizando tiempos de build y desarrollo.",
+          "CI/CD automatizado con GitHub Actions hacia Cloudflare y Expo EAS.",
+          "Gestión de equipo bajo metodología Scrum con 7 releases documentadas."
+        ],
+        "en": [
+          "Google Gemini AI integration for memory synthesis and automated narrative album creation.",
+          "Mobile development with React Native + Expo and TypeScript for iOS/Android/Web.",
+          "Serverless Backend Architecture with Cloudflare Workers, Hono, and OpenAPI.",
+          "Supabase for PostgreSQL, Auth (Google OAuth), Storage, and Realtime.",
+          "Monorepo structure with Turborepo, optimizing build and development times.",
+          "Automated CI/CD with GitHub Actions to Cloudflare and Expo EAS.",
+          "Team management under Scrum methodology with 7 documented releases."
+        ]
+      },
+      "stack": ["Google Gemini AI", "React Native", "Expo", "TypeScript", "Cloudflare Workers", "Hono", "Supabase", "PostgreSQL", "Turborepo", "GitHub Actions", "Zod", "OpenAPI"],
+      "github": "https://github.com/elepad-org/Elepad",
+      "googleplay": "https://play.google.com/store/apps/details?id=com.proyectoelepad.elepad",
+      "images": [
+        "/proyectos/elepad/image95.jpg",
+        "/proyectos/elepad/image101.jpg",
+        "/proyectos/elepad/image117.jpg",
+        "/proyectos/elepad/image127.jpg",
+        "/proyectos/elepad/image141.jpg",
+        "/proyectos/elepad/image161.jpg"
+      ]
+    },
+    {
       "id": "tup",
       "period": {
-        "es": "MAR 2024 — DIC 2024",
-        "en": "MAR 2024 — DEC 2024"
+        "es": "MARZO 2024 — DIC 2024",
+        "en": "MARCH 2024 — DEC 2024"
       },
       "title": {
         "es": "Sistema Académico TUP",
@@ -152,7 +210,7 @@
           "Implementación de pipelines CI/CD para automatización de builds, tests y deploys (30 min → menos de 5 min).",
           "Gestión de calidad: QA, revisión de código y seguimiento de tareas en Jira bajo metodologías ágiles.",
           "Infraestructura escalable desplegada en Google Cloud.",
-          "Documentación completa de API con drf-spectacular (Swagger UI y ReDoc)."
+          "Documentación completa de API con Swagger UI y ReDoc."
         ],
         "en": [
           "Comprehensive system and API development using Python, Django, React, TypeScript, and Vite.",
@@ -160,7 +218,7 @@
           "CI/CD pipeline implementation for automated builds, tests, and deploys (30 min → under 5 min).",
           "Quality management: QA, code review, and task tracking in Jira under agile methodologies.",
           "Scalable infrastructure deployed on Google Cloud.",
-          "Full API documentation (Swagger UI and ReDoc)."
+          "Full API documentation with Swagger UI and ReDoc."
         ]
       },
       "stack": ["Python", "Django", "React", "TypeScript", "Vite", "Docker", "Docker Compose", "GitHub Actions", "Google Cloud", "Jira", "PostgreSQL"],
