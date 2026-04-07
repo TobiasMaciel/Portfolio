@@ -62,14 +62,63 @@
   },
   "projects": [
     {
+      "id": "cubesat",
+      "period": {
+        "es": "MARZO 2025 — PRESENTE",
+        "en": "MARCH 2025 — PRESENT"
+      },
+      "title": {
+        "es": "CubeSat UTN — Finalista Nacional",
+        "en": "CubeSat UTN — National Finalist"
+      },
+      "subtitle": {
+        "es": "UTN FRRe / UTN Haedo — Laboratorio de Propulsión",
+        "en": "UTN FRRe / UTN Haedo — Propulsion Laboratory"
+      },
+      "role": {
+        "es": "Software, Telemetría y Datos",
+        "en": "Software, Telemetry & Data"
+      },
+      "summary": {
+        "es": "Participación en el diseño y desarrollo de un satélite a escala (CubeSat), integrando física, tecnología y programación para toma de datos en tiempo real.",
+        "en": "Participation in the design and development of a scale satellite (CubeSat), integrating physics, technology, and programming for real-time data collection."
+      },
+      "description": {
+        "es": "Proyecto interdisciplinar coordinado por la Secretaría de Extensión Universitaria y el Laboratorio de Propulsión de la UTN Haedo. El desarrollo implica el diseño de sistemas para la toma y análisis de datos en tiempo real, cumpliendo con los estándares técnicos requeridos para lanzamientos en cohetes portadores del Grupo de Lanzadores Tecnológicos. Formé parte del equipo encargado de los aspectos de software y telemetría.",
+        "en": "Interdisciplinary project coordinated by the University Extension Secretariat and the Propulsion Laboratory of UTN Haedo. Development involves designing systems for real-time data collection and analysis, meeting the technical standards required for rocket launches by the Technological Launchers Group. I was part of the team in charge of software and telemetry aspects."
+      },
+      "bullets": {
+        "es": [
+          "Diseño interdisciplinar aplicado a física y tecnología satelital con microcontroladores NodeMCU UNO.",
+          "Implementación de comunicación USB y Serial para adquisición de datos y monitoreo constante.",
+          "Desarrollo de scripts propios de prueba en C++ para simulación de lectura de sensores críticos.",
+          "Verificación y validación de sistemas de almacenamiento de datos mediante software especializado (Arduino IDE).",
+          "Cumplimiento de estándares del Grupo de Lanzadores Tecnológicos para misiones reales."
+        ],
+        "en": [
+          "Interdisciplinary design applied to physics and satellite technology with NodeMCU UNO microcontrollers.",
+          "USB and Serial communication implementation for constant data acquisition and monitoring.",
+          "Development of custom C++ test scripts for simulating critical sensor readings.",
+          "Verification and validation of data storage systems using specialized software (Arduino IDE).",
+          "Compliance with Technological Launcher Group standards for real-world missions."
+        ]
+      },
+      "stack": ["C++", "Arduino IDE", "NodeMCU UNO", "Data Acquisition"],
+      "images": [
+        "/proyectos/cubesat/Cubesat1UDelCDR (5).png",
+        "/proyectos/cubesat/Cubesat1UDelCDR (8).png",
+        "/proyectos/cubesat/ActoFinal1.png"
+      ]
+    },
+    {
       "id": "sgi",
       "period": {
         "es": "ABRIL 2023 — PRESENTE",
         "en": "APRIL 2023 — PRESENT"
       },
       "title": {
-        "es": "FRRe SCyT Research Manager",
-        "en": "FRRe SCyT Research Manager"
+        "es": "Sistema de Gestión de Investigación",
+        "en": "Research Management System"
       },
       "subtitle": {
         "es": "Secretaría de Ciencia y Tecnología — UTN FRRe",
@@ -134,8 +183,8 @@
         "en": "Final Graduation Project — UTN FRRe"
       },
       "role": {
-        "es": "Full-Stack Developer & DevOps",
-        "en": "Full-Stack Developer & DevOps"
+        "es": "Full-Stack Developer",
+        "en": "Full-Stack Developer"
       },
       "summary": {
         "es": "Aplicación móvil multiplataforma que integra Google Gemini AI para transformar recuerdos en álbumes digitales narrativos y bienestar cognitivo.",
@@ -242,9 +291,12 @@
       },
       "title": {
         "es": "Ingeniería en Sistemas de Información",
-        "en": "Systems Information Engineering"
+        "en": "Information Systems Engineering"
       },
-      "institution": "Universidad Tecnológica Nacional (UTN)",
+      "institution": {
+        "es": "Universidad Tecnológica Nacional (UTN)",
+        "en": "National Technological University (UTN)"
+      },
       "description": {
         "es": "",
         "en": ""
@@ -260,7 +312,10 @@
         "es": "Analista Desarrollador Universitario en Sistemas",
         "en": "University Systems Developer Analyst"
       },
-      "institution": "Universidad Tecnológica Nacional (UTN)",
+      "institution": {
+        "es": "Universidad Tecnológica Nacional (UTN)",
+        "en": "National Technological University (UTN)"
+      },
       "description": {
         "es": "",
         "en": ""
@@ -276,7 +331,10 @@
         "es": "Inglés Intermedio B2",
         "en": "Intermediate English B2"
       },
-      "institution": "Instituto Josefina Contte",
+      "institution": {
+        "es": "Instituto Josefina Contte",
+        "en": "Josefina Contte Institute"
+      },
       "description": {
         "es": "",
         "en": ""

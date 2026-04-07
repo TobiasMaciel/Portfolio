@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import LayoutAnimation from "@/components/LayoutAnimation";
 import CursorGlow from "@/components/CursorGlow";
@@ -104,8 +104,16 @@ interface Project {
   description: string;
   bullets: string[];
   stack: string[];
-  github: string;
+  github?: string;
   images: string[];
+}
+
+interface Education {
+  id: string;
+  period: { es: string; en: string };
+  title: { es: string; en: string };
+  institution: { es: string; en: string };
+  description: { es: string; en: string };
 }
 
 /* ─── Lightbox ─── */
@@ -120,7 +128,7 @@ function Lightbox({
 }) {
   const [current, setCurrent] = useState(startIndex);
   const n = images.length;
-  const go = (i: number) => setCurrent((i + n) % n);
+  const go = useCallback((i: number) => setCurrent((i + n) % n), [n]);
 
   useEffect(() => {
     const fn = (e: KeyboardEvent) => {
@@ -130,7 +138,7 @@ function Lightbox({
     };
     window.addEventListener("keydown", fn);
     return () => window.removeEventListener("keydown", fn);
-  }, [current, onClose]);
+  }, [current, onClose, go]);
 
   return (
     <motion.div
@@ -249,7 +257,7 @@ function ProjectModal({
   const dragX = useRef(0);
   const didDrag = useRef(false);
   const n = project.images.length;
-  const go = (i: number) => setCurrent((i + n) % n);
+  const go = useCallback((i: number) => setCurrent((i + n) % n), [n]);
 
   useEffect(() => {
     const fn = (e: KeyboardEvent) => {
@@ -490,7 +498,7 @@ function MiniCarousel({
   const dragX = useRef(0);
   const didDrag = useRef(false);
   const n = images.length;
-  const go = (i: number) => setCurrent((i + n) % n);
+  const go = useCallback((i: number) => setCurrent((i + n) % n), [n]);
 
   return (
     <div className="flex flex-col gap-2.5 w-full max-w-md ml-auto">
@@ -748,6 +756,14 @@ export default function Home() {
     stack: p.stack,
     github: p.github,
     images: p.images.map((img) => `${basePath}${img}`),
+  }));
+
+  const education = portfolioData.education.map((e) => ({
+    id: e.id,
+    period: isEsLang ? e.period.es : e.period.en,
+    title: isEsLang ? e.title.es : e.title.en,
+    institution: isEsLang ? e.institution.es : e.institution.en,
+    description: isEsLang ? e.description.es : e.description.en,
   }));
 
   const [expandedStacks, setExpandedStacks] = useState<Record<string, boolean>>({});
@@ -1046,15 +1062,17 @@ export default function Home() {
                       <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 leading-tight">
                         {p.title}
                       </h3>
-                      <a
-                        href={p.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="shrink-0 mt-1 flex items-center gap-1 text-xs font-semibold text-zinc-400 hover:text-[#A78BFA] transition-colors"
-                      >
-                        <GitHubIcon />
-                        GitHub
-                      </a>
+                      {p.github && (
+                        <a
+                          href={p.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="shrink-0 mt-1 flex items-center gap-1 text-xs font-semibold text-zinc-400 hover:text-[#A78BFA] transition-colors"
+                        >
+                          <GitHubIcon />
+                          GitHub
+                        </a>
+                      )}
                     </div>
                     <p className="text-zinc-500 font-medium mb-3 text-sm">
                       {p.subtitle} —{" "}
@@ -1064,19 +1082,18 @@ export default function Home() {
                       {p.summary}
                     </p>
                     <div className="flex flex-wrap gap-1.5 mb-5 overflow-hidden">
-                      <AnimatePresence initial={false}>
-                        {(expandedStacks[p.id] ? p.stack : p.stack.slice(0, 4)).map((s) => (
-                          <motion.span
-                            key={s}
-                            layout
-                            initial={{ opacity: 0, scale: 0.8 }}
-                            animate={{ opacity: 1, scale: 1 }}
-                            className="px-3 py-1 bg-[#A78BFA]/10 text-[#A78BFA] text-xs font-semibold rounded-full border border-[#A78BFA]/20"
-                          >
-                            {s}
-                          </motion.span>
-                        ))}
-                      </AnimatePresence>
+                      {(expandedStacks[p.id] ? p.stack : p.stack.slice(0, 4)).map((s) => (
+                        <motion.span
+                          key={s}
+                          layout
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          transition={{ duration: 0.2 }}
+                          className="px-3 py-1 bg-[#A78BFA]/10 text-[#A78BFA] text-xs font-semibold rounded-full border border-[#A78BFA]/20"
+                        >
+                          {s}
+                        </motion.span>
+                      ))}
                       
                       {p.stack.length > 4 && !expandedStacks[p.id] && (
                         <button
@@ -1118,13 +1135,15 @@ export default function Home() {
                       </svg>
                     </button>
                   </div>
-                  <MiniCarousel
-                    images={p.images}
-                    title={p.title}
-                    onClickImage={(idx) =>
-                      setLightboxInfo({ images: p.images, index: idx })
-                    }
-                  />
+                  {p.images && p.images.length > 0 && (
+                    <MiniCarousel
+                      images={p.images}
+                      title={p.title}
+                      onClickImage={(idx) =>
+                        setLightboxInfo({ images: p.images, index: idx })
+                      }
+                    />
+                  )}
                 </div>
               </div>
             ))}
@@ -1144,20 +1163,20 @@ export default function Home() {
             {isEsLang ? "Educación" : "Education"}
           </h2>
           <div className="flex flex-col gap-10">
-            {portfolioData.education.map((item) => (
+            {education.map((item) => (
               <div key={item.id} className="group relative">
                 <p className="text-[#A78BFA] text-sm font-semibold tracking-wider mb-2">
-                  {isEsLang ? item.period.es : item.period.en}
+                  {item.period}
                 </p>
                 <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 group-hover:text-[#A78BFA] transition-colors mb-1">
-                  {isEsLang ? item.title.es : item.title.en}
+                  {item.title}
                 </h3>
                 <h4 className="text-zinc-600 dark:text-zinc-400 mb-2 font-medium text-lg">
                   {item.institution}
                 </h4>
-                {(isEsLang ? item.description.es : item.description.en) && (
+                {item.description && (
                   <p className="text-zinc-500 leading-relaxed max-w-3xl">
-                    {isEsLang ? item.description.es : item.description.en}
+                    {item.description}
                   </p>
                 )}
               </div>
