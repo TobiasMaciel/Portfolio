@@ -34,7 +34,7 @@ export default function AmbientGlow() {
         phaseY: Math.PI / 2,
         speedX: 0.0004,
         speedY: 0.0005,
-        radius: 150,
+        radius: 250,
         offsetX: 0,
         offsetY: 0,
         vx: 0,
@@ -46,7 +46,7 @@ export default function AmbientGlow() {
         phaseY: Math.PI,
         speedX: 0.0006,
         speedY: 0.0003,
-        radius: 200,
+        radius: 300,
         offsetX: 0,
         offsetY: 0,
         vx: 0,
@@ -58,7 +58,7 @@ export default function AmbientGlow() {
         phaseY: Math.PI / 3,
         speedX: 0.0003,
         speedY: 0.0007,
-        radius: 125,
+        radius: 200,
         offsetX: 0,
         offsetY: 0,
         vx: 0,
@@ -162,8 +162,8 @@ export default function AmbientGlow() {
         ref={orb1Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-700"
         style={{
-          width: 300,
-          height: 300,
+          width: 500,
+          height: 500,
           background: isDark
             ? "radial-gradient(circle, rgba(16,185,129,0.3) 0%, rgba(16,185,129,0) 70%)"
             : "radial-gradient(circle, rgba(16,185,129,0.5) 0%, rgba(16,185,129,0) 70%)",
@@ -176,8 +176,8 @@ export default function AmbientGlow() {
         ref={orb2Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-700"
         style={{
-          width: 400,
-          height: 400,
+          width: 600,
+          height: 600,
           background: isDark
             ? "radial-gradient(circle, rgba(217,70,239,0.3) 0%, rgba(217,70,239,0) 70%)"
             : "radial-gradient(circle, rgba(217,70,239,0.5) 0%, rgba(217,70,239,0) 70%)",
@@ -190,8 +190,8 @@ export default function AmbientGlow() {
         ref={orb3Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-700"
         style={{
-          width: 250,
-          height: 250,
+          width: 400,
+          height: 400,
           background: isDark
             ? "radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(59,130,246,0) 70%)"
             : "radial-gradient(circle, rgba(59,130,246,0.5) 0%, rgba(59,130,246,0) 70%)",

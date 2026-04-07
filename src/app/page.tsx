@@ -646,25 +646,35 @@ function DocumentViewer({
               )}
             </div>
           </div>
-          <button
-            onClick={onClose}
-            className="group p-2.5 hover:bg-zinc-100 dark:hover:bg-white/5 rounded-2xl transition-all duration-300 text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:scale-110"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="22"
-              height="22"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="group-hover:rotate-90 transition-transform duration-300"
+          <div className="flex items-center gap-3">
+            <a
+              href={url}
+              download={url.split('/').pop()}
+              className="flex items-center gap-2 px-6 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-bold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/10 dark:shadow-white/10"
             >
-              <path d="M18 6 6 18M6 6l12 12" />
-            </svg>
-          </button>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
+              <span className="hidden sm:inline">Descargar</span>
+            </a>
+            <button
+              onClick={onClose}
+              className="group p-2.5 hover:bg-zinc-100 dark:hover:bg-white/5 rounded-2xl transition-all duration-300 text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:scale-110"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="22"
+                height="22"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="group-hover:rotate-90 transition-transform duration-300"
+              >
+                <path d="M18 6 6 18M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
         </div>
         <div className="flex-1 bg-zinc-50 dark:bg-black/40 relative overflow-hidden">
           {url.match(/\.(jpg|jpeg|png|webp)$/i) ? (
@@ -781,15 +791,44 @@ export default function Home() {
         />
       </svg>
     ),
+    cv: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="20"
+        height="20"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" />
+        <polyline points="14 2 14 8 20 8" />
+        <line x1="16" y1="13" x2="8" y2="13" />
+        <line x1="16" y1="17" x2="8" y2="17" />
+        <line x1="10" y1="9" x2="8" y2="9" />
+      </svg>
+    ),
   };
 
-  const socialLinks = portfolioData.socialLinks.map((l) => ({
-    href: l.href,
-    target:
-      (l as { target?: string }).target ??
-      (l.platform === "email" || l.platform === "phone" ? undefined : "_blank"),
-    icon: socialIcons[l.platform] || null,
-  }));
+  const socialLinks = [
+    ...portfolioData.socialLinks.map((l) => ({
+      platform: l.platform,
+      href: l.href,
+      target:
+        (l as { target?: string }).target ??
+        (l.platform === "email" || l.platform === "phone" ? undefined : "_blank"),
+      icon: socialIcons[l.platform] || null,
+    })),
+    {
+      platform: "cv",
+      href: "#",
+      target: undefined,
+      icon: socialIcons["cv"],
+      isCV: true,
+    },
+  ];
 
   return (
     <main className="bg-slate-50 dark:bg-[#0A0A0B] text-zinc-900 dark:text-zinc-200 relative min-h-screen overflow-x-hidden selection:bg-[#A78BFA]/30 selection:text-[#A78BFA] transition-colors duration-700">
@@ -852,6 +891,13 @@ export default function Home() {
                 key={i}
                 href={l.href}
                 target={(l as { target?: string }).target}
+                onClick={(e) => {
+                  if ("isCV" in l && l.isCV) {
+                    e.preventDefault();
+                    setShowCV(true);
+                  }
+                }}
+                title={"isCV" in l && l.isCV ? (isEsLang ? "Ver / Descargar CV" : "View / Download CV") : undefined}
                 className="flex items-center justify-center w-11 h-11 bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 border border-black/5 dark:border-white/5 rounded-full transition-all duration-300 text-zinc-700 dark:text-zinc-300 backdrop-blur-md group"
               >
                 <div className="group-hover:scale-110 transition-transform duration-300">
@@ -912,6 +958,13 @@ export default function Home() {
                 key={i}
                 href={l.href}
                 target={(l as { target?: string }).target}
+                onClick={(e) => {
+                  if ("isCV" in l && l.isCV) {
+                    e.preventDefault();
+                    setShowCV(true);
+                  }
+                }}
+                title={"isCV" in l && l.isCV ? (isEsLang ? "Ver / Descargar CV" : "View / Download CV") : undefined}
                 className="flex items-center justify-center w-11 h-11 bg-zinc-200/80 dark:bg-zinc-900/80 rounded-full hover:bg-zinc-300 dark:hover:bg-zinc-800 transition-colors text-zinc-700 dark:text-zinc-300 backdrop-blur-md"
               >
                 {l.icon}
