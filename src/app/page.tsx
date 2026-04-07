@@ -357,114 +357,118 @@ function ProjectModal({
                   </div>
                 </div>
 
-                <div className="pt-4">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group inline-flex items-center gap-3 px-6 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-sm font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-black/20 dark:hover:shadow-white/10 active:scale-95"
-                  >
-                    <GitHubIcon size={18} />
-                    <span>{isEs ? "Ver Repositorio" : "View Repository"}</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                  </a>
-                </div>
+                {project.github && (
+                  <div className="pt-4">
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group inline-flex items-center gap-3 px-6 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-sm font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-black/20 dark:hover:shadow-white/10 active:scale-95"
+                    >
+                      <GitHubIcon size={18} />
+                      <span>{isEs ? "Ver Repositorio" : "View Repository"}</span>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </a>
+                  </div>
+                )}
               </div>
 
               {/* Right Column: Imagery */}
-              <div className="md:col-span-7 bg-zinc-50 dark:bg-black/20 flex flex-col">
-                <div className="flex-1 p-8 sm:p-10 flex flex-col gap-6">
-                  {/* Main Gallery Frame */}
-                  <div 
-                    className="relative w-full flex-1 min-h-[300px] rounded-[2rem] overflow-hidden bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-white/5 cursor-zoom-in group/gallery shadow-inner"
-                    onClick={() => setLightboxIdx(current)}
-                    onPointerDown={(e) => {
-                      if ((e.target as HTMLElement).closest("button")) return;
-                      dragX.current = e.clientX;
-                      didDrag.current = false;
-                    }}
-                    onPointerMove={(e) => {
-                      if (Math.abs(e.clientX - dragX.current) > 8) didDrag.current = true;
-                    }}
-                    onPointerUp={(e) => {
-                      if ((e.target as HTMLElement).closest("button")) return;
-                      if (didDrag.current) {
-                        const d = e.clientX - dragX.current;
-                        if (Math.abs(d) > 30) go(current + (d < 0 ? 1 : -1));
-                      }
-                      didDrag.current = false;
-                    }}
-                  >
-                    <AnimatePresence mode="sync">
-                      <motion.div
-                        key={current}
-                        className="absolute inset-0"
-                        initial={{ opacity: 0, scale: 1.05 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0 }}
-                        transition={{ duration: 0.4 }}
-                      >
-                        <Image
-                          src={project.images[current]}
-                          alt={project.title}
-                          fill
-                          className="object-contain p-4 transition-all duration-500"
-                          sizes="1000px"
-                          priority
-                        />
-                      </motion.div>
-                    </AnimatePresence>
-
-                    {/* Navigation Overlays */}
-                    {n > 1 && (
-                      <>
-                        <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 opacity-0 group-hover/gallery:opacity-100 transition-opacity">
-                          <button
-                            onClick={(e) => { e.stopPropagation(); go(current - 1); }}
-                            className="w-10 h-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all"
-                          >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                          </button>
-                          <button
-                            onClick={(e) => { e.stopPropagation(); go(current + 1); }}
-                            className="w-10 h-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all"
-                          >
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                          </button>
-                        </div>
-                        <div className="absolute bottom-6 right-6">
-                           <span className="px-3 py-1.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-lg border border-white/10 shadow-xl">
-                            {current + 1} / {n}
-                           </span>
-                        </div>
-                      </>
-                    )}
-                  </div>
-
-                  {/* Thumbnail Selector */}
-                  {n > 1 && (
-                    <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none">
-                      {project.images.map((src, i) => (
-                        <button
-                          key={i}
-                          onClick={() => setCurrent(i)}
-                          className={`relative flex-shrink-0 w-24 h-16 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                            i === current ? "border-[#A78BFA] scale-105 shadow-lg shadow-[#A78BFA]/20" : "border-transparent opacity-50 hover:opacity-100"
-                          }`}
+              {project.images && project.images.length > 0 && (
+                <div className="md:col-span-7 bg-zinc-50 dark:bg-black/20 flex flex-col">
+                  <div className="flex-1 p-8 sm:p-10 flex flex-col gap-6">
+                    {/* Main Gallery Frame */}
+                    <div 
+                      className="relative w-full flex-1 min-h-[300px] rounded-[2rem] overflow-hidden bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-white/5 cursor-zoom-in group/gallery shadow-inner"
+                      onClick={() => setLightboxIdx(current)}
+                      onPointerDown={(e) => {
+                        if ((e.target as HTMLElement).closest("button")) return;
+                        dragX.current = e.clientX;
+                        didDrag.current = false;
+                      }}
+                      onPointerMove={(e) => {
+                        if (Math.abs(e.clientX - dragX.current) > 8) didDrag.current = true;
+                      }}
+                      onPointerUp={(e) => {
+                        if ((e.target as HTMLElement).closest("button")) return;
+                        if (didDrag.current) {
+                          const d = e.clientX - dragX.current;
+                          if (Math.abs(d) > 30) go(current + (d < 0 ? 1 : -1));
+                        }
+                        didDrag.current = false;
+                      }}
+                    >
+                      <AnimatePresence mode="sync">
+                        <motion.div
+                          key={current}
+                          className="absolute inset-0"
+                          initial={{ opacity: 0, scale: 1.05 }}
+                          animate={{ opacity: 1, scale: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.4 }}
                         >
                           <Image
-                            src={src}
-                            alt={`thumb ${i + 1}`}
+                            src={project.images[current]}
+                            alt={project.title}
                             fill
-                            className="object-cover"
-                            sizes="96px"
+                            className="object-contain p-4 transition-all duration-500"
+                            sizes="1000px"
+                            priority
                           />
-                        </button>
-                      ))}
+                        </motion.div>
+                      </AnimatePresence>
+
+                      {/* Navigation Overlays */}
+                      {n > 1 && (
+                        <>
+                          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 opacity-0 group-hover/gallery:opacity-100 transition-opacity">
+                            <button
+                              onClick={(e) => { e.stopPropagation(); go(current - 1); }}
+                              className="w-10 h-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                            </button>
+                            <button
+                              onClick={(e) => { e.stopPropagation(); go(current + 1); }}
+                              className="w-10 h-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all"
+                            >
+                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+                            </button>
+                          </div>
+                          <div className="absolute bottom-6 right-6">
+                            <span className="px-3 py-1.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-lg border border-white/10 shadow-xl">
+                              {current + 1} / {n}
+                            </span>
+                          </div>
+                        </>
+                      )}
                     </div>
-                  )}
+
+                    {/* Thumbnail Selector */}
+                    {n > 1 && (
+                      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none">
+                        {project.images.map((src, i) => (
+                          <button
+                            key={i}
+                            onClick={() => setCurrent(i)}
+                            className={`relative flex-shrink-0 w-24 h-16 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                              i === current ? "border-[#A78BFA] scale-105 shadow-lg shadow-[#A78BFA]/20" : "border-transparent opacity-50 hover:opacity-100"
+                            }`}
+                          >
+                            <Image
+                              src={src}
+                              alt={`thumb ${i + 1}`}
+                              fill
+                              className="object-cover"
+                              sizes="96px"
+                            />
+                          </button>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           </div>
         </motion.div>
@@ -755,7 +759,7 @@ export default function Home() {
     bullets: isEsLang ? p.bullets.es : p.bullets.en,
     stack: p.stack,
     github: p.github,
-    images: p.images.map((img) => `${basePath}${img}`),
+    images: p.images?.map((img) => `${basePath}${img}`) || [],
   }));
 
   const education = portfolioData.education.map((e) => ({
@@ -1050,10 +1054,12 @@ export default function Home() {
           <div className="flex flex-col gap-20">
             {projects.map((p) => (
               <div key={p.id} className="group relative overflow-hidden">
-                {/* CV-style Corner Glow */}
-                <div className="absolute -top-32 -right-32 w-80 h-80 bg-[#A78BFA]/5 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                {/* CV-style Corner Glow (Only if has images to balance the layout) */}
+                {p.images && p.images.length > 0 && (
+                  <div className="absolute -top-32 -right-32 w-80 h-80 bg-[#A78BFA]/5 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                )}
                 
-                <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-start">
+                <div className={`relative z-10 grid grid-cols-1 ${p.images && p.images.length > 0 ? "md:grid-cols-2 gap-8 lg:gap-12" : "max-w-4xl"} items-start`}>
                   <div className="relative pl-6 border-l-2 border-zinc-200 dark:border-zinc-800 group-hover:border-[#A78BFA] transition-colors duration-300">
                     <p className="text-[#A78BFA] text-xs font-bold tracking-widest mb-1">
                       {p.period}

@@ -183,7 +183,7 @@
         "en": "Final Graduation Project — UTN FRRe"
       },
       "role": {
-        "es": "Full-Stack Developer",
+        "es": "Desarrollador Full-Stack",
         "en": "Full-Stack Developer"
       },
       "summary": {
@@ -193,6 +193,152 @@
       "description": {
         "es": "Elepad es una solución tecnológica diseñada para mejorar la calidad de vida de adultos mayores mediante IA Generativa (Google Gemini), permitiendo compartir recuerdos, gestionar agendas y entrenar la mente. Originada como propuesta ganadora del Rally Latinoamericano de Innovación 2024 (3er puesto Impacto Social), evoluciona a un sistema complejo monorepo con despliegue continuo. Disponible en Google Play Store.",
         "en": "Elepad is a technological solution designed to improve seniors' quality of life using Generative AI (Google Gemini) for sharing memories, managing schedules, and mind training. Originated as the winning proposal of the 2024 Latin American Innovation Rally (3rd place Social Impact), it evolved into a complex monorepo system with continuous deployment. Available on Google Play Store."
+      },
+      "bullets": {
+        "es": [
+          "Integración de Google Gemini AI para la síntesis de recuerdos y creación automatizada de álbumes narrativos.",
+          "Desarrollo móvil con React Native + Expo y TypeScript para iOS/Android/Web.",
+          "Arquitectura Backend Serverless con Cloudflare Workers, Hono y OpenAPI.",
+          "Supabase para PostgreSQL, Auth (Google OAuth), Storage y Realtime.",
+          "Estructura de Monorepo con Turborepo, optimizando tiempos de build y desarrollo.",
+          "CI/CD automatizado con GitHub Actions hacia Cloudflare y Expo EAS.",
+          "Gestión de equipo bajo metodología Scrum con 7 releases documentadas."
+        ],
+        "en": [
+          "Google Gemini AI integration for memory synthesis and automated narrative album creation.",
+          "Mobile development with React Native + Expo and TypeScript for iOS/Android/Web.",
+          "Serverless Backend Architecture with Cloudflare Workers, Hono, and OpenAPI.",
+          "Supabase for PostgreSQL, Auth (Google OAuth), Storage, and Realtime.",
+          "Monorepo structure with Turborepo, optimizing build and development times.",
+          "Automated CI/CD with GitHub Actions to Cloudflare and Expo EAS.",
+          "Team management under Scrum methodology with 7 documented releases."
+        ]
+      },
+      "stack": ["Google Gemini AI", "React Native", "Expo", "TypeScript", "Cloudflare Workers", "Hono", "Supabase", "PostgreSQL", "Turborepo", "GitHub Actions", "Zod", "OpenAPI"],
+      "github": "https://github.com/elepad-org/Elepad",
+      "googleplay": "https://play.google.com/store/apps/details?id=com.proyectoelepad.elepad",
+      "images": [
+        "/proyectos/elepad/image95.jpg",
+        "/proyectos/elepad/image101.jpg",
+        "/proyectos/elepad/image117.jpg",
+        "/proyectos/elepad/image127.jpg",
+        "/proyectos/elepad/image141.jpg",
+        "/proyectos/elepad/image161.jpg"
+      ]
+    },
+    {
+      "id": "devops-k8s",
+      "period": {
+        "es": "OCTUBRE 2025 — NOVIEMBRE 2025",
+        "en": "OCTOBER 2025 — NOVEMBER 2025"
+      },
+      "title": {
+        "es": "DevOps — Kubernetes, Alta Disponibilidad y Observabilidad",
+        "en": "DevOps — Kubernetes, High Availability & Observability"
+      },
+      "subtitle": {
+        "es": "UTN FRRe — Arquitecturas de Microservicios",
+        "en": "UTN FRRe — Microservices Architecture"
+      },
+      "role": {
+        "es": "DevOps",
+        "en": "DevOps"
+      },
+      "summary": {
+        "es": "Extensión del proyecto anterior incorporando orquestación con Kubernetes, alta disponibilidad y observabilidad completa.",
+        "en": "Extension of the previous project incorporating Kubernetes orchestration, high availability, and full observability."
+      },
+      "description": {
+        "es": "Extensión del proyecto anterior incorporando orquestación con Kubernetes, alta disponibilidad y observabilidad completa.",
+        "en": "Extension of the previous project incorporating Kubernetes orchestration, high availability, and full observability."
+      },
+      "bullets": {
+        "es": [
+          "Despliegue de Cluster K3d con 1 nodo control-plane y 2 workers para entornos locales.",
+          "Configuración de alta disponibilidad con podAntiAffinity y Health Checks automáticos (cada 5-10s).",
+          "Stack de observabilidad completa: OpenTelemetry (trazas), Prometheus (métricas) y Grafana (dashboards).",
+          "Monitoreo de métricas críticas: RPS, latencia p95/p50, consumo de CPU/Memoria y reinicios de pods.",
+          "Simulación de fallos y saturación para validar la resiliencia de la arquitectura microservicios."
+        ],
+        "en": [
+          "K3d Cluster deployment with 1 control-plane node and 2 workers for local environments.",
+          "High availability configuration with podAntiAffinity and automatic Health Checks (5-10s).",
+          "Full observability stack: OpenTelemetry (traces), Prometheus (metrics), and Grafana (dashboards).",
+          "Critical metrics monitoring: RPS, p95/p50 latency, CPU/Memory consumption, and pod restarts.",
+          "Fault and saturation simulation to validate the resilience of the microservices architecture."
+        ]
+      },
+      "stack": ["Kubernetes", "K3d", "Prometheus", "Grafana", "OpenTelemetry", "Docker"]
+    },
+    {
+      "id": "devops-azure",
+      "period": {
+        "es": "AGOSTO 2025 — SEPTIEMBRE 2025",
+        "en": "AUGUST 2025 — SEPTEMBER 2025"
+      },
+      "title": {
+        "es": "DevOps — Contenerización y CI/CD en Azure",
+        "en": "DevOps — Containerization & CI/CD in Azure"
+      },
+      "subtitle": {
+        "es": "UTN FRRe — Cloud Computing",
+        "en": "UTN FRRe — Cloud Computing"
+      },
+      "role": {
+        "es": "DevOps",
+        "en": "DevOps"
+      },
+      "summary": {
+        "es": "Aplicación web con API Flask, frontend Next.js y Redis, completamente contenerizada y desplegada en Azure.",
+        "en": "Web application with Flask API, Next.js frontend, and Redis, fully containerized and deployed on Azure."
+      },
+      "description": {
+        "es": "Aplicación web con API Flask, frontend Next.js y Redis, completamente contenerizada y desplegada en Azure.",
+        "en": "Web application with Flask API, Next.js frontend, and Redis, fully containerized and deployed on Azure."
+      },
+      "bullets": {
+        "es": [
+          "Contenerización integral de servicios (Frontend, Backend, Cache) mediante Docker y Docker Compose.",
+          "Implementación de pipeline CI/CD con GitHub Actions: build, push y deploy automatizado.",
+          "Gestión de artefactos en Azure Container Registry (ACR) y despliegue en Azure Container Instances (ACI).",
+          "Estrategia de desacoplamiento de servicios utilizando Redis como capa de caché.",
+          "Automatización del flujo de trabajo desde el commit hasta el entorno de producción en la nube."
+        ],
+        "en": [
+          "Integral containerization of services (Frontend, Backend, Cache) using Docker and Docker Compose.",
+          "CI/CD pipeline implementation with GitHub Actions: build, push, and automated deploy.",
+          "Artifact management in Azure Container Registry (ACR) and deployment on Azure Container Instances (ACI).",
+          "Service decoupling strategy using Redis as a cache layer.",
+          "Workflow automation from commit to production cloud environment."
+        ]
+      },
+      "stack": ["Azure", "Docker", "GitHub Actions", "Next.js", "Flask", "Redis", "CI/CD"]
+    },
+    {
+      "id": "elepad",
+      "period": {
+        "es": "MARZO 2025 — MARZO 2026",
+        "en": "MARCH 2025 — MARCH 2026"
+      },
+      "title": {
+        "es": "Elepad — Bienestar Cognitivo con IA",
+        "en": "Elepad — Cognitive Wellbeing with AI"
+      },
+      "subtitle": {
+        "es": "Proyecto Final de Grado — UTN FRRe",
+        "en": "Final Graduation Project — UTN FRRe"
+      },
+      "role": {
+        "es": "Desarrollador Full-Stack",
+        "en": "Full-Stack Developer"
+      },
+      "summary": {
+        "es": "Aplicación móvil multiplataforma que integra Google Gemini AI para transformar recuerdos en álbumes digitales narrativos y bienestar cognitivo.",
+        "en": "Cross-platform mobile application integrating Google Gemini AI to transform memories into narrative digital albums and cognitive wellbeing."
+      },
+      "description": {
+        "es": "Elepad es una solución tecnológica diseñada para mejorar la calidad de vida de adultos mayores mediante IA Generativa (Google Gemini), permitiendo compartir recuerdos, gestionar agendas y entrenar la mente. Originada como propuesta ganadora del Rally Latinoamericano de Innovación 2024 (3er puesto Impacto Social), evoluciona a un sistema complejo monorepo con despliegue continuo. Disponible en Google Play Store.",
+        "en": "Elepad is a technological solution designed to improve seniors' quality of life using Generative AI (Google Gemini) for sharing memories, managing schedules, and mind training. Originated as the winning proposal of the 2024 Latin American innovation Rally (3rd place Social Impact), it evolved into a complex monorepo system with continuous deployment. Available on Google Play Store."
       },
       "bullets": {
         "es": [
@@ -241,7 +387,7 @@
         "en": "University Programming Technician — UTN"
       },
       "role": {
-        "es": "Desarrollador Full-Stack & DevOps",
+        "es": "Desarrollador Full-Stack y DevOps",
         "en": "Full-Stack Developer & DevOps"
       },
       "summary": {
@@ -351,21 +497,21 @@
         "tags": ["React", "React Native", "Next.js", "TypeScript", "JavaScript", "Vite", "HTML", "CSS", "Chakra UI", "React Query"]
       },
       {
-        "label": { "es": "Backend & Datos", "en": "Backend & Data" },
+        "label": { "es": "Backend y Datos", "en": "Backend & Data" },
         "color": "#34D399",
         "borderHover": "hover:border-emerald-400/50",
         "textHover": "hover:text-emerald-500",
         "tags": ["Python", "Django", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Prisma ORM", "JWT", "Bcrypt"]
       },
       {
-        "label": { "es": "DevOps & Cloud", "en": "DevOps & Cloud" },
+        "label": { "es": "DevOps y Cloud", "en": "DevOps & Cloud" },
         "color": "#38BDF8",
         "borderHover": "hover:border-sky-400/50",
         "textHover": "hover:text-sky-400",
         "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "Grafana", "Prometheus"]
       },
       {
-        "label": { "es": "Metodologías & Herramientas", "en": "Methodologies & Tools" },
+        "label": { "es": "Metodologías y Herramientas", "en": "Methodologies & Tools" },
         "color": "#E879F9",
         "borderHover": "hover:border-fuchsia-400/50",
         "textHover": "hover:text-fuchsia-400",
@@ -389,7 +535,7 @@
     {
       "id": "aws-cert",
       "year": "2026",
-      "title": { "es": "Certificación AWS & IA — Data Science Research Perú", "en": "AWS & AI Certification — Data Science Research Peru" },
+      "title": { "es": "Certificación AWS y IA — Data Science Research Perú", "en": "AWS & AI Certification — Data Science Research Peru" },
       "description": { "es": "Participación en el grupo de estudio avanzado sobre AWS, Fundamentos de IA, Machine Learning y Amazon Q.", "en": "Participation in the advanced study group on AWS, AI Fundamentals, Machine Learning and Amazon Q." },
       "file": "/Certificaciones/AWS_DataScience.jpg"
     },
