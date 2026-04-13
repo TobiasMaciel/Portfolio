@@ -87,7 +87,9 @@ export default function ContactGlow() {
     window.addEventListener("mousemove", handleMouseMove);
 
     const render = (time: number) => {
-      const dt = (time - lastTime) / 16.66;
+      let delta = time - lastTime;
+      if (delta > 200) delta = 16.66; // Reset if tab was inactive to prevent "physics explosion"
+      const dt = delta / 16.66;
       lastTime = time;
 
       const mx = mouse.current.x;
@@ -170,39 +172,42 @@ export default function ContactGlow() {
       {/* Orb 1: Orange/Amber */}
       <div
         ref={orb1Ref}
-        className="absolute top-0 left-0 rounded-full blur-[80px] transition-opacity duration-1000"
+        className="absolute top-0 left-0 rounded-full transition-opacity duration-1000"
         style={{
           width: 450,
           height: 450,
           background: isDark
             ? "radial-gradient(circle, rgba(245,158,11,0.2) 0%, rgba(245,158,11,0) 70%)"
             : "radial-gradient(circle, rgba(245,158,11,0.6) 0%, rgba(245,158,11,0) 70%)",
+          filter: "blur(40px)",
           willChange: "transform",
         }}
       />
       {/* Orb 2: Teal/Emerald */}
       <div
         ref={orb2Ref}
-        className="absolute top-0 left-0 rounded-full blur-[80px] transition-opacity duration-1000"
+        className="absolute top-0 left-0 rounded-full transition-opacity duration-1000"
         style={{
           width: 500,
           height: 500,
           background: isDark
             ? "radial-gradient(circle, rgba(20,184,166,0.18) 0%, rgba(20,184,166,0) 70%)"
             : "radial-gradient(circle, rgba(20,184,166,0.55) 0%, rgba(20,184,166,0) 70%)",
+          filter: "blur(40px)",
           willChange: "transform",
         }}
       />
       {/* Orb 3: Purple/Violet */}
       <div
         ref={orb3Ref}
-        className="absolute top-0 left-0 rounded-full blur-[80px] transition-opacity duration-1000"
+        className="absolute top-0 left-0 rounded-full transition-opacity duration-1000"
         style={{
           width: 400,
           height: 400,
           background: isDark
             ? "radial-gradient(circle, rgba(139,92,246,0.2) 0%, rgba(139,92,246,0) 70%)"
             : "radial-gradient(circle, rgba(139,92,246,0.6) 0%, rgba(139,92,246,0) 70%)",
+          filter: "blur(40px)",
           willChange: "transform",
         }}
       />
