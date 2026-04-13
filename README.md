@@ -1,4 +1,4 @@
-# 🚀 Portfolio Profesional de Frontend Engineer
+# 🚀 Portfolio Profesional
 
 ¡Bienvenido a mi portfolio interactivo! Este repositorio contiene el código fuente de mi sitio web personal, diseñado con un enfoque absoluto en **alto rendimiento**, **animaciones fluidas premium** y **arquitectura de código limpia**. 
 
@@ -55,13 +55,3 @@ npm run dev
 
 Abre [http://localhost:3000](http://localhost:3000) para ver la aplicación corriendo desde tu navegador.
 
-## 🤝 Destacado de Mejores Prácticas
-- Linting configurado rigurosamente con `eslint` & `Prettier`.
-- Separación de responsabilidades de forma modular.
-- Evasión de tipados `any`; implementación de tipado estricto.
-- Optimización nativa de archivos provista por `next/image` en Next.js.
-- Comentarios estratégicos tipo `JSDoc` implementados en animaciones críticas.
-
----
-
-*“El rendimiento no es un detalle posterior — es la esencia del diseño.”*
