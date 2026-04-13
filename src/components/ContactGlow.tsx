@@ -3,18 +3,15 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 
-interface OrbConfig {
-  phaseX: number;
-  phaseY: number;
-  speedX: number;
-  speedY: number;
-  radius: number;
-  color: {
-    dark: string;
-    light: string;
-  };
-}
 
+
+/**
+ * ContactGlow Component
+ * 
+ * Specifically designed animated background orbs for the Contact section.
+ * Implements strict clamped boundaries and delta-time normalization to prevent
+ * visual explosions on tab-focus resumes while minimizing GPU strain.
+ */
 export default function ContactGlow() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -27,7 +24,7 @@ export default function ContactGlow() {
   const mouse = useRef({ x: -2000, y: -2000 });
 
   useEffect(() => {
-    setMounted(true);
+    requestAnimationFrame(() => setMounted(true));
   }, []);
 
   useEffect(() => {

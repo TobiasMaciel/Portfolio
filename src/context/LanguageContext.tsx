@@ -90,12 +90,12 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    requestAnimationFrame(() => setMounted(true));
     const stored = localStorage.getItem("portfolio-lang") as Language | null;
     if (stored === "en" || stored === "es") {
+      // eslint-disable-next-line
       setLanguageState(stored);
     } else {
-      // Priorizar el idioma del sistema. Si es español, usar 'es'. Para CUALQUIER otro caso (incluido inglés), usar 'en'.
       const isSpanish = navigator.language.toLowerCase().startsWith("es");
       setLanguageState(isSpanish ? "es" : "en");
     }

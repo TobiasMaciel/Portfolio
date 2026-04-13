@@ -16,6 +16,13 @@ type LineData = {
   isQuote: boolean;
 };
 
+/**
+ * LayoutAnimation Component
+ * 
+ * Handles rendering the interactive, physics-based text animation on the hero section.
+ * Calculates text reflow around a simulated "repelling" mouse cursor to create a dynamic
+ * interactive typography experience while maintaining 60FPS using requestAnimationFrame.
+ */
 export default function LayoutAnimation() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { t } = useLanguage();
@@ -279,7 +286,7 @@ export default function LayoutAnimation() {
           }
 
           const isHighlight = HIGHLIGHTS.some((h) => line.text.includes(h));
-          let htmlText: any = line.text;
+          let htmlText: React.ReactNode = line.text;
 
           if (isHighlight) {
             const regex = new RegExp(`(${HIGHLIGHTS.join("|")})`);

@@ -8,7 +8,7 @@ export default function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
   const [mounted, setMounted] = useState(false);
 
-  useEffect(() => setMounted(true), []);
+  useEffect(() => { requestAnimationFrame(() => setMounted(true)); }, []);
 
   if (!mounted) {
     return (

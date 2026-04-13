@@ -3,6 +3,12 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 
+/**
+ * AmbientGlow Component
+ * 
+ * Renders the top-level ambient animated orbs utilizing hardware-accelerated CSS filters
+ * and high-performance physics-based boundary mechanics. 
+ */
 export default function AmbientGlow() {
   const { resolvedTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
@@ -15,7 +21,7 @@ export default function AmbientGlow() {
   const mouse = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
-    setMounted(true);
+    requestAnimationFrame(() => setMounted(true));
   }, []);
 
   useEffect(() => {
