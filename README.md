@@ -1,66 +1,67 @@
-# 🚀 Professional Frontend Engineer Portfolio
+# 🚀 Portfolio Profesional de Frontend Engineer
 
-Welcome to my interactive portfolio! This repository contains the source code for my personal portfolio website, designed with a focus on **high performance**, **premium fluid animations**, and **clean architectural practices**. 
+¡Bienvenido a mi portfolio interactivo! Este repositorio contiene el código fuente de mi sitio web personal, diseñado con un enfoque absoluto en **alto rendimiento**, **animaciones fluidas premium** y **arquitectura de código limpia**. 
 
-Built leveraging modern technologies to demonstrate advanced frontend engineering capabilities.
+Construido utilizando tecnologías modernas para demostrar capacidades avanzadas en el desarrollo Frontend.
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🛠️ Stack Tecnológico y Arquitectura
 
 - **Framework:** [Next.js 16](https://nextjs.org/) (App Router & Turbopack)
-- **Language:** [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
-- **Styling:** [Tailwind CSS v4](https://tailwindcss.com/)
-- **Animations:** [Framer Motion](https://www.framer.com/motion/)
-- **Performance:** Hardware-accelerated CSS Filters, Layout Engine Offloading, Intersect Observer Patterns.
-- **State Management:** React Hooks & Context API
+- **Lenguaje:** [TypeScript](https://www.typescriptlang.org/) (Strict Mode)
+- **Estilos:** [Tailwind CSS v4](https://tailwindcss.com/)
+- **Animaciones:** [Framer Motion](https://www.framer.com/motion/)
+- **Rendimiento:** Filtros CSS acelerados por Hardware, Descarga del motor de diseño, Patrones de Intersect Observer.
+- **Manejo de Estado:** React Hooks & Context API
 
-## ✨ Key Features
+## ✨ Características Principales
 
-- 🎭 **Fully Interactive "Physics-Based" Micro-animations:** Ambient background elements react dynamically to your mouse utilizing custom layout animations with math-driven physics calculations.
-- 🎨 **Theme & Internationalization:** Instant Dark/Light mode toggles alongside English/Spanish support, persisting seamlessly without hydration mismatch.
-- 🧩 **Modular Architecture:** Extracted atomic UI components (`ProjectModal`, `DocumentViewer`, `Lightbox`, `MiniCarousel`) for maximum maintainability.
-- 🚀 **100% Optimized Rendering:** Complex graphical elements like the glowing orbs use `requestAnimationFrame` hooks and scaled CSS blurs for rock-solid 60FPS on any mobile or desktop hardware.
-- 📱 **Mobile-First Responsiveness:** Flawless layout adapting precisely from ultra-wide screens to mobile screens.
-- ♿ **Accessibility:** Semantic HTML boundaries, correct ARIA labels, and keyboard navigation support out of the box.
+- 🎭 **Micro-animaciones Interactivas Basadas en Físicas:** Los elementos ambientales de fondo reaccionan dinámicamente a tu mouse utilizando animaciones de diseño personalizadas con cálculos físicos matemáticos.
+- 🎨 **Tema e Internacionalización:** Cambios instantáneos entre modo Oscuro/Claro junto con soporte para Inglés/Español, persistiendo de manera fluida sin errores de hidratación (hydration mismatch).
+- 🧩 **Arquitectura Modular:** Componentes UI atómicos extraídos (`ProjectModal`, `DocumentViewer`, `Lightbox`, `MiniCarousel`) para una mantenibilidad máxima y código limpio.
+- 🚀 **Renderizado 100% Optimizado:** Los elementos gráficos complejos como las esferas de luz utilizan hooks de `requestAnimationFrame` y desenfoques CSS escalados para lograr 60 FPS estables en cualquier dispositivo móvil o de escritorio.
+- 📱 **Mobile-First Responsive:** Una disposición impecable que se adapta con precisión desde pantallas ultra anchas hasta pantallas de móviles.
+- ♿ **Accesibilidad:** Límites semánticos HTML, etiquetas ARIA correctas, y soporte para navegación con teclado desde el inicio.
 
-## 📂 Project Structure
+## 📂 Estructura del Proyecto
 
-```
+```text
 .
 ├── src/
 │   ├── app/                 # Next.js App Router (Layouts & Pages)
-│   ├── components/          # Sharable UI Components (Modals, Icons, Glows)
-│   ├── context/             # Global State (LanguageContext)
-│   ├── data/                # Content models (portfolio data & translations)
-│   └── types/               # TypeScript Definitions
-├── public/                  # Static assets and optimizations
+│   ├── components/          # Componentes UI Compartidos (Modales, Iconos, Animaciones)
+│   ├── context/             # Estado Global (LanguageContext)
+│   ├── data/                # Modelos de contenido (datos del portfolio & traducciones)
+│   └── types/               # Definiciones de Tipos en TypeScript
+├── public/                  # Archivos estáticos y de recursos visuales
 ├── package.json
 └── README.md
 ```
 
-## 🚀 Getting Started
+## 🚀 Empezando
 
-To run this project locally, simply clone the repository and install the dependencies:
+Para ejecutar de manera local este proyecto, simplemente clona el repositorio e instala todas sus dependencias:
 
 ```bash
-# Install packages
+# Instalar paquetes
 npm install
-# or yarn install
+# o yarn install
 
-# Start Local Dev Server
+# Empezar Servidor Dev Local
 npm run dev
-# or yarn dev
+# o yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to view the application in your browser.
+Abre [http://localhost:3000](http://localhost:3000) para ver la aplicación corriendo desde tu navegador.
 
-## 🤝 Best Practices Highlight
-- Linting configured aggressively with `eslint` & `Prettier`.
-- Modular separation of concerns.
-- Avoided `any` typings; strict typings implemented.
-- Optimized bundle sizes natively managed by Next.js `next/image`.
+## 🤝 Destacado de Mejores Prácticas
+- Linting configurado rigurosamente con `eslint` & `Prettier`.
+- Separación de responsabilidades de forma modular.
+- Evasión de tipados `any`; implementación de tipado estricto.
+- Optimización nativa de archivos provista por `next/image` en Next.js.
+- Comentarios estratégicos tipo `JSDoc` implementados en animaciones críticas.
 
 ---
 
-*“Performance is not an afterthought — it is the essence of design.”*
+*“El rendimiento no es un detalle posterior — es la esencia del diseño.”*
