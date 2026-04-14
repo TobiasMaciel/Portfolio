@@ -10,7 +10,7 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_BASE_PATH: process.env.GITHUB_ACTIONS ? "/Portfolio" : "",
   },
-  allowedDevOrigins: ['192.168.1.5', 'localhost']
+  allowedDevOrigins: ['192.168.1.5', '192.168.1.15', 'localhost']
 };
 
 export default nextConfig;

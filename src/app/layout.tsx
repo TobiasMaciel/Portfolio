@@ -14,8 +14,31 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://tobiasmaciel.github.io"),
   title: "Tobías Alejandro Maciel Meister | Portfolio",
   description: "Desarrollador Full-Stack & DevOps",
+  openGraph: {
+    title: "Tobías Alejandro Maciel Meister | Portfolio",
+    description: "Desarrollador Full-Stack & DevOps",
+    url: "https://tobiasmaciel.github.io/Portfolio",
+    siteName: "Tobías Maciel Portfolio",
+    images: [
+      {
+        url: "/Portfolio/SocialPreview.png",
+        width: 1200,
+        height: 630,
+        alt: "Tobías Alejandro Maciel Meister | Portfolio Preview",
+      },
+    ],
+    locale: "es_AR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Tobías Alejandro Maciel Meister | Portfolio",
+    description: "Desarrollador Full-Stack & DevOps",
+    images: ["/Portfolio/SocialPreview.png"],
+  },
 };
 
 export default function RootLayout({
