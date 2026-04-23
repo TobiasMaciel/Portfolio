@@ -271,7 +271,7 @@
           "Real-world scenario testing and guardrails to ensure consistent agent responses."
         ]
       },
-      "stack": ["LLM", "MCP Protocol", "Cloudflare D1", "Cloudflare Workers", "Hono", "TypeScript", "Chatwoot", "WhatsApp Integration", "GitHub Actions"],
+      "stack": ["LLM", "MCP Protocol", "Cloudflare D1", "Cloudflare Workers", "Hono", "TypeScript", "Chatwoot", "WhatsApp Integration", "GitHub Actions", "GPT-5-Chat", "Cloudflare"],
       "images": [
         "/proyectos/agenteVentas/1.jpeg",
         "/proyectos/agenteVentas/2.jpeg",
@@ -547,7 +547,7 @@
         "color": "#34D399",
         "borderHover": "hover:border-emerald-400/50",
         "textHover": "hover:text-emerald-500",
-        "tags": ["Python", "Django", "Flask", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Redis", "Prisma ORM", "JWT", "Bcrypt"]
+        "tags": ["Python", "Django", "Flask", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Redis", "Prisma ORM", "JWT"]
       },
       {
         "label": { "es": "DevOps y Cloud", "en": "DevOps & Cloud" },

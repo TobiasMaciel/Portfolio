@@ -59,7 +59,7 @@ const NavLink = ({ href, label }: { href: string; label: string }) => (
   </a>
 );
 
-const Tooltip = ({ children, content }: { children: React.ReactNode; content: string }) => {
+const Tooltip = ({ children, content }: { children: React.ReactNode; content: React.ReactNode }) => {
   const [show, setShow] = useState(false);
   return (
     <div className="relative flex flex-col items-center group/tt" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
@@ -71,7 +71,7 @@ const Tooltip = ({ children, content }: { children: React.ReactNode; content: st
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 5, scale: 0.95 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute bottom-full mb-3 px-3 py-1.5 bg-zinc-900/90 dark:bg-white/90 backdrop-blur-md text-white dark:text-zinc-900 text-[10px] font-bold rounded-lg border border-white/10 dark:border-black/10 whitespace-nowrap z-[100] pointer-events-none shadow-xl"
+            className="absolute bottom-full mb-3 px-3 py-2 bg-zinc-900 dark:bg-zinc-100 backdrop-blur-md text-white dark:text-zinc-900 text-[10px] font-bold rounded-xl border border-white/10 dark:border-black/10 z-[100] shadow-2xl min-w-[140px] max-w-[280px] text-center leading-relaxed"
           >
             {content}
             <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-2 h-2 border-l border-t border-inherit bg-inherit rotate-[225deg]" />
@@ -418,7 +418,7 @@ export default function Home() {
           </h2>
           <div className="flex flex-col gap-20">
             {projects.map((p) => (
-              <div key={p.id} className="group relative overflow-hidden">
+              <div key={p.id} id={`project-${p.id}`} className="group relative overflow-hidden scroll-mt-24">
                 {/* CV-style Corner Glow (Only if has images to balance the layout) */}
                 {p.images && p.images.length > 0 && (
                   <div className="absolute -top-32 -right-32 w-80 h-80 bg-[#A78BFA]/5 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -571,7 +571,7 @@ export default function Home() {
             {portfolioData.skills.categories.map((cat) => (
               <div
                 key={cat.label.en}
-                className="group p-6 bg-white/40 dark:bg-zinc-900/20 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 relative overflow-hidden"
+                className="group p-6 bg-white/40 dark:bg-zinc-900/20 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 relative"
               >
                 {/* CV-style Corner Glow */}
                 <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#A78BFA]/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -590,21 +590,51 @@ export default function Home() {
                     </h3>
                   </div>
                   <div className="flex flex-wrap gap-2">
-                    {cat.tags.map((s) => (
-                      <span
-                        key={s}
-                        className={`px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs font-medium rounded-full border border-zinc-200 dark:border-zinc-800 ${cat.borderHover} ${cat.textHover} transition-colors cursor-default`}
-                      >
-                        {s}
-                      </span>
-                    ))}
+                    {cat.tags.map((s) => {
+                      const relatedProjects = projects.filter(p => p.stack.includes(s));
+                      
+                      const tooltipContent = relatedProjects.length > 0 ? (
+                        <div className="flex flex-col gap-1.5 py-0.5">
+                          {relatedProjects.map((p, idx) => (
+                            <button
+                              key={p.id}
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                const el = document.getElementById(`project-${p.id}`);
+                                if (el) {
+                                  el.scrollIntoView({ behavior: 'smooth' });
+                                  // Optional: open detail directly
+                                  // setActiveProject(p);
+                                }
+                              }}
+                              className="text-white dark:text-zinc-900 hover:text-[#A78BFA] dark:hover:text-[#A78BFA] transition-colors text-left flex items-center gap-2 group/link"
+                            >
+                              <span className="w-1 h-1 rounded-full bg-[#A78BFA]" />
+                              <span className="border-b border-transparent group-hover/link:border-[#A78BFA]">{p.title}</span>
+                            </button>
+                          ))}
+                        </div>
+                      ) : (
+                        <span className="opacity-60">{isEsLang ? "Uso general / Transversal" : "General / Cross-functional"}</span>
+                      );
+                      
+                      return (
+                        <Tooltip key={s} content={tooltipContent}>
+                          <span
+                            className={`px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs font-medium rounded-full border border-zinc-200 dark:border-zinc-800 ${cat.borderHover} ${cat.textHover} transition-colors cursor-default`}
+                          >
+                            {s}
+                          </span>
+                        </Tooltip>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
             ))}
 
             {/* Languages Card */}
-            <div className="group p-6 bg-white/40 dark:bg-zinc-900/20 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 md:col-span-2 relative overflow-hidden">
+            <div className="group p-6 bg-white/40 dark:bg-zinc-900/20 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 md:col-span-2 relative">
                {/* CV-style Corner Glow */}
                <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#A78BFA]/10 blur-[90px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                
