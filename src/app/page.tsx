@@ -575,8 +575,10 @@ export default function Home() {
                 key={cat.label.en}
                 className="group p-6 bg-white/40 dark:bg-zinc-900/20 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 relative"
               >
-                {/* CV-style Corner Glow */}
-                <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#A78BFA]/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                {/* Contained Corner Glow */}
+                <div className="absolute inset-0 overflow-hidden rounded-[2rem] pointer-events-none">
+                  <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#A78BFA]/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                </div>
                 
                 <div className="relative z-10">
                   <div className="flex items-center gap-3 mb-5">
@@ -635,12 +637,14 @@ export default function Home() {
               </div>
             ))}
 
-            {/* Languages Card */}
-            <div className="group p-6 bg-white/40 dark:bg-zinc-900/20 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 md:col-span-2 relative">
-               {/* CV-style Corner Glow */}
-               <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#A78BFA]/10 blur-[90px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-               
-               <div className="relative z-10">
+             {/* Languages Card */}
+             <div className="group p-6 bg-white/40 dark:bg-zinc-900/20 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 md:col-span-2 relative">
+                {/* Contained Corner Glow */}
+                <div className="absolute inset-0 overflow-hidden rounded-[2rem] pointer-events-none">
+                  <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#A78BFA]/10 blur-[90px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                </div>
+                
+                <div className="relative z-10">
                 <div className="flex items-center gap-3 mb-5">
                   <div
                     className="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"
