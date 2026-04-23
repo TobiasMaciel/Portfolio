@@ -600,14 +600,14 @@
         "color": "#34D399",
         "borderHover": "hover:border-emerald-400/50",
         "textHover": "hover:text-emerald-500",
-        "tags": ["Python", "Django", "Flask", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Redis", "Prisma ORM", "JWT"]
+        "tags": ["Python", "Django", "Flask", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Redis", "Prisma ORM", "JWT", "NumPy", "Pandas"]
       },
       {
         "label": { "es": "DevOps y Cloud", "en": "DevOps & Cloud" },
         "color": "#38BDF8",
         "borderHover": "hover:border-sky-400/50",
         "textHover": "hover:text-sky-400",
-        "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "Cloudflare", "OpenTelemetry", "Grafana", "Prometheus", "SonarCloud"]
+        "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "Cloudflare", "OpenTelemetry", "Grafana", "Prometheus", "SonarCloud", "MLOps"]
       },
       {
         "label": { "es": "Metodologías y Herramientas", "en": "Methodologies & Tools" },
