@@ -451,21 +451,21 @@
       },
       "bullets": {
         "es": [
-          "Implementación de un **pipeline de CI/CD completo** utilizando GitHub Actions para automatizar el ciclo de vida del software.",
-          "Pruebas unitarias con **Jest** y pruebas end-to-end (E2E) con **Cypress** ejecutadas post-despliegue para garantizar estabilidad.",
-          "Análisis estático e inspección de calidad con **SonarCloud (SonarQube)**, asegurando cobertura superior al 80%.",
-          "Automatización de linters para **JavaScript (ESLint)** y **HTML (HTMLHint)**, manteniendo estándares consistentes.",
-          "Despliegue automatizado a **Render** con monitoreo en tiempo real del estado del servicio mediante API.",
-          "Sistema de **notificaciones multicanal en Slack** para feedback instantáneo sobre cada etapa del pipeline.",
-          "Integración con **Jira y GitHub** para una gestión de proyectos ágil y vinculación directa de tareas."
+          "Implementación de un pipeline de CI/CD completo utilizando GitHub Actions para automatizar el ciclo de vida del software.",
+          "Pruebas unitarias con Jest y pruebas end-to-end (E2E) con Cypress ejecutadas post-despliegue para garantizar estabilidad.",
+          "Análisis estático e inspección de calidad con SonarCloud (SonarQube), asegurando cobertura superior al 80%.",
+          "Automatización de linters para JavaScript (ESLint) y HTML (HTMLHint), manteniendo estándares consistentes.",
+          "Despliegue automatizado a Render con monitoreo en tiempo real del estado del servicio mediante API.",
+          "Sistema de notificaciones multicanal en Slack para feedback instantáneo sobre cada etapa del pipeline.",
+          "Integración con Jira y GitHub para una gestión de proyectos ágil y vinculación directa de tareas."
         ],
         "en": [
-          "Implemented a **comprehensive CI/CD pipeline** using GitHub Actions to automate the entire software development lifecycle.",
-          "Developed unit tests with **Jest** and end-to-end (E2E) tests with **Cypress** triggered post-deployment for stability.",
-          "Integrated **SonarCloud (SonarQube)** for static code analysis, maintaining over 80% code coverage.",
-          "Automated code linting for **JavaScript (ESLint)** and **HTML (HTMLHint)** to maintain high-quality standards.",
-          "Orchestrated automated deployment to **Render** with real-time service status monitoring via API.",
-          "Configured **multi-channel Slack notifications**, providing instant feedback to the team on pipeline stages.",
+          "Implemented a comprehensive CI/CD pipeline using GitHub Actions to automate the entire software development lifecycle.",
+          "Developed unit tests with Jest and end-to-end (E2E) tests with Cypress triggered post-deployment for stability.",
+          "Integrated SonarCloud (SonarQube) for static code analysis, maintaining over 80% code coverage.",
+          "Automated code linting for JavaScript (ESLint) and HTML (HTMLHint) to maintain high-quality standards.",
+          "Orchestrated automated deployment to Render with real-time service status monitoring via API.",
+          "Configured multi-channel Slack notifications, providing instant feedback to the team on pipeline stages.",
           "Integrated Jira with GitHub for streamlined project management and seamless task tracking."
         ]
       },
