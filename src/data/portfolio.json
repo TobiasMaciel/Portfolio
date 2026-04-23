@@ -540,7 +540,7 @@
         "color": "#A78BFA",
         "borderHover": "hover:border-[#A78BFA]/50",
         "textHover": "hover:text-[#A78BFA]",
-        "tags": ["React", "React Native", "Next.js", "TypeScript", "JavaScript", "Vite", "HTML", "CSS", "Chakra UI", "React Query"]
+        "tags": ["React", "React Native", "Next.js", "TypeScript", "JavaScript", "Vite", "HTML", "CSS", "Chakra UI", "React Query", "Jest", "Cypress"]
       },
       {
         "label": { "es": "Backend y Datos", "en": "Backend & Data" },
@@ -554,14 +554,14 @@
         "color": "#38BDF8",
         "borderHover": "hover:border-sky-400/50",
         "textHover": "hover:text-sky-400",
-        "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "Cloudflare", "OpenTelemetry", "Grafana", "Prometheus"]
+        "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "Cloudflare", "OpenTelemetry", "Grafana", "Prometheus", "SonarCloud"]
       },
       {
         "label": { "es": "Metodologías y Herramientas", "en": "Methodologies & Tools" },
         "color": "#E879F9",
         "borderHover": "hover:border-fuchsia-400/50",
         "textHover": "hover:text-fuchsia-400",
-        "tags": ["Git", "GitHub", "Postman", "OpenAPI", "MCP Protocol", "Jira", "VS Code", "Slack", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
+        "tags": ["Git", "GitHub", "Postman", "OpenAPI", "MCP Protocol", "Jira", "Slack", "VS Code", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
       },
       {
         "label": { "es": "Inteligencia Artificial", "en": "Artificial Intelligence" },
