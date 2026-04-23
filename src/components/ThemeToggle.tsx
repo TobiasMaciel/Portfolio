@@ -9,23 +9,21 @@ export default function ThemeToggle() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    requestAnimationFrame(() => setMounted(true));
+    setMounted(true);
   }, []);
 
   if (!mounted) {
-    // Placeholder animado para evitar saltos en la hidratación
     return (
       <div className="fixed top-8 right-8 z-50 w-12 h-12 bg-black/5 dark:bg-white/5 rounded-full backdrop-blur-md" />
     );
   }
 
-  // isDark lee el verdadero tema que el sistema resolvió (sea "dark" nativo, o si el OS está forzando dark sobre "system")
   const isDark = resolvedTheme === "dark";
 
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="fixed top-8 right-8 z-50 flex items-center justify-center w-12 h-12 bg-white/60 dark:bg-[#0C0C0D]/80 border border-zinc-200 dark:border-zinc-800 rounded-full hover:bg-white dark:hover:bg-[#1a1a1c] transition-all backdrop-blur-xl shadow-lg hover:shadow-xl hover:-translate-y-1"
+      className="fixed top-8 right-8 z-50 flex items-center justify-center w-12 h-12 bg-white/80 dark:bg-[#0C0C0D]/90 border border-zinc-200 dark:border-zinc-800 rounded-full hover:bg-white dark:hover:bg-[#1a1a1c] transition-all backdrop-blur-md shadow-lg hover:shadow-xl hover:-translate-y-1"
       aria-label="Alternar Tema"
     >
       <AnimatePresence mode="wait">

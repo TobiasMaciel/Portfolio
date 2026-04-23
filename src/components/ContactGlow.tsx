@@ -3,14 +3,8 @@
 import { useEffect, useRef, useState } from "react";
 import { useTheme } from "next-themes";
 
-
-
 /**
- * ContactGlow Component
- * 
- * Specifically designed animated background orbs for the Contact section.
- * Implements strict clamped boundaries and delta-time normalization to prevent
- * visual explosions on tab-focus resumes while minimizing GPU strain.
+ * ContactGlow Component - Optimized for Performance
  */
 export default function ContactGlow() {
   const { resolvedTheme } = useTheme();
@@ -41,7 +35,7 @@ export default function ContactGlow() {
         ref: orb1Ref,
         phaseX: 0,
         phaseY: Math.PI / 2,
-        speedX: 0.0002, // SLOWER than hero
+        speedX: 0.0002,
         speedY: 0.00025,
         radius: 200,
         offsetX: 0,
@@ -85,7 +79,7 @@ export default function ContactGlow() {
 
     const render = (time: number) => {
       let delta = time - lastTime;
-      if (delta > 200) delta = 16.66; // Reset if tab was inactive to prevent "physics explosion"
+      if (delta > 200) delta = 16.66;
       const dt = delta / 16.66;
       lastTime = time;
 
@@ -103,7 +97,7 @@ export default function ContactGlow() {
           Math.sin(time * orb.speedX + orb.phaseX) * (currentBoundsX * 0.45);
         const targetY =
           centerY +
-          Math.cos(time * orb.speedY + orb.phaseY) * (currentBoundsY * 0.25); // LESS vertical movement
+          Math.cos(time * orb.speedY + orb.phaseY) * (currentBoundsY * 0.25);
 
         const currentX = targetX + orb.offsetX;
         const currentY = targetY + orb.offsetY;
@@ -117,11 +111,11 @@ export default function ContactGlow() {
           const force = (repelRadius - dist) / repelRadius;
           const nx = dx / dist;
           const ny = dy / dist;
-          orb.vx += nx * force * 1.5 * dt; // Gentler repulsion
+          orb.vx += nx * force * 1.5 * dt;
           orb.vy += ny * force * 1.5 * dt;
         }
 
-        orb.vx -= orb.offsetX * 0.005 * dt; // Gentler spring
+        orb.vx -= orb.offsetX * 0.005 * dt;
         orb.vy -= orb.offsetY * 0.005 * dt;
 
         orb.vx *= 0.95; 
@@ -133,8 +127,6 @@ export default function ContactGlow() {
         let finalX = targetX + orb.offsetX;
         let finalY = targetY + orb.offsetY;
 
-        // Prevent page growth by keeping orbs within reasonable bounds
-        // We allow some bleed (100px) so they don't look like they hit a hard wall
         const margin = 100;
         if (finalX < -margin) finalX = -margin;
         if (finalX > currentBoundsX + margin) finalX = currentBoundsX + margin;
@@ -165,8 +157,9 @@ export default function ContactGlow() {
     <div
       ref={containerRef}
       className="absolute inset-0 overflow-visible pointer-events-none z-0"
+      style={{ contain: "layout paint" }}
     >
-      {/* Orb 1: Orange/Amber */}
+      {/* Orb 1: Orange/Amber - Optimized without blur */}
       <div
         ref={orb1Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-1000"
@@ -174,9 +167,8 @@ export default function ContactGlow() {
           width: 450,
           height: 450,
           background: isDark
-            ? "radial-gradient(circle, rgba(245,158,11,0.2) 0%, rgba(245,158,11,0) 70%)"
-            : "radial-gradient(circle, rgba(245,158,11,0.6) 0%, rgba(245,158,11,0) 70%)",
-          filter: "blur(40px)",
+            ? "radial-gradient(circle, rgba(245,158,11,0.1) 0%, rgba(245,158,11,0.03) 30%, rgba(245,158,11,0) 70%)"
+            : "radial-gradient(circle, rgba(245,158,11,0.3) 0%, rgba(245,158,11,0.1) 30%, rgba(245,158,11,0) 70%)",
           willChange: "transform",
         }}
       />
@@ -188,9 +180,8 @@ export default function ContactGlow() {
           width: 500,
           height: 500,
           background: isDark
-            ? "radial-gradient(circle, rgba(20,184,166,0.18) 0%, rgba(20,184,166,0) 70%)"
-            : "radial-gradient(circle, rgba(20,184,166,0.55) 0%, rgba(20,184,166,0) 70%)",
-          filter: "blur(40px)",
+            ? "radial-gradient(circle, rgba(20,184,166,0.1) 0%, rgba(20,184,166,0.03) 30%, rgba(20,184,166,0) 70%)"
+            : "radial-gradient(circle, rgba(20,184,166,0.3) 0%, rgba(20,184,166,0.1) 30%, rgba(20,184,166,0) 70%)",
           willChange: "transform",
         }}
       />
@@ -202,9 +193,8 @@ export default function ContactGlow() {
           width: 400,
           height: 400,
           background: isDark
-            ? "radial-gradient(circle, rgba(139,92,246,0.2) 0%, rgba(139,92,246,0) 70%)"
-            : "radial-gradient(circle, rgba(139,92,246,0.6) 0%, rgba(139,92,246,0) 70%)",
-          filter: "blur(40px)",
+            ? "radial-gradient(circle, rgba(139,92,246,0.1) 0%, rgba(139,92,246,0.03) 30%, rgba(139,92,246,0) 70%)"
+            : "radial-gradient(circle, rgba(139,92,246,0.3) 0%, rgba(139,92,246,0.1) 30%, rgba(139,92,246,0) 70%)",
           willChange: "transform",
         }}
       />

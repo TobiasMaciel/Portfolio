@@ -24,11 +24,10 @@ const staggerContainer = {
   },
 };
 const fadeUpBlur = {
-  hidden: { opacity: 0, y: 30, filter: "blur(10px)" },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    filter: "blur(0px)",
     transition: { duration: 1, ease: [0.16, 1, 0.3, 1] as const },
   },
 };
@@ -417,6 +416,7 @@ export default function Home() {
         <motion.section
           id="proyectos"
           className="scroll-mt-24"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 800px" } as any}
           variants={sectionScrollEnter}
           initial="hidden"
           whileInView="visible"
@@ -571,6 +571,7 @@ export default function Home() {
         <motion.section
           id="educacion"
           className="scroll-mt-24"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 600px" } as any}
           variants={sectionScrollEnter}
           initial="hidden"
           whileInView="visible"
@@ -605,10 +606,11 @@ export default function Home() {
         <motion.section
           id="habilidades"
           className="scroll-mt-24"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 500px" } as any}
           variants={sectionScrollEnter}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true, amount: 0.1 }}
+          viewport={{ once: true, amount: 0.2 }}
         >
           <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-200 dark:border-zinc-800 pb-5">
             {isEsLang ? "Habilidades" : "Skills"}
@@ -617,7 +619,7 @@ export default function Home() {
             {portfolioData.skills.categories.map((cat) => (
               <div
                 key={cat.label.en}
-                className="group p-6 bg-white/40 dark:bg-zinc-900/20 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 relative"
+                className="group p-6 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 relative"
               >
                 {/* Contained Corner Glow */}
                 <div className="absolute inset-0 overflow-hidden rounded-[2rem] pointer-events-none">
@@ -682,7 +684,7 @@ export default function Home() {
             ))}
 
              {/* Languages Card */}
-             <div className="group p-6 bg-white/40 dark:bg-zinc-900/20 backdrop-blur-xl border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 md:col-span-2 relative">
+             <div className="group p-6 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 md:col-span-2 relative">
                 {/* Contained Corner Glow */}
                 <div className="absolute inset-0 overflow-hidden rounded-[2rem] pointer-events-none">
                   <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#A78BFA]/10 blur-[90px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -722,6 +724,7 @@ export default function Home() {
         <motion.section
           id="logros"
           className="scroll-mt-24"
+          style={{ contentVisibility: "auto", containIntrinsicSize: "0 400px" } as any}
           variants={sectionScrollEnter}
           initial="hidden"
           whileInView="visible"
@@ -953,7 +956,7 @@ export default function Home() {
             </div>
 
             {/* CV Section — Redesigned for premium editorial look */}
-            <div className="lg:col-span-1 flex flex-col gap-10 p-10 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 bg-white/40 dark:bg-zinc-900/20 backdrop-blur-xl relative overflow-hidden group">
+            <div className="lg:col-span-1 flex flex-col gap-10 p-10 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm relative overflow-hidden group">
               {/* Background Glow */}
               <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#A78BFA]/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 

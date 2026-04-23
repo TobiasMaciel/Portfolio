@@ -33,32 +33,29 @@ export default function CursorGlow() {
 
       if (mx !== -1000) {
         // ─── 1. Organic breathing deformation (always active) ───
-        // Slow, independent sin/cos waves on each axis create a living blob feel
         const breathX =
           1 + Math.sin(time * 0.0007) * 0.08 + Math.sin(time * 0.0013) * 0.04;
         const breathY =
           1 + Math.cos(time * 0.0009) * 0.08 + Math.cos(time * 0.0017) * 0.04;
 
-        // ─── 2. Edge squish (only near borders, conservative scale) ───
+        // ─── 2. Edge squish ───
         let squishX = 1;
         let squishY = 1;
 
         const w = window.innerWidth;
         const h = window.innerHeight;
-        const edgeDist = 160; // start squishing only this close
+        const edgeDist = 160;
 
         if (mx < edgeDist) squishX = 0.55 + (mx / edgeDist) * 0.45;
         if (mx > w - edgeDist) squishX = 0.55 + ((w - mx) / edgeDist) * 0.45;
         if (my < edgeDist) squishY = 0.55 + (my / edgeDist) * 0.45;
         if (my > h - edgeDist) squishY = 0.55 + ((h - my) / edgeDist) * 0.45;
 
-        // Volume preservation but CAPPED at 1.15 so it never bloats too much
         if (squishX < 1 && squishY === 1)
           squishY = Math.min(1.15, 1 + (1 - squishX) * 0.4);
         if (squishY < 1 && squishX === 1)
           squishX = Math.min(1.15, 1 + (1 - squishY) * 0.4);
 
-        // ─── 3. Combine both transforms ───
         const finalScaleX = breathX * squishX;
         const finalScaleY = breathY * squishY;
 
@@ -91,16 +88,17 @@ export default function CursorGlow() {
   return (
     <div
       className="fixed inset-0 pointer-events-none z-0 overflow-hidden"
+      style={{ contain: "layout paint" }}
       suppressHydrationWarning
     >
-      {/* Glow secundario (Amarillo/Dorado) */}
+      {/* Glow secundario (Amarillo/Dorado) - Optimizado sin blur */}
       <div
         ref={cursor1Ref}
-        className={`absolute top-0 left-0 w-[450px] h-[450px] rounded-full blur-[80px] ${isDark ? "opacity-80" : "opacity-100"}`}
+        className={`absolute top-0 left-0 w-[450px] h-[450px] rounded-full ${isDark ? "opacity-80" : "opacity-100"}`}
         style={{
           background: isDark
-            ? "radial-gradient(circle, rgba(234,179,8,0.45) 0%, transparent 70%)"
-            : "radial-gradient(circle, rgba(234,179,8,1) 0%, transparent 70%)",
+            ? "radial-gradient(circle, rgba(234,179,8,0.2) 0%, rgba(234,179,8,0.05) 30%, transparent 70%)"
+            : "radial-gradient(circle, rgba(234,179,8,0.5) 0%, rgba(234,179,8,0.1) 30%, transparent 70%)",
           transformOrigin: "center center",
           willChange: "transform",
         }}
@@ -108,11 +106,11 @@ export default function CursorGlow() {
       {/* Glow primario central (Violeta) */}
       <div
         ref={cursor2Ref}
-        className={`absolute top-0 left-0 w-[350px] h-[350px] rounded-full blur-[70px] ${isDark ? "opacity-75" : "opacity-100"}`}
+        className={`absolute top-0 left-0 w-[350px] h-[350px] rounded-full ${isDark ? "opacity-75" : "opacity-100"}`}
         style={{
           background: isDark
-            ? "radial-gradient(circle, rgba(139,92,246,0.55) 0%, transparent 70%)"
-            : "radial-gradient(circle, rgba(139,92,246,1) 0%, transparent 70%)",
+            ? "radial-gradient(circle, rgba(139,92,246,0.25) 0%, rgba(139,92,246,0.05) 30%, transparent 70%)"
+            : "radial-gradient(circle, rgba(139,92,246,0.6) 0%, rgba(139,92,246,0.1) 30%, transparent 70%)",
           transformOrigin: "center center",
           willChange: "transform",
         }}

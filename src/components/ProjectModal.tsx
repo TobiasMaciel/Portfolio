@@ -55,22 +55,24 @@ export default function ProjectModal({
   return (
     <>
       <motion.div
-        className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-6 md:p-8 bg-black/40 backdrop-blur-[2px]"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
+        transition={{ duration: 0.2 }}
         onClick={onClose}
       >
         <motion.div
-          className="relative w-full max-w-6xl h-full lg:h-[92vh] bg-white/90 dark:bg-zinc-900/40 backdrop-blur-2xl rounded-3xl md:rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border border-zinc-100/50 dark:border-zinc-800/50"
-          initial={{ scale: 0.9, opacity: 0, y: 40 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.9, opacity: 0, y: 40 }}
-          transition={{ type: "spring", damping: 28, stiffness: 300 }}
+          className="relative w-full max-w-6xl h-full lg:h-[92vh] bg-white dark:bg-zinc-900 rounded-3xl md:rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border border-zinc-200 dark:border-zinc-800"
+          style={{ contain: "content", willChange: "transform, opacity" }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 20 }}
+          transition={{ duration: 0.3, ease: "easeOut" }}
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header Bar */}
-          <div className="flex items-center justify-between px-8 py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white/40 dark:bg-zinc-900/40 backdrop-blur-md relative z-20">
+          <div className="flex items-center justify-between px-8 py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 relative z-20">
             <div className="flex items-center gap-4 min-w-0">
               <div className="w-10 h-10 rounded-2xl bg-[#A78BFA]/10 flex items-center justify-center text-[#A78BFA] border border-[#A78BFA]/10 flex-shrink-0">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M16 18a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2"/><path d="M7 18a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2"/><path d="M12 12h.01"/></svg>
@@ -183,10 +185,10 @@ export default function ProjectModal({
                         <motion.div
                           key={current}
                           className="absolute inset-0"
-                          initial={{ opacity: 0, scale: 1.05 }}
-                          animate={{ opacity: 1, scale: 1 }}
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
                           exit={{ opacity: 0 }}
-                          transition={{ duration: 0.4 }}
+                          transition={{ duration: 0.25 }}
                         >
                           {project.images[current].toLowerCase().endsWith(".pdf") ? (
                             <div className="w-full h-full relative bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden group/pdf">

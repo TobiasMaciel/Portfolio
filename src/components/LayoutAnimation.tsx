@@ -46,6 +46,7 @@ export default function LayoutAnimation() {
 
   // Smooth mouse: follows real mouse with lag for slow text reflow
   const smoothMouse = useRef({ x: 0, y: 0 });
+  const lastRenderMouse = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleResize = () => {
