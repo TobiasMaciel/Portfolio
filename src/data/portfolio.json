@@ -281,6 +281,59 @@
       ]
     },
     {
+      "id": "mlp-ia",
+      "period": {
+        "es": "AGOSTO — DICIEMBRE 2025",
+        "en": "AUGUST — DECEMBER 2025"
+      },
+      "title": {
+        "es": "Multilayer Perceptron (MLP)",
+        "en": "Multilayer Perceptron (MLP)"
+      },
+      "subtitle": {
+        "es": "UTN FRRe — Inteligencia Artificial",
+        "en": "UTN FRRe — Artificial Intelligence"
+      },
+      "role": {
+        "es": "AI Developer",
+        "en": "AI Developer"
+      },
+      "summary": {
+        "es": "Implementación de un Perceptrón Multicapa (MLP) para el reconocimiento de patrones en matrices de 10x10, desarrollado como trabajo práctico integral.",
+        "en": "Implementation of a Multilayer Perceptron (MLP) for pattern recognition in 10x10 matrices, developed as a comprehensive practical work."
+      },
+      "description": {
+        "es": "Este proyecto aborda el diseño, entrenamiento y validación de una red neuronal MLP desde cero. El sistema incluye un backend con FastAPI para el servicio del modelo y un frontend interactivo en React que permite a los usuarios dibujar patrones y obtener predicciones en tiempo real. Se aplicaron prácticas de MLOps como el versionado de modelos y un registro centralizado de experimentos.",
+        "en": "This project covers the design, training, and validation of an MLP neural network from scratch. The system includes a FastAPI backend for model serving and an interactive React frontend that allows users to draw patterns and get real-time predictions. MLOps practices such as model versioning and a centralized experiment registry were applied."
+      },
+      "bullets": {
+        "es": [
+          "Arquitectura de red: 100 neuronas de entrada, capas ocultas de 10 y 5 neuronas, y 3 de salida.",
+          "Entrenamiento mediante backpropagation con momentum y métricas de precisión del ~100%.",
+          "Desarrollo de un Grid interactivo 10x10 en React/TypeScript para pruebas de usuario.",
+          "Backend robusto con FastAPI y validación de datos mediante Pydantic.",
+          "Implementación de Model Registry para el versionado y gestión de modelos entrenados.",
+          "Generación de datasets sintéticos con ruido (0-30%) para mejorar la resiliencia del modelo."
+        ],
+        "en": [
+          "Network architecture: 100 input neurons, hidden layers of 10 and 5 neurons, and 3 outputs.",
+          "Training using backpropagation with momentum and accuracy metrics of ~100%.",
+          "Development of an interactive 10x10 Grid in React/TypeScript for user testing.",
+          "Robust backend with FastAPI and data validation using Pydantic.",
+          "Model Registry implementation for versioning and managing trained models.",
+          "Synthetic dataset generation with noise (0-30%) to improve model resilience."
+        ]
+      },
+      "stack": ["Python", "FastAPI", "React", "TypeScript", "Vite", "MLOps", "Pydantic", "NumPy", "Pandas"],
+      "images": [
+        "/proyectos/mlp/1.png",
+        "/proyectos/mlp/2.png",
+        "/proyectos/mlp/3.png",
+        "/proyectos/mlp/IA - Informe MLP.pdf"
+      ],
+      "report": "/proyectos/mlp/IA - Informe MLP.pdf"
+    },
+    {
       "id": "devops-k8s",
       "period": {
         "es": "OCTUBRE 2025 — NOVIEMBRE 2025",

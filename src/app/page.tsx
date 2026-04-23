@@ -125,6 +125,7 @@ export default function Home() {
     stack: p.stack || [],
     github: p.github,
     images: p.images?.map((img: string) => `${basePath}${img}`) || [],
+    report: p.report ? `${basePath}${p.report}` : undefined,
   }));
 
   const education = (portfolioData.education as unknown as Education[]).map((e) => ({
@@ -254,6 +255,7 @@ export default function Home() {
           <ProjectModal
             project={activeProject}
             onClose={() => setActiveProject(null)}
+            onViewReport={(url) => setViewerDoc({ url, title: isEsLang ? "Informe Técnico" : "Technical Report", subtitle: activeProject.title })}
             isEs={isEsLang}
           />
         )}

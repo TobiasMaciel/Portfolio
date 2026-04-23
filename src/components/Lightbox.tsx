@@ -69,14 +69,24 @@ export default function Lightbox({
           transition={{ duration: 0.12 }}
           onClick={(e) => e.stopPropagation()}
         >
-          <Image
-            src={images[current]}
-            alt={`img ${current + 1}`}
-            fill
-            className="object-contain"
-            sizes="100vw"
-            priority
-          />
+          {images[current].toLowerCase().endsWith(".pdf") ? (
+            <div className="w-full h-[85vh] flex flex-col items-center justify-center">
+              <iframe
+                src={`${images[current]}#toolbar=1`}
+                className="w-full h-full rounded-2xl border border-white/10 shadow-2xl bg-white"
+                title="Technical Report"
+              />
+            </div>
+          ) : (
+            <Image
+              src={images[current]}
+              alt={`img ${current + 1}`}
+              fill
+              className="object-contain"
+              sizes="100vw"
+              priority
+            />
+          )}
         </motion.div>
       </AnimatePresence>
       {n > 1 && (

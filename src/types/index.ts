@@ -10,6 +10,7 @@ export interface Project {
   stack: string[];
   github?: string;
   images: string[];
+  report?: string;
 }
 
 export interface Education {

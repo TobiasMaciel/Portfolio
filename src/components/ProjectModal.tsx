@@ -25,10 +25,12 @@ const GitHubIcon = ({ size = 14 }: { size?: number }) => (
 export default function ProjectModal({
   project,
   onClose,
+  onViewReport,
   isEs,
 }: {
   project: Project;
   onClose: () => void;
+  onViewReport?: (url: string) => void;
   isEs: boolean;
 }) {
   const [current, setCurrent] = useState(0);
@@ -137,7 +139,7 @@ export default function ProjectModal({
                 </div>
 
                 {project.github && (
-                  <div className="pt-4">
+                  <div className="pt-4 flex flex-wrap gap-4">
                     <a
                       href={project.github}
                       target="_blank"
@@ -186,14 +188,36 @@ export default function ProjectModal({
                           exit={{ opacity: 0 }}
                           transition={{ duration: 0.4 }}
                         >
-                          <Image
-                            src={project.images[current]}
-                            alt={project.title}
-                            fill
-                            className="object-contain p-4 transition-all duration-500"
-                            sizes="(max-width: 768px) 100vw, 1000px"
-                            priority
-                          />
+                          {project.images[current].toLowerCase().endsWith(".pdf") ? (
+                            <div className="w-full h-full relative bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden group/pdf">
+                              <iframe
+                                src={`${project.images[current]}#toolbar=0&navpanes=0&scrollbar=0`}
+                                className="w-full h-full border-none"
+                                title="Technical Report"
+                              />
+                              {/* Overlay to allow clicking and also provide a 'Full Screen' option */}
+                              <div className="absolute inset-0 bg-black/0 group-hover/pdf:bg-black/5 transition-colors pointer-events-none" />
+                              <button
+                                onClick={(e) => {
+                                  e.stopPropagation();
+                                  if (onViewReport) onViewReport(project.images[current]);
+                                }}
+                                className="absolute top-4 right-4 p-3 bg-black/40 backdrop-blur-md text-white rounded-xl border border-white/10 opacity-0 group-hover/pdf:opacity-100 transition-all hover:bg-[#A78BFA] hover:scale-110 active:scale-95 flex items-center gap-2 font-bold text-[10px] tracking-widest uppercase shadow-2xl"
+                              >
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+                                {isEs ? "Pantalla Completa" : "Full Screen"}
+                              </button>
+                            </div>
+                          ) : (
+                            <Image
+                              src={project.images[current]}
+                              alt={project.title}
+                              fill
+                              className="object-contain p-4 transition-all duration-500"
+                              sizes="(max-width: 768px) 100vw, 1000px"
+                              priority
+                            />
+                          )}
                         </motion.div>
                       </AnimatePresence>
 
@@ -234,13 +258,20 @@ export default function ProjectModal({
                               i === current ? "border-[#A78BFA] scale-105 shadow-lg shadow-[#A78BFA]/20" : "border-transparent opacity-50 hover:opacity-100"
                             }`}
                           >
-                            <Image
-                              src={src}
-                              alt={`thumb ${i + 1}`}
-                              fill
-                              className="object-cover"
-                              sizes="96px"
-                            />
+                            {src.toLowerCase().endsWith(".pdf") ? (
+                              <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-100 dark:bg-zinc-800 text-[#A78BFA]">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                <span className="text-[8px] font-bold mt-1 uppercase">PDF</span>
+                              </div>
+                            ) : (
+                              <Image
+                                src={src}
+                                alt={`thumb ${i + 1}`}
+                                fill
+                                className="object-cover"
+                                sizes="96px"
+                              />
+                            )}
                           </button>
                         ))}
                       </div>
