@@ -168,6 +168,7 @@
         "/proyectos/secretaria/scyt-6.png"
       ]
     },
+
     {
       "id": "elepad",
       "period": {
@@ -421,6 +422,56 @@
         "/proyectos/tup/tup-preview-5.png",
         "/proyectos/tup/tup-preview-6.png"
       ]
+    },
+    {
+      "id": "ci-cd-pipeline",
+      "period": {
+        "es": "MAYO 2024 — JUNIO 2024",
+        "en": "MAY 2024 — JUNE 2024"
+      },
+      "title": {
+        "es": "Pipeline de Integración Continua (CI/CD)",
+        "en": "Continuous Integration Pipeline (CI/CD)"
+      },
+      "subtitle": {
+        "es": "Automatización, Calidad y Feedback en Tiempo Real",
+        "en": "Automation, Quality & Real-Time Feedback"
+      },
+      "role": {
+        "es": "DevOps Engineer",
+        "en": "DevOps Engineer"
+      },
+      "summary": {
+        "es": "Implementación de un ecosistema de CI/CD que automatiza el ciclo de vida del software, garantizando calidad mediante SonarCloud y feedback instantáneo vía Slack.",
+        "en": "Implementation of a CI/CD ecosystem that automates the software lifecycle, ensuring quality through SonarCloud and instant feedback via Slack."
+      },
+      "description": {
+        "es": "Este proyecto establece un estándar de desarrollo profesional mediante la orquestación de GitHub Actions. El pipeline integra análisis estático profundo, pruebas multinivel (Unitarias y E2E) y un flujo de despliegue automatizado hacia Render. La arquitectura incluye integración con Jira para gestión de tareas y notificaciones granulares en Slack, cerrando el ciclo de feedback del equipo.",
+        "en": "This project establishes a professional development standard through GitHub Actions orchestration. The pipeline integrates deep static analysis, multi-level testing (Unit and E2E), and an automated deployment flow to Render. The architecture includes Jira integration for task management and granular Slack notifications, closing the team's feedback loop."
+      },
+      "bullets": {
+        "es": [
+          "Implementación de un **pipeline de CI/CD completo** utilizando GitHub Actions para automatizar el ciclo de vida del software.",
+          "Pruebas unitarias con **Jest** y pruebas end-to-end (E2E) con **Cypress** ejecutadas post-despliegue para garantizar estabilidad.",
+          "Análisis estático e inspección de calidad con **SonarCloud (SonarQube)**, asegurando cobertura superior al 80%.",
+          "Automatización de linters para **JavaScript (ESLint)** y **HTML (HTMLHint)**, manteniendo estándares consistentes.",
+          "Despliegue automatizado a **Render** con monitoreo en tiempo real del estado del servicio mediante API.",
+          "Sistema de **notificaciones multicanal en Slack** para feedback instantáneo sobre cada etapa del pipeline.",
+          "Integración con **Jira y GitHub** para una gestión de proyectos ágil y vinculación directa de tareas."
+        ],
+        "en": [
+          "Implemented a **comprehensive CI/CD pipeline** using GitHub Actions to automate the entire software development lifecycle.",
+          "Developed unit tests with **Jest** and end-to-end (E2E) tests with **Cypress** triggered post-deployment for stability.",
+          "Integrated **SonarCloud (SonarQube)** for static code analysis, maintaining over 80% code coverage.",
+          "Automated code linting for **JavaScript (ESLint)** and **HTML (HTMLHint)** to maintain high-quality standards.",
+          "Orchestrated automated deployment to **Render** with real-time service status monitoring via API.",
+          "Configured **multi-channel Slack notifications**, providing instant feedback to the team on pipeline stages.",
+          "Integrated Jira with GitHub for streamlined project management and seamless task tracking."
+        ]
+      },
+      "stack": ["GitHub Actions", "Jest", "Cypress", "SonarCloud", "ESLint", "HTMLHint", "Render", "Slack", "Jira"],
+      "github": "https://github.com/TobiasMaciel/TrabajoCI",
+      "images": ["/proyectos/cicd/CiCd.png"]
     }
   ],
   "education": [
