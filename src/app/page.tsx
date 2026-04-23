@@ -110,7 +110,10 @@ export default function Home() {
   } | null>(null);
   const [showCV, setShowCV] = useState(false);
   const [viewerDoc, setViewerDoc] = useState<{ url: string; title: string; subtitle?: string } | null>(null);
+  const [projectFilter, setProjectFilter] = useState<"all" | "featured">("all");
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
+
+  const featuredIds = ["elepad", "sgi", "ai-sales-agent", "cubesat", "tup"];
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const projects: Project[] = (portfolioData.projects as unknown as any[]).map((p: any) => ({
@@ -138,6 +141,10 @@ export default function Home() {
 
   const [expandedStacks, setExpandedStacks] = useState<Record<string, boolean>>({});
   const toggleStack = (id: string) => setExpandedStacks(prev => ({ ...prev, [id]: !prev[id] }));
+
+  const filteredProjects = projectFilter === "all" 
+    ? projects 
+    : featuredIds.map(id => projects.find(p => p.id === id)).filter(Boolean) as Project[];
 
   const socialIcons: Record<string, React.ReactNode> = {
     email: (
@@ -415,111 +422,148 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
         >
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-200 dark:border-zinc-800 pb-5">
-            {isEsLang ? "Proyectos" : "Projects"}
-          </h2>
-          <div className="flex flex-col gap-20">
-            {projects.map((p) => (
-              <div key={p.id} id={`project-${p.id}`} className="group relative overflow-hidden scroll-mt-24">
-                {/* CV-style Corner Glow (Only if has images to balance the layout) */}
-                {p.images && p.images.length > 0 && (
-                  <div className="absolute -top-32 -right-32 w-80 h-80 bg-[#A78BFA]/5 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                )}
-                
-                <div className={`relative z-10 grid grid-cols-1 ${p.images && p.images.length > 0 ? "md:grid-cols-2 gap-8 lg:gap-12" : "max-w-4xl"} items-start`}>
-                  <div className="relative pl-6 border-l-2 border-zinc-200 dark:border-zinc-800 group-hover:border-[#A78BFA] transition-colors duration-300">
-                    <p className="text-[#A78BFA] text-xs font-bold tracking-widest mb-1">
-                      {p.period}
-                    </p>
-                    <div className="flex items-start justify-between gap-2 mb-1">
-                      <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 leading-tight">
-                        {p.title}
-                      </h3>
-                      {p.github && (
-                        <a
-                          href={p.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="shrink-0 mt-1 flex items-center gap-1 text-xs font-semibold text-zinc-400 hover:text-[#A78BFA] transition-colors"
-                        >
-                          <GitHubIcon />
-                          GitHub
-                        </a>
-                      )}
-                    </div>
-                    <p className="text-zinc-500 font-medium mb-3 text-sm">
-                      {p.subtitle} —{" "}
-                      <span className="text-[#A78BFA]">{p.role}</span>
-                    </p>
-                    <p className="text-zinc-500 leading-relaxed mb-5 text-sm">
-                      {p.summary}
-                    </p>
-                    <div className="flex flex-wrap gap-1.5 mb-5 overflow-hidden">
-                      {(expandedStacks[p.id] ? p.stack : p.stack.slice(0, 4)).map((s) => (
-                        <motion.span
-                          key={s}
-                          layout
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          transition={{ duration: 0.2 }}
-                          className="px-3 py-1 bg-[#A78BFA]/10 text-[#A78BFA] text-xs font-semibold rounded-full border border-[#A78BFA]/20"
-                        >
-                          {s}
-                        </motion.span>
-                      ))}
-                      
-                      {p.stack.length > 4 && !expandedStacks[p.id] && (
-                        <button
-                          onClick={() => toggleStack(p.id)}
-                          className="px-3 py-1 text-zinc-400 hover:text-[#A78BFA] hover:border-[#A78BFA]/30 text-xs font-semibold rounded-full border border-zinc-200 dark:border-zinc-800 transition-colors"
-                        >
-                          +{p.stack.length - 4} {isEsLang ? "más" : "more"}
-                        </button>
-                      )}
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-zinc-200 dark:border-zinc-800 pb-5">
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white tracking-tight">
+              {isEsLang ? "Proyectos" : "Projects"}
+            </h2>
+            
+            <div className="flex p-1 bg-zinc-100 dark:bg-zinc-900/50 rounded-xl border border-zinc-200 dark:border-zinc-800 w-fit">
+              <button
+                onClick={() => setProjectFilter("all")}
+                className={`px-4 py-2 text-sm font-bold rounded-lg transition-all duration-300 ${
+                  projectFilter === "all"
+                    ? "bg-white dark:bg-zinc-800 text-[#A78BFA] shadow-sm"
+                    : "text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+                }`}
+              >
+                {isEsLang ? "Todos" : "All"}
+              </button>
+              <button
+                onClick={() => setProjectFilter("featured")}
+                className={`px-4 py-2 text-sm font-bold rounded-lg transition-all duration-300 ${
+                  projectFilter === "featured"
+                    ? "bg-white dark:bg-zinc-800 text-[#A78BFA] shadow-sm"
+                    : "text-zinc-500 hover:text-zinc-700 dark:hover:text-zinc-300"
+                }`}
+              >
+                {isEsLang ? "Destacados" : "Featured"}
+              </button>
+            </div>
+          </div>
 
-                      {expandedStacks[p.id] && (
+          <div className="flex flex-col gap-20">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={projectFilter}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
+                className="flex flex-col gap-20"
+              >
+                {filteredProjects.map((p) => (
+                  <div key={p.id} id={`project-${p.id}`} className="group relative overflow-hidden scroll-mt-24">
+                    {/* CV-style Corner Glow (Only if has images to balance the layout) */}
+                    {p.images && p.images.length > 0 && (
+                      <div className="absolute -top-32 -right-32 w-80 h-80 bg-[#A78BFA]/5 blur-[100px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                    )}
+                    
+                    <div className={`relative z-10 grid grid-cols-1 ${p.images && p.images.length > 0 ? "md:grid-cols-2 gap-8 lg:gap-12" : "max-w-4xl"} items-start`}>
+                      <div className="relative pl-6 border-l-2 border-zinc-200 dark:border-zinc-800 group-hover:border-[#A78BFA] transition-colors duration-300">
+                        <p className="text-[#A78BFA] text-xs font-bold tracking-widest mb-1">
+                          {p.period}
+                        </p>
+                        <div className="flex items-start justify-between gap-2 mb-1">
+                          <h3 className="text-2xl font-bold text-zinc-900 dark:text-zinc-100 leading-tight">
+                            {p.title}
+                          </h3>
+                          {p.github && (
+                            <a
+                              href={p.github}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="shrink-0 mt-1 flex items-center gap-1 text-xs font-semibold text-zinc-400 hover:text-[#A78BFA] transition-colors"
+                            >
+                              <GitHubIcon />
+                              GitHub
+                            </a>
+                          )}
+                        </div>
+                        <p className="text-zinc-500 font-medium mb-3 text-sm">
+                          {p.subtitle} —{" "}
+                          <span className="text-[#A78BFA]">{p.role}</span>
+                        </p>
+                        <p className="text-zinc-500 leading-relaxed mb-5 text-sm">
+                          {p.summary}
+                        </p>
+                        <div className="flex flex-wrap gap-1.5 mb-5 overflow-hidden">
+                          {(expandedStacks[p.id] ? p.stack : p.stack.slice(0, 4)).map((s) => (
+                            <motion.span
+                              key={s}
+                              layout
+                              initial={{ opacity: 0 }}
+                              animate={{ opacity: 1 }}
+                              transition={{ duration: 0.2 }}
+                              className="px-3 py-1 bg-[#A78BFA]/10 text-[#A78BFA] text-xs font-semibold rounded-full border border-[#A78BFA]/20"
+                            >
+                              {s}
+                            </motion.span>
+                          ))}
+                          
+                          {p.stack.length > 4 && !expandedStacks[p.id] && (
+                            <button
+                              onClick={() => toggleStack(p.id)}
+                              className="px-3 py-1 text-zinc-400 hover:text-[#A78BFA] hover:border-[#A78BFA]/30 text-xs font-semibold rounded-full border border-zinc-200 dark:border-zinc-800 transition-colors"
+                            >
+                              +{p.stack.length - 4} {isEsLang ? "más" : "more"}
+                            </button>
+                          )}
+
+                          {expandedStacks[p.id] && (
+                            <button
+                              onClick={() => toggleStack(p.id)}
+                              className="px-3 py-1 text-[#A78BFA] text-xs font-bold rounded-full border border-[#A78BFA]/20 hover:bg-[#A78BFA]/5 transition-colors"
+                            >
+                              {isEsLang ? "Ver menos" : "Show less"}
+                            </button>
+                          )}
+                        </div>
                         <button
-                          onClick={() => toggleStack(p.id)}
-                          className="px-3 py-1 text-[#A78BFA] text-xs font-bold rounded-full border border-[#A78BFA]/20 hover:bg-[#A78BFA]/5 transition-colors"
+                          onClick={() => setActiveProject(p)}
+                          className="inline-flex items-center gap-2 text-sm font-semibold text-[#A78BFA] group/cta hover:gap-3 transition-all"
                         >
-                          {isEsLang ? "Ver menos" : "Show less"}
+                          <span>{isEsLang ? "Ver detalle" : "View details"}</span>
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="13"
+                            height="13"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            className="transition-transform group-hover/cta:translate-x-1"
+                          >
+                            <path d="M5 12h14" />
+                            <path d="m12 5 7 7-7 7" />
+                          </svg>
                         </button>
+                      </div>
+                      {p.images && p.images.length > 0 && (
+                        <MiniCarousel
+                          images={p.images}
+                          title={p.title}
+                          onClickImage={(idx) =>
+                            setLightboxInfo({ images: p.images, index: idx })
+                          }
+                        />
                       )}
                     </div>
-                    <button
-                      onClick={() => setActiveProject(p)}
-                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#A78BFA] group/cta hover:gap-3 transition-all"
-                    >
-                      <span>{isEsLang ? "Ver detalle" : "View details"}</span>
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="13"
-                        height="13"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth="2.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="transition-transform group-hover/cta:translate-x-1"
-                      >
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                      </svg>
-                    </button>
                   </div>
-                  {p.images && p.images.length > 0 && (
-                    <MiniCarousel
-                      images={p.images}
-                      title={p.title}
-                      onClickImage={(idx) =>
-                        setLightboxInfo({ images: p.images, index: idx })
-                      }
-                    />
-                  )}
-                </div>
-              </div>
-            ))}
+                ))}
+              </motion.div>
+            </AnimatePresence>
           </div>
         </motion.section>
 
