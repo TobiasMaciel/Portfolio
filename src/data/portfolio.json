@@ -372,12 +372,12 @@
       },
       "stack": ["Python", "FastAPI", "React", "TypeScript", "Vite", "MLOps", "Pydantic", "NumPy", "Pandas"],
       "images": [
-        "/proyectos/mlp/1.png",
-        "/proyectos/mlp/2.png",
-        "/proyectos/mlp/3.png",
-        "/proyectos/mlp/IA - Informe MLP.pdf"
+        "/proyectos/MLP/1.png",
+        "/proyectos/MLP/2.png",
+        "/proyectos/MLP/3.png",
+        "/proyectos/MLP/IA - Informe MLP.pdf"
       ],
-      "report": "/proyectos/mlp/IA - Informe MLP.pdf"
+      "report": "/proyectos/MLP/IA - Informe MLP.pdf"
     },
     {
       "id": "devops-k8s",
