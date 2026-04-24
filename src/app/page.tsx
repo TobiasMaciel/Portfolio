@@ -61,7 +61,7 @@ const NavLink = ({ href, label }: { href: string; label: string }) => (
 const Tooltip = ({ children, content }: { children: React.ReactNode; content: React.ReactNode }) => {
   const [show, setShow] = useState(false);
   return (
-    <div className="relative flex flex-col items-center group/tt" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
+    <div className="relative flex flex-col items-center group/tt z-30" onMouseEnter={() => setShow(true)} onMouseLeave={() => setShow(false)}>
       {children}
       <AnimatePresence>
         {show && (
@@ -70,7 +70,7 @@ const Tooltip = ({ children, content }: { children: React.ReactNode; content: Re
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 5, scale: 0.95 }}
             transition={{ duration: 0.15, ease: "easeOut" }}
-            className="absolute bottom-full mb-3 px-3 py-2 bg-zinc-900 dark:bg-zinc-100 backdrop-blur-md text-white dark:text-zinc-900 text-[10px] font-bold rounded-xl border border-white/10 dark:border-black/10 z-[100] shadow-2xl min-w-[140px] max-w-[280px] text-center leading-relaxed"
+            className="absolute bottom-full mb-3 px-3 py-2 bg-zinc-900/95 dark:bg-zinc-100/95 backdrop-blur-md text-white dark:text-zinc-900 text-[10px] font-bold rounded-xl border border-white/10 dark:border-black/10 z-[1000] shadow-[0_20px_50px_rgba(0,0,0,0.3)] dark:shadow-[0_20px_50px_rgba(0,0,0,0.1)] min-w-[140px] max-w-[280px] text-center leading-relaxed"
           >
             {content}
             <div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px w-2 h-2 border-l border-t border-inherit bg-inherit rotate-[225deg]" />
@@ -416,7 +416,7 @@ export default function Home() {
         <motion.section
           id="proyectos"
           className="scroll-mt-24"
-          style={{ contentVisibility: "auto", containIntrinsicSize: "0 800px" } as any}
+          style={{ containIntrinsicSize: "0 800px" } as any}
           variants={sectionScrollEnter}
           initial="hidden"
           whileInView="visible"
@@ -571,7 +571,7 @@ export default function Home() {
         <motion.section
           id="educacion"
           className="scroll-mt-24"
-          style={{ contentVisibility: "auto", containIntrinsicSize: "0 600px" } as any}
+          style={{ containIntrinsicSize: "0 600px" } as any}
           variants={sectionScrollEnter}
           initial="hidden"
           whileInView="visible"
@@ -606,7 +606,7 @@ export default function Home() {
         <motion.section
           id="habilidades"
           className="scroll-mt-24"
-          style={{ contentVisibility: "auto", containIntrinsicSize: "0 500px" } as any}
+          style={{ containIntrinsicSize: "0 500px" } as any}
           variants={sectionScrollEnter}
           initial="hidden"
           whileInView="visible"
@@ -724,7 +724,7 @@ export default function Home() {
         <motion.section
           id="logros"
           className="scroll-mt-24"
-          style={{ contentVisibility: "auto", containIntrinsicSize: "0 400px" } as any}
+          style={{ containIntrinsicSize: "0 400px" } as any}
           variants={sectionScrollEnter}
           initial="hidden"
           whileInView="visible"
