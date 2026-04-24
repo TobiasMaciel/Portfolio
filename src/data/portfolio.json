@@ -281,6 +281,52 @@
       ]
     },
     {
+      "id": "ciencia-de-datos",
+      "period": {
+        "es": "AGOSTO 2025 — DICIEMBRE 2025",
+        "en": "AUGUST 2025 — DECEMBER 2025"
+      },
+      "title": {
+        "es": "Ciencia de Datos — Equipo Lambda",
+        "en": "Data Science — Lambda Team"
+      },
+      "subtitle": {
+        "es": "UTN FRRe — Ingeniería en Sistemas",
+        "en": "UTN FRRe — Systems Engineering"
+      },
+      "role": {
+        "es": "Data Scientist",
+        "en": "Data Scientist"
+      },
+      "summary": {
+        "es": "Colección de laboratorios de ciencia de datos: visualización avanzada, análisis geoespacial y encoding de variables.",
+        "en": "Data science labs collection: advanced visualization, geospatial analysis, and variable encoding."
+      },
+      "description": {
+        "es": "Desarrollo integral de proyectos de ciencia de datos aplicados a problemas reales. El portafolio incluye tres laboratorios fundamentales: 1) Exploración y visualización avanzada de datos con Matplotlib y Seaborn; 2) Análisis de asociaciones y visualización de datos geoespaciales (World Happiness Report); y 3) Preprocesamiento y encoding de variables categóricas para modelos de aprendizaje automático.",
+        "en": "Integral development of data science projects applied to real-world problems. The portfolio includes three fundamental labs: 1) Advanced data exploration and visualization with Matplotlib and Seaborn; 2) Association analysis and geospatial data visualization (World Happiness Report); and 3) Preprocessing and encoding of categorical variables for machine learning models."
+      },
+      "bullets": {
+        "es": [
+          "Lab 1: Implementación práctica de técnicas de visualización (McKinney) sobre Wine Dataset.",
+          "Lab 2: Análisis geoespacial con GeoPandas y visualización de asociaciones complejas.",
+          "Lab 3: Feature Engineering: One-Hot y Ordinal Encoding aplicado al Indian Food Dataset.",
+          "Stack profesional: Uso intensivo de Pandas, NumPy, Scikit-learn y Jupyter Notebooks.",
+          "Metodología: Aplicación de conceptos teóricos a flujos de trabajo de análisis real."
+        ],
+        "en": [
+          "Lab 1: Practical implementation of visualization techniques (McKinney) on Wine Dataset.",
+          "Lab 2: Geospatial analysis with GeoPandas and complex association visualization.",
+          "Lab 3: Feature Engineering: One-Hot and Ordinal Encoding applied to Indian Food Dataset.",
+          "Professional Stack: Intensive use of Pandas, NumPy, Scikit-learn, and Jupyter Notebooks.",
+          "Methodology: Application of theoretical concepts to real-world analysis workflows."
+        ]
+      },
+      "stack": ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "GeoPandas", "Jupyter"],
+      "github": "https://github.com/TobiasMaciel/CienciaDeDatos2025",
+      "images": ["/proyectos/cienciaDeDatos/1.png", "/proyectos/cienciaDeDatos/2.png"]
+    },
+    {
       "id": "mlp-ia",
       "period": {
         "es": "AGOSTO — DICIEMBRE 2025",
@@ -600,7 +646,7 @@
         "color": "#34D399",
         "borderHover": "hover:border-emerald-400/50",
         "textHover": "hover:text-emerald-500",
-        "tags": ["Python", "Django", "Flask", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Redis", "Prisma ORM", "JWT", "NumPy", "Pandas"]
+        "tags": ["Python", "Django", "Flask", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Redis", "Prisma ORM", "JWT", "NumPy", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn"]
       },
       {
         "label": { "es": "DevOps y Cloud", "en": "DevOps & Cloud" },
@@ -614,7 +660,7 @@
         "color": "#E879F9",
         "borderHover": "hover:border-fuchsia-400/50",
         "textHover": "hover:text-fuchsia-400",
-        "tags": ["Git", "GitHub", "Postman", "OpenAPI", "MCP Protocol", "Jira", "Slack", "VS Code", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
+        "tags": ["Git", "GitHub", "Postman", "OpenAPI", "MCP Protocol", "Jira", "Slack", "Jupyter", "VS Code", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
       },
       {
         "label": { "es": "Inteligencia Artificial", "en": "Artificial Intelligence" },

@@ -112,7 +112,7 @@ export default function Home() {
   const [projectFilter, setProjectFilter] = useState<"all" | "featured">("all");
   const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
-  const featuredIds = ["elepad", "sgi", "ai-sales-agent", "cubesat", "tup"];
+  const featuredIds = ["elepad", "sgi", "ai-sales-agent", "cubesat", "tup", "ciencia-de-datos"];
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const projects: Project[] = (portfolioData.projects as unknown as any[]).map((p: any) => ({
