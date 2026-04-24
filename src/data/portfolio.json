@@ -329,48 +329,49 @@
     {
       "id": "mlp-ia",
       "period": {
-        "es": "AGOSTO — DICIEMBRE 2025",
-        "en": "AUGUST — DECEMBER 2025"
+        "es": "AGOSTO 2025 — DICIEMBRE 2025",
+        "en": "AUGUST 2025 — DECEMBER 2025"
       },
       "title": {
-        "es": "Multilayer Perceptron (MLP)",
-        "en": "Multilayer Perceptron (MLP)"
+        "es": "MLP — Investigación y Desarrollo de Redes Neuronales",
+        "en": "MLP — Neural Network Research & Development"
       },
       "subtitle": {
         "es": "UTN FRRe — Inteligencia Artificial",
         "en": "UTN FRRe — Artificial Intelligence"
       },
       "role": {
-        "es": "AI Developer",
-        "en": "AI Developer"
+        "es": "AI Research & Developer",
+        "en": "AI Research & Developer"
       },
       "summary": {
-        "es": "Implementación de un Perceptrón Multicapa (MLP) para el reconocimiento de patrones en matrices de 10x10, desarrollado como trabajo práctico integral.",
-        "en": "Implementation of a Multilayer Perceptron (MLP) for pattern recognition in 10x10 matrices, developed as a comprehensive practical work."
+        "es": "Investigación y desarrollo de una red neuronal Multilayer Perceptron (MLP) implementada desde cero con NumPy, enfocada en la robustez ante ruido y optimización de hiperparámetros.",
+        "en": "Research and development of a Multilayer Perceptron (MLP) neural network implemented from scratch with NumPy, focused on noise robustness and hyperparameter optimization."
       },
       "description": {
-        "es": "Este proyecto aborda el diseño, entrenamiento y validación de una red neuronal MLP desde cero. El sistema incluye un backend con FastAPI para el servicio del modelo y un frontend interactivo en React que permite a los usuarios dibujar patrones y obtener predicciones en tiempo real. Se aplicaron prácticas de MLOps como el versionado de modelos y un registro centralizado de experimentos.",
-        "en": "This project covers the design, training, and validation of an MLP neural network from scratch. The system includes a FastAPI backend for model serving and an interactive React frontend that allows users to draw patterns and get real-time predictions. MLOps practices such as model versioning and a centralized experiment registry were applied."
+        "es": "Este proyecto documenta la investigación exhaustiva sobre redes neuronales profundas para el reconocimiento de patrones ('b', 'd', 'f') en matrices de 10x10. Se implementó el motor de inferencia y entrenamiento íntegramente en cuadernos de Jupyter, permitiendo un análisis detallado de la estabilidad numérica, la convergencia mediante momentum y la capacidad de generalización del modelo frente a datos con ruido aleatorio significativo.",
+        "en": "This project documents extensive research on deep neural networks for pattern recognition ('b', 'd', 'f') in 10x10 matrices. The inference and training engine was implemented entirely within Jupyter notebooks, allowing for detailed analysis of numerical stability, momentum-based convergence, and the model's generalization capabilities when faced with significant random noise."
       },
       "bullets": {
         "es": [
-          "Arquitectura de red: 100 neuronas de entrada, capas ocultas de 10 y 5 neuronas, y 3 de salida.",
-          "Entrenamiento mediante backpropagation con momentum y métricas de precisión del ~100%.",
-          "Desarrollo de un Grid interactivo 10x10 en React/TypeScript para pruebas de usuario.",
-          "Backend robusto con FastAPI y validación de datos mediante Pydantic.",
-          "Implementación de Model Registry para el versionado y gestión de modelos entrenados.",
-          "Generación de datasets sintéticos con ruido (0-30%) para mejorar la resiliencia del modelo."
+          "Implementación manual de la arquitectura MLP (100-10-5-3) y el algoritmo de backpropagation utilizando únicamente NumPy.",
+          "Refinamiento del motor de aprendizaje mediante el uso de momentum, mejorando significativamente la velocidad y estabilidad del entrenamiento.",
+          "Análisis de robustez mediante la generación de datasets sintéticos con inyección de ruido uniforme (del 1% al 30%).",
+          "Optimización de hiperparámetros mediante un proceso de Grid Search para determinar la tasa de aprendizaje y épocas ideales.",
+          "Implementación de funciones de activación sigmoides numéricamente estables para prevenir el desbordamiento de gradientes.",
+          "Visualización científica de curvas de pérdida (MSE) y precisión para validar el rendimiento del modelo en tiempo real."
         ],
         "en": [
-          "Network architecture: 100 input neurons, hidden layers of 10 and 5 neurons, and 3 outputs.",
-          "Training using backpropagation with momentum and accuracy metrics of ~100%.",
-          "Development of an interactive 10x10 Grid in React/TypeScript for user testing.",
-          "Robust backend with FastAPI and data validation using Pydantic.",
-          "Model Registry implementation for versioning and managing trained models.",
-          "Synthetic dataset generation with noise (0-30%) to improve model resilience."
+          "Manual implementation of the MLP architecture (100-10-5-3) and backpropagation algorithm using only NumPy.",
+          "Refinement of the learning engine using momentum, significantly improving training speed and stability.",
+          "Robustness analysis through synthetic dataset generation with uniform noise injection (1% to 30%).",
+          "Hyperparameter optimization using a Grid Search process to determine ideal learning rate and epochs.",
+          "Implementation of numerically stable sigmoid activation functions to prevent gradient overflow.",
+          "Scientific visualization of loss (MSE) and accuracy curves to validate model performance in real-time."
         ]
       },
-      "stack": ["Python", "FastAPI", "React", "TypeScript", "Vite", "MLOps", "Pydantic", "NumPy", "Pandas"],
+      "stack": ["Python", "NumPy", "Pandas", "Matplotlib", "Jupyter Notebook", "Machine Learning"],
+      "github": "https://github.com/elepad-org/mlp",
       "images": [
         "/proyectos/MLP/1.png",
         "/proyectos/MLP/2.png",
