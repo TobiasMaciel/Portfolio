@@ -1,0 +1,41 @@
+[
+  {
+    "id": "aws-desarrolla",
+    "year": "2026",
+    "title": { "es": "AWS Desarrolla — Subsecretaría de Modernización del Estado", "en": "AWS Desarrolla — Undersecretariat of State Modernization" },
+    "description": {
+      "es": "Beneficiario del programa AWS Desarrolla. Crédito de USD 5.000 para el desarrollo e innovación del proyecto.",
+      "en": "Beneficiary of the AWS Desarrolla program. USD 5,000 credit for project development and innovation."
+    },
+    "file": "/Certificaciones/AWS_Desarrolla.jpeg",
+    "isAchievement": true
+  },
+  {
+    "id": "aws-cert",
+    "year": "2026",
+    "title": { "es": "Certificación AWS y IA — Data Science Research Perú", "en": "AWS & AI Certification — Data Science Research Peru" },
+    "description": { "es": "Participación en el grupo de estudio avanzado sobre AWS, Fundamentos de IA, Machine Learning y Amazon Q.", "en": "Participation in the advanced study group on AWS, AI Fundamentals, Machine Learning and Amazon Q." },
+    "file": "/Certificaciones/AWS_DataScience.jpg"
+  },
+  {
+    "id": "cubesat",
+    "year": "2025",
+    "title": { "es": "Finalista Nacional — Certamen CUBESAT", "en": "National Finalist — CUBESAT Contest" },
+    "description": { "es": "Diseño y desarrollo de un satélite a escala (CubeSat) para la toma y análisis de datos.", "en": "Design and development of a scale satellite (CubeSat) for data collection and analysis." },
+    "file": "/Certificaciones/certificadoCubesat.jpg"
+  },
+  {
+    "id": "rally-3",
+    "year": "2024",
+    "title": { "es": "3° Puesto — Rally Latinoamericano de Innovación", "en": "3rd Place — Latin American Innovation Rally" },
+    "description": { "es": "Categoría Impacto Social. Solución tecnológica completa desarrollada en 24 horas.", "en": "Social Impact category. Complete technological solution developed in 24 hours." },
+    "file": "/Certificaciones/certificado_sede_impacto_social_63731.pdf"
+  },
+  {
+    "id": "scrum-cert",
+    "year": "2024",
+    "title": { "es": "Scrum Fundamentals Certified (SFC)", "en": "Scrum Fundamentals Certified (SFC)" },
+    "description": { "es": "Certificación internacional sobre los principios y procesos del marco de trabajo Scrum.", "en": "International certification on the principles and processes of the Scrum framework." },
+    "file": "/Certificaciones/ScrumFundamentalsCertified-TOBIASALEJANDROMACIELMEISTER.-1040109.pdf"
+  }
+]

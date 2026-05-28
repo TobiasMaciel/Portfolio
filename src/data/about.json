@@ -1,0 +1,18 @@
+{
+  "cv_text": {
+    "es": "nalista Desarrollador Universitario y estudiante avanzado de Ingeniería en Sistemas con más de 3 años de experiencia en el ecosistema tecnológico. Me considero un profesional entusiasta y siempre en constante evolución. Me apasiona y busco siempre desempeñarme en tres grandes áreas: el desarrollo de software, el análisis de datos y la inteligencia artificial.\n\n\"Cuento con experiencia trabajando a la par del Product Owner en relevamiento de requisitos, integrando metodologías ágiles para asegurar la entrega de herramientas innovadoras y perfectamente alineadas a las necesidades del negocio.\"\n\nDurante mi trayectoria, me he enfocado en diseñar arquitecturas escalables y mantener flujos de trabajo robustos mediante el uso de contenedores e integración continua. Ya sea desarrollando APIs o aportando valor mediante los datos, disfruto resolver problemas complejos y transformar ideas en soluciones de alto impacto.",
+    "en": "nalyst Developer and Advanced Systems Engineering student with over 3 years of experience in the tech ecosystem. I consider myself an enthusiastic professional, always in continuous evolution. I am passionate about and always seek to work in three main areas: software development, data analysis, and artificial intelligence.\n\n\"I have experience working alongside Product Owners in requirements gathering, integrating agile methodologies to ensure the delivery of innovative tools perfectly aligned with needs.\"\n\nThroughout my career, I've focused on designing scalable architectures and maintaining robust workflows using containers and continuous integration. Whether developing APIs or adding value through data, I enjoy solving complex problems and transforming ideas into high-impact solutions."
+  },
+  "headers": {
+    "es": [],
+    "en": []
+  },
+  "highlights": {
+    "es": [],
+    "en": []
+  },
+  "quotes": {
+    "es": ["\"Cuento con experiencia", "negocio.\""],
+    "en": ["\"I have experience", "needs.\""]
+  }
+}

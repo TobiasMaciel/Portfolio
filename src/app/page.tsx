@@ -9,7 +9,7 @@ import ContactGlow from "@/components/ContactGlow";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/context/LanguageContext";
-import portfolioData from "@/data/portfolio.json";
+import portfolioData from "@/data";
 import { Project, Education } from "@/types";
 import ProjectModal from "@/components/ProjectModal";
 import DocumentViewer from "@/components/DocumentViewer";

@@ -1,0 +1,59 @@
+[
+  {
+    "id": "isi",
+    "period": {
+      "es": "2021 — PRESENTE (EST. JUL 2026)",
+      "en": "2021 — PRESENT (EST. JUL 2026)"
+    },
+    "title": {
+      "es": "Ingeniería en Sistemas de Información",
+      "en": "Information Systems Engineering"
+    },
+    "institution": {
+      "es": "Universidad Tecnológica Nacional (UTN)",
+      "en": "National Technological University (UTN)"
+    },
+    "description": {
+      "es": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "analista",
+    "period": {
+      "es": "2021 — 2025",
+      "en": "2021 — 2025"
+    },
+    "title": {
+      "es": "Analista Desarrollador Universitario en Sistemas",
+      "en": "University Systems Developer Analyst"
+    },
+    "institution": {
+      "es": "Universidad Tecnológica Nacional (UTN)",
+      "en": "National Technological University (UTN)"
+    },
+    "description": {
+      "es": "",
+      "en": ""
+    }
+  },
+  {
+    "id": "english",
+    "period": {
+      "es": "2014 — 2020",
+      "en": "2014 — 2020"
+    },
+    "title": {
+      "es": "Inglés Intermedio B2",
+      "en": "Intermediate English B2"
+    },
+    "institution": {
+      "es": "Instituto Josefina Contte",
+      "en": "Josefina Contte Institute"
+    },
+    "description": {
+      "es": "",
+      "en": ""
+    }
+  }
+]

@@ -5,7 +5,7 @@ import { useMotionValue } from "framer-motion";
 import { prepareWithSegments, layoutNextLine } from "@chenglou/pretext";
 
 import { useLanguage } from "@/context/LanguageContext";
-import portfolioData from "@/data/portfolio.json";
+import portfolioData from "@/data";
 
 type LineData = {
   text: string;

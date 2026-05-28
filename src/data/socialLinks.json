@@ -1,0 +1,21 @@
+[
+  {
+    "platform": "phone",
+    "href": "tel:+543794144509",
+    "target": "_self"
+  },
+  {
+    "platform": "email",
+    "href": "mailto:tobiasmaciel03@gmail.com"
+  },
+  {
+    "platform": "linkedin",
+    "href": "https://www.linkedin.com/in/tobias-alejandro-maciel-meister-41ba39218/",
+    "target": "_blank"
+  },
+  {
+    "platform": "github",
+    "href": "https://github.com/TobiasMaciel",
+    "target": "_blank"
+  }
+]

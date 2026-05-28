@@ -1,0 +1,12 @@
+{
+  "name": "TOBÍAS ALEJANDRO",
+  "surname": "MACIEL MEISTER",
+  "role": {
+    "es": "Desarrollador Full-Stack",
+    "en": "Full-Stack Developer"
+  },
+  "description": {
+    "es": "Estudiante avanzado de Ingeniería en Sistemas de Información, enfocado en resolución de problemas complejos. Con experiencia en diseño de arquitecturas escalables robustas y liderando en equipos ágiles.",
+    "en": "Advanced Information Systems Engineering student, focused on complex problem solving. Experienced in designing robust scalable architectures and leading agile teams."
+  }
+}
