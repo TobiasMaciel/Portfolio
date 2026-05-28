@@ -751,7 +751,9 @@ export default function Home() {
                     <button
                       onClick={() => setViewerDoc({ 
                         url: `${basePath}${ach.file}`, 
-                        title: isEsLang ? "Certificación" : "Certification", 
+                        title: isEsLang 
+                          ? ((ach as any).isAchievement ? "Logro" : "Certificación") 
+                          : ((ach as any).isAchievement ? "Achievement" : "Certification"), 
                         subtitle: isEsLang ? ach.title.es : ach.title.en 
                       })}
                       className="mt-4 inline-flex items-center gap-2 px-4 py-2 bg-[#A78BFA]/10 text-[#A78BFA] text-xs font-bold rounded-lg border border-[#A78BFA]/20 hover:bg-[#A78BFA] hover:text-white transition-all active:scale-95 group/btn"
@@ -771,7 +773,9 @@ export default function Home() {
                         <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
                         <circle cx="12" cy="12" r="3" />
                       </svg>
-                      {isEsLang ? "Ver certificación" : "View certification"}
+                      {isEsLang 
+                        ? ((ach as any).isAchievement ? "Ver logro" : "Ver certificación") 
+                        : ((ach as any).isAchievement ? "View achievement" : "View certification")}
                     </button>
                   )}
                 </div>

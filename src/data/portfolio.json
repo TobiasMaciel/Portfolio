@@ -686,6 +686,17 @@
   },
   "achievements": [
     {
+      "id": "aws-desarrolla",
+      "year": "2026",
+      "title": { "es": "AWS Desarrolla — Subsecretaría de Modernización del Estado", "en": "AWS Desarrolla — Undersecretariat of State Modernization" },
+      "description": {
+        "es": "Beneficiario del programa AWS Desarrolla. Crédito de USD 5.000 para el desarrollo e innovación del proyecto.",
+        "en": "Beneficiary of the AWS Desarrolla program. USD 5,000 credit for project development and innovation."
+      },
+      "file": "/Certificaciones/AWS_Desarrolla.jpeg",
+      "isAchievement": true
+    },
+    {
       "id": "aws-cert",
       "year": "2026",
       "title": { "es": "Certificación AWS y IA — Data Science Research Perú", "en": "AWS & AI Certification — Data Science Research Peru" },
