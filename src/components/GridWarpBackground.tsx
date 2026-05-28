@@ -2,7 +2,15 @@
 
 import { useEffect, useRef } from "react";
 
-export default function GridWarpBackground() {
+export default function GridWarpBackground({
+  className = "absolute inset-x-0 top-0 pointer-events-none z-0 h-[950px] w-full",
+  heightVal = 950,
+  maskStyle = "radial-gradient(circle at 50% 30%, black 20%, transparent 85%)",
+}: {
+  className?: string;
+  heightVal?: number;
+  maskStyle?: string;
+}) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const mouseRef = useRef({ x: -1000, y: -1000 });
 
@@ -14,16 +22,17 @@ export default function GridWarpBackground() {
 
     let animationId: number;
     let width = (canvas.width = window.innerWidth);
-    let height = (canvas.height = window.innerHeight);
+    let height = (canvas.height = canvas.offsetHeight || heightVal);
 
     const handleResize = () => {
       width = canvas.width = window.innerWidth;
-      height = canvas.height = window.innerHeight;
+      height = canvas.height = canvas.offsetHeight || heightVal;
     };
 
     const handleMouseMove = (e: MouseEvent) => {
-      mouseRef.current.x = e.clientX;
-      mouseRef.current.y = e.clientY;
+      const rect = canvas.getBoundingClientRect();
+      mouseRef.current.x = e.clientX - rect.left;
+      mouseRef.current.y = e.clientY - rect.top;
     };
 
     const handleMouseLeave = () => {
@@ -121,15 +130,15 @@ export default function GridWarpBackground() {
       document.removeEventListener("mouseleave", handleMouseLeave);
       cancelAnimationFrame(animationId);
     };
-  }, []);
+  }, [heightVal]);
 
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none z-0"
+      className={className}
       style={{
-        maskImage: "radial-gradient(circle at 50% 30%, black 20%, transparent 85%)",
-        WebkitMaskImage: "radial-gradient(circle at 50% 30%, black 20%, transparent 85%)",
+        maskImage: maskStyle,
+        WebkitMaskImage: maskStyle,
       }}
     />
   );

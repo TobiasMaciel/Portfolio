@@ -807,6 +807,13 @@ export default function Home() {
             <ContactGlow />
           </div>
 
+          {/* Contact Section Interactive Grid */}
+          <GridWarpBackground 
+            className="absolute inset-0 pointer-events-none z-0 h-full w-full" 
+            heightVal={600} 
+            maskStyle="radial-gradient(circle at 50% 50%, black 10%, transparent 85%)" 
+          />
+
           <div className="relative z-10">
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-300 dark:border-zinc-800 pb-5">
               {isEsLang ? "Contacto" : "Contact"}
