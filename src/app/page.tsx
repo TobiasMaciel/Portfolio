@@ -1026,7 +1026,7 @@ export default function Home() {
                       strokeWidth="2.5"
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      className="group-hover/dl:translate-y-1 transition-transform"
+                      className="group-hover/dl:scale-110 transition-transform"
                     >
                       <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                       <polyline points="7 10 12 15 17 10" />
