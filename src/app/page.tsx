@@ -359,7 +359,7 @@ export default function Home() {
             className="mt-8 flex flex-col gap-4 font-sans text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase relative z-30"
           >
             {(
-              ["#proyectos", "#educacion", "#habilidades", "#logros"] as const
+              ["#proyectos", "#educacion", "#habilidades", "#logros", "#contacto"] as const
             ).map((href, i) => (
               <a
                 key={i}
@@ -367,7 +367,7 @@ export default function Home() {
                 className="hover:text-zinc-900 dark:hover:text-white transition-colors w-fit"
               >
                 {
-                  [t("projects"), t("studies"), t("skills"), t("achievements")][
+                  [t("projects"), t("studies"), t("skills"), t("achievements"), isEsLang ? "CONTACTO" : "CONTACT"][
                     i
                   ]
                 }
