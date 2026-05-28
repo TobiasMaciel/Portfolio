@@ -15,6 +15,7 @@ import ProjectModal from "@/components/ProjectModal";
 import DocumentViewer from "@/components/DocumentViewer";
 import MiniCarousel from "@/components/MiniCarousel";
 import Lightbox from "@/components/Lightbox";
+import GridWarpBackground from "@/components/GridWarpBackground";
 
 const staggerContainer = {
   hidden: { opacity: 0 },
@@ -252,6 +253,9 @@ export default function Home() {
 
   return (
     <main className="bg-slate-50 dark:bg-[#0A0A0B] text-zinc-900 dark:text-zinc-200 relative min-h-screen overflow-x-hidden selection:bg-[#A78BFA]/30 selection:text-[#A78BFA] transition-colors duration-700">
+      {/* Interactive Background Grid */}
+      <GridWarpBackground />
+
       <ThemeToggle />
       <LanguageToggle />
       <CursorGlow />
