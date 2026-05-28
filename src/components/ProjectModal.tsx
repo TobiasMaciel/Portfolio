@@ -63,7 +63,7 @@ export default function ProjectModal({
         onClick={onClose}
       >
         <motion.div
-          className="relative w-full max-w-6xl h-full lg:h-[92vh] bg-white dark:bg-zinc-900 rounded-3xl md:rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border border-zinc-200 dark:border-zinc-800"
+          className="relative w-full max-w-6xl h-full lg:h-[92vh] bg-white dark:bg-zinc-900 rounded-3xl md:rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border border-zinc-300 dark:border-zinc-800"
           style={{ contain: "content", willChange: "transform, opacity" }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -162,7 +162,7 @@ export default function ProjectModal({
                   <div className="flex-1 p-8 sm:p-10 flex flex-col gap-6">
                     {/* Main Gallery Frame */}
                     <div 
-                      className="relative w-full flex-1 min-h-[300px] rounded-[2rem] overflow-hidden bg-white dark:bg-zinc-950 border border-zinc-200 dark:border-white/5 cursor-zoom-in group/gallery shadow-inner"
+                      className="relative w-full flex-1 min-h-[300px] rounded-[2rem] overflow-hidden bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-white/5 cursor-zoom-in group/gallery shadow-inner"
                       onClick={() => setLightboxIdx(current)}
                       onPointerDown={(e) => {
                         if ((e.target as HTMLElement).closest("button")) return;

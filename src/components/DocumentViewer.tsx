@@ -38,7 +38,7 @@ export default function DocumentViewer({
       onClick={onClose}
     >
       <motion.div
-        className="bg-white dark:bg-[#121214] w-[98%] sm:w-[92%] md:w-[88%] lg:w-full max-w-5xl h-[95vh] lg:h-[88vh] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border border-zinc-200 dark:border-zinc-800"
+        className="bg-white dark:bg-[#121214] w-[98%] sm:w-[92%] md:w-[88%] lg:w-full max-w-5xl h-[95vh] lg:h-[88vh] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border border-zinc-300 dark:border-zinc-800"
         style={{ contain: "content", willChange: "transform, opacity" }}
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}

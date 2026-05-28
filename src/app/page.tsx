@@ -54,7 +54,7 @@ const NavLink = ({ href, label }: { href: string; label: string }) => (
     href={href}
     className="hover:text-zinc-900 dark:hover:text-white transition-colors flex items-center gap-4 group w-fit cursor-pointer"
   >
-    <span className="h-[2px] w-8 bg-zinc-300 dark:bg-zinc-700 group-hover:w-16 group-hover:bg-[#A78BFA] transition-all duration-300" />
+    <span className="h-[2px] w-8 bg-zinc-400 dark:bg-zinc-700 group-hover:w-16 group-hover:bg-[#A78BFA] transition-all duration-300" />
     {label}
   </a>
 );
@@ -252,7 +252,7 @@ export default function Home() {
   ];
 
   return (
-    <main className="bg-slate-50 dark:bg-[#0A0A0B] text-zinc-900 dark:text-zinc-200 relative min-h-screen overflow-x-hidden selection:bg-[#A78BFA]/30 selection:text-[#A78BFA] transition-colors duration-700">
+    <main className="bg-zinc-200 dark:bg-[#0A0A0B] text-zinc-900 dark:text-zinc-200 relative min-h-screen overflow-x-hidden selection:bg-[#A78BFA]/30 selection:text-[#A78BFA] transition-colors duration-700">
       {/* Interactive Background Grid */}
       <GridWarpBackground />
 
@@ -426,12 +426,12 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.05 }}
         >
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-zinc-200 dark:border-zinc-800 pb-5">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12 border-b border-zinc-300 dark:border-zinc-800 pb-5">
             <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white tracking-tight">
               {isEsLang ? "Proyectos" : "Projects"}
             </h2>
             
-            <div className="flex p-1 bg-zinc-100 dark:bg-zinc-900/50 rounded-xl border border-zinc-200 dark:border-zinc-800 w-fit">
+            <div className="flex p-1 bg-zinc-100 dark:bg-zinc-900/50 rounded-xl border border-zinc-300 dark:border-zinc-800 w-fit">
               <button
                 onClick={() => setProjectFilter("all")}
                 className={`px-4 py-2 text-sm font-bold rounded-lg transition-all duration-300 ${
@@ -473,7 +473,7 @@ export default function Home() {
                     )}
                     
                     <div className={`relative z-10 grid grid-cols-1 ${p.images && p.images.length > 0 ? "md:grid-cols-2 gap-8 lg:gap-12" : "max-w-4xl"} items-start`}>
-                      <div className="relative pl-6 border-l-2 border-zinc-200 dark:border-zinc-800 group-hover:border-[#A78BFA] transition-colors duration-300">
+                      <div className="relative pl-6 border-l-2 border-zinc-300 dark:border-zinc-800 group-hover:border-[#A78BFA] transition-colors duration-300">
                         <p className="text-[#A78BFA] text-xs font-bold tracking-widest mb-1">
                           {p.period}
                         </p>
@@ -517,7 +517,7 @@ export default function Home() {
                           {p.stack.length > 4 && !expandedStacks[p.id] && (
                             <button
                               onClick={() => toggleStack(p.id)}
-                              className="px-3 py-1 text-zinc-400 hover:text-[#A78BFA] hover:border-[#A78BFA]/30 text-xs font-semibold rounded-full border border-zinc-200 dark:border-zinc-800 transition-colors"
+                              className="px-3 py-1 text-zinc-400 hover:text-[#A78BFA] hover:border-[#A78BFA]/30 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 transition-colors"
                             >
                               +{p.stack.length - 4} {isEsLang ? "más" : "more"}
                             </button>
@@ -581,7 +581,7 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-200 dark:border-zinc-800 pb-5">
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-300 dark:border-zinc-800 pb-5">
             {isEsLang ? "Educación" : "Education"}
           </h2>
           <div className="flex flex-col gap-10">
@@ -616,14 +616,14 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-200 dark:border-zinc-800 pb-5">
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-300 dark:border-zinc-800 pb-5">
             {isEsLang ? "Habilidades" : "Skills"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {portfolioData.skills.categories.map((cat) => (
               <div
                 key={cat.label.en}
-                className="group p-6 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 relative"
+                className="group p-6 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-300 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 relative"
               >
                 {/* Contained Corner Glow */}
                 <div className="absolute inset-0 overflow-hidden rounded-[2rem] pointer-events-none">
@@ -675,7 +675,7 @@ export default function Home() {
                       return (
                         <Tooltip key={s} content={tooltipContent}>
                           <span
-                            className={`px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs font-medium rounded-full border border-zinc-200 dark:border-zinc-800 ${cat.borderHover} ${cat.textHover} transition-colors cursor-default`}
+                            className={`px-3 py-1.5 bg-zinc-100 dark:bg-zinc-900 text-zinc-700 dark:text-zinc-300 text-xs font-medium rounded-full border border-zinc-300 dark:border-zinc-800 ${cat.borderHover} ${cat.textHover} transition-colors cursor-default`}
                           >
                             {s}
                           </span>
@@ -688,7 +688,7 @@ export default function Home() {
             ))}
 
              {/* Languages Card */}
-             <div className="group p-6 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-200 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 md:col-span-2 relative">
+             <div className="group p-6 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm border border-zinc-300 dark:border-zinc-800/80 rounded-[2rem] hover:border-[#A78BFA]/30 transition-all duration-300 md:col-span-2 relative">
                 {/* Contained Corner Glow */}
                 <div className="absolute inset-0 overflow-hidden rounded-[2rem] pointer-events-none">
                   <div className="absolute -top-24 -right-24 w-80 h-80 bg-[#A78BFA]/10 blur-[90px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
@@ -708,7 +708,7 @@ export default function Home() {
                   {portfolioData.skills.languages.map((lang) => (
                     <div
                       key={lang.name.en}
-                      className="flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-900 rounded-full border border-zinc-200 dark:border-zinc-800"
+                      className="flex items-center gap-2 px-4 py-2 bg-zinc-100 dark:bg-zinc-900 rounded-full border border-zinc-300 dark:border-zinc-800"
                     >
                       <span className="text-sm font-semibold text-zinc-800 dark:text-zinc-200">
                         {lang.flag} {isEsLang ? lang.name.es : lang.name.en}
@@ -734,7 +734,7 @@ export default function Home() {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-200 dark:border-zinc-800 pb-5">
+          <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-300 dark:border-zinc-800 pb-5">
             {isEsLang ? "Logros" : "Achievements"}
           </h2>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
@@ -808,7 +808,7 @@ export default function Home() {
           </div>
 
           <div className="relative z-10">
-            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-200 dark:border-zinc-800 pb-5">
+            <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white mb-10 tracking-tight border-b border-zinc-300 dark:border-zinc-800 pb-5">
               {isEsLang ? "Contacto" : "Contact"}
             </h2>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
@@ -964,7 +964,7 @@ export default function Home() {
             </div>
 
             {/* CV Section — Redesigned for premium editorial look */}
-            <div className="lg:col-span-1 flex flex-col gap-10 p-10 rounded-[2.5rem] border border-zinc-200 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm relative overflow-hidden group">
+            <div className="lg:col-span-1 flex flex-col gap-10 p-10 rounded-[2.5rem] border border-zinc-300 dark:border-zinc-800 bg-white/70 dark:bg-zinc-900/40 backdrop-blur-sm relative overflow-hidden group">
               {/* Background Glow */}
               <div className="absolute -top-24 -right-24 w-64 h-64 bg-[#A78BFA]/10 blur-[80px] rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
 
@@ -1018,7 +1018,7 @@ export default function Home() {
                         ? "CV_Tobias_Maciel_ES.pdf"
                         : "CV_Tobias_Maciel_EN.pdf"
                     }
-                    className="flex-1 inline-flex items-center justify-center gap-3 px-8 py-5 border border-zinc-200 dark:border-zinc-800 hover:border-[#A78BFA] dark:hover:border-[#A78BFA] text-zinc-700 dark:text-zinc-300 hover:text-[#A78BFA] dark:hover:text-[#A78BFA] font-bold text-sm rounded-2xl transition-all duration-300 bg-white/50 dark:bg-zinc-900 shadow-sm backdrop-blur-sm group/dl"
+                    className="flex-1 inline-flex items-center justify-center gap-3 px-8 py-5 border border-zinc-300 dark:border-zinc-800 hover:border-[#A78BFA] dark:hover:border-[#A78BFA] text-zinc-700 dark:text-zinc-300 hover:text-[#A78BFA] dark:hover:text-[#A78BFA] font-bold text-sm rounded-2xl transition-all duration-300 bg-white/50 dark:bg-zinc-900 shadow-sm backdrop-blur-sm group/dl"
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"

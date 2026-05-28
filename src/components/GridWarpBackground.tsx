@@ -46,10 +46,10 @@ export default function GridWarpBackground() {
       // Check dark mode state from documentElement
       const isDark = document.documentElement.classList.contains("dark");
       
-      // Cohesive violet theme stroke style with low opacity
+      // Cohesive violet theme stroke style with optimized contrast per mode
       const strokeColor = isDark
         ? "rgba(167, 139, 250, 0.08)"
-        : "rgba(167, 139, 250, 0.15)";
+        : "rgba(109, 40, 217, 0.18)";
       ctx.strokeStyle = strokeColor;
       ctx.lineWidth = 1;
 

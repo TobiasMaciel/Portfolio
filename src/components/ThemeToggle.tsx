@@ -23,7 +23,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="fixed top-8 right-8 z-50 flex items-center justify-center w-12 h-12 bg-white/80 dark:bg-[#0C0C0D]/90 border border-zinc-200 dark:border-zinc-800 rounded-full hover:bg-white dark:hover:bg-[#1a1a1c] transition-all backdrop-blur-md shadow-lg hover:shadow-xl hover:-translate-y-1"
+      className="fixed top-8 right-8 z-50 flex items-center justify-center w-12 h-12 bg-white/80 dark:bg-[#0C0C0D]/90 border border-zinc-300 dark:border-zinc-800 rounded-full hover:bg-white dark:hover:bg-[#1a1a1c] transition-all backdrop-blur-md shadow-lg hover:shadow-xl hover:-translate-y-1"
       aria-label="Alternar Tema"
     >
       <AnimatePresence mode="wait">
