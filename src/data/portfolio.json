@@ -422,7 +422,24 @@
           "Fault and saturation simulation to validate the resilience of the microservices architecture."
         ]
       },
-      "stack": ["Kubernetes", "K3d", "Prometheus", "Grafana", "OpenTelemetry", "Docker"]
+      "stack": ["Kubernetes", "K3d", "Prometheus", "Grafana", "OpenTelemetry", "Docker"],
+      "images": [
+        "/proyectos/devopsKubernetes/1-arquitectura-de-comunicacion.png",
+        "/proyectos/devopsKubernetes/2-flujo-de-datos-detallados.png",
+        "/proyectos/devopsKubernetes/3-alta-disponibilidad-estrategia.png",
+        "/proyectos/devopsKubernetes/4-metricas.png",
+        "/proyectos/devopsKubernetes/5-trazas.png",
+        "/proyectos/devopsKubernetes/6-vision-general-cluster.png",
+        "/proyectos/devopsKubernetes/cluster-overview.png",
+        "/proyectos/devopsKubernetes/communication-architecture.png",
+        "/proyectos/devopsKubernetes/data-flow.png",
+        "/proyectos/devopsKubernetes/high-availability.png",
+        "/proyectos/devopsKubernetes/metrics-stack.png",
+        "/proyectos/devopsKubernetes/tracing-stack.png",
+        "/proyectos/devopsKubernetes/TP2-OrquestacionObservabilidad-DevOps-UTN-2025.pdf",
+        "/proyectos/devopsKubernetes/TP2-Arquitectura-SlideDeck.pdf"
+      ],
+      "report": "/proyectos/devopsKubernetes/TP2-OrquestacionObservabilidad-DevOps-UTN-2025.pdf"
     },
     {
       "id": "devops-azure",
@@ -466,7 +483,29 @@
           "Workflow automation from commit to production cloud environment."
         ]
       },
-      "stack": ["Azure", "Docker", "GitHub Actions", "Next.js", "Flask", "Redis", "CI/CD"]
+      "stack": ["Azure", "Docker", "GitHub Actions", "Next.js", "Flask", "Redis", "CI/CD"],
+      "images": [
+        "/proyectos/devopsAzure/1.png",
+        "/proyectos/devopsAzure/2.png",
+        "/proyectos/devopsAzure/3.png",
+        "/proyectos/devopsAzure/4.png",
+        "/proyectos/devopsAzure/5.png",
+        "/proyectos/devopsAzure/6.png",
+        "/proyectos/devopsAzure/7.png",
+        "/proyectos/devopsAzure/8.png",
+        "/proyectos/devopsAzure/9.png",
+        "/proyectos/devopsAzure/10.png",
+        "/proyectos/devopsAzure/11.png",
+        "/proyectos/devopsAzure/app-statistics.png",
+        "/proyectos/devopsAzure/app-voting.png",
+        "/proyectos/devopsAzure/arquitectura.png",
+        "/proyectos/devopsAzure/deploy-succes.png",
+        "/proyectos/devopsAzure/pipeline-ci-cd.png",
+        "/proyectos/devopsAzure/test-and-deploy.png",
+        "/proyectos/devopsAzure/devops-tp1-informe.pdf",
+        "/proyectos/devopsAzure/TP1-AppWebRedisContenerizados-DevOps-UTN-2025.pdf"
+      ],
+      "report": "/proyectos/devopsAzure/devops-tp1-informe.pdf"
     },
     {
       "id": "tup",
