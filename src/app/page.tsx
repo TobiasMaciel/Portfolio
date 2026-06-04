@@ -282,7 +282,7 @@ export default function Home() {
           <AmbientGlow />
           <motion.h1
             variants={fadeUpBlur}
-            className="font-playfair text-4xl sm:text-5xl md:text-7xl xl:text-[5.1rem] tracking-tight leading-none text-zinc-900 dark:text-white font-bold w-full drop-shadow-md dark:drop-shadow-lg relative z-10"
+            className="font-playfair text-4xl sm:text-5xl md:text-7xl lg:text-5xl xl:text-6xl 2xl:text-[5.1rem] tracking-tight leading-none text-zinc-900 dark:text-white font-bold w-full drop-shadow-md dark:drop-shadow-lg relative z-10"
           >
             {portfolioData.hero.name}
             <br />

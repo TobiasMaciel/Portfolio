@@ -87,8 +87,8 @@ export default function LayoutAnimation() {
     if (computed) fontFamily = computed;
 
     const isMobile = dimensions.width < 640;
-    const fontSize = isMobile ? 17 : 20;
-    const lineHeight = isMobile ? 30 : 36;
+    const fontSize = isMobile ? 17 : (dimensions.width < 800 ? 18 : 20);
+    const lineHeight = isMobile ? 30 : (dimensions.width < 800 ? 32 : 36);
     const fontString = `${fontSize}px ${fontFamily}`;
     const prepared = prepareWithSegments(CV_TEXT, fontString, {
       whiteSpace: "pre-wrap",
@@ -129,8 +129,8 @@ export default function LayoutAnimation() {
       const paddingRight = 40;
       const totalWidth = dimensions.width - calcStartLeft - paddingRight;
 
-      const numColumns = dimensions.width < 768 ? 1 : 2;
-      const gap = 80;
+      const numColumns = dimensions.width < 500 ? 1 : 2;
+      const gap = dimensions.width < 800 ? 40 : 80;
       const colWidth = (totalWidth - (numColumns - 1) * gap) / numColumns;
 
       const maxHeight = 650;
@@ -254,14 +254,14 @@ export default function LayoutAnimation() {
     <div
       ref={containerRef}
       className="relative w-full overflow-hidden"
-      style={{ height: dimensions.width < 640 ? 1000 : 800 }}
+      style={{ height: dimensions.width < 640 ? 1000 : (dimensions.width < 800 ? 700 : 800) }}
       suppressHydrationWarning
     >
       <div 
         className="absolute top-0 left-0 w-full h-full pointer-events-none font-playfair z-10 text-zinc-700 dark:text-zinc-300"
         style={{ 
-          fontSize: dimensions.width < 640 ? "17px" : "20px",
-          lineHeight: dimensions.width < 640 ? "30px" : "36px"
+          fontSize: dimensions.width < 640 ? "17px" : (dimensions.width < 800 ? "18px" : "20px"),
+          lineHeight: dimensions.width < 640 ? "30px" : (dimensions.width < 800 ? "32px" : "36px")
         }}
       >
         <div
