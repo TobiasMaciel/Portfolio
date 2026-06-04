@@ -272,12 +272,12 @@ export default function Home() {
       </AnimatePresence>
 
       {/* HERO */}
-      <div className="flex flex-col lg:flex-row justify-between w-full relative z-10 mb-32 lg:mb-40">
+      <div className="flex flex-col lg:flex-row justify-between lg:items-center w-full relative z-10 mb-12 lg:min-h-screen lg:mb-0">
         <motion.section
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="hidden lg:flex w-[45%] flex-col pt-[8vh] xl:pt-[12vh] pl-10 lg:pl-16 xl:pl-20 z-20 relative"
+          className="hidden lg:flex w-[45%] flex-col pl-10 lg:pl-16 xl:pl-20 z-20 relative"
         >
           <AmbientGlow />
           <motion.h1
@@ -408,7 +408,7 @@ export default function Home() {
           }}
           className="w-full lg:w-[50%] lg:pr-10 xl:pr-20 relative z-10"
         >
-          <div className="w-full flex-1 relative lg:mt-[15vh]">
+          <div className="w-full flex-1 relative">
             <LayoutAnimation />
           </div>
         </motion.section>

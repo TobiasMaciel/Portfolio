@@ -133,7 +133,7 @@ export default function LayoutAnimation() {
       const gap = dimensions.width < 800 ? 40 : 80;
       const colWidth = (totalWidth - (numColumns - 1) * gap) / numColumns;
 
-      const maxHeight = 650;
+       const maxHeight = dimensions.width < 640 ? 850 : (dimensions.width < 800 ? 500 : 550);
 
       let currentTargetY = 0;
       let colIndex = 0;
@@ -254,7 +254,7 @@ export default function LayoutAnimation() {
     <div
       ref={containerRef}
       className="relative w-full overflow-hidden"
-      style={{ height: dimensions.width < 640 ? 1000 : (dimensions.width < 800 ? 700 : 800) }}
+      style={{ height: dimensions.width < 640 ? 1000 : (dimensions.width < 800 ? 560 : 600) }}
       suppressHydrationWarning
     >
       <div 
