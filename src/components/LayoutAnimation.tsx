@@ -86,15 +86,23 @@ export default function LayoutAnimation() {
       .getPropertyValue("--font-playfair");
     if (computed) fontFamily = computed;
 
+    const isDesktop = dimensions.width >= 500;
+    const scale = isDesktop ? dimensions.width / 900 : 1;
+
     const isMobile = dimensions.width < 640;
-    const fontSize = isMobile ? 17 : (dimensions.width < 800 ? 18 : 20);
-    const lineHeight = isMobile ? 30 : (dimensions.width < 800 ? 32 : 36);
+    const fontSize = isDesktop 
+      ? 20 * scale 
+      : (isMobile ? 17 : (dimensions.width < 800 ? 18 : 20));
+    const lineHeight = isDesktop 
+      ? 36 * scale 
+      : (isMobile ? 30 : (dimensions.width < 800 ? 32 : 36));
+
     const fontString = `${fontSize}px ${fontFamily}`;
     const prepared = prepareWithSegments(CV_TEXT, fontString, {
       whiteSpace: "pre-wrap",
     });
 
-    const radius = 35;
+    const radius = 35 * scale;
 
     let animationFrameId: number;
 
@@ -130,10 +138,12 @@ export default function LayoutAnimation() {
       const totalWidth = dimensions.width - calcStartLeft - paddingRight;
 
       const numColumns = dimensions.width < 500 ? 1 : 2;
-      const gap = dimensions.width < 800 ? 40 : 80;
+      const gap = isDesktop ? 80 * scale : (dimensions.width < 800 ? 40 : 80);
       const colWidth = (totalWidth - (numColumns - 1) * gap) / numColumns;
 
-       const maxHeight = dimensions.width < 640 ? 850 : (dimensions.width < 800 ? 500 : 550);
+      const maxHeight = isDesktop 
+        ? 550 * scale 
+        : (dimensions.width < 640 ? 850 : (dimensions.width < 800 ? 500 : 550));
 
       let currentTargetY = 0;
       let colIndex = 0;
@@ -170,10 +180,12 @@ export default function LayoutAnimation() {
         const isDropCapLine = colIndex === 0 && lineIndexInCol < 3;
 
         if (isDropCapLine) {
-          startX += 95;
-          availableWidth -= 95;
+          const dropCapIndent = isDesktop ? 95 * scale : 95;
+          startX += dropCapIndent;
+          availableWidth -= dropCapIndent;
         } else if (isNextQuote) {
-          availableWidth -= 20;
+          const quoteIndent = isDesktop ? 20 * scale : 20;
+          availableWidth -= quoteIndent;
         }
 
         if (dy < radius) {
@@ -248,29 +260,36 @@ export default function LayoutAnimation() {
     return () => cancelAnimationFrame(animationFrameId);
   }, [dimensions, mouseX, mouseY, CV_TEXT, HEADERS, QUOTES]);
 
+  const isDesktop = dimensions.width >= 500;
+  const scale = isDesktop ? dimensions.width / 900 : 1;
   const startLeft = dimensions.width < 1024 ? 20 : 0;
+
+  const isMobile = dimensions.width < 640;
+  const lineHeight = isDesktop 
+    ? 36 * scale 
+    : (isMobile ? 30 : (dimensions.width < 800 ? 32 : 36));
 
   return (
     <div
       ref={containerRef}
       className="relative w-full overflow-hidden"
-      style={{ height: dimensions.width < 640 ? 1000 : (dimensions.width < 800 ? 560 : 600) }}
+      style={{ height: isDesktop ? 600 * scale : (dimensions.width < 640 ? 1000 : 560) }}
       suppressHydrationWarning
     >
       <div 
         className="absolute top-0 left-0 w-full h-full pointer-events-none font-playfair z-10 text-zinc-700 dark:text-zinc-300"
         style={{ 
-          fontSize: dimensions.width < 640 ? "17px" : (dimensions.width < 800 ? "18px" : "20px"),
-          lineHeight: dimensions.width < 640 ? "30px" : (dimensions.width < 800 ? "32px" : "36px")
+          fontSize: isDesktop ? `${20 * scale}px` : (dimensions.width < 640 ? "17px" : "18px"),
+          lineHeight: isDesktop ? `${36 * scale}px` : (dimensions.width < 640 ? "30px" : "32px")
         }}
       >
         <div
           className="absolute font-playfair font-bold text-[#A78BFA] leading-none pointer-events-auto"
           style={{
             left: startLeft,
-            top: 5,
-            fontSize: dimensions.width < 640 ? "80px" : "110px",
-            lineHeight: dimensions.width < 640 ? "75px" : "100px",
+            top: 5 * scale,
+            fontSize: isDesktop ? `${110 * scale}px` : (dimensions.width < 640 ? "80px" : "110px"),
+            lineHeight: isDesktop ? `${100 * scale}px` : (dimensions.width < 640 ? "75px" : "100px"),
           }}
         >
           A
@@ -315,11 +334,13 @@ export default function LayoutAnimation() {
                 left: line.x,
                 top: line.y,
                 width: line.width + 10,
+                height: `${lineHeight}px`,
+                lineHeight: `${lineHeight}px`,
                 whiteSpace: "nowrap",
                 fontWeight: line.isHeader ? 700 : line.isQuote ? 500 : 400,
                 fontStyle: line.isQuote ? "italic" : "normal",
-                borderLeft: line.isQuote ? "2px solid #A78BFA" : "none",
-                paddingLeft: line.isQuote ? "12px" : "0",
+                borderLeft: line.isQuote ? `${2 * scale}px solid #A78BFA` : "none",
+                paddingLeft: line.isQuote ? `${12 * scale}px` : "0",
               }}
             >
               {htmlText}

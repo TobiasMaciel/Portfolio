@@ -277,26 +277,26 @@ export default function Home() {
           variants={staggerContainer}
           initial="hidden"
           animate="visible"
-          className="hidden lg:flex w-[45%] flex-col pl-10 lg:pl-16 xl:pl-20 z-20 relative"
+          className="hidden lg:flex lg:w-[40%] xl:w-[42%] 2xl:w-[45%] flex-col pl-10 lg:pl-16 xl:pl-20 z-20 relative"
         >
           <AmbientGlow />
           <motion.h1
             variants={fadeUpBlur}
-            className="font-playfair text-4xl sm:text-5xl md:text-7xl lg:text-5xl xl:text-6xl 2xl:text-[5.1rem] tracking-tight leading-none text-zinc-900 dark:text-white font-bold w-full drop-shadow-md dark:drop-shadow-lg relative z-10"
+            className="font-playfair text-4xl sm:text-5xl md:text-7xl lg:text-[2.8vw] xl:text-[3.2vw] 2xl:text-[4.2rem] tracking-tight leading-none text-zinc-900 dark:text-white font-bold w-full drop-shadow-md dark:drop-shadow-lg relative z-10"
           >
-            {portfolioData.hero.name}
+            <span>{portfolioData.hero.name}</span>
             <br />
             <span className="text-zinc-500">{portfolioData.hero.surname}</span>
           </motion.h1>
           <motion.p
             variants={fadeUpBlur}
-            className="font-sans text-xl mt-4 lg:mt-5 xl:mt-6 text-[#A78BFA] font-medium tracking-wide relative z-10"
+            className="font-sans text-xl mt-3 lg:mt-4 xl:mt-5 text-[#A78BFA] font-medium tracking-wide relative z-10"
           >
             {isEsLang ? portfolioData.hero.role.es : portfolioData.hero.role.en}
           </motion.p>
           <motion.nav
             variants={fadeUpText}
-            className="mt-8 lg:mt-10 xl:mt-16 flex flex-col gap-4 lg:gap-5 xl:gap-6 font-sans text-xs font-bold tracking-[0.2em] text-zinc-400 dark:text-zinc-500 uppercase relative z-30"
+            className="mt-6 lg:mt-8 xl:mt-12 flex flex-col gap-3 lg:gap-4 xl:gap-5 font-sans text-xs font-bold tracking-[0.2em] text-zinc-400 dark:text-zinc-500 uppercase relative z-30"
           >
             <NavLink href="#proyectos" label={t("projects")} />
             <NavLink href="#educacion" label={t("studies")} />
@@ -309,7 +309,7 @@ export default function Home() {
           </motion.nav>
           <motion.div
             variants={fadeUpText}
-            className="flex gap-4 mt-8 lg:mt-10 xl:mt-16 relative z-30"
+            className="flex gap-3 lg:gap-4 mt-6 lg:mt-8 xl:mt-12 relative z-30"
           >
             {socialLinks.map((l, i) => (
               <Tooltip key={i} content={l.label}>
