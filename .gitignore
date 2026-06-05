@@ -48,3 +48,6 @@ skills-lock.json
 # vids
 videos/
 videos/*
+
+# temp
+temp/
