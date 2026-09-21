@@ -3,11 +3,12 @@ import about from "./about.json";
 import socialLinks from "./socialLinks.json";
 import contact from "./contact.json";
 import projects from "./projects.json";
+import experience from "./experience.json";
 import education from "./education.json";
 import skills from "./skills.json";
 import achievements from "./achievements.json";
 
-export { hero, about, socialLinks, contact, projects, education, skills, achievements };
+export { hero, about, socialLinks, contact, projects, experience, education, skills, achievements };
 
 const portfolioData = {
   hero,
@@ -15,6 +16,7 @@ const portfolioData = {
   socialLinks,
   contact,
   projects,
+  experience,
   education,
   skills,
   achievements,

@@ -5,14 +5,14 @@
       "color": "#A78BFA",
       "borderHover": "hover:border-[#A78BFA]/50",
       "textHover": "hover:text-[#A78BFA]",
-      "tags": ["React", "React Native", "Next.js", "TypeScript", "JavaScript", "Vite", "HTML", "CSS", "Chakra UI", "React Query", "Jest", "Cypress"]
+      "tags": ["React", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS", "shadcn/ui", "React Native", "Angular", "Vite", "HTML", "CSS", "Chakra UI", "React Query", "Jest", "Cypress"]
     },
     {
       "label": { "es": "Backend y Datos", "en": "Backend & Data" },
       "color": "#34D399",
       "borderHover": "hover:border-emerald-400/50",
       "textHover": "hover:text-emerald-500",
-      "tags": ["Python", "Django", "Flask", "Node.js", "Express", "SQL", "MySQL", "PostgreSQL", "Redis", "Prisma ORM", "JWT", "NumPy", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn"]
+      "tags": ["Python", "Django", "Django REST Framework", "Node.js", "Express", "SQL", "PostgreSQL", "MySQL", "Prisma ORM", "Redis", "JWT", "SQLite", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "PHP", "Laravel"]
     },
     {
       "label": { "es": "DevOps y Cloud", "en": "DevOps & Cloud" },
@@ -26,14 +26,14 @@
       "color": "#E879F9",
       "borderHover": "hover:border-fuchsia-400/50",
       "textHover": "hover:text-fuchsia-400",
-      "tags": ["Git", "GitHub", "Postman", "OpenAPI", "MCP Protocol", "Jira", "Slack", "Jupyter", "VS Code", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
+      "tags": ["Scrum (Agile)", "TDD", "Git", "GitHub", "Postman", "OpenAPI", "MCP Protocol", "Chatwoot", "Jira", "Slack", "VS Code", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
     },
     {
       "label": { "es": "Inteligencia Artificial", "en": "Artificial Intelligence" },
       "color": "#F87171",
       "borderHover": "hover:border-red-400/50",
       "textHover": "hover:text-red-400",
-      "tags": ["Google Gemini AI", "GPT-5-Chat"]
+      "tags": ["Claude API", "Autonomous Agents", "Tool-Calling", "OpenAI API", "Whisper", "Google Gemini AI", "GPT-5-Chat"]
     }
   ],
   "languages": [

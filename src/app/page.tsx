@@ -10,8 +10,9 @@ import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
 import { useLanguage } from "@/context/LanguageContext";
 import portfolioData from "@/data";
-import { Project, Education } from "@/types";
+import { Project, Education, ExperienceItem } from "@/types";
 import ProjectModal from "@/components/ProjectModal";
+import ExperienceModal from "@/components/ExperienceModal";
 import DocumentViewer from "@/components/DocumentViewer";
 import MiniCarousel from "@/components/MiniCarousel";
 import Lightbox from "@/components/Lightbox";
@@ -104,6 +105,7 @@ export default function Home() {
   const { t } = useLanguage();
   const isEsLang = t("experience") === "EXPERIENCIA";
   const [activeProject, setActiveProject] = useState<Project | null>(null);
+  const [activeExperience, setActiveExperience] = useState<ExperienceItem | null>(null);
   const [lightboxInfo, setLightboxInfo] = useState<{
     images: string[];
     index: number;
@@ -137,6 +139,23 @@ export default function Home() {
     title: isEsLang ? e.title?.es : e.title?.en,
     institution: isEsLang ? e.institution?.es : e.institution?.en,
     description: isEsLang ? e.description?.es : e.description?.en,
+  }));
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const experiences: ExperienceItem[] = (portfolioData.experience as unknown as any[]).map((exp: any) => ({
+    id: exp.id,
+    period: isEsLang ? exp.period?.es : exp.period?.en,
+    company: isEsLang ? exp.company?.es : exp.company?.en,
+    role: isEsLang ? exp.role?.es : exp.role?.en,
+    location: isEsLang ? exp.location?.es : exp.location?.en,
+    summary: isEsLang ? exp.summary?.es : exp.summary?.en,
+    description: isEsLang ? exp.description?.es : exp.description?.en,
+    bullets: isEsLang ? exp.bullets?.es : exp.bullets?.en,
+    details: isEsLang ? exp.details?.es : exp.details?.en,
+    stack: exp.stack || [],
+    recommendationLetter: exp.recommendationLetter,
+    relatedProjectIds: exp.relatedProjectIds || [],
+    highlights: isEsLang ? exp.highlights?.es : exp.highlights?.en,
   }));
 
   const [expandedStacks, setExpandedStacks] = useState<Record<string, boolean>>({});
@@ -298,6 +317,7 @@ export default function Home() {
             variants={fadeUpText}
             className="mt-6 lg:mt-8 xl:mt-12 flex flex-col gap-3 lg:gap-4 xl:gap-5 font-sans text-xs font-bold tracking-[0.2em] text-zinc-400 dark:text-zinc-500 uppercase relative z-30"
           >
+            <NavLink href="#experiencia" label={t("experience")} />
             <NavLink href="#proyectos" label={t("projects")} />
             <NavLink href="#educacion" label={t("studies")} />
             <NavLink href="#habilidades" label={t("skills")} />
@@ -359,7 +379,7 @@ export default function Home() {
             className="mt-8 flex flex-col gap-4 font-sans text-xs font-bold tracking-[0.2em] text-zinc-500 uppercase relative z-30"
           >
             {(
-              ["#proyectos", "#educacion", "#habilidades", "#logros", "#contacto"] as const
+              ["#experiencia", "#proyectos", "#educacion", "#habilidades", "#logros", "#contacto"] as const
             ).map((href, i) => (
               <a
                 key={i}
@@ -367,7 +387,7 @@ export default function Home() {
                 className="hover:text-zinc-900 dark:hover:text-white transition-colors w-fit"
               >
                 {
-                  [t("projects"), t("studies"), t("skills"), t("achievements"), isEsLang ? "CONTACTO" : "CONTACT"][
+                  [t("experience"), t("projects"), t("studies"), t("skills"), t("achievements"), isEsLang ? "CONTACTO" : "CONTACT"][
                     i
                   ]
                 }
@@ -416,6 +436,170 @@ export default function Home() {
 
       {/* SECCIONES */}
       <div className="flex flex-col w-full relative z-10 px-6 sm:px-10 lg:px-16 xl:px-20 space-y-32 pb-40 font-sans">
+        {/* EXPERIENCIA */}
+        <motion.section
+          id="experiencia"
+          className="scroll-mt-24"
+          style={{ containIntrinsicSize: "0 600px" } as React.CSSProperties}
+          variants={sectionScrollEnter}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.05 }}
+        >
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12 border-b border-zinc-300 dark:border-zinc-800 pb-5">
+            <div>
+              <h2 className="font-playfair text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white tracking-tight">
+                {isEsLang ? "Experiencia" : "Experience"}
+              </h2>
+              <p className="text-sm text-zinc-500 mt-2 font-medium">
+                {isEsLang
+                  ? "Trayectoria profesional en desarrollo de software, agentes de IA y sistemas escalables"
+                  : "Professional track record in software engineering, AI agents, and scalable systems"}
+              </p>
+            </div>
+            <span className="text-xs font-bold tracking-widest text-[#A78BFA] uppercase px-3.5 py-1.5 bg-[#A78BFA]/10 border border-[#A78BFA]/20 rounded-full w-fit">
+              {isEsLang ? "Trayectoria Laboral" : "Career Journey"}
+            </span>
+          </div>
+
+          {/* Timeline de arriba hacia abajo al estilo de Proyectos */}
+          <div className="relative border-l-2 border-zinc-300 dark:border-zinc-800 ml-2 sm:ml-4 flex flex-col gap-16 sm:gap-20">
+            {experiences.map((exp, index) => {
+              const isLatest = index === 0;
+
+              return (
+                <div key={exp.id} id={`experience-${exp.id}`} className="relative pl-6 sm:pl-8 group scroll-mt-24">
+                  {/* Timeline Node (sin animación titilante) */}
+                  <div
+                    className={`absolute top-1.5 rounded-full border-2 border-white dark:border-[#0A0A0B] transition-colors duration-300 ${
+                      isLatest
+                        ? "-left-[9px] w-4 h-4 bg-[#A78BFA] ring-4 ring-[#A78BFA]/20 shadow-[0_0_12px_rgba(167,139,250,0.6)]"
+                        : "-left-[8px] w-3.5 h-3.5 bg-zinc-300 dark:bg-zinc-700 group-hover:bg-[#A78BFA]"
+                    }`}
+                  />
+
+                  {/* Corner Glow en el último puesto */}
+                  {isLatest && (
+                    <div className="absolute -top-32 -right-32 w-80 h-80 bg-[#A78BFA]/5 blur-[100px] rounded-full pointer-events-none" />
+                  )}
+
+                  {/* Periodo y Badge */}
+                  <div className="flex items-center gap-3 mb-1">
+                    <p
+                      className={`text-xs font-bold tracking-widest uppercase ${
+                        isLatest ? "text-[#A78BFA]" : "text-zinc-500 dark:text-zinc-400"
+                      }`}
+                    >
+                      {exp.period}
+                    </p>
+                    {isLatest && (
+                      <span className="px-2.5 py-0.5 rounded-full text-[11px] font-bold bg-[#A78BFA]/10 text-[#A78BFA] border border-[#A78BFA]/20">
+                        {isEsLang ? "Puesto Actual" : "Current Role"}
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Empresa */}
+                  <div className="flex items-start justify-between gap-2 mb-1">
+                    <h3
+                      className={`font-bold leading-tight transition-colors ${
+                        isLatest
+                          ? "text-2xl sm:text-3xl text-zinc-900 dark:text-zinc-100 group-hover:text-[#A78BFA]"
+                          : "text-2xl text-zinc-900 dark:text-zinc-100 group-hover:text-[#A78BFA]"
+                      }`}
+                    >
+                      {exp.company}
+                    </h3>
+                  </div>
+
+                  {/* Rol */}
+                  <p className="text-zinc-500 font-medium mb-4 text-sm sm:text-base">
+                    <span className={isLatest ? "text-[#A78BFA] font-semibold text-base sm:text-lg" : "text-[#A78BFA] font-medium"}>
+                      {exp.role}
+                    </span>
+                  </p>
+
+                  {/* Bullets descriptivos estilo proyectos */}
+                  <ul className="space-y-2.5 mb-5 max-w-4xl">
+                    {exp.bullets.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-3 text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                        <span
+                          className={`mt-2 w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                            isLatest
+                              ? "bg-[#A78BFA]"
+                              : "bg-zinc-400 dark:bg-zinc-600 group-hover:bg-[#A78BFA] transition-colors"
+                          }`}
+                        />
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* Chips de Stack */}
+                  <div className="flex flex-wrap gap-1.5 mb-4 overflow-hidden">
+                    {exp.stack.map((s) => (
+                      <span
+                        key={s}
+                        className={`px-3 py-1 text-xs font-semibold rounded-full border transition-colors ${
+                          isLatest
+                            ? "bg-[#A78BFA]/10 text-[#A78BFA] border-[#A78BFA]/20"
+                            : "bg-zinc-100 dark:bg-zinc-900 text-zinc-600 dark:text-zinc-400 border-zinc-300 dark:border-zinc-800 group-hover:border-[#A78BFA]/30 group-hover:text-[#A78BFA]"
+                        }`}
+                      >
+                        {s}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Botones de Acción: Ver detalle y Proyecto asociado */}
+                  <div className="flex flex-wrap items-center gap-4">
+                    <button
+                      onClick={() => setActiveExperience(exp)}
+                      className="inline-flex items-center gap-2 text-sm font-semibold text-[#A78BFA] group/cta hover:gap-3 transition-all cursor-pointer"
+                    >
+                      <span>{isEsLang ? "Ver detalle del rol" : "View role details"}</span>
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="13"
+                        height="13"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        className="transition-transform group-hover/cta:translate-x-1"
+                      >
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </button>
+
+                    {exp.relatedProjectIds && exp.relatedProjectIds.length > 0 && (
+                      <div className="flex flex-wrap items-center gap-2">
+                        {exp.relatedProjectIds.map((projId) => {
+                          const target = projects.find((p) => p.id === projId);
+                          if (!target) return null;
+                          return (
+                            <button
+                              key={projId}
+                              onClick={() => setActiveProject(target)}
+                              className="inline-flex items-center gap-1.5 px-3 py-1 bg-zinc-100 dark:bg-zinc-800/80 text-zinc-600 dark:text-zinc-300 hover:text-[#A78BFA] text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-700 hover:border-[#A78BFA]/30 transition-all cursor-pointer"
+                            >
+                              <span>{isEsLang ? "Proyecto asociado" : "Associated project"}: {target.title}</span>
+                              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </motion.section>
+
         {/* PROYECTOS */}
         <motion.section
           id="proyectos"
@@ -555,13 +739,15 @@ export default function Home() {
                         </button>
                       </div>
                       {p.images && p.images.length > 0 && (
-                        <MiniCarousel
-                          images={p.images}
-                          title={p.title}
-                          onClickImage={(idx) =>
-                            setLightboxInfo({ images: p.images, index: idx })
-                          }
-                        />
+                        <div className="md:sticky md:top-28 self-start w-full">
+                          <MiniCarousel
+                            images={p.images}
+                            title={p.title}
+                            onClickImage={(idx) =>
+                              setLightboxInfo({ images: p.images, index: idx })
+                            }
+                          />
+                        </div>
                       )}
                     </div>
                   </div>
@@ -645,28 +831,94 @@ export default function Home() {
                   </div>
                   <div className="flex flex-wrap gap-2">
                     {cat.tags.map((s) => {
-                      const relatedProjects = projects.filter(p => p.stack.includes(s));
+                      const relatedProjects = projects.filter((p) => p.stack.includes(s));
+                      const relatedExperiences = experiences.filter((e) => e.stack.includes(s));
+                      const hasRelations = relatedProjects.length > 0 || relatedExperiences.length > 0;
                       
-                      const tooltipContent = relatedProjects.length > 0 ? (
-                        <div className="flex flex-col gap-1.5 py-0.5">
-                          {relatedProjects.map((p, idx) => (
-                            <button
-                              key={p.id}
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                const el = document.getElementById(`project-${p.id}`);
-                                if (el) {
-                                  el.scrollIntoView({ behavior: 'smooth' });
-                                  // Optional: open detail directly
-                                  // setActiveProject(p);
-                                }
-                              }}
-                              className="text-white dark:text-zinc-900 hover:text-[#A78BFA] dark:hover:text-[#A78BFA] transition-colors text-left flex items-center gap-2 group/link"
-                            >
-                              <span className="w-1 h-1 rounded-full bg-[#A78BFA]" />
-                              <span className="border-b border-transparent group-hover/link:border-[#A78BFA]">{p.title}</span>
-                            </button>
-                          ))}
+                      const tooltipContent = hasRelations ? (
+                        <div className="flex flex-col gap-2.5 py-1 text-left min-w-[170px] max-w-[280px]">
+                          {relatedExperiences.length > 0 && (
+                            <div>
+                              <p className="text-[9px] font-bold uppercase tracking-wider text-[#A78BFA] mb-1.5 flex items-center gap-1.5">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="12"
+                                  height="12"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="flex-shrink-0"
+                                >
+                                  <rect width="20" height="14" x="2" y="7" rx="2" />
+                                  <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                                </svg>
+                                <span>{isEsLang ? "Experiencia" : "Experience"}</span>
+                              </p>
+                              <div className="flex flex-col gap-1 pl-1">
+                                {relatedExperiences.map((e) => (
+                                  <button
+                                    key={e.id}
+                                    onClick={(ev) => {
+                                      ev.stopPropagation();
+                                      const el = document.getElementById(`experience-${e.id}`);
+                                      if (el) {
+                                        el.scrollIntoView({ behavior: "smooth" });
+                                      }
+                                    }}
+                                    className="text-white dark:text-zinc-900 hover:text-[#A78BFA] dark:hover:text-[#A78BFA] transition-colors text-left flex items-center gap-1.5 group/link text-[11px] cursor-pointer"
+                                  >
+                                    <span className="w-1 h-1 rounded-full bg-[#A78BFA] flex-shrink-0" />
+                                    <span className="border-b border-transparent group-hover/link:border-[#A78BFA] truncate">{e.company}</span>
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+
+                          {relatedProjects.length > 0 && (
+                            <div>
+                              <p className="text-[9px] font-bold uppercase tracking-wider text-emerald-400 dark:text-emerald-600 mb-1.5 flex items-center gap-1.5">
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  width="12"
+                                  height="12"
+                                  viewBox="0 0 24 24"
+                                  fill="none"
+                                  stroke="currentColor"
+                                  strokeWidth="2.5"
+                                  strokeLinecap="round"
+                                  strokeLinejoin="round"
+                                  className="flex-shrink-0"
+                                >
+                                  <path d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z" />
+                                  <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
+                                  <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
+                                </svg>
+                                <span>{isEsLang ? "Proyectos" : "Projects"}</span>
+                              </p>
+                              <div className="flex flex-col gap-1 pl-1">
+                                {relatedProjects.map((p) => (
+                                  <button
+                                    key={p.id}
+                                    onClick={(ev) => {
+                                      ev.stopPropagation();
+                                      const el = document.getElementById(`project-${p.id}`);
+                                      if (el) {
+                                        el.scrollIntoView({ behavior: "smooth" });
+                                      }
+                                    }}
+                                    className="text-white dark:text-zinc-900 hover:text-[#A78BFA] dark:hover:text-[#A78BFA] transition-colors text-left flex items-center gap-1.5 group/link text-[11px] cursor-pointer"
+                                  >
+                                    <span className="w-1 h-1 rounded-full bg-emerald-400 flex-shrink-0" />
+                                    <span className="border-b border-transparent group-hover/link:border-[#A78BFA] truncate">{p.title}</span>
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          )}
                         </div>
                       ) : (
                         <span className="opacity-60">{isEsLang ? "Uso general / Transversal" : "General / Cross-functional"}</span>
@@ -1083,6 +1335,24 @@ export default function Home() {
             images={lightboxInfo.images}
             startIndex={lightboxInfo.index}
             onClose={() => setLightboxInfo(null)}
+          />
+        )}
+        {activeExperience && (
+          <ExperienceModal
+            experience={activeExperience}
+            projects={projects}
+            onClose={() => setActiveExperience(null)}
+            onViewProject={(projectId) => {
+              setActiveExperience(null);
+              const p = projects.find((proj) => proj.id === projectId);
+              if (p) {
+                setActiveProject(p);
+              } else {
+                const el = document.getElementById(`project-${projectId}`);
+                if (el) el.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            isEs={isEsLang}
           />
         )}
       </AnimatePresence>
