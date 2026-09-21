@@ -84,7 +84,7 @@ export default function ExperienceModal({
         </div>
 
         {/* Scrollable Body: Pure Editorial Focus — Matched styling with ProjectModal */}
-        <div className="flex-1 overflow-y-auto p-5 sm:p-10 space-y-6 sm:space-y-8">
+        <div className="flex-1 overflow-y-auto custom-scrollbar p-5 sm:p-10 space-y-6 sm:space-y-8">
           {/* Metric Highlights — Impact Focused */}
           {experience.highlights && experience.highlights.length > 0 && (
             <div

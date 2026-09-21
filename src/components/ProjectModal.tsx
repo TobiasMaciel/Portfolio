@@ -91,10 +91,10 @@ export default function ProjectModal({
           </div>
 
           {/* Body — Two Column Desktop Layout with Sticky Right Side and Scrollable Left Side */}
-          <div className="flex-1 min-h-0 overflow-y-auto md:overflow-hidden">
+          <div className="flex-1 min-h-0 overflow-y-auto md:overflow-hidden custom-scrollbar">
             <div className="grid grid-cols-1 md:grid-cols-12 h-full">
               {/* Left Column: Info (Scrolls independently on desktop) */}
-              <div className="md:col-span-5 p-5 sm:p-10 border-b md:border-b-0 md:border-r border-zinc-100/50 dark:border-zinc-800/50 space-y-6 sm:space-y-8 bg-white/20 dark:bg-white/5 md:overflow-y-auto md:h-full">
+              <div className="md:col-span-5 p-5 sm:p-10 border-b md:border-b-0 md:border-r border-zinc-100/50 dark:border-zinc-800/50 space-y-6 sm:space-y-8 bg-white/20 dark:bg-white/5 md:overflow-y-auto md:h-full custom-scrollbar">
                 <div>
                   <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-3">
                     {isEs ? "Sobre el Proyecto" : "About Project"}
