@@ -6,14 +6,14 @@ type Language = "es" | "en";
 
 export const translations = {
   es: {
-    role: "Analista Desarrollador · Estudiante de Ingeniería en Sistemas",
+    role: "Ingeniero en Sistemas · Full-Stack Engineer · IA Engineer",
     studies: "ESTUDIOS",
     experience: "EXPERIENCIA",
     projects: "PROYECTOS",
     achievements: "LOGROS",
     certifications: "CERTIFICACIONES",
     skills: "HABILIDADES",
-    cv_text: `studiante avanzado de Ingeniería en Sistemas en la UTN con formación en programación, análisis de datos y tecnologías modernas. Me caracterizo por el aprendizaje rápido, el trabajo colaborativo y la resolución de problemas a gran escala.
+    cv_text: `Ingeniero en Sistemas de Información y Analista Universitario de Sistemas en la UTN con sólida formación en desarrollo full-stack, agentes autónomos e Inteligencia Artificial. Me caracterizo por el aprendizaje rápido, el trabajo colaborativo y la resolución de problemas de alto impacto.
 
 "El rendimiento no es un añadido, es la esencia del diseño. Desarrollar sistemas académicos me enseñó que cada milisegundo ahorrado impacta a miles de estudiantes."
 
@@ -39,14 +39,14 @@ Frontend: React, Next.js, TS, Vite, HTML, CSS. Backend: Python, Django, Node.js,
     quotes: ['"El rendimiento', 'estudiantes."'],
   },
   en: {
-    role: "Systems Developer · Engineering Student",
+    role: "Systems Engineer · Full-Stack Engineer · AI Engineer",
     studies: "EDUCATION",
     experience: "EXPERIENCE",
     projects: "PROJECTS",
     achievements: "ACHIEVEMENTS",
     certifications: "CERTIFICATIONS",
     skills: "SKILLS",
-    cv_text: `dvanced Systems Engineering student at UTN with background in programming, data analysis, and modern tech. Known for rapid learning, collaboration, and large-scale problem solving.
+    cv_text: `Information Systems Engineer and University Systems Analyst at UTN with a strong background in full-stack development, autonomous agents, and Artificial Intelligence. Known for rapid learning, collaboration, and high-impact problem solving.
 
 "Performance is not an afterthought — it is the essence of design. Building academic systems taught me that every millisecond saved impacts thousands of students."
 

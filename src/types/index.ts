@@ -19,6 +19,7 @@ export interface Education {
   title: { es: string; en: string };
   institution: { es: string; en: string };
   description: { es: string; en: string };
+  tags?: { es: string[]; en: string[] };
 }
 
 export interface ExperienceHighlight {

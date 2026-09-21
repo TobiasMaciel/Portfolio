@@ -133,12 +133,13 @@ export default function Home() {
     report: p.report ? `${basePath}${p.report}` : undefined,
   }));
 
-  const education = (portfolioData.education as unknown as Education[]).map((e) => ({
+  const education = (portfolioData.education as unknown as any[]).map((e: any) => ({
     id: e.id,
     period: isEsLang ? e.period?.es : e.period?.en,
     title: isEsLang ? e.title?.es : e.title?.en,
     institution: isEsLang ? e.institution?.es : e.institution?.en,
     description: isEsLang ? e.description?.es : e.description?.en,
+    tags: isEsLang ? e.tags?.es : e.tags?.en,
   }));
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -804,6 +805,18 @@ export default function Home() {
                 <h4 className="text-zinc-600 dark:text-zinc-400 mb-2 font-medium text-lg">
                   {item.institution}
                 </h4>
+                {item.tags && item.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2 my-2.5">
+                    {item.tags.map((tag: string) => (
+                      <span
+                        key={tag}
+                        className="px-3 py-1 bg-[#A78BFA]/5 text-[#A78BFA] text-xs font-semibold rounded-lg border border-[#A78BFA]/20 tracking-wide"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
                 {item.description && (
                   <p className="text-zinc-500 leading-relaxed max-w-3xl">
                     {item.description}

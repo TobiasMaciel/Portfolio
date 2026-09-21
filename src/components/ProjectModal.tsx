@@ -55,7 +55,7 @@ export default function ProjectModal({
   return (
     <>
       <motion.div
-        className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm"
+        className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         exit={{ opacity: 0 }}
@@ -63,7 +63,7 @@ export default function ProjectModal({
         onClick={onClose}
       >
         <motion.div
-          className="relative w-full max-w-6xl h-full lg:h-[92vh] bg-white dark:bg-zinc-900 rounded-3xl md:rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border border-zinc-300 dark:border-zinc-800"
+          className="relative w-full max-w-6xl h-[100dvh] sm:h-full lg:h-[92vh] bg-white dark:bg-zinc-900 rounded-none sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border-0 sm:border border-zinc-300 dark:border-zinc-800"
           style={{ contain: "content", willChange: "transform, opacity" }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -72,7 +72,7 @@ export default function ProjectModal({
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header Bar */}
-          <div className="flex items-center justify-between px-8 py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 relative z-20">
+          <div className="flex items-center justify-between px-5 py-4 sm:px-8 sm:py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 relative z-20 flex-shrink-0">
             <div className="min-w-0 pr-2">
               <h2 className="font-playfair text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 dark:text-white leading-tight">
                 {project.title}
@@ -83,7 +83,8 @@ export default function ProjectModal({
             </div>
             <button
               onClick={onClose}
-              className="group p-2.5 hover:bg-zinc-100 dark:hover:bg-white/5 rounded-2xl transition-all duration-300 text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:scale-110"
+              className="group p-2 sm:p-2.5 hover:bg-zinc-100 dark:hover:bg-white/5 rounded-xl sm:rounded-2xl transition-all duration-300 text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:scale-110 flex-shrink-0"
+              aria-label="Cerrar modal"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-90 transition-transform duration-300"><path d="M18 6 6 18M6 6l12 12"/></svg>
             </button>
@@ -93,7 +94,7 @@ export default function ProjectModal({
           <div className="flex-1 min-h-0 overflow-y-auto md:overflow-hidden">
             <div className="grid grid-cols-1 md:grid-cols-12 h-full">
               {/* Left Column: Info (Scrolls independently on desktop) */}
-              <div className="md:col-span-5 p-6 sm:p-10 border-b md:border-b-0 md:border-r border-zinc-100/50 dark:border-zinc-800/50 space-y-8 bg-white/20 dark:bg-white/5 md:overflow-y-auto md:h-full">
+              <div className="md:col-span-5 p-5 sm:p-10 border-b md:border-b-0 md:border-r border-zinc-100/50 dark:border-zinc-800/50 space-y-6 sm:space-y-8 bg-white/20 dark:bg-white/5 md:overflow-y-auto md:h-full">
                 <div>
                   <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-3">
                     {isEs ? "Sobre el Proyecto" : "About Project"}
@@ -103,7 +104,7 @@ export default function ProjectModal({
                   </p>
                 </div>
 
-                <div className="grid grid-cols-1 gap-8">
+                <div className="grid grid-cols-1 gap-6 sm:gap-8">
                   <div>
                     <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-4">
                       {isEs ? "Características Clave" : "Key Features"}
@@ -154,10 +155,10 @@ export default function ProjectModal({
               {/* Right Column: Imagery (Fixed in view on desktop) */}
               {project.images && project.images.length > 0 && (
                 <div className="md:col-span-7 bg-zinc-50 dark:bg-black/20 flex flex-col h-full md:overflow-hidden">
-                  <div className="flex-1 p-8 sm:p-10 flex flex-col gap-6">
+                  <div className="flex-1 p-4 sm:p-8 md:p-10 flex flex-col gap-4 sm:gap-6">
                     {/* Main Gallery Frame */}
                     <div 
-                      className="relative w-full flex-1 min-h-[300px] rounded-[2rem] overflow-hidden bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-white/5 cursor-zoom-in group/gallery shadow-inner"
+                      className="relative w-full flex-1 min-h-[260px] sm:min-h-[300px] rounded-2xl sm:rounded-[2rem] overflow-hidden bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-white/5 cursor-zoom-in group/gallery shadow-inner"
                       onClick={() => setLightboxIdx(current)}
                       onPointerDown={(e) => {
                         if ((e.target as HTMLElement).closest("button")) return;
@@ -221,22 +222,22 @@ export default function ProjectModal({
                       {/* Navigation Overlays */}
                       {n > 1 && (
                         <>
-                          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-4 opacity-0 group-hover/gallery:opacity-100 transition-opacity">
+                          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-3 sm:px-4 opacity-100 sm:opacity-0 sm:group-hover/gallery:opacity-100 transition-opacity pointer-events-none">
                             <button
                               onClick={(e) => { e.stopPropagation(); go(current - 1); }}
-                              className="w-10 h-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all"
+                              className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all pointer-events-auto"
                             >
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
                             </button>
                             <button
                               onClick={(e) => { e.stopPropagation(); go(current + 1); }}
-                              className="w-10 h-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all"
+                              className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all pointer-events-auto"
                             >
                               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
                             </button>
                           </div>
-                          <div className="absolute bottom-6 right-6">
-                            <span className="px-3 py-1.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-lg border border-white/10 shadow-xl">
+                          <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6">
+                            <span className="px-2.5 py-1 sm:px-3 sm:py-1.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-lg border border-white/10 shadow-xl">
                               {current + 1} / {n}
                             </span>
                           </div>
@@ -246,18 +247,18 @@ export default function ProjectModal({
 
                     {/* Thumbnail Selector */}
                     {n > 1 && (
-                      <div className="flex gap-3 overflow-x-auto pb-2 scrollbar-none">
+                      <div className="flex gap-2.5 sm:gap-3 overflow-x-auto pb-2 scrollbar-none">
                         {project.images.map((src, i) => (
                           <button
                             key={i}
                             onClick={() => setCurrent(i)}
-                            className={`relative flex-shrink-0 w-24 h-16 rounded-xl overflow-hidden border-2 transition-all duration-300 ${
+                            className={`relative flex-shrink-0 w-20 h-14 sm:w-24 sm:h-16 rounded-lg sm:rounded-xl overflow-hidden border-2 transition-all duration-300 ${
                               i === current ? "border-[#A78BFA] scale-105 shadow-lg shadow-[#A78BFA]/20" : "border-transparent opacity-50 hover:opacity-100"
                             }`}
                           >
                             {src.toLowerCase().endsWith(".pdf") ? (
                               <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-100 dark:bg-zinc-800 text-[#A78BFA]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
                                 <span className="text-[8px] font-bold mt-1 uppercase">PDF</span>
                               </div>
                             ) : (

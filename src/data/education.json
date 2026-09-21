@@ -2,8 +2,8 @@
   {
     "id": "isi",
     "period": {
-      "es": "2021 — PRESENTE (EST. JUL 2026)",
-      "en": "2021 — PRESENT (EST. JUL 2026)"
+      "es": "2021 — 2026",
+      "en": "2021 — 2026"
     },
     "title": {
       "es": "Ingeniería en Sistemas de Información",
@@ -13,9 +13,21 @@
       "es": "Universidad Tecnológica Nacional (UTN)",
       "en": "National Technological University (UTN)"
     },
+    "tags": {
+      "es": [
+        "Ingeniero en Sistemas",
+        "Full Stack Engineer",
+        "IA Engineer"
+      ],
+      "en": [
+        "Systems Engineer",
+        "Full Stack Engineer",
+        "AI Engineer"
+      ]
+    },
     "description": {
-      "es": "",
-      "en": ""
+      "es": "Graduado de Ingeniería en Sistemas de Información con formación integral en arquitectura de software, inteligencia artificial, agentes autónomos y liderazgo técnico en soluciones escalables.",
+      "en": "Graduated in Information Systems Engineering with comprehensive training in software architecture, artificial intelligence, autonomous agents, and technical leadership in scalable solutions."
     }
   },
   {
@@ -32,9 +44,21 @@
       "es": "Universidad Tecnológica Nacional (UTN)",
       "en": "National Technological University (UTN)"
     },
+    "tags": {
+      "es": [
+        "Desarrollo de Software",
+        "Bases de Datos",
+        "Metodologías Ágiles"
+      ],
+      "en": [
+        "Software Development",
+        "Databases",
+        "Agile Methodologies"
+      ]
+    },
     "description": {
-      "es": "",
-      "en": ""
+      "es": "Título de grado universitario enfocado en diseño, análisis, desarrollo e implementación técnica de software y estructuras de datos.",
+      "en": "University degree focused on technical design, analysis, development, and implementation of software and data structures."
     }
   },
   {
@@ -44,16 +68,26 @@
       "en": "2014 — 2020"
     },
     "title": {
-      "es": "Inglés Intermedio B2",
-      "en": "Intermediate English B2"
+      "es": "Curso Regular de Inglés Intermedio B2",
+      "en": "Regular Intermediate English Course B2"
     },
     "institution": {
       "es": "Instituto Josefina Contte",
       "en": "Josefina Contte Institute"
     },
+    "tags": {
+      "es": [
+        "Inglés B2",
+        "Comunicación Profesional"
+      ],
+      "en": [
+        "English B2",
+        "Professional Communication"
+      ]
+    },
     "description": {
-      "es": "",
-      "en": ""
+      "es": "Competencia y solidez en comunicación técnica, comprensión lectora y expresión oral en idioma inglés.",
+      "en": "Competence and proficiency in technical communication, reading comprehension, and oral expression in English."
     }
   }
 ]

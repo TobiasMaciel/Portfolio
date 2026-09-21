@@ -35,7 +35,7 @@ export default function ExperienceModal({
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -43,7 +43,7 @@ export default function ExperienceModal({
       onClick={onClose}
     >
       <motion.div
-        className="relative w-full max-w-4xl max-h-[92vh] bg-white dark:bg-zinc-900 rounded-3xl md:rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border border-zinc-300 dark:border-zinc-800"
+        className="relative w-full max-w-4xl h-[100dvh] sm:h-auto sm:max-h-[92vh] bg-white dark:bg-zinc-900 rounded-none sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border-0 sm:border border-zinc-300 dark:border-zinc-800"
         style={{ contain: "content", willChange: "transform, opacity" }}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -52,7 +52,7 @@ export default function ExperienceModal({
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header Bar — Matched with ProjectModal */}
-        <div className="flex items-center justify-between px-8 py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 relative z-20">
+        <div className="flex items-center justify-between px-5 py-4 sm:px-8 sm:py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 relative z-20 flex-shrink-0">
           <div className="min-w-0 pr-2">
             <h2 className="font-playfair text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 dark:text-white leading-tight">
               {experience.company}
@@ -63,7 +63,7 @@ export default function ExperienceModal({
           </div>
           <button
             onClick={onClose}
-            className="group p-2.5 hover:bg-zinc-100 dark:hover:bg-white/5 rounded-2xl transition-all duration-300 text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:scale-110 flex-shrink-0"
+            className="group p-2 sm:p-2.5 hover:bg-zinc-100 dark:hover:bg-white/5 rounded-xl sm:rounded-2xl transition-all duration-300 text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:scale-110 flex-shrink-0"
             aria-label="Cerrar modal"
           >
             <svg
@@ -84,11 +84,11 @@ export default function ExperienceModal({
         </div>
 
         {/* Scrollable Body: Pure Editorial Focus — Matched styling with ProjectModal */}
-        <div className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-8">
+        <div className="flex-1 overflow-y-auto p-5 sm:p-10 space-y-6 sm:space-y-8">
           {/* Metric Highlights — Impact Focused */}
           {experience.highlights && experience.highlights.length > 0 && (
             <div
-              className={`grid gap-3 sm:gap-4 ${
+              className={`grid gap-2.5 sm:gap-4 ${
                 experience.highlights.length === 4
                   ? "grid-cols-2 lg:grid-cols-4"
                   : experience.highlights.length === 2
@@ -99,12 +99,12 @@ export default function ExperienceModal({
               {experience.highlights.map((h, i) => (
                 <div
                   key={i}
-                  className="p-4 sm:p-5 rounded-2xl bg-zinc-50/80 dark:bg-zinc-800/30 border border-zinc-200/80 dark:border-zinc-800 flex flex-col items-center justify-center text-center hover:border-[#A78BFA]/30 transition-colors"
+                  className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-zinc-50/80 dark:bg-zinc-800/30 border border-zinc-200/80 dark:border-zinc-800 flex flex-col items-center justify-center text-center hover:border-[#A78BFA]/30 transition-colors"
                 >
-                  <span className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 leading-tight mb-1.5">
+                  <span className="text-lg sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 leading-tight mb-1">
                     {h.value}
                   </span>
-                  <span className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase leading-snug">
+                  <span className="text-[9px] sm:text-[10px] font-bold tracking-widest text-zinc-500 uppercase leading-snug">
                     {h.label}
                   </span>
                 </div>

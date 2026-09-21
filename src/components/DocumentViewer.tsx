@@ -30,7 +30,7 @@ export default function DocumentViewer({
 
   return (
     <motion.div
-      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm p-2 sm:p-4 md:p-8"
+      className="fixed inset-0 z-[200] flex items-center justify-center bg-black/70 backdrop-blur-sm p-0 sm:p-4 md:p-8"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -38,7 +38,7 @@ export default function DocumentViewer({
       onClick={onClose}
     >
       <motion.div
-        className="bg-white dark:bg-[#121214] w-[98%] sm:w-[92%] md:w-[88%] lg:w-full max-w-5xl h-[95vh] lg:h-[88vh] rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border border-zinc-300 dark:border-zinc-800"
+        className="bg-white dark:bg-[#121214] w-full max-w-5xl h-[100dvh] sm:w-[92%] md:w-[88%] lg:w-full sm:h-[95vh] lg:h-[88vh] rounded-none sm:rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden flex flex-col relative border-0 sm:border border-zinc-300 dark:border-zinc-800"
         style={{ contain: "content", willChange: "transform, opacity" }}
         initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
@@ -46,7 +46,7 @@ export default function DocumentViewer({
         transition={{ duration: 0.3, ease: "easeOut" }}
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex items-center justify-between px-8 py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-[#121214] relative z-10">
+        <div className="flex items-center justify-between px-5 py-4 sm:px-8 sm:py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-[#121214] relative z-10 flex-shrink-0">
           <div>
             <h3 className="font-playfair text-xl font-bold text-zinc-900 dark:text-white">
               {title}
@@ -57,18 +57,18 @@ export default function DocumentViewer({
               </p>
             )}
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3">
             <a
               href={url}
               download={url.split('/').pop()}
-              className="flex items-center gap-2 px-6 py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-bold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/10 dark:shadow-white/10"
+              className="flex items-center gap-2 px-4 py-2 sm:px-6 sm:py-2.5 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-xs font-bold rounded-xl transition-all duration-300 hover:scale-105 active:scale-95 shadow-lg shadow-black/10 dark:shadow-white/10"
             >
               <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></svg>
               <span className="hidden sm:inline">Descargar</span>
             </a>
             <button
               onClick={onClose}
-              className="group p-2.5 hover:bg-zinc-100 dark:hover:bg-white/5 rounded-2xl transition-all duration-300 text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:scale-110"
+              className="group p-2 sm:p-2.5 hover:bg-zinc-100 dark:hover:bg-white/5 rounded-xl sm:rounded-2xl transition-all duration-300 text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:scale-110 flex-shrink-0"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

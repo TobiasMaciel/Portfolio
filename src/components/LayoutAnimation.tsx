@@ -29,7 +29,10 @@ export default function LayoutAnimation() {
   const isEsLang = t("experience") === "EXPERIENCIA";
 
   const aboutData = portfolioData.about;
-  const CV_TEXT = isEsLang ? aboutData.cv_text.es : aboutData.cv_text.en;
+  const rawCvText = isEsLang ? aboutData.cv_text.es : aboutData.cv_text.en;
+  const trimmedText = rawCvText.trim();
+  const dropCapChar = trimmedText.charAt(0) || "I";
+  const CV_TEXT = trimmedText.slice(1);
   const HEADERS: string[] = isEsLang
     ? aboutData.headers.es
     : aboutData.headers.en;
@@ -102,6 +105,24 @@ export default function LayoutAnimation() {
       whiteSpace: "pre-wrap",
     });
 
+    const dropCapFontSize = isDesktop 
+      ? 110 * scale 
+      : (dimensions.width < 640 ? 80 : 110);
+    const dropCapFont = `bold ${dropCapFontSize}px ${fontFamily}`;
+
+    let measuredDropCapWidth = 50;
+    try {
+      const canvas = document.createElement("canvas");
+      const ctx = canvas.getContext("2d");
+      if (ctx) {
+        ctx.font = dropCapFont;
+        measuredDropCapWidth = ctx.measureText(dropCapChar).width;
+      }
+    } catch {
+      measuredDropCapWidth = dropCapChar === "I" ? 38 * (dropCapFontSize / 110) : 75 * (dropCapFontSize / 110);
+    }
+
+    const dropCapIndent = measuredDropCapWidth + (isDesktop ? 12 * scale : 10);
     const radius = 35 * scale;
 
     let animationFrameId: number;
@@ -180,7 +201,6 @@ export default function LayoutAnimation() {
         const isDropCapLine = colIndex === 0 && lineIndexInCol < 3;
 
         if (isDropCapLine) {
-          const dropCapIndent = isDesktop ? 95 * scale : 95;
           startX += dropCapIndent;
           availableWidth -= dropCapIndent;
         } else if (isNextQuote) {
@@ -258,7 +278,7 @@ export default function LayoutAnimation() {
 
     render();
     return () => cancelAnimationFrame(animationFrameId);
-  }, [dimensions, mouseX, mouseY, CV_TEXT, HEADERS, QUOTES]);
+  }, [dimensions, mouseX, mouseY, CV_TEXT, HEADERS, QUOTES, dropCapChar]);
 
   const isDesktop = dimensions.width >= 500;
   const scale = isDesktop ? dimensions.width / 900 : 1;
@@ -284,7 +304,7 @@ export default function LayoutAnimation() {
         }}
       >
         <div
-          className="absolute font-playfair font-bold text-[#A78BFA] leading-none pointer-events-auto"
+          className="absolute font-playfair font-bold text-[#A78BFA] leading-none pointer-events-auto select-none"
           style={{
             left: startLeft,
             top: 5 * scale,
@@ -292,7 +312,7 @@ export default function LayoutAnimation() {
             lineHeight: isDesktop ? `${100 * scale}px` : (dimensions.width < 640 ? "75px" : "100px"),
           }}
         >
-          A
+          {dropCapChar}
         </div>
 
         {lines.map((line, i) => {
