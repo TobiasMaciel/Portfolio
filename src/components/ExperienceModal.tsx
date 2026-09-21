@@ -35,7 +35,7 @@ export default function ExperienceModal({
 
   return (
     <motion.div
-      className="fixed inset-0 z-[100] flex items-center justify-center p-3 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm"
+      className="fixed inset-0 z-[100] flex items-center justify-center p-2 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -51,13 +51,13 @@ export default function ExperienceModal({
         transition={{ duration: 0.3, ease: "easeOut" }}
         onClick={(e) => e.stopPropagation()}
       >
-        {/* Header Bar — Clean and without icons */}
-        <div className="flex items-center justify-between px-6 sm:px-10 py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 relative z-20">
-          <div className="min-w-0 pr-4">
-            <h2 className="font-playfair text-xl sm:text-2xl md:text-3xl font-bold text-zinc-900 dark:text-white leading-tight">
+        {/* Header Bar — Matched with ProjectModal */}
+        <div className="flex items-center justify-between px-8 py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 relative z-20">
+          <div className="min-w-0 pr-2">
+            <h2 className="font-playfair text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 dark:text-white leading-tight">
               {experience.company}
             </h2>
-            <p className="text-xs sm:text-sm font-bold tracking-widest text-[#A78BFA] uppercase mt-1">
+            <p className="text-[10px] font-bold tracking-widest text-[#A78BFA] uppercase mt-0.5">
               {experience.role} · <span className="text-zinc-500 dark:text-zinc-400">{experience.period}</span>
             </p>
           </div>
@@ -83,7 +83,7 @@ export default function ExperienceModal({
           </button>
         </div>
 
-        {/* Scrollable Body: Pure Editorial Focus (0 fotos) */}
+        {/* Scrollable Body: Pure Editorial Focus — Matched styling with ProjectModal */}
         <div className="flex-1 overflow-y-auto p-6 sm:p-10 space-y-8">
           {/* Metric Highlights — Impact Focused */}
           {experience.highlights && experience.highlights.length > 0 && (
@@ -99,13 +99,12 @@ export default function ExperienceModal({
               {experience.highlights.map((h, i) => (
                 <div
                   key={i}
-                  className="group relative p-4 sm:p-5 rounded-2xl bg-zinc-50/90 dark:bg-zinc-800/40 border border-zinc-200/80 dark:border-zinc-700/60 flex flex-col items-center justify-center text-center shadow-sm hover:border-[#A78BFA]/50 hover:shadow-md transition-all duration-300 overflow-hidden"
+                  className="p-4 sm:p-5 rounded-2xl bg-zinc-50/80 dark:bg-zinc-800/30 border border-zinc-200/80 dark:border-zinc-800 flex flex-col items-center justify-center text-center hover:border-[#A78BFA]/30 transition-colors"
                 >
-                  <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#A78BFA]/60 to-transparent opacity-40 group-hover:opacity-100 transition-opacity" />
-                  <span className="text-xl sm:text-2xl md:text-[26px] font-extrabold tracking-tight text-zinc-900 dark:text-white group-hover:text-[#A78BFA] transition-colors leading-tight mb-1.5">
+                  <span className="text-xl sm:text-2xl font-bold tracking-tight text-zinc-900 dark:text-zinc-100 leading-tight mb-1.5">
                     {h.value}
                   </span>
-                  <span className="text-[11px] sm:text-xs font-semibold text-zinc-500 dark:text-zinc-400 leading-snug">
+                  <span className="text-[10px] font-bold tracking-widest text-zinc-500 uppercase leading-snug">
                     {h.label}
                   </span>
                 </div>
@@ -114,30 +113,25 @@ export default function ExperienceModal({
           )}
 
           {/* About Role / Description */}
-          <div className="p-6 rounded-2xl bg-zinc-50/70 dark:bg-zinc-800/30 border border-zinc-200/70 dark:border-zinc-800/80">
-            <h3 className="text-xs font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-3 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]" />
-              <span>{isEs ? "Descripción del Puesto & Contexto" : "Role Description & Context"}</span>
-            </h3>
-            <p className="text-zinc-600 dark:text-zinc-300 leading-relaxed text-sm sm:text-base">
+          <div>
+            <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-3">
+              {isEs ? "Sobre el Puesto" : "About Role"}
+            </h4>
+            <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
               {experience.description || experience.summary}
             </p>
           </div>
 
           {/* Key Responsibilities & Detailed Impact */}
           <div>
-            <h3 className="text-xs font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-4 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]" />
-              <span>{isEs ? "Detalle del Rol & Responsabilidades" : "Role Details & Responsibilities"}</span>
-            </h3>
+            <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-4">
+              {isEs ? "Detalle del Rol & Responsabilidades" : "Role Details & Responsibilities"}
+            </h4>
             <ul className="space-y-3">
               {(experience.details || experience.bullets).map((bullet, i) => (
-                <li
-                  key={i}
-                  className="p-3.5 sm:p-4 rounded-xl bg-zinc-50/40 dark:bg-zinc-800/20 border border-zinc-100 dark:border-zinc-800/60 hover:border-[#A78BFA]/30 transition-colors flex items-start gap-3.5 text-zinc-600 dark:text-zinc-300 text-sm leading-relaxed"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA] mt-2 flex-shrink-0 shadow-[0_0_8px_rgba(167,139,250,0.8)]" />
-                  <span className="flex-1">{bullet}</span>
+                <li key={i} className="flex gap-3 text-zinc-600 dark:text-zinc-400 text-sm leading-snug">
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]/40 mt-1.5 flex-shrink-0" />
+                  <span>{bullet}</span>
                 </li>
               ))}
             </ul>
@@ -145,17 +139,16 @@ export default function ExperienceModal({
 
           {/* Tech Stack */}
           <div>
-            <h3 className="text-xs font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-3 flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]" />
-              <span>{isEs ? "Tecnologías y Herramientas" : "Technologies & Tools"}</span>
-            </h3>
+            <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-4">
+              {isEs ? "Tecnologías" : "Technologies"}
+            </h4>
             <div className="flex flex-wrap gap-2">
-              {experience.stack.map((tech) => (
+              {experience.stack.map((s) => (
                 <span
-                  key={tech}
-                  className="px-3.5 py-1.5 bg-[#A78BFA]/10 text-[#A78BFA] text-xs font-semibold rounded-lg border border-[#A78BFA]/20 tracking-wide"
+                  key={s}
+                  className="px-3 py-1.5 bg-[#A78BFA]/5 text-[#A78BFA] text-[10px] font-bold rounded-lg border border-[#A78BFA]/10 uppercase tracking-wider"
                 >
-                  {tech}
+                  {s}
                 </span>
               ))}
             </div>
@@ -163,10 +156,10 @@ export default function ExperienceModal({
 
           {/* Proyectos Asociados */}
           {associatedProjects.length > 0 && (
-            <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800">
-              <h3 className="text-xs font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-4">
-                {isEs ? "Proyectos Asociados a este Rol" : "Associated Projects for this Role"}
-              </h3>
+            <div className="pt-2 border-t border-zinc-100/50 dark:border-zinc-800/50">
+              <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-4">
+                {isEs ? "Proyectos Asociados" : "Associated Projects"}
+              </h4>
               <div className="grid grid-cols-1 gap-4">
                 {associatedProjects.map((p) => (
                   <div
@@ -183,7 +176,7 @@ export default function ExperienceModal({
                           {p.role}
                         </span>
                       </div>
-                      <h4 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
+                      <h4 className="text-base sm:text-lg font-bold text-zinc-900 dark:text-zinc-100">
                         {p.title}
                       </h4>
                       <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1 line-clamp-2 leading-relaxed">
@@ -193,7 +186,7 @@ export default function ExperienceModal({
                         {p.stack.slice(0, 5).map((s) => (
                           <span
                             key={s}
-                            className="px-2.5 py-0.5 bg-zinc-200/60 dark:bg-zinc-700/60 text-zinc-700 dark:text-zinc-300 text-[10px] font-medium rounded-md"
+                            className="px-2.5 py-0.5 bg-[#A78BFA]/5 text-[#A78BFA] text-[10px] font-bold rounded-lg border border-[#A78BFA]/10 uppercase tracking-wider"
                           >
                             {s}
                           </span>
@@ -239,11 +232,11 @@ export default function ExperienceModal({
 
           {/* Carta de Recomendación (Opcional si en el futuro se adjunta) */}
           {experience.recommendationLetter && (
-            <div className="pt-2 border-t border-zinc-200 dark:border-zinc-800 flex items-center justify-between">
+            <div className="pt-2 border-t border-zinc-100/50 dark:border-zinc-800/50 flex items-center justify-between">
               <div>
-                <h3 className="text-xs font-bold tracking-[0.2em] text-[#A78BFA] uppercase">
+                <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase">
                   {isEs ? "Carta de Recomendación" : "Recommendation Letter"}
-                </h3>
+                </h4>
                 <p className="text-xs text-zinc-500 mt-0.5">
                   {isEs ? "Documento avalado por la institución" : "Official institutional letter"}
                 </p>

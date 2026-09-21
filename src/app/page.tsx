@@ -537,9 +537,13 @@ export default function Home() {
 
                   {/* Chips de Stack */}
                   <div className="flex flex-wrap gap-1.5 mb-4 overflow-hidden">
-                    {exp.stack.map((s) => (
-                      <span
+                    {(expandedStacks[exp.id] ? exp.stack : exp.stack.slice(0, 5)).map((s) => (
+                      <motion.span
                         key={s}
+                        layout
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ duration: 0.2 }}
                         className={`px-3 py-1 text-xs font-semibold rounded-full border transition-colors ${
                           isLatest
                             ? "bg-[#A78BFA]/10 text-[#A78BFA] border-[#A78BFA]/20"
@@ -547,8 +551,26 @@ export default function Home() {
                         }`}
                       >
                         {s}
-                      </span>
+                      </motion.span>
                     ))}
+
+                    {exp.stack.length > 5 && !expandedStacks[exp.id] && (
+                      <button
+                        onClick={() => toggleStack(exp.id)}
+                        className="px-3 py-1 text-zinc-400 hover:text-[#A78BFA] hover:border-[#A78BFA]/30 text-xs font-semibold rounded-full border border-zinc-300 dark:border-zinc-800 transition-colors cursor-pointer"
+                      >
+                        +{exp.stack.length - 5} {isEsLang ? "más" : "more"}
+                      </button>
+                    )}
+
+                    {expandedStacks[exp.id] && (
+                      <button
+                        onClick={() => toggleStack(exp.id)}
+                        className="px-3 py-1 text-[#A78BFA] text-xs font-bold rounded-full border border-[#A78BFA]/20 hover:bg-[#A78BFA]/5 transition-colors cursor-pointer"
+                      >
+                        {isEsLang ? "Ver menos" : "Show less"}
+                      </button>
+                    )}
                   </div>
 
                   {/* Botones de Acción: Ver detalle y Proyecto asociado */}

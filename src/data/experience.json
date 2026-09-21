@@ -10,51 +10,51 @@
       "en": "Logística Argentina SRL"
     },
     "role": {
-      "es": "AI & Full-Stack Solutions Engineer",
-      "en": "AI & Full-Stack Solutions Engineer"
+      "es": "Ingeniero en Sistemas — AI & Full-Stack Solutions",
+      "en": "Systems Engineer — AI & Full-Stack Solutions"
     },
     "location": {
       "es": "Corrientes, Argentina",
       "en": "Corrientes, Argentina"
     },
     "summary": {
-      "es": "Ingeniería full-stack en agentes autónomos de IA con Claude API, modernización transversal de la plataforma de gestión (90+ páginas) y soporte operativo a más de 300 transportistas.",
-      "en": "Full-stack engineering on autonomous AI sales agents with Claude API, cross-company platform refactoring (90+ pages), and operational support for 300+ active carriers."
+      "es": "Ingeniería integral de sistemas y soluciones de IA: diseño de agentes autónomos con Claude API y suites de benchmarking, reingeniería full-stack de más de 13 módulos críticos (Pagos, Ventas, Logística), resolución de problemas complejos para 300+ transportistas e integración fiscal ARCA/AFIP.",
+      "en": "End-to-end systems engineering and AI solutions: autonomous agent design with Claude API and benchmarking suites, full-stack reengineering of 13+ critical modules (Payments, Sales, Logistics), complex problem solving for 300+ carriers, and ARCA/AFIP fiscal integration."
     },
     "description": {
-      "es": "En Logística Argentina SRL lidero el desarrollo técnico de soluciones de Inteligencia Artificial y la modernización de los sistemas clave de la compañía. Mi labor abarca desde el diseño e implementación de agentes conversacionales autónomos con tool-calling para la prospección y cierre comercial, hasta la refactorización integral del frontend corporativo sobre React, TypeScript, Tailwind CSS y shadcn/ui, garantizando una arquitectura robusta, ágil y de alto rendimiento que da soporte diario a más de 300 transportistas activos en todo el país.",
-      "en": "At Logística Argentina SRL I lead the technical development of AI solutions and the modernization of core corporate systems. My work spans from designing and deploying autonomous conversational agents with tool-calling for sales pipeline progression and freight rate quoting, to comprehensive frontend refactoring using React, TypeScript, Tailwind CSS, and shadcn/ui over a PHP backend, providing high reliability for 300+ active carriers nationwide."
+      "es": "En Logística Argentina SRL me desempeño como Ingeniero en Sistemas liderando el desarrollo e implementación técnica de punta a punta. Mi responsabilidad principal se enfoca en la ingeniería de Inteligencia Artificial, donde diseño y orquesto agentes autónomos de ventas integrados al CRM con herramientas de tool-calling para la prospección comercial, implementando simuladores de chat automatizados para benchmarking, control de calidad y mitigación de alucinaciones. Como parte de mi labor de ingeniería, desarrollé la reingeniería integral de la plataforma de gestión interna modernizando más de 13 módulos críticos (Pagos, Ventas, Logística) bajo una arquitectura reactiva y escalable. A su vez, centralizo la resolución de problemas técnicos y operativos para más de 300 transportistas y choferes activos a nivel nacional, habiendo diseñado e implementado la facturación fiscal electrónica homologada con ARCA/AFIP directamente en la app móvil.",
+      "en": "At Logística Argentina SRL, I serve as a Systems Engineer leading end-to-end technical development and implementation. My primary focus is on Artificial Intelligence engineering, designing and orchestrating autonomous sales agents integrated into the CRM with tool-calling for sales pipeline advancement, along with automated chat simulation suites for benchmarking, quality control, and hallucination mitigation. Within my systems engineering scope, I drove the comprehensive reengineering of the corporate internal management platform, modernizing 13+ critical modules (Payments, Sales, Logistics) with a reactive and scalable architecture. Furthermore, I centralize complex technical problem-solving and operational support for 300+ active carriers and drivers nationwide, having designed and deployed in-app mobile electronic invoicing integrated with ARCA/AFIP."
     },
     "bullets": {
       "es": [
-        "Desarrollo full-stack del CRM y agentes de ventas con Claude (Anthropic API), implementando simuladores y tests automáticos para mitigar alucinaciones y evaluar calidad.",
-        "Desarrollo de tool-calling y orquestación para el avance automático en el pipeline comercial, detección de intención de compra de tarifas, recordatorios y personalización de personas por operador.",
-        "Refactorización integral de la plataforma de gestión interna transversal a la empresa, modernizando más de 90 páginas críticas mediante React, TypeScript, Tailwind CSS y shadcn/ui sobre backend en PHP.",
-        "Asistencia técnica y acompañamiento operativo a más de 300 transportistas activos, resolviendo incidencias de la aplicación externa DistriApp y su versión web."
+        "Diseño e implementación de soluciones de IA con agentes autónomos de ventas basados en Claude (Anthropic API) y CRM, implementando suites de simulación de chat para benchmarking, control de calidad continuo y mitigación de alucinaciones.",
+        "Reingeniería integral y desarrollo full-stack de la plataforma de gestión corporativa, modernizando más de 13 módulos clave (Pagos, Ventas, Logística) mediante React, TypeScript, Tailwind CSS y shadcn/ui sobre backend en PHP.",
+        "Resolución de incidencias complejas y soporte técnico continuo a más de 300 transportistas y choferes activos, garantizando alta disponibilidad operativa de DistriApp y su plataforma web.",
+        "Implementación de facturación electrónica integrada en la aplicación móvil junto al área de Pagos, habilitando la emisión y validación fiscal directa ante ARCA/AFIP."
       ],
       "en": [
-        "Full-stack development of the CRM and sales agents using Claude (Anthropic API), implementing simulators and automated tests to mitigate hallucinations and evaluate quality.",
-        "Development of tool-calling and orchestration for automatic advancement in the sales pipeline, purchase intent detection for rates, reminders, and persona customization per operator.",
-        "Comprehensive refactoring of the company's internal management platform across all departments, modernizing over 90 critical pages using React, TypeScript, Tailwind CSS, and shadcn/ui on a PHP backend.",
-        "Technical assistance and operational support to over 300 active carriers, resolving issues with the external DistriApp application and its web version."
+        "Design and deployment of AI solutions with autonomous sales agents based on Claude (Anthropic API) and CRM, building chat simulation suites for benchmarking, continuous QA, and hallucination mitigation.",
+        "Comprehensive reengineering and full-stack development of the corporate management platform, modernizing 13+ key modules (Payments, Sales, Logistics) with React, TypeScript, Tailwind CSS, and shadcn/ui over a PHP backend.",
+        "Complex problem solving and continuous technical support for 300+ active carriers and drivers, ensuring high operational availability for DistriApp and its web platform.",
+        "Implementation of mobile in-app electronic invoicing in coordination with the Payments area, enabling direct fiscal issuance and validation with ARCA/AFIP."
       ]
     },
     "details": {
       "es": [
-        "Diseño e implementación de agentes inteligentes de ventas basados en LLMs (Claude) integrados al CRM, desarrollando suites de simulación de chat para benchmarking, control de calidad automático y mitigación de alucinaciones.",
-        "Desarrollo de herramientas de tool-calling y automatización en frontend y backend para el avance automático en el pipeline comercial, detección de intención de compra de tarifas, recordatorios y personalización de personas por operador de ventas.",
-        "Reingeniería integral de la plataforma de gestión interna transversal a toda la empresa (Pagos, Ventas, Logística), modernizando más de 13 módulos con React, TypeScript, Tailwind CSS y shadcn/ui sobre backend en PHP.",
-        "Implementación de arquitectura de interfaz avanzada con flujos reactivos, paneles laterales interactivos, validaciones en tiempo real, sincronización de bases de datos y soporte multi-tema responsivo en interfaces complejas.",
-        "Soporte técnico especializado continuo (Nivel 2) a más de 300 transportistas y choferes activos vinculados a grandes operadores logísticos (OCASA, Loginter), resolviendo incidencias de credenciales, versiones de APK y operatividad de DistriApp y su plataforma web.",
-        "Implementación de facturación electrónica integrada en la aplicación móvil junto al área de Pagos, gestionando delegaciones y puntos de venta en ARCA/AFIP para habilitar la emisión directa a los transportistas."
+        "Diseño e implementación de agentes inteligentes de ventas basados en LLMs (Claude) integrados al CRM, desarrollando suites de simulación de chat para benchmarking cuantitativo, control de calidad automático y mitigación de alucinaciones.",
+        "Desarrollo de herramientas de tool-calling y automatización en frontend y backend para el avance autónomo en el pipeline comercial, detección de intención de compra en tarifas, recordatorios dinámicos y personalización de personas por operador.",
+        "Reingeniería integral y desarrollo de punta a punta de la plataforma de gestión interna transversal a toda la empresa (Pagos, Ventas, Logística), modernizando más de 13 módulos críticos con React, TypeScript, Tailwind CSS y shadcn/ui sobre backend en PHP.",
+        "Diseño de arquitectura de interfaz reactiva de alto rendimiento: implementación de flujos asíncronos, paneles laterales interactivos, validaciones en tiempo real, sincronización de bases de datos y soporte multi-tema responsivo en interfaces complejas.",
+        "Resolución de problemas técnicos complejos y acompañamiento operativo continuo a más de 300 transportistas y choferes activos a nivel nacional, diagnosticando y solucionando incidencias de credenciales, versiones de APK y operatividad de DistriApp y su plataforma web.",
+        "Implementación de facturación electrónica integrada en la aplicación móvil junto al área de Pagos, gestionando delegaciones y puntos de venta en ARCA/AFIP para habilitar la emisión y validación fiscal directa a los transportistas."
       ],
       "en": [
-        "Design and deployment of intelligent sales agents based on LLMs (Claude) integrated into the CRM, building chat simulation suites for benchmarking, automated quality control, and hallucination mitigation.",
-        "Development of tool-calling and automation tools across frontend and backend for automatic sales pipeline progression, freight rate purchase intent detection, reminders, and persona customization per sales operator.",
-        "Comprehensive reengineering of the company-wide internal management platform (Payments, Sales, Logistics), modernizing 13+ critical modules with React, TypeScript, Tailwind CSS, and shadcn/ui over a PHP backend.",
-        "Implementation of advanced interface architecture featuring reactive workflows, interactive side panels, real-time validations, database synchronization, and responsive multi-theme support in complex interfaces.",
-        "Continuous Level-2 specialized technical support to over 300 active carriers and drivers (OCASA, Loginter), resolving credential issues, APK versions, and end-to-end reliability for DistriApp and its web platform.",
-        "Implementation of mobile in-app electronic invoicing in collaboration with the Payments area, managing delegations and points of sale in ARCA/AFIP to enable direct fiscal issuance for carriers."
+        "Design and implementation of intelligent sales agents based on LLMs (Claude) integrated into the CRM, building chat simulation suites for quantitative benchmarking, automated quality control, and hallucination mitigation.",
+        "Development of tool-calling and automation tools across frontend and backend for autonomous sales pipeline progression, rate purchase intent detection, dynamic reminders, and persona customization per sales operator.",
+        "End-to-end reengineering and full-stack development of the company-wide internal management platform (Payments, Sales, Logistics), modernizing 13+ critical modules with React, TypeScript, Tailwind CSS, and shadcn/ui over a PHP backend.",
+        "Design of high-performance reactive interface architecture: implementing asynchronous workflows, interactive side panels, real-time client-side validations, database synchronization, and responsive multi-theme support for mission-critical operations.",
+        "Complex technical problem solving and continuous operational support to over 300 active carriers and drivers nationwide, troubleshooting credentials, APK versions, and end-to-end reliability for DistriApp and its web platform.",
+        "Implementation of mobile in-app electronic invoicing in direct coordination with the Payments department, managing delegations and points of sale in ARCA/AFIP to enable direct fiscal issuance and validation for carriers."
       ]
     },
     "stack": [
@@ -76,16 +76,16 @@
     "relatedProjectIds": [],
     "highlights": {
       "es": [
-        { "label": "Módulos Críticos Reingenierizados", "value": "13+" },
-        { "label": "Transportistas y Choferes (OCASA, Loginter)", "value": "300+" },
-        { "label": "Facturación Electrónica Móvil", "value": "ARCA / AFIP" },
-        { "label": "Pipeline y Benchmarking Comercial", "value": "Agentes IA" }
+        { "label": "Ventas Autónomas con Claude & Tool-Calling", "value": "Agentes IA" },
+        { "label": "Módulos Corporativos Reingenierizados", "value": "13+" },
+        { "label": "Transportistas y Choferes Asistidos", "value": "300+" },
+        { "label": "Facturación Electrónica Móvil", "value": "ARCA / AFIP" }
       ],
       "en": [
+        { "label": "Autonomous Sales with Claude & Tool-Calling", "value": "AI Agents" },
         { "label": "Critical Modules Reengineered", "value": "13+" },
-        { "label": "Carriers & Drivers (OCASA, Loginter)", "value": "300+" },
-        { "label": "Mobile Electronic Invoicing", "value": "ARCA / AFIP" },
-        { "label": "Sales Automation & Benchmarking", "value": "AI Agents" }
+        { "label": "Carriers & Drivers Supported", "value": "300+" },
+        { "label": "In-App Electronic Invoicing", "value": "ARCA / AFIP" }
       ]
     }
   },
@@ -108,25 +108,25 @@
       "en": "UTN FRRe — Argentina"
     },
     "summary": {
-      "es": "Desarrollo y soporte del sistema integral (SGI) que centraliza la información del 100% de los investigadores, proyectos y grupos de I+D con Node.js, Express, Prisma, PostgreSQL y React.",
-      "en": "Development and support of the comprehensive management platform (SGI) centralizing 100% of researchers, projects, and R&D groups using Node.js, Express, Prisma, PostgreSQL, and React."
+      "es": "Desarrollo full-stack y soporte continuo de la plataforma institucional (SGI), brindando soporte a toda la Facultad Regional Resistencia en gestión y seguimiento de investigadores, becarios y proyectos de I+D.",
+      "en": "Full-stack development and continuous operational support for the institutional platform (SGI), supporting the entire Regional Faculty across researchers, fellows, and R&D projects."
     },
     "description": {
-      "es": "En la Secretaría de Ciencia y Tecnología de la UTN-FRRe desarrollo y mantengo la plataforma integral de gestión de investigación (SGI). El sistema centraliza la totalidad de los datos científicos, postulaciones a subsidios, proyectos homologados y grupos de I+D de la facultad bajo una arquitectura cliente-servidor escalable. Trabajo mano a mano con el Product Owner en el relevamiento de requisitos funcionales y diseño de interfaces optimizadas para alta productividad.",
-      "en": "At the Science and Technology Secretariat of UTN-FRRe, I develop and maintain the integral research management platform (SGI). The system centralizes all scientific records, grant applications, approved research projects, and R&D groups under a scalable client-server architecture. I work closely with the Product Owner in requirement gathering and interface design optimized for high productivity."
+      "es": "En la Secretaría de Ciencia y Tecnología de la UTN-FRRe me desempeño en el desarrollo técnico y soporte continuo del sistema integral de investigación. Mi labor da soporte a toda la Facultad Regional centralizando el seguimiento de investigadores, becarios, proyectos homologados y grupos de I+D. Trabajo en contacto directo con autoridades académicas y el Product Owner en el relevamiento de requerimientos, diseño de pantallas y optimización de flujos institucionales.",
+      "en": "At the Secretariat of Science and Technology of UTN-FRRe, I lead the technical development and continuous support of the research management platform. My work supports the entire Regional Faculty by centralizing the tracking of researchers, fellows, approved projects, and R&D groups. I collaborate directly with academic stakeholders and the Product Owner on requirement gathering, interface design, and workflow optimization."
     },
     "bullets": {
       "es": [
-        "Desarrollo y soporte del sistema integral que centraliza la información correspondiente al 100% de los investigadores, proyectos y grupos de I+D de la organización utilizando Node.js, Express, Prisma y PostgreSQL.",
-        "Integración de librerías (Prisma, React, Vite) para optimizar el rendimiento y la experiencia de usuario.",
-        "Diseño y mantenimiento del modelo de datos y pantallas, trabajando a la par del Product Owner para el relevamiento de requisitos funcionales.",
-        "Realización de pruebas y control de versiones con Git/GitHub, garantizando la calidad y la escalabilidad del código en cada entrega."
+        "Desarrollo y soporte continuo del sistema integral que centraliza y da soporte a toda la Facultad Regional en gestión de investigadores, becarios y proyectos de I+D.",
+        "Integración de librerías modernas (Prisma, React, Vite) para optimizar el rendimiento y la experiencia de usuario en tareas administrativas.",
+        "Diseño y mantenimiento del modelo de datos relacional y pantallas, trabajando a la par del Product Owner para el relevamiento de requerimientos.",
+        "Aseguramiento de calidad, testing continuo y control de versiones con Git/GitHub garantizando escalabilidad institucional."
       ],
       "en": [
-        "Development and support of an integrated system centralizing information for 100% of the organization's researchers, projects, and R&D groups using Node.js, Express, Prisma, and PostgreSQL.",
-        "Integration of libraries (Prisma, React, Vite) to optimize performance and user experience.",
-        "Design and maintenance of data models and UI screens, working alongside the Product Owner for functional requirements gathering.",
-        "Testing and version control with Git/GitHub, ensuring code quality and scalability for every delivery."
+        "Continuous development and support of the integral system supporting the entire Regional Faculty across researchers, fellows, and R&D projects.",
+        "Integration of modern libraries (Prisma, React, Vite) to maximize performance and user experience in administrative workflows.",
+        "Design and maintenance of relational data models and UI screens, working closely with the Product Owner on functional requirements.",
+        "Quality assurance, continuous testing, and version control with Git/GitHub ensuring institutional scalability."
       ]
     },
     "stack": [
@@ -144,14 +144,14 @@
     "relatedProjectIds": ["sgi"],
     "highlights": {
       "es": [
-        { "label": "Investigadores e I+D Centralizados", "value": "100%" },
-        { "label": "Gestión de Subsidios y Proyectos", "value": "Integral" },
-        { "label": "Plataforma Institucional Activa", "value": "UTN FRRe" }
+        { "label": "Investigadores y Becarios Centralizados", "value": "100%" },
+        { "label": "Soporte Institucional y Operativo I+D", "value": "Toda la Regional" },
+        { "label": "Plataforma en Producción Activa", "value": "UTN FRRe" }
       ],
       "en": [
-        { "label": "Researchers & R&D Centralized", "value": "100%" },
-        { "label": "Grants & Project Management", "value": "Comprehensive" },
-        { "label": "Active Institutional Platform", "value": "UTN FRRe" }
+        { "label": "Researchers & Fellows Centralized", "value": "100%" },
+        { "label": "Regional-Wide R&D Operational Support", "value": "Entire Faculty" },
+        { "label": "Active Production Platform", "value": "UTN FRRe" }
       ]
     }
   }
