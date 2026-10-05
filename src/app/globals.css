@@ -109,31 +109,33 @@ body {
   }
 }
 
-/* Scrollbars */
-* {
-  scrollbar-width: thin;
-  scrollbar-color: color-mix(in oklab, var(--muted) 45%, transparent) transparent;
-}
+/* Scrollbars (base layer, so utilities can hide them where needed) */
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: color-mix(in oklab, var(--muted) 45%, transparent) transparent;
+  }
 
-::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
 
-::-webkit-scrollbar-track,
-::-webkit-scrollbar-corner {
-  background: transparent;
-}
+  ::-webkit-scrollbar-track,
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
 
-::-webkit-scrollbar-thumb {
-  background-color: color-mix(in oklab, var(--muted) 45%, transparent);
-  border-radius: 9999px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-}
+  ::-webkit-scrollbar-thumb {
+    background-color: color-mix(in oklab, var(--muted) 45%, transparent);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+  }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: var(--accent);
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent);
+  }
 }
 
 .custom-scrollbar::-webkit-scrollbar {

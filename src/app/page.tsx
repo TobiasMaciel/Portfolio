@@ -14,6 +14,7 @@ import type { ExperienceItem, Project } from "@/types";
 import CursorGlow from "@/components/CursorGlow";
 import SmoothScroll from "@/components/fx/SmoothScroll";
 import GridWarpBackground from "@/components/GridWarpBackground";
+import SectionNav from "@/components/SectionNav";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
 import ProjectModal from "@/components/ProjectModal";
@@ -59,6 +60,8 @@ export default function Home() {
         <span aria-hidden="true" className="h-5 w-px bg-line/60" />
         <ThemeToggle isEs={isEs} />
       </div>
+
+      <SectionNav />
 
       <Hero onOpenCV={openCV} />
 

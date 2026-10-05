@@ -74,6 +74,7 @@ export default function Hero({ onOpenCV }: { onOpenCV: () => void }) {
 
   return (
     <header
+      id="inicio"
       ref={ref}
       className="relative z-10 flex w-full flex-col gap-10 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between lg:gap-0"
     >
