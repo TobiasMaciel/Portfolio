@@ -1,26 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useRef, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useState } from "react";
+import { AnimatePresence } from "framer-motion";
+import {
+  ChevronLeft,
+  ChevronRight,
+  FileText,
+  Maximize2,
+} from "lucide-react";
 import { Project } from "@/types";
 import Lightbox from "./Lightbox";
-
-const GitHubIcon = ({ size = 14 }: { size?: number }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    width={size}
-    height={size}
-    viewBox="0 0 98 96"
-    fill="currentColor"
-  >
-    <path
-      fillRule="evenodd"
-      clipRule="evenodd"
-      d="M48.854 0C21.839 0 0 22 0 49.217c0 21.756 13.993 40.172 33.405 46.69 2.427.49 3.316-1.059 3.316-2.362 0-1.141-.08-5.052-.08-9.127-13.59 2.934-16.42-5.867-16.42-5.867-2.184-5.704-5.42-7.17-5.42-7.17-4.448-3.015.324-3.015.324-3.015 4.934.326 7.523 5.052 7.523 5.052 4.367 7.496 11.404 5.378 14.235 4.074.404-3.178 1.699-5.378 3.074-6.6-10.839-1.141-22.243-5.378-22.243-24.283 0-5.378 1.94-9.778 5.014-13.2-.485-1.222-2.184-6.275.486-13.038 0 0 4.125-1.304 13.426 5.052a46.97 46.97 0 0 1 12.214-1.63c4.125 0 8.33.571 12.213 1.63 9.302-6.356 13.427-5.052 13.427-5.052 2.67 6.763.97 11.816.485 13.038 3.155 3.422 5.015 7.822 5.015 13.2 0 18.905-11.404 23.06-22.324 24.283 1.78 1.548 3.316 4.481 3.316 9.126 0 6.6-.08 11.897-.08 13.526 0 1.304.89 2.853 3.316 2.364 19.412-6.52 33.405-24.935 33.405-46.691C97.707 22 75.788 0 48.854 0z"
-    />
-  </svg>
-);
+import Modal, { BulletList, ModalBlock } from "./ui/Modal";
+import StackList from "./ui/StackList";
+import { GitHubIcon } from "./ui/icons";
+import { button } from "./ui/styles";
+import { useSwipe, isPdf } from "./ui/useSwipe";
 
 export default function ProjectModal({
   project,
@@ -30,257 +25,88 @@ export default function ProjectModal({
 }: {
   project: Project;
   onClose: () => void;
-  onViewReport?: (url: string) => void;
+  onViewReport: (url: string) => void;
   isEs: boolean;
 }) {
-  const [current, setCurrent] = useState(0);
   const [lightboxIdx, setLightboxIdx] = useState<number | null>(null);
-  const dragX = useRef(0);
-  const didDrag = useRef(false);
-  const n = project.images.length;
-  const go = useCallback((i: number) => setCurrent((i + n) % n), [n]);
-
-  useEffect(() => {
-    const fn = (e: KeyboardEvent) => {
-      if (e.key === "Escape" && lightboxIdx === null) onClose();
-    };
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", fn);
-    return () => {
-      document.body.style.overflow = "";
-      window.removeEventListener("keydown", fn);
-    };
-  }, [onClose, lightboxIdx]);
+  const hasImages = project.images.length > 0;
 
   return (
     <>
-      <motion.div
-        className="fixed inset-0 z-[100] flex items-center justify-center p-0 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.2 }}
-        onClick={onClose}
+      <Modal
+        title={project.title}
+        subtitle={project.subtitle}
+        onClose={onClose}
+        closeLabel={isEs ? "Cerrar" : "Close"}
+        size={hasImages ? "xl" : "md"}
       >
-        <motion.div
-          className="relative w-full max-w-6xl h-[100dvh] sm:h-full lg:h-[92vh] bg-white dark:bg-zinc-900 rounded-none sm:rounded-3xl md:rounded-[2.5rem] overflow-hidden flex flex-col shadow-2xl border-0 sm:border border-zinc-300 dark:border-zinc-800"
-          style={{ contain: "content", willChange: "transform, opacity" }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 20 }}
-          transition={{ duration: 0.3, ease: "easeOut" }}
-          onClick={(e) => e.stopPropagation()}
+        <div
+          className={`custom-scrollbar min-h-0 flex-1 overflow-y-auto ${
+            hasImages
+              ? "md:grid md:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] md:overflow-hidden"
+              : ""
+          }`}
         >
-          {/* Header Bar */}
-          <div className="flex items-center justify-between px-5 py-4 sm:px-8 sm:py-6 border-b border-zinc-100 dark:border-zinc-800 bg-white dark:bg-zinc-900 relative z-20 flex-shrink-0">
-            <div className="min-w-0 pr-2">
-              <h2 className="font-playfair text-lg sm:text-xl md:text-2xl font-bold text-zinc-900 dark:text-white leading-tight">
-                {project.title}
-              </h2>
-              <p className="text-[10px] font-bold tracking-widest text-[#A78BFA] uppercase mt-0.5">
-                {project.subtitle} · {project.role}
+          {hasImages && (
+            <Gallery
+              images={project.images}
+              title={project.title}
+              isEs={isEs}
+              onOpen={setLightboxIdx}
+              onViewReport={onViewReport}
+            />
+          )}
+
+          <div className="custom-scrollbar space-y-8 px-5 py-6 sm:px-8 sm:py-8 md:order-1 md:h-full md:overflow-y-auto md:border-r md:border-rule">
+            <dl className="grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-sm">
+              <dt className="text-muted">{isEs ? "Período" : "Period"}</dt>
+              <dd>{project.period}</dd>
+              <dt className="text-muted">{isEs ? "Rol" : "Role"}</dt>
+              <dd>{project.role}</dd>
+            </dl>
+
+            <ModalBlock title={isEs ? "Sobre el proyecto" : "About the project"}>
+              <p className="max-w-[68ch] text-sm leading-relaxed text-muted">
+                {project.description}
               </p>
-            </div>
-            <button
-              onClick={onClose}
-              className="group p-2 sm:p-2.5 hover:bg-zinc-100 dark:hover:bg-white/5 rounded-xl sm:rounded-2xl transition-all duration-300 text-zinc-400 hover:text-zinc-900 dark:hover:text-white hover:scale-110 flex-shrink-0"
-              aria-label="Cerrar modal"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:rotate-90 transition-transform duration-300"><path d="M18 6 6 18M6 6l12 12"/></svg>
-            </button>
-          </div>
+            </ModalBlock>
 
-          {/* Body — Two Column Desktop Layout with Sticky Right Side and Scrollable Left Side */}
-          <div className="flex-1 min-h-0 overflow-y-auto md:overflow-hidden custom-scrollbar">
-            <div className="grid grid-cols-1 md:grid-cols-12 h-full">
-              {/* Left Column: Info (Scrolls independently on desktop) */}
-              <div className="md:col-span-5 p-5 sm:p-10 border-b md:border-b-0 md:border-r border-zinc-100/50 dark:border-zinc-800/50 space-y-6 sm:space-y-8 bg-white/20 dark:bg-white/5 md:overflow-y-auto md:h-full custom-scrollbar">
-                <div>
-                  <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-3">
-                    {isEs ? "Sobre el Proyecto" : "About Project"}
-                  </h4>
-                  <p className="text-zinc-600 dark:text-zinc-400 leading-relaxed text-sm">
-                    {project.description}
-                  </p>
-                </div>
+            <ModalBlock title={isEs ? "Qué hice" : "What I built"}>
+              <BulletList items={project.bullets} />
+            </ModalBlock>
 
-                <div className="grid grid-cols-1 gap-6 sm:gap-8">
-                  <div>
-                    <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-4">
-                      {isEs ? "Características Clave" : "Key Features"}
-                    </h4>
-                    <ul className="space-y-3">
-                      {project.bullets.map((b, i) => (
-                        <li key={i} className="flex gap-3 text-zinc-600 dark:text-zinc-400 text-sm leading-snug">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#A78BFA]/40 mt-1.5 flex-shrink-0" />
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
+            <ModalBlock title={isEs ? "Tecnologías" : "Technologies"}>
+              <StackList items={project.stack} isEs={isEs} />
+            </ModalBlock>
 
-                  <div>
-                    <h4 className="text-[10px] font-bold tracking-[0.2em] text-[#A78BFA] uppercase mb-4">
-                      {isEs ? "Tecnologías" : "Technologies"}
-                    </h4>
-                    <div className="flex flex-wrap gap-2">
-                      {project.stack.map((s) => (
-                        <span
-                          key={s}
-                          className="px-3 py-1.5 bg-[#A78BFA]/5 text-[#A78BFA] text-[10px] font-bold rounded-lg border border-[#A78BFA]/10 uppercase tracking-wider"
-                        >
-                          {s}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-
+            {(project.github || project.report) && (
+              <div className="flex flex-wrap gap-3 pt-2">
                 {project.github && (
-                  <div className="pt-4 flex flex-wrap gap-4">
-                    <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="group inline-flex items-center gap-3 px-6 py-4 bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 text-sm font-bold rounded-2xl transition-all duration-300 hover:shadow-xl hover:shadow-black/20 dark:hover:shadow-white/10 active:scale-95"
-                    >
-                      <GitHubIcon size={18} />
-                      <span>{isEs ? "Ver Repositorio" : "View Repository"}</span>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="group-hover:translate-x-1 transition-transform"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                    </a>
-                  </div>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={button.secondary}
+                  >
+                    <GitHubIcon size={16} />
+                    {isEs ? "Ver repositorio" : "View repository"}
+                  </a>
+                )}
+                {project.report && (
+                  <button
+                    type="button"
+                    onClick={() => onViewReport(project.report!)}
+                    className={button.secondary}
+                  >
+                    <FileText size={16} aria-hidden="true" />
+                    {isEs ? "Leer informe técnico" : "Read technical report"}
+                  </button>
                 )}
               </div>
-
-              {/* Right Column: Imagery (Fixed in view on desktop) */}
-              {project.images && project.images.length > 0 && (
-                <div className="md:col-span-7 bg-zinc-50 dark:bg-black/20 flex flex-col h-full md:overflow-hidden">
-                  <div className="flex-1 p-4 sm:p-8 md:p-10 flex flex-col gap-4 sm:gap-6">
-                    {/* Main Gallery Frame */}
-                    <div 
-                      className="relative w-full flex-1 min-h-[260px] sm:min-h-[300px] rounded-2xl sm:rounded-[2rem] overflow-hidden bg-white dark:bg-zinc-950 border border-zinc-300 dark:border-white/5 cursor-zoom-in group/gallery shadow-inner"
-                      onClick={() => setLightboxIdx(current)}
-                      onPointerDown={(e) => {
-                        if ((e.target as HTMLElement).closest("button")) return;
-                        dragX.current = e.clientX;
-                        didDrag.current = false;
-                      }}
-                      onPointerMove={(e) => {
-                        if (Math.abs(e.clientX - dragX.current) > 8) didDrag.current = true;
-                      }}
-                      onPointerUp={(e) => {
-                        if ((e.target as HTMLElement).closest("button")) return;
-                        if (didDrag.current) {
-                          const d = e.clientX - dragX.current;
-                          if (Math.abs(d) > 30) go(current + (d < 0 ? 1 : -1));
-                        }
-                        didDrag.current = false;
-                      }}
-                    >
-                      <AnimatePresence mode="sync">
-                        <motion.div
-                          key={current}
-                          className="absolute inset-0"
-                          initial={{ opacity: 0 }}
-                          animate={{ opacity: 1 }}
-                          exit={{ opacity: 0 }}
-                          transition={{ duration: 0.25 }}
-                        >
-                          {project.images[current].toLowerCase().endsWith(".pdf") ? (
-                            <div className="w-full h-full relative bg-white dark:bg-zinc-900 rounded-2xl overflow-hidden group/pdf">
-                              <iframe
-                                src={`${project.images[current]}#toolbar=0&navpanes=0&scrollbar=0`}
-                                className="w-full h-full border-none"
-                                title="Technical Report"
-                              />
-                              {/* Overlay to allow clicking and also provide a 'Full Screen' option */}
-                              <div className="absolute inset-0 bg-black/0 group-hover/pdf:bg-black/5 transition-colors pointer-events-none" />
-                              <button
-                                onClick={(e) => {
-                                  e.stopPropagation();
-                                  if (onViewReport) onViewReport(project.images[current]);
-                                }}
-                                className="absolute top-4 right-4 p-3 bg-black/40 backdrop-blur-md text-white rounded-xl border border-white/10 opacity-0 group-hover/pdf:opacity-100 transition-all hover:bg-[#A78BFA] hover:scale-110 active:scale-95 flex items-center gap-2 font-bold text-[10px] tracking-widest uppercase shadow-2xl"
-                              >
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
-                                {isEs ? "Pantalla Completa" : "Full Screen"}
-                              </button>
-                            </div>
-                          ) : (
-                            <Image
-                              src={project.images[current]}
-                              alt={project.title}
-                              fill
-                              className="object-contain p-4 transition-all duration-500"
-                              sizes="(max-width: 768px) 100vw, 1000px"
-                              priority
-                            />
-                          )}
-                        </motion.div>
-                      </AnimatePresence>
-
-                      {/* Navigation Overlays */}
-                      {n > 1 && (
-                        <>
-                          <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex justify-between px-3 sm:px-4 opacity-100 sm:opacity-0 sm:group-hover/gallery:opacity-100 transition-opacity pointer-events-none">
-                            <button
-                              onClick={(e) => { e.stopPropagation(); go(current - 1); }}
-                              className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all pointer-events-auto"
-                            >
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-                            </button>
-                            <button
-                              onClick={(e) => { e.stopPropagation(); go(current + 1); }}
-                              className="w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center rounded-xl bg-black/40 backdrop-blur-md text-white border border-white/10 hover:bg-black/60 transition-all pointer-events-auto"
-                            >
-                              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-                            </button>
-                          </div>
-                          <div className="absolute bottom-3 right-3 sm:bottom-6 sm:right-6">
-                            <span className="px-2.5 py-1 sm:px-3 sm:py-1.5 bg-black/40 backdrop-blur-md text-white text-[10px] font-bold rounded-lg border border-white/10 shadow-xl">
-                              {current + 1} / {n}
-                            </span>
-                          </div>
-                        </>
-                      )}
-                    </div>
-
-                    {/* Thumbnail Selector */}
-                    {n > 1 && (
-                      <div className="flex gap-2.5 sm:gap-3 overflow-x-auto pb-2 scrollbar-none">
-                        {project.images.map((src, i) => (
-                          <button
-                            key={i}
-                            onClick={() => setCurrent(i)}
-                            className={`relative flex-shrink-0 w-20 h-14 sm:w-24 sm:h-16 rounded-lg sm:rounded-xl overflow-hidden border-2 transition-all duration-300 ${
-                              i === current ? "border-[#A78BFA] scale-105 shadow-lg shadow-[#A78BFA]/20" : "border-transparent opacity-50 hover:opacity-100"
-                            }`}
-                          >
-                            {src.toLowerCase().endsWith(".pdf") ? (
-                              <div className="w-full h-full flex flex-col items-center justify-center bg-zinc-100 dark:bg-zinc-800 text-[#A78BFA]">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
-                                <span className="text-[8px] font-bold mt-1 uppercase">PDF</span>
-                              </div>
-                            ) : (
-                              <Image
-                                src={src}
-                                alt={`thumb ${i + 1}`}
-                                fill
-                                className="object-cover"
-                                sizes="96px"
-                              />
-                            )}
-                          </button>
-                        ))}
-                      </div>
-                    )}
-                  </div>
-                </div>
-              )}
-            </div>
+            )}
           </div>
-        </motion.div>
-      </motion.div>
+        </div>
+      </Modal>
 
       <AnimatePresence>
         {lightboxIdx !== null && (
@@ -288,9 +114,138 @@ export default function ProjectModal({
             images={project.images}
             startIndex={lightboxIdx}
             onClose={() => setLightboxIdx(null)}
+            isEs={isEs}
           />
         )}
       </AnimatePresence>
     </>
+  );
+}
+
+function Gallery({
+  images,
+  title,
+  isEs,
+  onOpen,
+  onViewReport,
+}: {
+  images: string[];
+  title: string;
+  isEs: boolean;
+  onOpen: (idx: number) => void;
+  onViewReport: (url: string) => void;
+}) {
+  const [current, setCurrent] = useState(0);
+  const n = images.length;
+  const go = useCallback((i: number) => setCurrent((i + n) % n), [n]);
+  const src = images[current];
+  const swipe = useSwipe({
+    onPrev: () => go(current - 1),
+    onNext: () => go(current + 1),
+    onTap: () => !isPdf(src) && onOpen(current),
+  });
+
+  return (
+    <div className="flex flex-col gap-3 bg-paper/60 p-4 sm:p-6 md:p-8 md:order-2 md:h-full md:min-h-0">
+      <div
+        {...swipe}
+        className={`relative aspect-[4/3] w-full select-none overflow-hidden rounded-2xl border border-rule bg-surface shadow-inner md:aspect-auto md:min-h-0 md:flex-1 ${
+          isPdf(src) ? "" : "cursor-zoom-in"
+        }`}
+      >
+        {isPdf(src) ? (
+          <>
+            <iframe
+              src={`${src}#toolbar=0&navpanes=0&scrollbar=0`}
+              className="h-full w-full border-none"
+              title={isEs ? "Informe técnico" : "Technical report"}
+            />
+            <button
+              type="button"
+              onClick={() => onViewReport(src)}
+              className={`${button.secondary} absolute right-3 top-3 px-3 py-2 shadow-sm`}
+            >
+              <Maximize2 size={14} aria-hidden="true" />
+              {isEs ? "Pantalla completa" : "Full screen"}
+            </button>
+          </>
+        ) : (
+          <Image
+            key={src}
+            src={src}
+            alt={`${title}, ${isEs ? "imagen" : "image"} ${current + 1}`}
+            fill
+            className="object-contain p-4"
+            sizes="(max-width: 768px) 100vw, 640px"
+            draggable={false}
+            priority
+          />
+        )}
+      </div>
+
+      <div className="flex items-center justify-between text-chip text-muted">
+        <span className="tabular-nums">{n > 1 ? `${current + 1} / ${n}` : ""}</span>
+        <span className="flex items-center">
+          {n > 1 && (
+            <>
+              <button
+                type="button"
+                onClick={() => go(current - 1)}
+                aria-label={isEs ? "Imagen anterior" : "Previous image"}
+                className={`${button.icon} h-9 w-9`}
+              >
+                <ChevronLeft size={18} aria-hidden="true" />
+              </button>
+              <button
+                type="button"
+                onClick={() => go(current + 1)}
+                aria-label={isEs ? "Imagen siguiente" : "Next image"}
+                className={`${button.icon} h-9 w-9`}
+              >
+                <ChevronRight size={18} aria-hidden="true" />
+              </button>
+            </>
+          )}
+          {!isPdf(src) && (
+            <button
+              type="button"
+              onClick={() => onOpen(current)}
+              aria-label={isEs ? "Ampliar imagen" : "Enlarge image"}
+              className={`${button.icon} h-9 w-9`}
+            >
+              <Maximize2 size={15} aria-hidden="true" />
+            </button>
+          )}
+        </span>
+      </div>
+
+      {n > 1 && (
+        <ul className="flex shrink-0 gap-2 overflow-x-auto pb-1">
+          {images.map((img, i) => (
+            <li key={img} className="shrink-0">
+              <button
+                type="button"
+                onClick={() => setCurrent(i)}
+                aria-label={`${isEs ? "Ver imagen" : "Show image"} ${i + 1}`}
+                aria-current={i === current}
+                className={`relative block h-12 w-[4.5rem] overflow-hidden rounded-lg border-2 bg-surface transition-all cursor-pointer ${
+                  i === current
+                    ? "border-brand shadow-lg shadow-brand/20"
+                    : "border-transparent opacity-60 hover:opacity-100"
+                }`}
+              >
+                {isPdf(img) ? (
+                  <span className="flex h-full w-full items-center justify-center text-accent">
+                    <FileText size={18} aria-hidden="true" />
+                  </span>
+                ) : (
+                  <Image src={img} alt="" fill className="object-cover" sizes="72px" />
+                )}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
   );
 }

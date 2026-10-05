@@ -5,6 +5,7 @@ import "./globals.css";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
+  style: ["normal", "italic"],
   variable: "--font-playfair",
 });
 
@@ -48,10 +49,12 @@ export default function RootLayout({
 }>) {
   // next-themes requiere suppressHydrationWarning en el html
   return (
-    <html lang="es" suppressHydrationWarning>
-      <body
-        className={`${inter.variable} ${playfair.variable} antialiased selection:bg-[#A78BFA]/30 selection:text-[#A78BFA]`}
-      >
+    <html
+      lang="es"
+      className={`${playfair.variable} ${inter.variable}`}
+      suppressHydrationWarning
+    >
+      <body className="antialiased">
         <Providers>{children}</Providers>
       </body>
     </html>

@@ -25,8 +25,7 @@ type LineData = {
  */
 export default function LayoutAnimation() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const { t } = useLanguage();
-  const isEsLang = t("experience") === "EXPERIENCIA";
+  const { isEs: isEsLang } = useLanguage();
 
   const aboutData = portfolioData.about;
   const rawCvText = isEsLang ? aboutData.cv_text.es : aboutData.cv_text.en;
@@ -49,7 +48,6 @@ export default function LayoutAnimation() {
 
   // Smooth mouse: follows real mouse with lag for slow text reflow
   const smoothMouse = useRef({ x: 0, y: 0 });
-  const lastRenderMouse = useRef({ x: 0, y: 0 });
 
   useEffect(() => {
     const handleResize = () => {
@@ -83,11 +81,10 @@ export default function LayoutAnimation() {
   useEffect(() => {
     if (dimensions.width === 0) return;
 
-    let fontFamily = '"Playfair Display", serif';
-    const computed = window
-      .getComputedStyle(document.documentElement)
-      .getPropertyValue("--font-playfair");
-    if (computed) fontFamily = computed;
+    // Measure with the exact family the text renders in (next/font hashes the name)
+    const fontFamily = containerRef.current
+      ? window.getComputedStyle(containerRef.current).fontFamily
+      : "Georgia, serif";
 
     const isDesktop = dimensions.width >= 500;
     const scale = isDesktop ? dimensions.width / 900 : 1;
@@ -126,6 +123,8 @@ export default function LayoutAnimation() {
     const radius = 35 * scale;
 
     let animationFrameId: number;
+    let lastX = Number.NaN;
+    let lastY = Number.NaN;
 
     const render = () => {
       // Lerp the smooth mouse toward the real mouse (0.04 = very slow/laggy)
@@ -137,6 +136,14 @@ export default function LayoutAnimation() {
 
       const mx = smoothMouse.current.x;
       const my = smoothMouse.current.y;
+
+      // Skip the relayout while the pointer is at rest
+      if (Math.abs(mx - lastX) < 0.1 && Math.abs(my - lastY) < 0.1) {
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
+      lastX = mx;
+      lastY = my;
 
       const headerRanges = HEADERS.map((h) => {
         const start = CV_TEXT.indexOf(h);
@@ -292,19 +299,20 @@ export default function LayoutAnimation() {
   return (
     <div
       ref={containerRef}
-      className="relative w-full overflow-hidden"
+      className="relative w-full overflow-hidden font-serif"
       style={{ height: isDesktop ? 600 * scale : (dimensions.width < 640 ? 1000 : 560) }}
       suppressHydrationWarning
     >
       <div 
-        className="absolute top-0 left-0 w-full h-full pointer-events-none font-playfair z-10 text-zinc-700 dark:text-zinc-300"
+        className="absolute top-0 left-0 w-full h-full pointer-events-none z-10 text-ink/80"
         style={{ 
           fontSize: isDesktop ? `${20 * scale}px` : (dimensions.width < 640 ? "17px" : "18px"),
           lineHeight: isDesktop ? `${36 * scale}px` : (dimensions.width < 640 ? "30px" : "32px")
         }}
       >
         <div
-          className="absolute font-playfair font-bold text-[#A78BFA] leading-none pointer-events-auto select-none"
+          aria-hidden="true"
+          className="absolute font-bold text-brand leading-none pointer-events-auto select-none"
           style={{
             left: startLeft,
             top: 5 * scale,
@@ -320,9 +328,9 @@ export default function LayoutAnimation() {
 
           let colorClass = "text-inherit";
           if (line.isHeader) {
-            colorClass = "text-black dark:text-white";
+            colorClass = "text-ink";
           } else if (line.isQuote) {
-            colorClass = "text-[#A78BFA]";
+            colorClass = "text-accent";
           }
 
           const isHighlight = HIGHLIGHTS.some((h) => line.text.includes(h));
@@ -336,7 +344,7 @@ export default function LayoutAnimation() {
                 return (
                   <span
                     key={idx}
-                    className="font-bold text-zinc-900 dark:text-white"
+                    className="font-bold text-ink"
                   >
                     {segment}
                   </span>
@@ -359,7 +367,7 @@ export default function LayoutAnimation() {
                 whiteSpace: "nowrap",
                 fontWeight: line.isHeader ? 700 : line.isQuote ? 500 : 400,
                 fontStyle: line.isQuote ? "italic" : "normal",
-                borderLeft: line.isQuote ? `${2 * scale}px solid #A78BFA` : "none",
+                borderLeft: line.isQuote ? `${2 * scale}px solid var(--brand)` : "none",
                 paddingLeft: line.isQuote ? `${12 * scale}px` : "0",
               }}
             >

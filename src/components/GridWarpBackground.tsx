@@ -44,12 +44,23 @@ export default function GridWarpBackground({
     window.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseleave", handleMouseLeave);
 
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let visible = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+    });
+    observer.observe(canvas);
+
     const gridSpacing = 48;
     const influenceRadius = 140;
     const maxDisplacement = 12; // Maximum distortion amount
 
     const draw = () => {
       if (!ctx) return;
+      if (!visible) {
+        animationId = requestAnimationFrame(draw);
+        return;
+      }
       ctx.clearRect(0, 0, width, height);
 
       // Check dark mode state from documentElement
@@ -119,12 +130,13 @@ export default function GridWarpBackground({
         ctx.stroke();
       }
 
-      animationId = requestAnimationFrame(draw);
+      if (!reduceMotion) animationId = requestAnimationFrame(draw);
     };
 
     draw();
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("resize", handleResize);
       window.removeEventListener("mousemove", handleMouseMove);
       document.removeEventListener("mouseleave", handleMouseLeave);

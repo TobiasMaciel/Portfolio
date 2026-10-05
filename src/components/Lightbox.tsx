@@ -1,137 +1,118 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect, useCallback } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
+import { useDialogLayer } from "./ui/useDialogLayer";
+import { isPdf } from "./ui/useSwipe";
+
+const control =
+  "flex h-11 w-11 items-center justify-center rounded-md bg-white/10 text-white transition-colors hover:bg-white/20 cursor-pointer";
 
 export default function Lightbox({
   images,
   startIndex,
   onClose,
+  isEs,
 }: {
   images: string[];
   startIndex: number;
   onClose: () => void;
+  isEs: boolean;
 }) {
   const [current, setCurrent] = useState(startIndex);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const isTop = useDialogLayer(onClose, containerRef);
   const n = images.length;
   const go = useCallback((i: number) => setCurrent((i + n) % n), [n]);
 
   useEffect(() => {
-    const fn = (e: KeyboardEvent) => {
-      if (e.key === "Escape") onClose();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (!isTop()) return;
       if (e.key === "ArrowLeft") go(current - 1);
       if (e.key === "ArrowRight") go(current + 1);
     };
-    window.addEventListener("keydown", fn);
-    return () => window.removeEventListener("keydown", fn);
-  }, [current, onClose, go]);
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [current, go, isTop]);
+
+  const src = images[current];
 
   return (
     <motion.div
-      className="fixed inset-0 z-[300] flex items-center justify-center bg-black/80 backdrop-blur-sm"
+      ref={containerRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label={isEs ? "Visor de imágenes" : "Image viewer"}
+      tabIndex={-1}
+      className="fixed inset-0 z-[300] flex items-center justify-center bg-black/90 focus:outline-none"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.15 }}
       onClick={onClose}
     >
-      <button
-        onClick={onClose}
-        className="absolute top-5 right-5 w-9 h-9 flex items-center justify-center rounded bg-white/10 border border-white/15 text-white hover:bg-white/20 transition-colors z-10"
+      <div
+        className="relative mx-auto flex h-full w-full max-w-6xl items-center px-4 py-20 sm:px-20"
+        onClick={(e) => e.stopPropagation()}
       >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="14"
-          height="14"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-          strokeLinejoin="round"
-        >
-          <path d="M18 6 6 18M6 6l12 12" />
-        </svg>
-      </button>
-      {n > 1 && (
-        <span className="absolute top-6 left-1/2 -translate-x-1/2 text-xs text-white/40 tracking-widest">
-          {current + 1} / {n}
-        </span>
-      )}
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={current}
-          className="relative w-full h-full max-w-5xl mx-auto px-4 sm:px-12 flex items-center"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          exit={{ opacity: 0 }}
-          transition={{ duration: 0.12 }}
-          onClick={(e) => e.stopPropagation()}
-        >
-          {images[current].toLowerCase().endsWith(".pdf") ? (
-            <div className="w-full h-[85vh] flex flex-col items-center justify-center">
-              <iframe
-                src={`${images[current]}#toolbar=1`}
-                className="w-full h-full rounded-2xl border border-white/10 shadow-2xl bg-white"
-                title="Technical Report"
-              />
-            </div>
-          ) : (
+        {isPdf(src) ? (
+          <iframe
+            src={`${src}#toolbar=1`}
+            className="h-full w-full rounded-lg bg-white"
+            title={isEs ? "Documento" : "Document"}
+          />
+        ) : (
+          <div className="relative h-full w-full">
             <Image
-              src={images[current]}
-              alt={`img ${current + 1}`}
+              key={src}
+              src={src}
+              alt={`${isEs ? "Imagen" : "Image"} ${current + 1}`}
               fill
               className="object-contain"
               sizes="100vw"
               priority
             />
-          )}
-        </motion.div>
-      </AnimatePresence>
+          </div>
+        )}
+      </div>
+
+      <button
+        type="button"
+        onClick={onClose}
+        aria-label={isEs ? "Cerrar" : "Close"}
+        className={`${control} absolute right-4 top-4`}
+      >
+        <X size={18} aria-hidden="true" />
+      </button>
+
       {n > 1 && (
         <>
+          <p className="absolute left-1/2 top-7 -translate-x-1/2 text-sm tabular-nums text-white/70">
+            {current + 1} / {n}
+          </p>
           <button
+            type="button"
             onClick={(e) => {
               e.stopPropagation();
               go(current - 1);
             }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded bg-white/10 border border-white/15 text-white hover:bg-white/20 transition-colors"
+            aria-label={isEs ? "Anterior" : "Previous"}
+            className={`${control} absolute left-4 top-1/2 -translate-y-1/2`}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m15 18-6-6 6-6" />
-            </svg>
+            <ChevronLeft size={18} aria-hidden="true" />
           </button>
           <button
+            type="button"
             onClick={(e) => {
               e.stopPropagation();
               go(current + 1);
             }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 w-9 h-9 flex items-center justify-center rounded bg-white/10 border border-white/15 text-white hover:bg-white/20 transition-colors"
+            aria-label={isEs ? "Siguiente" : "Next"}
+            className={`${control} absolute right-4 top-1/2 -translate-y-1/2`}
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="14"
-              height="14"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <path d="m9 18 6-6-6-6" />
-            </svg>
+            <ChevronRight size={18} aria-hidden="true" />
           </button>
         </>
       )}

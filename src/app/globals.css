@@ -1,68 +1,97 @@
 @import "tailwindcss";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * Design tokens.
+ * --brand is the signature violet for glows, dots, fills and borders.
+ * --accent is the same hue tuned for text, so it passes WCAG AA on the
+ * page background in both themes.
+ */
 :root {
-  --background: #e2e2eb;
-  --foreground: #18181b;
+  --paper: #e4e4e7;
+  --surface: #ffffff;
+  --ink: #18181b;
+  --muted: #52525b;
+  --rule: #d4d4d8;
+  --brand: #a78bfa;
+  --accent: #6544d6;
+  --on-accent: #ffffff;
+}
+
+.dark {
+  --paper: #0a0a0b;
+  --surface: #18181b;
+  --ink: #f4f4f5;
+  --muted: #a1a1aa;
+  --rule: #27272a;
+  --brand: #a78bfa;
+  --accent: #a78bfa;
+  --on-accent: #0a0a0b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-inter);
-  --font-mono: var(--font-geist-mono);
-  --font-playfair: var(--font-playfair);
-  --font-inter: var(--font-inter);
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-muted: var(--muted);
+  --color-rule: var(--rule);
+  --color-brand: var(--brand);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-playfair), Georgia, serif;
+
+  /* Type scale: body 16px, then a fourth-based ladder up to the display size */
+  --text-display: clamp(2.75rem, 1.9rem + 2.6vw, 4.5rem);
+  --text-display--line-height: 1.02;
+  --text-title: clamp(2rem, 1.6rem + 1.2vw, 2.75rem);
+  --text-title--line-height: 1.1;
+  --text-chip: 0.8125rem;
+  --text-chip--line-height: 1.25rem;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  background: var(--paper);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
 }
 
-.bg-grid-pattern {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(167, 139, 250, 0.12),
-    rgba(167, 139, 250, 0.12) 1px,
-    transparent 1px,
-    transparent 20px
-  );
-  mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 85%);
-  -webkit-mask-image: radial-gradient(circle at 50% 30%, black 20%, transparent 85%);
+/* In the base layer so utilities like focus:outline-none can override it */
+@layer base {
+  ::selection {
+    background: color-mix(in oklab, var(--accent) 25%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
 }
 
-:where(.dark, .dark *) .bg-grid-pattern {
-  background-image: repeating-linear-gradient(
-    -45deg,
-    rgba(167, 139, 250, 0.06),
-    rgba(167, 139, 250, 0.06) 1px,
-    transparent 1px,
-    transparent 20px
-  );
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
 }
 
-/* Custom Scrollbars — Global & Within Modals */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Global scrollbar for the webpage and scrollable elements */
+/* Scrollbars */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(161, 161, 170, 0.4) transparent;
-}
-
-:where(.dark, .dark *) {
-  scrollbar-color: rgba(255, 255, 255, 0.22) transparent;
+  scrollbar-color: color-mix(in oklab, var(--muted) 45%, transparent) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -70,73 +99,23 @@ html {
   height: 8px;
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: rgba(161, 161, 170, 0.35);
-  border-radius: 9999px;
-  border: 2px solid transparent;
-  background-clip: padding-box;
-  transition: background-color 0.2s ease;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #a78bfa;
-}
-
-:where(.dark, .dark *) ::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-:where(.dark, .dark *) ::-webkit-scrollbar-thumb:hover {
-  background-color: #a78bfa;
-}
-
+::-webkit-scrollbar-track,
 ::-webkit-scrollbar-corner {
   background: transparent;
 }
 
-/* Ultra-sleek nested scrollbars for Modals and Panels */
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: rgba(161, 161, 170, 0.35) transparent;
+::-webkit-scrollbar-thumb {
+  background-color: color-mix(in oklab, var(--muted) 45%, transparent);
+  border-radius: 9999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
 }
 
-:where(.dark, .dark *) .custom-scrollbar {
-  scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent);
 }
 
 .custom-scrollbar::-webkit-scrollbar {
   width: 5px;
   height: 5px;
 }
-
-.custom-scrollbar::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(161, 161, 170, 0.3);
-  border-radius: 9999px;
-  border: 1px solid transparent;
-  background-clip: padding-box;
-  transition: background-color 0.2s ease;
-}
-
-.custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #a78bfa;
-}
-
-:where(.dark, .dark *) .custom-scrollbar::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.2);
-}
-
-:where(.dark, .dark *) .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background-color: #a78bfa;
-}
-
-
-
-

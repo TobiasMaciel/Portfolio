@@ -12,6 +12,11 @@ export default function CursorGlow() {
   const mouse = useRef({ x: -1000, y: -1000 });
 
   useEffect(() => {
+    // Only for fine pointers: on touch there is no cursor to follow
+    const enabled =
+      window.matchMedia("(pointer: fine)").matches &&
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!enabled) return;
     const t = setTimeout(() => setMounted(true), 0);
     return () => clearTimeout(t);
   }, []);

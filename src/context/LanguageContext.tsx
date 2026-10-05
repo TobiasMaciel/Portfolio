@@ -2,74 +2,24 @@
 
 import React, { createContext, useContext, useState, useEffect } from "react";
 
-type Language = "es" | "en";
+export type Language = "es" | "en";
 
 export const translations = {
   es: {
-    role: "Ingeniero en Sistemas · Full-Stack Engineer · IA Engineer",
-    studies: "ESTUDIOS",
-    experience: "EXPERIENCIA",
-    projects: "PROYECTOS",
-    achievements: "LOGROS",
-    certifications: "CERTIFICACIONES",
-    skills: "HABILIDADES",
-    cv_text: `Ingeniero en Sistemas de Información y Analista Universitario de Sistemas en la UTN con sólida formación en desarrollo full-stack, agentes autónomos e Inteligencia Artificial. Me caracterizo por el aprendizaje rápido, el trabajo colaborativo y la resolución de problemas de alto impacto.
-
-"El rendimiento no es un añadido, es la esencia del diseño. Desarrollar sistemas académicos me enseñó que cada milisegundo ahorrado impacta a miles de estudiantes."
-
-Experiencia Destacada
-Secr. de Ciencia y Tecnología (Mar 2023 - Pres.)
-Desarrollo y mantenimiento del sistema de gestión integral que centraliza la información de la Facultad Regional, abarcando el 100% de investigadores, proyectos e I+D. Stack: Node.js, Express, Prisma, MySQL, React, TypeScript y Vite.
-
-Sistema TUP (Mar 2024 - Dic 2024)
-Desarrollo full-stack del sistema académico con Django, React y TypeScript. CI/CD con Docker y GitHub Actions: de 30 min a menos de 5 de despliegue.
-
-Habilidades Técnicas
-Frontend: React, Next.js, TS, Vite, HTML, CSS. Backend: Python, Django, Node.js, Express, SQL. DevOps: Docker, Kubernetes, GitHub Actions, AWS.`,
-    headers: [
-      "Experiencia Destacada",
-      "Secr. de Ciencia y Tecnología (Mar 2023 - Pres.)",
-      "Sistema TUP (Mar 2024 - Dic 2024)",
-      "Habilidades Técnicas",
-      "Frontend:",
-      "Backend:",
-      "DevOps:",
-    ],
-    highlights: ["Frontend:", "Backend:", "DevOps:"],
-    quotes: ['"El rendimiento', 'estudiantes."'],
+    experience: "Experiencia",
+    projects: "Proyectos",
+    studies: "Educación",
+    skills: "Habilidades",
+    achievements: "Logros",
+    contact: "Contacto",
   },
   en: {
-    role: "Systems Engineer · Full-Stack Engineer · AI Engineer",
-    studies: "EDUCATION",
-    experience: "EXPERIENCE",
-    projects: "PROJECTS",
-    achievements: "ACHIEVEMENTS",
-    certifications: "CERTIFICATIONS",
-    skills: "SKILLS",
-    cv_text: `Information Systems Engineer and University Systems Analyst at UTN with a strong background in full-stack development, autonomous agents, and Artificial Intelligence. Known for rapid learning, collaboration, and high-impact problem solving.
-
-"Performance is not an afterthought — it is the essence of design. Building academic systems taught me that every millisecond saved impacts thousands of students."
-
-Highlighted Experience
-Sec. of Science and Technology (Mar 2023 - Present)
-Developed and maintained the integral management system centralizing 100% of the Faculty's researchers, R&D projects and grants. Stack: Node.js, Express, Prisma, MySQL, React, TypeScript, Vite.
-
-TUP Academic System (Mar 2024 - Dec 2024)
-Full-stack development with Django, React and TypeScript. CI/CD with Docker & GitHub Actions: deployment time cut from 30 min to under 5.
-
-Technical Skills
-Frontend: React, Next.js, TS, Vite, HTML, CSS. Backend: Python, Django, Node.js, Express, SQL. DevOps: Docker, Kubernetes, GitHub Actions, AWS.`,
-    headers: [
-      "Highlighted Experience",
-      "Sec. of Science and Technology (Mar 2023 - Present)",
-      "TUP Academic System (Mar 2024 - Dec 2024)",
-      "Technical Skills",
-      "Frontend:",
-      "Backend:",
-      "DevOps:",
-    ],
-    highlights: ["Frontend:", "Backend:", "DevOps:"],
-    quotes: ['"Performance is', 'students."'],
+    experience: "Experience",
+    projects: "Projects",
+    studies: "Education",
+    skills: "Skills",
+    achievements: "Achievements",
+    contact: "Contact",
   },
 };
 
@@ -77,6 +27,7 @@ type Translations = typeof translations.es;
 
 interface LanguageContextProps {
   language: Language;
+  isEs: boolean;
   setLanguage: (lang: Language) => void;
   t: <K extends keyof Translations>(key: K) => Translations[K];
 }
@@ -87,10 +38,8 @@ const LanguageContext = createContext<LanguageContextProps | undefined>(
 
 export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const [language, setLanguageState] = useState<Language>("es");
-  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    requestAnimationFrame(() => setMounted(true));
     const stored = localStorage.getItem("portfolio-lang") as Language | null;
     if (stored === "en" || stored === "es") {
       // eslint-disable-next-line
@@ -101,18 +50,22 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
     }
   }, []);
 
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
+
   const setLanguage = (lang: Language) => {
     setLanguageState(lang);
     localStorage.setItem("portfolio-lang", lang);
   };
 
-  const t = <K extends keyof Translations>(key: K): Translations[K] => {
-    if (!mounted) return translations.es[key];
-    return translations[language][key];
-  };
+  const t = <K extends keyof Translations>(key: K): Translations[K] =>
+    translations[language][key];
 
   return (
-    <LanguageContext.Provider value={{ language, setLanguage, t }}>
+    <LanguageContext.Provider
+      value={{ language, isEs: language === "es", setLanguage, t }}
+    >
       {children}
     </LanguageContext.Provider>
   );

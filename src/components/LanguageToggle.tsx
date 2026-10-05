@@ -1,38 +1,32 @@
 "use client";
 
-import { useLanguage } from "@/context/LanguageContext";
-import { motion, AnimatePresence } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useLanguage, type Language } from "@/context/LanguageContext";
+
+const options: { value: Language; label: string; name: string }[] = [
+  { value: "es", label: "ES", name: "Español" },
+  { value: "en", label: "EN", name: "English" },
+];
 
 export default function LanguageToggle() {
   const { language, setLanguage } = useLanguage();
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => { requestAnimationFrame(() => setMounted(true)); }, []);
-
-  if (!mounted) {
-    return (
-      <div className="fixed top-8 right-24 z-50 w-12 h-12 bg-black/5 dark:bg-white/5 rounded-full backdrop-blur-md" />
-    );
-  }
 
   return (
-    <button
-      onClick={() => setLanguage(language === "es" ? "en" : "es")}
-      className="fixed top-8 right-24 p-3 rounded-full bg-black/5 dark:bg-white/5 hover:bg-black/10 dark:hover:bg-white/10 backdrop-blur-md transition-all duration-300 z-50 flex items-center justify-center font-bold text-sm w-12 h-12 text-zinc-900 dark:text-zinc-100"
-      aria-label="Toggle language"
-    >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={language}
-          initial={{ y: -20, opacity: 0, scale: 0.5 }}
-          animate={{ y: 0, opacity: 1, scale: 1 }}
-          exit={{ y: 20, opacity: 0, scale: 0.5 }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
+    <div role="group" aria-label="Idioma / Language" className="flex">
+      {options.map((o) => (
+        <button
+          key={o.value}
+          type="button"
+          lang={o.value}
+          onClick={() => setLanguage(o.value)}
+          aria-pressed={language === o.value}
+          aria-label={o.name}
+          className={`h-9 rounded-full px-2.5 text-xs font-semibold transition-colors cursor-pointer ${
+            language === o.value ? "bg-brand/15 text-accent" : "text-muted hover:text-ink"
+          }`}
         >
-          {language === "es" ? "ES" : "EN"}
-        </motion.span>
-      </AnimatePresence>
-    </button>
+          {o.label}
+        </button>
+      ))}
+    </div>
   );
 }

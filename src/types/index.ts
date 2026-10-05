@@ -58,3 +58,21 @@ export interface ExperienceItem {
   relatedProjectIds?: string[];
   highlights?: ExperienceHighlight[];
 }
+
+export interface EducationItem {
+  id: string;
+  period: string;
+  title: string;
+  institution: string;
+  description?: string;
+  tags: string[];
+}
+
+export interface AchievementItem {
+  id: string;
+  year: string;
+  title: string;
+  description: string;
+  file?: string;
+  isAchievement: boolean;
+}

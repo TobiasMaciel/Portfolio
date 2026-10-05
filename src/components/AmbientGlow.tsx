@@ -29,6 +29,12 @@ export default function AmbientGlow() {
 
     let lastTime = performance.now();
     let animationFrameId: number;
+    const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    let visible = true;
+    const observer = new IntersectionObserver(([entry]) => {
+      visible = entry.isIntersecting;
+    });
+    observer.observe(containerRef.current);
 
     const boundsX = containerRef.current.clientWidth;
     const boundsY = containerRef.current.clientHeight;
@@ -81,6 +87,11 @@ export default function AmbientGlow() {
     window.addEventListener("mousemove", handleMouseMove);
 
     const render = (time: number) => {
+      if (!visible) {
+        lastTime = time;
+        animationFrameId = requestAnimationFrame(render);
+        return;
+      }
       let delta = time - lastTime;
       if (delta > 200) delta = 16.66; // Reset if tab was inactive to prevent "physics explosion"
       const dt = delta / 16.66;
@@ -144,12 +155,13 @@ export default function AmbientGlow() {
         }
       });
 
-      animationFrameId = requestAnimationFrame(render);
+      if (!reduceMotion) animationFrameId = requestAnimationFrame(render);
     };
 
     animationFrameId = requestAnimationFrame(render);
 
     return () => {
+      observer.disconnect();
       window.removeEventListener("mousemove", handleMouseMove);
       cancelAnimationFrame(animationFrameId);
     };
