@@ -1,5 +1,7 @@
 import { Download, Eye, Mail, MapPin, Phone } from "lucide-react";
 import ContactGlow from "@/components/ContactGlow";
+import Magnetic from "@/components/fx/Magnetic";
+import RevealText from "@/components/fx/RevealText";
 import GridWarpBackground from "@/components/GridWarpBackground";
 import Section, { CornerGlow } from "@/components/ui/Section";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/icons";
@@ -22,16 +24,35 @@ export default function ContactSection({
   const { contact } = portfolioData;
 
   const rows = [
-    { icon: <Mail size={16} aria-hidden="true" />, label: "Email", value: contact.email, href: `mailto:${contact.email}` },
+    {
+      icon: <Mail size={16} aria-hidden="true" />,
+      label: "Email",
+      value: contact.email,
+      href: `mailto:${contact.email}`,
+    },
     {
       icon: <Phone size={16} aria-hidden="true" />,
       label: isEs ? "Teléfono" : "Phone",
       value: contact.phone,
       href: `tel:${contact.phone.replace(/\s/g, "")}`,
     },
-    { icon: <MapPin size={16} aria-hidden="true" />, label: isEs ? "Ubicación" : "Location", value: contact.location[language] },
-    { icon: <LinkedInIcon size={16} />, label: "LinkedIn", value: "tobias-alejandro-maciel-meister", href: contact.linkedin },
-    { icon: <GitHubIcon size={16} />, label: "GitHub", value: "TobiasMaciel", href: contact.github },
+    {
+      icon: <MapPin size={16} aria-hidden="true" />,
+      label: isEs ? "Ubicación" : "Location",
+      value: contact.location[language],
+    },
+    {
+      icon: <LinkedInIcon size={16} />,
+      label: "LinkedIn",
+      value: "tobias-alejandro-maciel-meister",
+      href: contact.linkedin,
+    },
+    {
+      icon: <GitHubIcon size={16} />,
+      label: "GitHub",
+      value: "TobiasMaciel",
+      href: contact.github,
+    },
   ];
 
   const cvFile = cvUrl(language);
@@ -77,12 +98,16 @@ export default function ContactSection({
                   {r.icon}
                 </span>
                 <div className="min-w-0">
-                  <dt className="text-[11px] font-semibold text-muted">{r.label}</dt>
+                  <dt className="text-[11px] font-semibold text-muted">
+                    {r.label}
+                  </dt>
                   <dd className="truncate text-sm font-medium">
                     {r.href ? (
                       <a
                         href={r.href}
-                        target={r.href.startsWith("http") ? "_blank" : undefined}
+                        target={
+                          r.href.startsWith("http") ? "_blank" : undefined
+                        }
                         rel="noopener noreferrer"
                         className="transition-colors hover:text-accent"
                       >
@@ -108,7 +133,11 @@ export default function ContactSection({
               </p>
             </div>
             <h3 className="mb-6 font-serif text-4xl font-bold leading-[1.1] sm:text-5xl">
-              {isEs ? "Mi recorrido, en un PDF" : "My path, in one PDF"}
+              <RevealText
+                lines={[
+                  isEs ? "Mi recorrido, en un PDF" : "My path, in one PDF",
+                ]}
+              />
             </h3>
             <p className="mb-10 max-w-sm text-sm leading-relaxed text-muted">
               {isEs
@@ -116,18 +145,34 @@ export default function ContactSection({
                 : "Experience, education and certifications, updated in 2026."}
             </p>
             <div className="flex flex-col gap-4 sm:flex-row">
-              <button type="button" onClick={onOpenCV} className={`${button.primary} group/btn flex-1 whitespace-nowrap py-5`}>
-                <Eye size={18} aria-hidden="true" className="transition-transform group-hover/btn:scale-110" />
-                {isEs ? "Ver CV" : "View résumé"}
-              </button>
-              <a
-                href={cvFile}
-                download={cvFile.split("/").pop()}
-                className={`${button.secondary} group/dl flex-1 whitespace-nowrap py-5`}
-              >
-                <Download size={18} aria-hidden="true" className="transition-transform group-hover/dl:translate-y-0.5" />
-                {isEs ? "Descargar PDF" : "Download PDF"}
-              </a>
+              <Magnetic strength={0.2} className="flex flex-1">
+                <button
+                  type="button"
+                  onClick={onOpenCV}
+                  className={`${button.primary} group/btn flex-1 whitespace-nowrap py-5`}
+                >
+                  <Eye
+                    size={18}
+                    aria-hidden="true"
+                    className="transition-transform group-hover/btn:scale-110"
+                  />
+                  {isEs ? "Ver CV" : "View résumé"}
+                </button>
+              </Magnetic>
+              <Magnetic strength={0.2} className="flex flex-1">
+                <a
+                  href={cvFile}
+                  download={cvFile.split("/").pop()}
+                  className={`${button.secondary} group/dl flex-1 whitespace-nowrap py-5`}
+                >
+                  <Download
+                    size={18}
+                    aria-hidden="true"
+                    className="transition-transform group-hover/dl:translate-y-0.5"
+                  />
+                  {isEs ? "Descargar PDF" : "Download PDF"}
+                </a>
+              </Magnetic>
             </div>
           </div>
         </div>

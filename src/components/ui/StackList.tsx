@@ -29,7 +29,7 @@ export default function StackList({
           animate={{ opacity: 1 }}
           transition={{ duration: 0.2 }}
         >
-          <Chip tone={tone}>{s}</Chip>
+          <Chip tone={tone} icon={s}>{s}</Chip>
         </motion.li>
       ))}
       {canCollapse && (

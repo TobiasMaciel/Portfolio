@@ -10,9 +10,11 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Tooltip({
   children,
   content,
+  className = "inline-flex",
 }: {
   children: React.ReactNode;
   content: React.ReactNode;
+  className?: string;
 }) {
   const [open, setOpen] = useState(false);
   const wrapperRef = useRef<HTMLSpanElement>(null);
@@ -21,7 +23,7 @@ export default function Tooltip({
   return (
     <span
       ref={wrapperRef}
-      className="relative inline-flex"
+      className={`relative ${className}`}
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
       onFocus={() => setOpen(true)}

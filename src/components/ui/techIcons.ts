@@ -1,0 +1,106 @@
+import {
+  siAngular, siAnthropic, siArduino, siChakraui, siChatwoot, siClaude, siCloudflare,
+  siCloudflareworkers, siCplusplus, siCss, siCypress, siDjango, siDocker, siEslint,
+  siEspressif, siExpo, siExpress, siFlask, siGeopandas, siGit, siGithub, siGithubactions,
+  siGooglecloud, siGooglegemini, siGrafana, siHono, siHtml5, siJavascript, siJest, siJira,
+  siJsonwebtokens, siJupyter, siK3s, siKubernetes, siLaravel, siMermaid,
+  siModelcontextprotocol, siMysql, siNextdotjs, siNodedotjs, siNumpy, siOpenapiinitiative,
+  siOpentelemetry, siPandas, siPhp, siPostgresql, siPostman, siPrisma, siPrometheus,
+  siPython, siReact, siReactquery, siRedis, siRender, siScikitlearn, 
+  siShadcnui, siSonarqubecloud, siSqlite, siSupabase, siTailwindcss, siTurborepo,
+  siTypescript, siVite, siWhatsapp, siZod,
+  type SimpleIcon,
+} from "simple-icons";
+
+// Technology name as it appears in the JSON data → brand icon.
+const icons: Record<string, SimpleIcon> = {
+  React: siReact,
+  "React Native": siReact,
+  TypeScript: siTypescript,
+  JavaScript: siJavascript,
+  "Next.js": siNextdotjs,
+  "Tailwind CSS": siTailwindcss,
+  "shadcn/ui": siShadcnui,
+  Angular: siAngular,
+  Vite: siVite,
+  HTML: siHtml5,
+  CSS: siCss,
+  "Chakra UI": siChakraui,
+  "React Query": siReactquery,
+  "TanStack Query": siReactquery,
+  Jest: siJest,
+  Cypress: siCypress,
+  Python: siPython,
+  Django: siDjango,
+  "Django REST Framework": siDjango,
+  "Node.js": siNodedotjs,
+  Express: siExpress,
+  PostgreSQL: siPostgresql,
+  MySQL: siMysql,
+  "Prisma ORM": siPrisma,
+  Redis: siRedis,
+  JWT: siJsonwebtokens,
+  SQLite: siSqlite,
+  Pandas: siPandas,
+  GeoPandas: siGeopandas,
+  NumPy: siNumpy,
+  "Scikit-learn": siScikitlearn,
+  Jupyter: siJupyter,
+  "Jupyter Notebook": siJupyter,
+  Flask: siFlask,
+  PHP: siPhp,
+  Laravel: siLaravel,
+  Docker: siDocker,
+  "Docker Compose": siDocker,
+  Kubernetes: siKubernetes,
+  K3d: siK3s,
+  "GitHub Actions": siGithubactions,
+  Render: siRender,
+  Supabase: siSupabase,
+  Cloudflare: siCloudflare,
+  "Cloudflare Workers": siCloudflareworkers,
+  "Cloudflare D1": siCloudflare,
+  "Google Cloud": siGooglecloud,
+  OpenTelemetry: siOpentelemetry,
+  Grafana: siGrafana,
+  Prometheus: siPrometheus,
+  SonarCloud: siSonarqubecloud,
+  Git: siGit,
+  "Git / GitHub": siGit,
+  GitHub: siGithub,
+  Postman: siPostman,
+  OpenAPI: siOpenapiinitiative,
+  "MCP Protocol": siModelcontextprotocol,
+  Chatwoot: siChatwoot,
+  Jira: siJira,
+  Mermaid: siMermaid,
+  "Claude API": siClaude,
+  "Autonomous Agents": siAnthropic,
+  "Google Gemini AI": siGooglegemini,
+  "C++": siCplusplus,
+  "Arduino IDE": siArduino,
+  "NodeMCU UNO": siEspressif,
+  Expo: siExpo,
+  Hono: siHono,
+  Turborepo: siTurborepo,
+  Zod: siZod,
+  "WhatsApp Integration": siWhatsapp,
+  ESLint: siEslint,
+};
+
+export const getTechIcon = (name: string): SimpleIcon | undefined => icons[name];
+
+/** Initials for technologies without a logo, e.g. "AWS", "OpenAI API" → "OA". */
+export const monogram = (name: string) => {
+  const clean = name.replace(/\(.*?\)/g, "").trim();
+  if (/^[A-Z0-9]{2,4}$/.test(clean)) return clean;
+  const words = clean.split(/[\s\-/]+/).filter(Boolean);
+  return (words.length > 1 ? words[0][0] + words[1][0] : clean.slice(0, 2)).toUpperCase();
+};
+
+/** Brand colours that are too dark to read on the dark theme fall back to ink. */
+export const isDarkHex = (hex: string) => {
+  const n = parseInt(hex, 16);
+  const [r, g, b] = [(n >> 16) & 255, (n >> 8) & 255, n & 255];
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b < 60;
+};

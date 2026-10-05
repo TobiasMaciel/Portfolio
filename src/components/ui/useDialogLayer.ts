@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, type RefObject } from "react";
+import { getLenis } from "@/components/fx/lenisStore";
 
 // Open dialogs, bottom to top. Only the top one reacts to keys, so Escape
 // inside a lightbox opened from a project modal closes just the lightbox.
@@ -31,6 +32,7 @@ export function useDialogLayer(
 
     const previouslyFocused = document.activeElement as HTMLElement | null;
     document.body.style.overflow = "hidden";
+    getLenis()?.stop();
     containerRef.current?.focus({ preventScroll: true });
 
     const onKeyDown = (e: KeyboardEvent) => {
@@ -65,7 +67,10 @@ export function useDialogLayer(
     return () => {
       window.removeEventListener("keydown", onKeyDown);
       layers.splice(layers.indexOf(id), 1);
-      if (layers.length === 0) document.body.style.overflow = "";
+      if (layers.length === 0) {
+        document.body.style.overflow = "";
+        getLenis()?.start();
+      }
       previouslyFocused?.focus?.({ preventScroll: true });
     };
   }, [containerRef]);

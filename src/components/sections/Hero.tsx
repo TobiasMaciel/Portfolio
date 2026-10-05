@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { FileText, Mail, Phone } from "lucide-react";
 import AmbientGlow from "@/components/AmbientGlow";
+import Magnetic from "@/components/fx/Magnetic";
+import RevealText from "@/components/fx/RevealText";
 import LayoutAnimation from "@/components/LayoutAnimation";
 import Tooltip from "@/components/ui/Tooltip";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/icons";
@@ -61,14 +63,14 @@ export default function Hero({ onOpenCV }: { onOpenCV: () => void }) {
       >
         <AmbientGlow />
 
-        <motion.h1
-          variants={fadeUp}
-          className="relative z-10 font-serif text-6xl font-bold leading-none tracking-tight drop-shadow-md sm:text-7xl lg:text-[2.8vw] xl:text-[3.2vw] 2xl:text-[4.2rem] dark:drop-shadow-lg"
-        >
-          {hero.name}
-          <br />
-          <span className="text-muted">{hero.surname}</span>
-        </motion.h1>
+        <h1 className="relative z-10 font-serif text-6xl font-bold leading-none tracking-tight drop-shadow-md sm:text-7xl lg:text-[2.8vw] xl:text-[3.2vw] 2xl:text-[4.2rem] dark:drop-shadow-lg">
+          <RevealText
+            lines={[hero.name, hero.surname]}
+            lineClassNames={["", "text-muted"]}
+            delay={0.15}
+            inView={false}
+          />
+        </h1>
 
         <motion.p
           variants={fadeUp}
@@ -106,34 +108,43 @@ export default function Hero({ onOpenCV }: { onOpenCV: () => void }) {
         >
           {socialLinks.map((l) => (
             <li key={l.platform}>
-              <Tooltip content={labels[l.platform]}>
-                <a
-                  href={l.href}
-                  target={l.target ?? (l.href.startsWith("http") ? "_blank" : undefined)}
-                  rel="noopener noreferrer"
-                  aria-label={labels[l.platform]}
-                  className={`${button.icon} group`}
-                >
-                  <span className="transition-transform duration-300 group-hover:scale-110">
-                    {icons[l.platform]}
-                  </span>
-                </a>
-              </Tooltip>
+              <Magnetic>
+                <Tooltip content={labels[l.platform]}>
+                  <a
+                    href={l.href}
+                    target={
+                      l.target ??
+                      (l.href.startsWith("http") ? "_blank" : undefined)
+                    }
+                    rel="noopener noreferrer"
+                    aria-label={labels[l.platform]}
+                    className={`${button.icon} group`}
+                  >
+                    <span className="transition-transform duration-300 group-hover:scale-110">
+                      {icons[l.platform]}
+                    </span>
+                  </a>
+                </Tooltip>
+              </Magnetic>
             </li>
           ))}
           <li>
-            <Tooltip content={isEs ? "Ver / descargar CV" : "View / download résumé"}>
-              <button
-                type="button"
-                onClick={onOpenCV}
-                aria-label={isEs ? "Ver CV" : "View résumé"}
-                className={`${button.icon} group`}
+            <Magnetic>
+              <Tooltip
+                content={isEs ? "Ver / descargar CV" : "View / download résumé"}
               >
-                <span className="transition-transform duration-300 group-hover:scale-110">
-                  <FileText size={19} aria-hidden="true" />
-                </span>
-              </button>
-            </Tooltip>
+                <button
+                  type="button"
+                  onClick={onOpenCV}
+                  aria-label={isEs ? "Ver CV" : "View résumé"}
+                  className={`${button.icon} group`}
+                >
+                  <span className="transition-transform duration-300 group-hover:scale-110">
+                    <FileText size={19} aria-hidden="true" />
+                  </span>
+                </button>
+              </Tooltip>
+            </Magnetic>
           </li>
         </motion.ul>
       </motion.div>

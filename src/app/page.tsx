@@ -12,13 +12,13 @@ import {
 } from "@/data/content";
 import type { ExperienceItem, Project } from "@/types";
 import CursorGlow from "@/components/CursorGlow";
+import SmoothScroll from "@/components/fx/SmoothScroll";
 import GridWarpBackground from "@/components/GridWarpBackground";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
 import ProjectModal from "@/components/ProjectModal";
 import ExperienceModal from "@/components/ExperienceModal";
 import DocumentViewer from "@/components/DocumentViewer";
-import Lightbox from "@/components/Lightbox";
 import Hero from "@/components/sections/Hero";
 import ExperienceSection from "@/components/sections/ExperienceSection";
 import ProjectsSection from "@/components/sections/ProjectsSection";
@@ -39,7 +39,6 @@ export default function Home() {
 
   const [activeProject, setActiveProject] = useState<Project | null>(null);
   const [activeExperience, setActiveExperience] = useState<ExperienceItem | null>(null);
-  const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
   const [viewerDoc, setViewerDoc] = useState<ViewerDoc | null>(null);
 
   const openCV = () =>
@@ -51,6 +50,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen overflow-x-clip transition-colors duration-700">
+      <SmoothScroll />
       <GridWarpBackground />
       <CursorGlow />
 
@@ -74,7 +74,6 @@ export default function Home() {
           projects={projects}
           isEs={isEs}
           onOpenProject={setActiveProject}
-          onOpenImages={(images, index) => setLightbox({ images, index })}
         />
         <EducationSection education={education} isEs={isEs} />
         <SkillsSection
@@ -127,15 +126,6 @@ export default function Home() {
             title={viewerDoc.title}
             subtitle={viewerDoc.subtitle}
             onClose={() => setViewerDoc(null)}
-            isEs={isEs}
-          />
-        )}
-        {lightbox && (
-          <Lightbox
-            key="lightbox"
-            images={lightbox.images}
-            startIndex={lightbox.index}
-            onClose={() => setLightbox(null)}
             isEs={isEs}
           />
         )}

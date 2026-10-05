@@ -1,7 +1,14 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll, useTransform } from "framer-motion";
+import RevealText from "@/components/fx/RevealText";
 
+/**
+ * Page section with a scroll-linked entrance: as it comes up from the bottom
+ * of the screen the content grows into place, the title slides in sideways
+ * and the rule under the header draws itself.
+ */
 export default function Section({
   id,
   title,
@@ -20,37 +27,62 @@ export default function Section({
   className?: string;
   children: React.ReactNode;
 }) {
+  const ref = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "start 0.3"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 1], [0.93, 1]);
+  const y = useTransform(scrollYProgress, [0, 1], [90, 0]);
+  const opacity = useTransform(scrollYProgress, [0, 0.6], [0.1, 1]);
+  const titleX = useTransform(scrollYProgress, [0, 1], [140, 0]);
+  const introX = useTransform(scrollYProgress, [0, 1], [-60, 0]);
+  const rule = useTransform(scrollYProgress, [0.2, 1], [0, 1]);
+
+  const still = reduceMotion ?? false;
+
   return (
-    <motion.section
+    <section
+      ref={ref}
       id={id}
       aria-labelledby={`${id}-title`}
       className={`relative scroll-mt-32 ${className}`}
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.05 }}
-      transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1] }}
     >
       {background}
-      <div className="relative z-10">
-        <header className="mb-12 flex flex-col gap-5 border-b border-rule pb-5 md:flex-row md:items-end md:justify-between">
+      <motion.div
+        className="relative z-10 origin-top"
+        style={still ? undefined : { scale, y, opacity }}
+      >
+        <header className="relative mb-12 flex flex-col gap-5 pb-5 md:flex-row md:items-end md:justify-between">
           <div>
-            <h2
+            <motion.h2
               id={`${id}-title`}
               className="font-serif text-4xl font-bold tracking-tight md:text-5xl"
+              style={still ? undefined : { x: titleX }}
             >
-              {title}
-            </h2>
+              <RevealText lines={[title]} />
+            </motion.h2>
             {intro && (
-              <p className="mt-2 max-w-[60ch] text-sm font-medium text-muted">
+              <motion.p
+                className="mt-2 max-w-[60ch] text-sm font-medium text-muted"
+                style={still ? undefined : { x: introX }}
+              >
                 {intro}
-              </p>
+              </motion.p>
             )}
           </div>
           {aside}
+          <motion.span
+            aria-hidden="true"
+            className="absolute inset-x-0 bottom-0 h-px origin-left bg-rule"
+            style={still ? undefined : { scaleX: rule }}
+          />
         </header>
         {children}
-      </div>
-    </motion.section>
+      </motion.div>
+    </section>
   );
 }
 
