@@ -6,7 +6,7 @@ export const button = {
   secondary:
     "inline-flex items-center justify-center gap-2.5 rounded-2xl border border-rule bg-surface/60 px-6 py-3.5 text-sm font-bold text-ink backdrop-blur-sm transition-all duration-300 hover:border-brand hover:text-accent active:scale-[0.98] cursor-pointer",
   soft:
-    "inline-flex items-center gap-2 rounded-xl border border-brand/25 bg-brand/10 px-4 py-2 text-xs font-bold text-accent transition-all hover:bg-brand hover:text-white active:scale-95 cursor-pointer",
+    "inline-flex items-center gap-2 rounded-xl border border-brand/25 bg-brand/10 px-4 py-2 text-xs font-bold text-accent transition-all hover:bg-accent hover:text-on-accent active:scale-95 cursor-pointer",
   text:
     "group/cta inline-flex items-center gap-2 text-sm font-semibold text-accent transition-all hover:gap-3 cursor-pointer",
   icon:

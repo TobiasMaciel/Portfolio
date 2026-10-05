@@ -56,7 +56,7 @@ export default function Home() {
 
       <div className="fixed right-4 top-4 z-50 flex items-center gap-1 rounded-full border border-rule bg-surface/70 px-1.5 py-1 shadow-lg shadow-black/5 backdrop-blur-md sm:right-8 sm:top-8">
         <LanguageToggle />
-        <span aria-hidden="true" className="h-5 w-px bg-rule" />
+        <span aria-hidden="true" className="h-5 w-px bg-line/60" />
         <ThemeToggle isEs={isEs} />
       </div>
 

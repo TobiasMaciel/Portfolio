@@ -39,12 +39,12 @@ export default function SkillsSection({
       );
     }
     const link =
-      "flex w-full items-center gap-1.5 truncate text-left text-[11px] transition-colors hover:text-brand cursor-pointer";
+      "flex w-full items-center gap-1.5 truncate text-left text-[11px] transition-colors hover:text-tip-accent cursor-pointer";
     return (
       <span className="flex min-w-[170px] flex-col gap-2.5 py-0.5">
         {exps.length > 0 && (
           <span>
-            <span className="mb-1.5 flex items-center gap-1.5 text-[10px] font-bold text-brand">
+            <span className="mb-1.5 flex items-center gap-1.5 text-[10px] font-bold text-tip-accent">
               <Briefcase size={12} aria-hidden="true" />
               {isEs ? "Experiencia" : "Experience"}
             </span>
@@ -66,7 +66,7 @@ export default function SkillsSection({
         )}
         {projs.length > 0 && (
           <span>
-            <span className="mb-1.5 flex items-center gap-1.5 text-[10px] font-bold text-emerald-400 dark:text-emerald-600">
+            <span className="mb-1.5 flex items-center gap-1.5 text-[10px] font-bold text-tip-green">
               <Rocket size={12} aria-hidden="true" />
               {isEs ? "Proyectos" : "Projects"}
             </span>
@@ -79,7 +79,7 @@ export default function SkillsSection({
               >
                 <span
                   aria-hidden="true"
-                  className="h-1 w-1 shrink-0 rounded-full bg-emerald-400"
+                  className="h-1 w-1 shrink-0 rounded-full bg-tip-green"
                 />
                 {p.title}
               </button>

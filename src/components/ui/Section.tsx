@@ -80,7 +80,7 @@ export default function Section({
           {aside}
           <motion.span
             aria-hidden="true"
-            className="absolute inset-x-0 bottom-0 h-px origin-left bg-rule"
+            className="absolute inset-x-0 bottom-0 h-px origin-left bg-line"
             style={still ? undefined : { scaleX: rule }}
           />
         </header>

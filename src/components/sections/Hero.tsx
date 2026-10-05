@@ -116,7 +116,7 @@ export default function Hero({ onOpenCV }: { onOpenCV: () => void }) {
                 >
                   <span
                     aria-hidden="true"
-                    className="hidden h-[2px] w-8 bg-rule transition-all duration-300 group-hover:w-16 group-hover:bg-brand lg:block"
+                    className="hidden h-[2px] w-8 bg-line transition-all duration-300 group-hover:w-16 group-hover:bg-brand lg:block"
                   />
                   {item.label}
                 </a>

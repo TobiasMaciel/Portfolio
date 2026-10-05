@@ -46,7 +46,7 @@ export default function ExperienceSection({
       >
         <span
           aria-hidden="true"
-          className="absolute inset-y-0 -left-px w-0.5 bg-rule"
+          className="absolute inset-y-0 -left-px w-0.5 bg-line"
         />
         <motion.span
           aria-hidden="true"
@@ -70,7 +70,7 @@ export default function ExperienceSection({
                 className={`absolute top-1.5 rounded-full border-2 border-paper transition-colors duration-300 ${
                   isCurrent
                     ? "-left-[9px] h-4 w-4 bg-brand shadow-[0_0_12px_rgba(167,139,250,0.6)] ring-4 ring-brand/20"
-                    : "-left-[8px] h-3.5 w-3.5 bg-rule group-hover:bg-brand"
+                    : "-left-[8px] h-3.5 w-3.5 bg-line group-hover:bg-brand"
                 }`}
               />
               {isCurrent && (
@@ -119,7 +119,7 @@ export default function ExperienceSection({
                         className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full transition-colors ${
                           isCurrent
                             ? "bg-brand"
-                            : "bg-rule group-hover:bg-brand"
+                            : "bg-line group-hover:bg-brand"
                         }`}
                       />
                       <span>{b}</span>

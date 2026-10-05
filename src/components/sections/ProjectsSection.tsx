@@ -299,7 +299,7 @@ function HorizontalProjects({
         </div>
 
         <div className="flex items-center gap-6 px-16">
-          <div className="relative h-[2px] flex-1 overflow-hidden rounded-full bg-rule">
+          <div className="relative h-[2px] flex-1 overflow-hidden rounded-full bg-line/50">
             <motion.span
               className="absolute inset-0 origin-left bg-brand"
               style={{ scaleX: scrollYProgress }}

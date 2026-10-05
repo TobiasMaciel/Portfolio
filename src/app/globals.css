@@ -3,20 +3,26 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
- * Design tokens.
- * --brand is the signature violet for glows, dots, fills and borders.
- * --accent is the same hue tuned for text, so it passes WCAG AA on the
- * page background in both themes.
+ * Design tokens. Contrast targets (WCAG 2.2): text 4.5:1, graphics that
+ * carry meaning 3:1.
+ * --brand   signature violet for glows, dots and fills (≥3:1 on paper)
+ * --accent  the same hue tuned for text (≥4.5:1 on paper)
+ * --rule    decorative borders around cards and panels
+ * --line    lines that carry meaning: nav dashes, timeline, section rules (≥3:1)
+ * --tip-*   colours inside tooltips, which invert against the theme
  */
 :root {
   --paper: #e4e4e7;
   --surface: #ffffff;
   --ink: #18181b;
   --muted: #52525b;
-  --rule: #d4d4d8;
-  --brand: #a78bfa;
-  --accent: #6544d6;
+  --rule: #c4c4cc;
+  --line: #7f7f89;
+  --brand: #8462ec;
+  --accent: #5e3ecf;
   --on-accent: #ffffff;
+  --tip-accent: #a78bfa;
+  --tip-green: #34d399;
 }
 
 .dark {
@@ -24,10 +30,13 @@
   --surface: #18181b;
   --ink: #f4f4f5;
   --muted: #a1a1aa;
-  --rule: #27272a;
+  --rule: #303036;
+  --line: #66666f;
   --brand: #a78bfa;
   --accent: #a78bfa;
   --on-accent: #0a0a0b;
+  --tip-accent: #5b3cc9;
+  --tip-green: #047857;
 }
 
 @theme inline {
@@ -36,6 +45,9 @@
   --color-ink: var(--ink);
   --color-muted: var(--muted);
   --color-rule: var(--rule);
+  --color-line: var(--line);
+  --color-tip-accent: var(--tip-accent);
+  --color-tip-green: var(--tip-green);
   --color-brand: var(--brand);
   --color-accent: var(--accent);
   --color-on-accent: var(--on-accent);
