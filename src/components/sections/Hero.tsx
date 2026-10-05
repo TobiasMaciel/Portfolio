@@ -10,7 +10,8 @@ import {
 import { FileText, Mail, Phone } from "lucide-react";
 import AmbientGlow from "@/components/AmbientGlow";
 import Magnetic from "@/components/fx/Magnetic";
-import RevealText from "@/components/fx/RevealText";
+import RotatingText from "@/components/fx/RotatingText";
+import HeroNameTech from "@/components/fx/HeroNameTech";
 import LayoutAnimation from "@/components/LayoutAnimation";
 import Tooltip from "@/components/ui/Tooltip";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/icons";
@@ -87,21 +88,28 @@ export default function Hero({ onOpenCV }: { onOpenCV: () => void }) {
       >
         <AmbientGlow />
 
-        <h1 className="relative z-10 font-serif text-6xl font-bold leading-none tracking-tight drop-shadow-md sm:text-7xl lg:text-[2.8vw] xl:text-[3.2vw] 2xl:text-[4.2rem] dark:drop-shadow-lg">
-          <RevealText
-            lines={[hero.name, hero.surname]}
-            lineClassNames={["", "text-muted"]}
-            delay={0.15}
-            inView={false}
-          />
+        <h1 className="relative z-10 font-serif text-6xl font-bold leading-none tracking-tight sm:text-7xl lg:text-[2.8vw] xl:text-[3.2vw] 2xl:text-[4.2rem]">
+          <HeroNameTech name={hero.name} surname={hero.surname} />
         </h1>
 
-        <motion.p
+        <motion.div
           variants={fadeUp}
-          className="relative z-10 mt-4 text-lg font-medium tracking-wide text-accent sm:text-xl xl:mt-5"
+          className="relative z-10 mt-5 flex items-center text-lg font-semibold sm:text-xl xl:mt-6"
         >
-          {hero.role[language]}
-        </motion.p>
+          <RotatingText
+            key={language}
+            texts={hero.role[language].split(" · ")}
+            mainClassName="overflow-hidden rounded-xl border border-brand/30 bg-brand/10 px-3 py-1 text-accent sm:px-4"
+            splitLevelClassName="overflow-hidden pb-0.5"
+            staggerFrom="last"
+            staggerDuration={0.015}
+            initial={{ y: "100%" }}
+            animate={{ y: 0 }}
+            exit={{ y: "-120%" }}
+            transition={{ type: "spring", damping: 30, stiffness: 400 }}
+            rotationInterval={2800}
+          />
+        </motion.div>
 
         <motion.nav
           variants={fadeUp}

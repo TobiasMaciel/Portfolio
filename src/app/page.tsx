@@ -15,6 +15,7 @@ import CaseStudy, { type CaseDetail } from "@/components/case/CaseStudy";
 import CursorGlow from "@/components/CursorGlow";
 import SmoothScroll from "@/components/fx/SmoothScroll";
 import GridWarpBackground from "@/components/GridWarpBackground";
+import Loader from "@/components/Loader";
 import SectionNav from "@/components/SectionNav";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
@@ -52,6 +53,7 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen overflow-x-clip transition-colors duration-700">
+      <Loader />
       <SmoothScroll />
       <GridWarpBackground />
       <CursorGlow />
