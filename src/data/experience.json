@@ -9,6 +9,10 @@
       "es": "Logística Argentina SRL",
       "en": "Logística Argentina SRL"
     },
+    "logo": {
+      "src": "/logos/logistica-argentina.png",
+      "mono": false
+    },
     "role": {
       "es": "Ingeniero en Sistemas — AI & Full-Stack Solutions",
       "en": "Systems Engineer — AI & Full-Stack Solutions"
@@ -76,16 +80,40 @@
     "relatedProjectIds": [],
     "highlights": {
       "es": [
-        { "label": "Ventas Autónomas con Claude & Tool-Calling", "value": "Agentes IA" },
-        { "label": "Módulos Corporativos Reingenierizados", "value": "13+" },
-        { "label": "Transportistas y Choferes Asistidos", "value": "300+" },
-        { "label": "Facturación Electrónica Móvil", "value": "ARCA / AFIP" }
+        {
+          "label": "Ventas Autónomas con Claude & Tool-Calling",
+          "value": "Agentes IA"
+        },
+        {
+          "label": "Módulos Corporativos Reingenierizados",
+          "value": "13+"
+        },
+        {
+          "label": "Transportistas y Choferes Asistidos",
+          "value": "300+"
+        },
+        {
+          "label": "Facturación Electrónica Móvil",
+          "value": "ARCA / AFIP"
+        }
       ],
       "en": [
-        { "label": "Autonomous Sales with Claude & Tool-Calling", "value": "AI Agents" },
-        { "label": "Critical Modules Reengineered", "value": "13+" },
-        { "label": "Carriers & Drivers Supported", "value": "300+" },
-        { "label": "In-App Electronic Invoicing", "value": "ARCA / AFIP" }
+        {
+          "label": "Autonomous Sales with Claude & Tool-Calling",
+          "value": "AI Agents"
+        },
+        {
+          "label": "Critical Modules Reengineered",
+          "value": "13+"
+        },
+        {
+          "label": "Carriers & Drivers Supported",
+          "value": "300+"
+        },
+        {
+          "label": "In-App Electronic Invoicing",
+          "value": "ARCA / AFIP"
+        }
       ]
     }
   },
@@ -98,6 +126,10 @@
     "company": {
       "es": "Secretaría de Ciencia y Tecnología",
       "en": "Secretariat of Science and Technology"
+    },
+    "logo": {
+      "src": "/logos/utn.png",
+      "mono": true
     },
     "role": {
       "es": "Full-Stack Engineer",
@@ -141,17 +173,37 @@
       "JWT",
       "Git / GitHub"
     ],
-    "relatedProjectIds": ["sgi"],
+    "relatedProjectIds": [
+      "sgi"
+    ],
     "highlights": {
       "es": [
-        { "label": "Investigadores y Becarios Centralizados", "value": "100%" },
-        { "label": "Soporte Institucional y Operativo I+D", "value": "Toda la Regional" },
-        { "label": "Plataforma en Producción Activa", "value": "UTN FRRe" }
+        {
+          "label": "Investigadores y Becarios Centralizados",
+          "value": "100%"
+        },
+        {
+          "label": "Soporte Institucional y Operativo I+D",
+          "value": "Toda la Regional"
+        },
+        {
+          "label": "Plataforma en Producción Activa",
+          "value": "UTN FRRe"
+        }
       ],
       "en": [
-        { "label": "Researchers & Fellows Centralized", "value": "100%" },
-        { "label": "Regional-Wide R&D Operational Support", "value": "Entire Faculty" },
-        { "label": "Active Production Platform", "value": "UTN FRRe" }
+        {
+          "label": "Researchers & Fellows Centralized",
+          "value": "100%"
+        },
+        {
+          "label": "Regional-Wide R&D Operational Support",
+          "value": "Entire Faculty"
+        },
+        {
+          "label": "Active Production Platform",
+          "value": "UTN FRRe"
+        }
       ]
     }
   }

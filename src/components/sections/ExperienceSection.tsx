@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import ScrollIn from "@/components/fx/ScrollIn";
+import CompanyLogo from "@/components/ui/CompanyLogo";
 import type { ExperienceItem, Project } from "@/types";
 import Section, { ArrowIcon } from "@/components/ui/Section";
 import StackList from "@/components/ui/StackList";
@@ -91,22 +92,33 @@ export default function ExperienceSection({
                     </span>
                   )}
                 </p>
-                <h3
-                  className={`mt-1 font-bold leading-tight transition-colors group-hover:text-accent ${
-                    isCurrent ? "text-2xl sm:text-3xl" : "text-2xl"
-                  }`}
-                >
-                  {exp.company}
-                </h3>
-                <p
-                  className={`mt-1 text-accent ${
-                    isCurrent
-                      ? "text-base font-semibold sm:text-lg"
-                      : "font-medium"
-                  }`}
-                >
-                  {exp.role}
-                </p>
+                <div className="mt-2 flex items-center gap-4">
+                  {exp.logo && (
+                    <CompanyLogo
+                      logo={exp.logo}
+                      name={exp.company}
+                      size={isCurrent ? 56 : 48}
+                    />
+                  )}
+                  <div className="min-w-0">
+                    <h3
+                      className={`font-bold leading-tight transition-colors group-hover:text-accent ${
+                        isCurrent ? "text-2xl sm:text-3xl" : "text-2xl"
+                      }`}
+                    >
+                      {exp.company}
+                    </h3>
+                    <p
+                      className={`mt-1 text-accent ${
+                        isCurrent
+                          ? "text-base font-semibold sm:text-lg"
+                          : "font-medium"
+                      }`}
+                    >
+                      {exp.role}
+                    </p>
+                  </div>
+                </div>
 
                 <ul className="mt-4 max-w-[75ch] space-y-2.5">
                   {exp.bullets.map((b, i) => (

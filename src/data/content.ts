@@ -39,6 +39,7 @@ export function getExperiences(lang: Language): ExperienceItem[] {
     id: exp.id,
     period: formatPeriod(exp.period[lang]),
     company: exp.company[lang],
+    logo: exp.logo ? { ...exp.logo, src: withBasePath(exp.logo.src) } : undefined,
     role: exp.role[lang],
     location: exp.location?.[lang],
     summary: exp.summary?.[lang],

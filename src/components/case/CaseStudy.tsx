@@ -6,6 +6,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, FileText, Maximize2 } from "lucide-react";
 import type { ExperienceItem, Project } from "@/types";
 import Lightbox from "@/components/Lightbox";
+import CompanyLogo from "@/components/ui/CompanyLogo";
 import StackList from "@/components/ui/StackList";
 import { GitHubIcon } from "@/components/ui/icons";
 import { button } from "@/components/ui/styles";
@@ -433,6 +434,11 @@ function ExperienceCase({
   return (
     <>
       <header className={`${wrap} pt-14 md:pt-20`}>
+        {e.logo && (
+          <div className="mb-6">
+            <CompanyLogo logo={e.logo} name={e.company} size={72} />
+          </div>
+        )}
         <p className="text-sm font-semibold text-accent">{e.period}</p>
         <h1
           id={titleId}

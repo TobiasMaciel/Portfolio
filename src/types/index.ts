@@ -43,8 +43,15 @@ export interface Experience {
   highlights?: { es: ExperienceHighlight[]; en: ExperienceHighlight[] };
 }
 
+export interface CompanyLogo {
+  src: string;
+  /** Single-colour mark: rendered as a mask in the text colour */
+  mono?: boolean;
+}
+
 export interface ExperienceItem {
   id: string;
+  logo?: CompanyLogo;
   period: string;
   company: string;
   role: string;
