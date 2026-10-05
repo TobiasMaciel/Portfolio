@@ -109,22 +109,19 @@ export default function SkillsSection({
           : "Hover a technology to see where I used it."
       }
     >
-      <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
         {categories.map((cat, ci) => (
           <ScrollIn
             key={cat.label.en}
-            x={ci % 2 === 0 ? -110 : 110}
-            y={30}
-            className={
-              ci === categories.length - 1 && categories.length % 2 === 1
-                ? "md:col-span-2"
-                : ""
-            }
+            // Left column from the left, middle from below, right from the right
+            x={[-90, 0, 90][ci % 3]}
+            y={ci % 3 === 1 ? 70 : 30}
+            className={spanFor(ci, categories.length)}
           >
-            <div className={`${card} h-full p-6`}>
+            <div className={`${card} h-full p-5`}>
               <CornerGlow />
               <div className="relative z-10">
-                <h3 className="mb-5 flex items-center gap-3 text-sm font-bold">
+                <h3 className="mb-4 flex items-center gap-3 text-sm font-bold">
                   <span
                     aria-hidden="true"
                     className="h-2 w-2 shrink-0 rounded-full"
@@ -138,7 +135,7 @@ export default function SkillsSection({
                     {cat.tags.length}
                   </span>
                 </h3>
-                <ul className="grid grid-cols-[repeat(auto-fill,minmax(6.25rem,1fr))] gap-2">
+                <ul className="flex flex-wrap gap-1.5">
                   {cat.tags.map((skill) => {
                     const icon = getTechIcon(skill);
                     const hex = icon ? `#${icon.hex}` : cat.color;
@@ -146,10 +143,7 @@ export default function SkillsSection({
                       icon && isDarkHex(icon.hex) ? "var(--ink)" : hex;
                     return (
                       <li key={skill}>
-                        <Tooltip
-                          content={usageTooltip(skill)}
-                          className="flex h-full w-full"
-                        >
+                        <Tooltip content={usageTooltip(skill)}>
                           <button
                             type="button"
                             title={usageLabel(skill)}
@@ -159,21 +153,14 @@ export default function SkillsSection({
                                 "--tech-dark": darkHex,
                               } as React.CSSProperties
                             }
-                            className="group/tile relative flex h-full w-full cursor-default flex-col items-center gap-2 overflow-hidden rounded-xl border border-rule bg-paper/50 px-2 py-3 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-[0_10px_30px_-14px_var(--tech)]"
+                            className="group/tile inline-flex cursor-default items-center gap-1.5 rounded-full border border-rule bg-paper/50 py-1.5 pl-2 pr-3 text-xs font-semibold text-ink/85 transition-all duration-300 hover:-translate-y-0.5 hover:border-[color:var(--tech)] hover:shadow-[0_8px_22px_-12px_var(--tech)] dark:hover:border-[color:var(--tech-dark)]"
                           >
-                            <span
-                              aria-hidden="true"
-                              className="pointer-events-none absolute -top-8 left-1/2 h-14 w-14 -translate-x-1/2 rounded-full opacity-0 blur-xl transition-opacity duration-500 group-hover/tile:opacity-50"
-                              style={{ backgroundColor: hex }}
-                            />
                             <TechIcon
                               name={skill}
-                              size={22}
-                              className="relative text-muted transition-all duration-300 group-hover/tile:scale-110 group-hover/tile:text-[var(--tech)] dark:group-hover/tile:text-[var(--tech-dark)]"
+                              size={14}
+                              className="text-muted transition-colors duration-300 group-hover/tile:text-[var(--tech)] dark:group-hover/tile:text-[var(--tech-dark)]"
                             />
-                            <span className="relative text-[11px] font-semibold leading-tight text-ink/85">
-                              {skill}
-                            </span>
+                            {skill}
                           </button>
                         </Tooltip>
                       </li>
@@ -186,7 +173,7 @@ export default function SkillsSection({
         ))}
       </div>
 
-      <div className="mt-12 flex flex-wrap items-center gap-3 border-t border-rule pt-8">
+      <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-rule pt-6">
         <span className="mr-2 text-sm font-semibold">
           {isEs ? "Idiomas" : "Languages"}
         </span>
@@ -206,4 +193,12 @@ export default function SkillsSection({
       </div>
     </Section>
   );
+}
+
+/** The last card stretches to fill an incomplete row (2 columns on md, 3 on lg). */
+function spanFor(index: number, total: number) {
+  if (index !== total - 1) return "";
+  const md = total % 2 === 1 ? "md:col-span-2" : "";
+  const lg = total % 3 === 2 ? "lg:col-span-2" : total % 3 === 1 ? "lg:col-span-3" : "lg:col-span-1";
+  return `${md} ${lg}`;
 }
