@@ -19,7 +19,14 @@ import { button } from "@/components/ui/styles";
 import { isPdf } from "@/components/ui/useSwipe";
 import { ArrowIcon } from "@/components/ui/Section";
 
-const FEATURED_IDS = ["elepad", "sgi", "ai-sales-agent", "cubesat", "tup", "ciencia-de-datos"];
+const FEATURED_IDS = [
+  "elepad",
+  "sgi",
+  "ai-sales-agent",
+  "cubesat",
+  "tup",
+  "ciencia-de-datos",
+];
 
 function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(false);
@@ -78,11 +85,18 @@ export default function ProjectsSection({
 
   // Phones, tablets and reduced motion: a native swipeable row
   return (
-    <section id="proyectos" aria-labelledby="proyectos-title" className="relative scroll-mt-24">
+    <section
+      id="proyectos"
+      aria-labelledby="proyectos-title"
+      className="relative scroll-mt-24"
+    >
       {renderHeader()}
       <ul className="-mx-6 mt-10 flex snap-x snap-mandatory gap-4 overflow-x-auto px-6 pb-6 sm:-mx-10 sm:px-10">
         {visible.map((p, i) => (
-          <li key={p.id} className="w-[85vw] max-w-[34rem] shrink-0 snap-center">
+          <li
+            key={p.id}
+            className="w-[85vw] max-w-[34rem] shrink-0 snap-center"
+          >
             <ProjectPanel
               project={p}
               index={i}
@@ -112,13 +126,20 @@ function ProjectsHeader({
   counter?: React.ReactNode;
 }) {
   const filters = [
-    { value: "featured" as const, label: isEs ? "Destacados" : "Featured", count: counts.featured },
+    {
+      value: "featured" as const,
+      label: isEs ? "Destacados" : "Featured",
+      count: counts.featured,
+    },
     { value: "all" as const, label: isEs ? "Todos" : "All", count: counts.all },
   ];
   return (
     <header className="flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
       <div>
-        <h2 id="proyectos-title" className="font-serif text-4xl font-bold tracking-tight md:text-5xl">
+        <h2
+          id="proyectos-title"
+          className="font-serif text-4xl font-bold tracking-tight md:text-5xl"
+        >
           <RevealText lines={[isEs ? "Proyectos" : "Projects"]} />
         </h2>
         <p className="mt-2 max-w-[60ch] text-sm font-medium text-muted">
@@ -141,7 +162,9 @@ function ProjectsHeader({
               onClick={() => onFilter(f.value)}
               aria-pressed={filter === f.value}
               className={`relative flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition-colors cursor-pointer ${
-                filter === f.value ? "text-on-accent" : "text-muted hover:text-ink"
+                filter === f.value
+                  ? "text-on-accent"
+                  : "text-muted hover:text-ink"
               }`}
             >
               {filter === f.value && (
@@ -152,7 +175,9 @@ function ProjectsHeader({
                 />
               )}
               <span className="relative">{f.label}</span>
-              <span className="relative text-xs font-semibold opacity-70">{f.count}</span>
+              <span className="relative text-xs font-semibold opacity-70">
+                {f.count}
+              </span>
             </button>
           ))}
         </div>
@@ -218,9 +243,15 @@ function HorizontalProjects({
   });
 
   const counter = (
-    <p className="font-serif text-2xl font-bold tabular-nums" aria-live="polite">
+    <p
+      className="font-serif text-2xl font-bold tabular-nums"
+      aria-live="polite"
+    >
       {String(current).padStart(2, "0")}
-      <span className="text-muted"> / {String(projects.length).padStart(2, "0")}</span>
+      <span className="text-muted">
+        {" "}
+        / {String(projects.length).padStart(2, "0")}
+      </span>
     </p>
   );
 
@@ -233,19 +264,25 @@ function HorizontalProjects({
       style={{ height: `calc(100vh + ${distance}px)` }}
     >
       <div className="sticky top-0 flex h-screen flex-col overflow-hidden pb-10 pt-24">
-        <div className="px-16">
-          {renderHeader(counter)}
-        </div>
+        <div className="px-16">{renderHeader(counter)}</div>
 
         <div className="relative flex min-h-0 flex-1 items-center py-6">
           <motion.div
             ref={trackRef}
             className="flex w-max gap-10 pl-16"
             // Right padding lets the last panel travel all the way to the focus spot
-            style={{ x, paddingRight: "calc(100vw - min(72vw, 1080px) - 4rem)" }}
+            style={{
+              x,
+              paddingRight: "calc(100vw - min(72vw, 1080px) - 4rem)",
+            }}
           >
             {projects.map((p, i) => (
-              <FocusPanel key={p.id} progress={scrollYProgress} center={i * span} span={span}>
+              <FocusPanel
+                key={p.id}
+                progress={scrollYProgress}
+                center={i * span}
+                span={span}
+              >
                 <ProjectPanel
                   project={p}
                   index={i}
@@ -299,8 +336,14 @@ function FocusPanel({
 }) {
   // Function transforms (not keyframe ranges): the ranges of the first and
   // last panel fall outside 0–1, which the browser's scroll timelines reject
-  const scale = useTransform(progress, (v) => 1 - 0.1 * focusDistance(v, center, span));
-  const opacity = useTransform(progress, (v) => 1 - 0.55 * focusDistance(v, center, span));
+  const scale = useTransform(
+    progress,
+    (v) => 1 - 0.1 * focusDistance(v, center, span),
+  );
+  const opacity = useTransform(
+    progress,
+    (v) => 1 - 0.55 * focusDistance(v, center, span),
+  );
   return (
     <motion.div
       className="min-h-[min(58vh,520px)] w-[min(72vw,1080px)] shrink-0"
@@ -373,12 +416,16 @@ function ProjectPanel({
         </span>
       </ProjectImage>
 
-      <div className={`relative flex min-h-0 flex-col ${stacked ? "p-6" : "p-10 xl:p-12"}`}>
+      <div
+        className={`relative flex min-h-0 flex-col ${stacked ? "p-6" : "p-10 xl:p-12"}`}
+      >
         <span className="sr-only">
           {index + 1} / {total}
         </span>
 
-        <p className="relative text-xs font-bold tracking-wide text-accent">{p.period}</p>
+        <p className="relative text-xs font-bold tracking-wide text-accent">
+          {p.period}
+        </p>
         <h3
           className={`relative mt-2 font-serif font-bold leading-[1.1] tracking-tight ${
             stacked
@@ -390,7 +437,9 @@ function ProjectPanel({
         >
           {p.title}
         </h3>
-        <p className="relative mt-2 text-sm font-semibold text-muted">{p.role}</p>
+        <p className="relative mt-2 text-sm font-semibold text-muted">
+          {p.role}
+        </p>
         <p className="relative mt-4 max-w-[52ch] text-sm leading-relaxed text-muted">
           {p.summary}
         </p>
@@ -400,7 +449,11 @@ function ProjectPanel({
         </div>
 
         <div className="relative mt-auto flex flex-wrap items-center gap-3 pt-6">
-          <button type="button" onClick={onOpen} className={`${button.primary} group/cta`}>
+          <button
+            type="button"
+            onClick={onOpen}
+            className={`${button.primary} group/cta`}
+          >
             {isEs ? "Ver proyecto" : "View project"}
             <ArrowIcon />
           </button>
@@ -455,7 +508,13 @@ function ProjectImage({
       />
       {cover ? (
         progress ? (
-          <ParallaxImage cover={cover} title={title} progress={progress} center={center} span={span} />
+          <ParallaxImage
+            cover={cover}
+            title={title}
+            progress={progress}
+            center={center}
+            span={span}
+          />
         ) : (
           <Image
             src={cover}
@@ -488,8 +547,14 @@ function ParallaxImage({
   center: number;
   span: number;
 }) {
-  const x = useTransform(progress, (v) => -70 * Math.max(-1, Math.min(1, (v - center) / span)));
-  const scale = useTransform(progress, (v) => 1 + 0.08 * focusDistance(v, center, span));
+  const x = useTransform(
+    progress,
+    (v) => -70 * Math.max(-1, Math.min(1, (v - center) / span)),
+  );
+  const scale = useTransform(
+    progress,
+    (v) => 1 + 0.08 * focusDistance(v, center, span),
+  );
   return (
     <motion.div className="absolute inset-0" style={{ x, scale }}>
       <Image

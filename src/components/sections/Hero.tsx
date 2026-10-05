@@ -1,6 +1,12 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useReducedMotion,
+  useScroll,
+  useTransform,
+} from "framer-motion";
 import { FileText, Mail, Phone } from "lucide-react";
 import AmbientGlow from "@/components/AmbientGlow";
 import Magnetic from "@/components/fx/Magnetic";
@@ -14,12 +20,11 @@ import portfolioData from "@/data";
 
 const ease = [0.16, 1, 0.3, 1] as const;
 
+// Opacity lives on the children, so the parent's opacity is free for the
+// scroll-linked exit below
 const stagger = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.2, delayChildren: 0.1 },
-  },
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.2, delayChildren: 0.1 } },
 };
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
@@ -35,6 +40,20 @@ const icons: Record<string, React.ReactNode> = {
 
 export default function Hero({ onOpenCV }: { onOpenCV: () => void }) {
   const { t, isEs, language } = useLanguage();
+  const ref = useRef<HTMLElement>(null);
+  const reduceMotion = useReducedMotion();
+
+  // Exit as the page scrolls past: the name block rises and fades, the
+  // text column drifts off diagonally
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const leftY = useTransform(scrollYProgress, [0, 1], [0, -160]);
+  const leftOpacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
+  const rightX = useTransform(scrollYProgress, [0, 1], [0, 140]);
+  const rightY = useTransform(scrollYProgress, [0, 1], [0, -90]);
+  const rightOpacity = useTransform(scrollYProgress, [0.15, 0.85], [1, 0]);
   const { hero, socialLinks } = portfolioData;
 
   const nav = [
@@ -54,11 +73,15 @@ export default function Hero({ onOpenCV }: { onOpenCV: () => void }) {
   };
 
   return (
-    <header className="relative z-10 flex w-full flex-col gap-10 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between lg:gap-0">
+    <header
+      ref={ref}
+      className="relative z-10 flex w-full flex-col gap-10 lg:min-h-screen lg:flex-row lg:items-center lg:justify-between lg:gap-0"
+    >
       <motion.div
         variants={stagger}
         initial="hidden"
         animate="visible"
+        style={reduceMotion ? undefined : { y: leftY, opacity: leftOpacity }}
         className="relative z-20 px-6 pt-24 sm:px-10 lg:w-[40%] lg:pl-16 lg:pr-0 lg:pt-0 xl:w-[42%] xl:pl-20 2xl:w-[45%]"
       >
         <AmbientGlow />
@@ -155,7 +178,15 @@ export default function Hero({ onOpenCV }: { onOpenCV: () => void }) {
         transition={{ duration: 1, delay: 0.6, ease }}
         className="relative z-10 w-full px-2 lg:w-[50%] lg:px-0 lg:pr-10 xl:pr-20"
       >
-        <LayoutAnimation />
+        <motion.div
+          style={
+            reduceMotion
+              ? undefined
+              : { x: rightX, y: rightY, opacity: rightOpacity }
+          }
+        >
+          <LayoutAnimation />
+        </motion.div>
       </motion.div>
     </header>
   );

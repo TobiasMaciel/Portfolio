@@ -3,6 +3,7 @@ import ContactGlow from "@/components/ContactGlow";
 import Magnetic from "@/components/fx/Magnetic";
 import RevealText from "@/components/fx/RevealText";
 import GridWarpBackground from "@/components/GridWarpBackground";
+import ScrollIn from "@/components/fx/ScrollIn";
 import Section, { CornerGlow } from "@/components/ui/Section";
 import { GitHubIcon, LinkedInIcon } from "@/components/ui/icons";
 import { button } from "@/components/ui/styles";
@@ -91,91 +92,95 @@ export default function ContactSection({
               ? "Estoy abierto a nuevas oportunidades, colaboraciones o una charla técnica. El email es la forma más rápida de contactarme."
               : "I'm open to new opportunities, collaborations or a technical chat. Email is the fastest way to reach me."}
           </p>
-          <dl className="flex flex-col gap-5">
-            {rows.map((r) => (
-              <div key={r.label} className="group flex items-center gap-4">
-                <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brand/20 bg-brand/10 text-accent transition-colors group-hover:bg-brand/20">
-                  {r.icon}
-                </span>
-                <div className="min-w-0">
-                  <dt className="text-[11px] font-semibold text-muted">
-                    {r.label}
-                  </dt>
-                  <dd className="truncate text-sm font-medium">
-                    {r.href ? (
-                      <a
-                        href={r.href}
-                        target={
-                          r.href.startsWith("http") ? "_blank" : undefined
-                        }
-                        rel="noopener noreferrer"
-                        className="transition-colors hover:text-accent"
-                      >
-                        {r.value}
-                      </a>
-                    ) : (
-                      r.value
-                    )}
-                  </dd>
+          <ScrollIn x={-90}>
+            <dl className="flex flex-col gap-5">
+              {rows.map((r) => (
+                <div key={r.label} className="group flex items-center gap-4">
+                  <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-brand/20 bg-brand/10 text-accent transition-colors group-hover:bg-brand/20">
+                    {r.icon}
+                  </span>
+                  <div className="min-w-0">
+                    <dt className="text-[11px] font-semibold text-muted">
+                      {r.label}
+                    </dt>
+                    <dd className="truncate text-sm font-medium">
+                      {r.href ? (
+                        <a
+                          href={r.href}
+                          target={
+                            r.href.startsWith("http") ? "_blank" : undefined
+                          }
+                          rel="noopener noreferrer"
+                          className="transition-colors hover:text-accent"
+                        >
+                          {r.value}
+                        </a>
+                      ) : (
+                        r.value
+                      )}
+                    </dd>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </dl>
+              ))}
+            </dl>
+          </ScrollIn>
         </div>
 
-        <div className="group relative overflow-hidden rounded-[2.5rem] border border-rule bg-surface/70 p-8 backdrop-blur-sm transition-colors duration-500 hover:border-brand/40 sm:p-10 dark:bg-surface/40">
-          <CornerGlow />
-          <div className="relative z-10">
-            <div className="mb-6 flex items-center gap-3">
-              <span aria-hidden="true" className="h-[2px] w-8 bg-brand" />
-              <p className="text-sm font-semibold text-accent">
-                {isEs ? "Currículum" : "Résumé"}
+        <ScrollIn x={110} y={80} rotate={4}>
+          <div className="group relative overflow-hidden rounded-[2.5rem] border border-rule bg-surface/70 p-8 backdrop-blur-sm transition-colors duration-500 hover:border-brand/40 sm:p-10 dark:bg-surface/40">
+            <CornerGlow />
+            <div className="relative z-10">
+              <div className="mb-6 flex items-center gap-3">
+                <span aria-hidden="true" className="h-[2px] w-8 bg-brand" />
+                <p className="text-sm font-semibold text-accent">
+                  {isEs ? "Currículum" : "Résumé"}
+                </p>
+              </div>
+              <h3 className="mb-6 font-serif text-4xl font-bold leading-[1.1] sm:text-5xl">
+                <RevealText
+                  lines={[
+                    isEs ? "Mi recorrido, en un PDF" : "My path, in one PDF",
+                  ]}
+                />
+              </h3>
+              <p className="mb-10 max-w-sm text-sm leading-relaxed text-muted">
+                {isEs
+                  ? "Experiencia, formación académica y certificaciones, actualizado en 2026."
+                  : "Experience, education and certifications, updated in 2026."}
               </p>
-            </div>
-            <h3 className="mb-6 font-serif text-4xl font-bold leading-[1.1] sm:text-5xl">
-              <RevealText
-                lines={[
-                  isEs ? "Mi recorrido, en un PDF" : "My path, in one PDF",
-                ]}
-              />
-            </h3>
-            <p className="mb-10 max-w-sm text-sm leading-relaxed text-muted">
-              {isEs
-                ? "Experiencia, formación académica y certificaciones, actualizado en 2026."
-                : "Experience, education and certifications, updated in 2026."}
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Magnetic strength={0.2} className="flex flex-1">
-                <button
-                  type="button"
-                  onClick={onOpenCV}
-                  className={`${button.primary} group/btn flex-1 whitespace-nowrap py-5`}
-                >
-                  <Eye
-                    size={18}
-                    aria-hidden="true"
-                    className="transition-transform group-hover/btn:scale-110"
-                  />
-                  {isEs ? "Ver CV" : "View résumé"}
-                </button>
-              </Magnetic>
-              <Magnetic strength={0.2} className="flex flex-1">
-                <a
-                  href={cvFile}
-                  download={cvFile.split("/").pop()}
-                  className={`${button.secondary} group/dl flex-1 whitespace-nowrap py-5`}
-                >
-                  <Download
-                    size={18}
-                    aria-hidden="true"
-                    className="transition-transform group-hover/dl:translate-y-0.5"
-                  />
-                  {isEs ? "Descargar PDF" : "Download PDF"}
-                </a>
-              </Magnetic>
+              <div className="flex flex-col gap-4 sm:flex-row">
+                <Magnetic strength={0.2} className="flex flex-1">
+                  <button
+                    type="button"
+                    onClick={onOpenCV}
+                    className={`${button.primary} group/btn flex-1 whitespace-nowrap py-5`}
+                  >
+                    <Eye
+                      size={18}
+                      aria-hidden="true"
+                      className="transition-transform group-hover/btn:scale-110"
+                    />
+                    {isEs ? "Ver CV" : "View résumé"}
+                  </button>
+                </Magnetic>
+                <Magnetic strength={0.2} className="flex flex-1">
+                  <a
+                    href={cvFile}
+                    download={cvFile.split("/").pop()}
+                    className={`${button.secondary} group/dl flex-1 whitespace-nowrap py-5`}
+                  >
+                    <Download
+                      size={18}
+                      aria-hidden="true"
+                      className="transition-transform group-hover/dl:translate-y-0.5"
+                    />
+                    {isEs ? "Descargar PDF" : "Download PDF"}
+                  </a>
+                </Magnetic>
+              </div>
             </div>
           </div>
-        </div>
+        </ScrollIn>
       </div>
     </Section>
   );

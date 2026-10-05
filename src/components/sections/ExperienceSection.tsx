@@ -1,4 +1,9 @@
+"use client";
+
+import { useRef } from "react";
+import { motion, useReducedMotion, useScroll } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
+import ScrollIn from "@/components/fx/ScrollIn";
 import type { ExperienceItem, Project } from "@/types";
 import Section, { ArrowIcon } from "@/components/ui/Section";
 import StackList from "@/components/ui/StackList";
@@ -17,6 +22,14 @@ export default function ExperienceSection({
   onOpenExperience: (exp: ExperienceItem) => void;
   onOpenProject: (project: Project) => void;
 }) {
+  const listRef = useRef<HTMLOListElement>(null);
+  const reduceMotion = useReducedMotion();
+  // The timeline line draws itself downward as the list scrolls through
+  const { scrollYProgress } = useScroll({
+    target: listRef,
+    offset: ["start 0.75", "end 0.6"],
+  });
+
   return (
     <Section
       id="experiencia"
@@ -27,7 +40,19 @@ export default function ExperienceSection({
           : "Professional track record in software engineering, AI agents and scalable systems."
       }
     >
-      <ol className="relative ml-2 flex flex-col gap-16 border-l-2 border-rule sm:ml-4 sm:gap-20">
+      <ol
+        ref={listRef}
+        className="relative ml-2 flex flex-col gap-16 sm:ml-4 sm:gap-20"
+      >
+        <span
+          aria-hidden="true"
+          className="absolute inset-y-0 -left-px w-0.5 bg-rule"
+        />
+        <motion.span
+          aria-hidden="true"
+          className="absolute inset-y-0 -left-px w-0.5 origin-top bg-brand"
+          style={{ scaleY: reduceMotion ? 1 : scrollYProgress }}
+        />
         {experiences.map((exp, index) => {
           const isCurrent = index === 0;
           const related = (exp.relatedProjectIds ?? [])
@@ -55,9 +80,11 @@ export default function ExperienceSection({
                 />
               )}
 
-              <div className="relative">
+              <ScrollIn y={-40} className="relative">
                 <p className="flex flex-wrap items-center gap-3 text-sm font-semibold text-muted">
-                  <span className={isCurrent ? "text-accent" : ""}>{exp.period}</span>
+                  <span className={isCurrent ? "text-accent" : ""}>
+                    {exp.period}
+                  </span>
                   {isCurrent && (
                     <span className="rounded-full border border-brand/25 bg-brand/10 px-2.5 py-0.5 text-[11px] font-bold text-accent">
                       {isEs ? "Puesto actual" : "Current role"}
@@ -73,7 +100,9 @@ export default function ExperienceSection({
                 </h3>
                 <p
                   className={`mt-1 text-accent ${
-                    isCurrent ? "text-base font-semibold sm:text-lg" : "font-medium"
+                    isCurrent
+                      ? "text-base font-semibold sm:text-lg"
+                      : "font-medium"
                   }`}
                 >
                   {exp.role}
@@ -81,11 +110,16 @@ export default function ExperienceSection({
 
                 <ul className="mt-4 max-w-[75ch] space-y-2.5">
                   {exp.bullets.map((b, i) => (
-                    <li key={i} className="flex items-start gap-3 text-sm leading-relaxed text-muted">
+                    <li
+                      key={i}
+                      className="flex items-start gap-3 text-sm leading-relaxed text-muted"
+                    >
                       <span
                         aria-hidden="true"
                         className={`mt-2 h-1.5 w-1.5 shrink-0 rounded-full transition-colors ${
-                          isCurrent ? "bg-brand" : "bg-rule group-hover:bg-brand"
+                          isCurrent
+                            ? "bg-brand"
+                            : "bg-rule group-hover:bg-brand"
                         }`}
                       />
                       <span>{b}</span>
@@ -123,7 +157,7 @@ export default function ExperienceSection({
                     </button>
                   ))}
                 </div>
-              </div>
+              </ScrollIn>
             </li>
           );
         })}

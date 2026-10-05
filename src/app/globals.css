@@ -75,6 +75,19 @@ body {
   }
 }
 
+/* Theme switch: the new theme grows as a circle (see ThemeToggle), so the
+   browser's default cross-fade is turned off */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+.theme-switching,
+.theme-switching * {
+  transition: none !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

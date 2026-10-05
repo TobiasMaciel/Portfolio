@@ -15,6 +15,7 @@ export default function Section({
   intro,
   aside,
   background,
+  from = "right",
   className = "",
   children,
 }: {
@@ -24,6 +25,8 @@ export default function Section({
   aside?: React.ReactNode;
   /** Decorative layer rendered behind the content (glows, grids). */
   background?: React.ReactNode;
+  /** Side the title slides in from; alternate it between sections. */
+  from?: "left" | "right";
   className?: string;
   children: React.ReactNode;
 }) {
@@ -37,8 +40,9 @@ export default function Section({
   const scale = useTransform(scrollYProgress, [0, 1], [0.93, 1]);
   const y = useTransform(scrollYProgress, [0, 1], [90, 0]);
   const opacity = useTransform(scrollYProgress, [0, 0.6], [0.1, 1]);
-  const titleX = useTransform(scrollYProgress, [0, 1], [140, 0]);
-  const introX = useTransform(scrollYProgress, [0, 1], [-60, 0]);
+  const dir = from === "right" ? 1 : -1;
+  const titleX = useTransform(scrollYProgress, [0, 1], [140 * dir, 0]);
+  const introX = useTransform(scrollYProgress, [0, 1], [-60 * dir, 0]);
   const rule = useTransform(scrollYProgress, [0.2, 1], [0, 1]);
 
   const still = reduceMotion ?? false;

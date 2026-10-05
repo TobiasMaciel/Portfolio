@@ -2,6 +2,7 @@
 
 import { Briefcase, Rocket } from "lucide-react";
 import type { ExperienceItem, Project } from "@/types";
+import ScrollIn from "@/components/fx/ScrollIn";
 import Section, { CornerGlow } from "@/components/ui/Section";
 import { card } from "@/components/ui/styles";
 import Tooltip from "@/components/ui/Tooltip";
@@ -54,7 +55,10 @@ export default function SkillsSection({
                 onClick={() => scrollToId(`experience-${e.id}`)}
                 className={link}
               >
-                <span aria-hidden="true" className="h-1 w-1 shrink-0 rounded-full bg-brand" />
+                <span
+                  aria-hidden="true"
+                  className="h-1 w-1 shrink-0 rounded-full bg-brand"
+                />
                 {e.company}
               </button>
             ))}
@@ -67,8 +71,16 @@ export default function SkillsSection({
               {isEs ? "Proyectos" : "Projects"}
             </span>
             {projs.map((p) => (
-              <button key={p.id} type="button" onClick={() => onOpenProject(p)} className={link}>
-                <span aria-hidden="true" className="h-1 w-1 shrink-0 rounded-full bg-emerald-400" />
+              <button
+                key={p.id}
+                type="button"
+                onClick={() => onOpenProject(p)}
+                className={link}
+              >
+                <span
+                  aria-hidden="true"
+                  className="h-1 w-1 shrink-0 rounded-full bg-emerald-400"
+                />
                 {p.title}
               </button>
             ))}
@@ -82,7 +94,9 @@ export default function SkillsSection({
     const { exps, projs } = usageOf(skill);
     const n = exps.length + projs.length;
     if (n === 0) return isEs ? "Transversal" : "General";
-    return isEs ? `${n} ${n === 1 ? "uso" : "usos"}` : `${n} ${n === 1 ? "use" : "uses"}`;
+    return isEs
+      ? `${n} ${n === 1 ? "uso" : "usos"}`
+      : `${n} ${n === 1 ? "use" : "uses"}`;
   };
 
   return (
@@ -97,61 +111,85 @@ export default function SkillsSection({
     >
       <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
         {categories.map((cat, ci) => (
-          <div
+          <ScrollIn
             key={cat.label.en}
-            className={`${card} p-6 ${ci === categories.length - 1 && categories.length % 2 === 1 ? "md:col-span-2" : ""}`}
+            x={ci % 2 === 0 ? -110 : 110}
+            y={30}
+            className={
+              ci === categories.length - 1 && categories.length % 2 === 1
+                ? "md:col-span-2"
+                : ""
+            }
           >
-            <CornerGlow />
-            <div className="relative z-10">
-              <h3 className="mb-5 flex items-center gap-3 text-sm font-bold">
-                <span
-                  aria-hidden="true"
-                  className="h-2 w-2 shrink-0 rounded-full"
-                  style={{ backgroundColor: cat.color, boxShadow: `0 0 8px ${cat.color}80` }}
-                />
-                {cat.label[language]}
-                <span className="text-xs font-medium text-muted">{cat.tags.length}</span>
-              </h3>
-              <ul className="grid grid-cols-[repeat(auto-fill,minmax(6.25rem,1fr))] gap-2">
-                {cat.tags.map((skill) => {
-                  const icon = getTechIcon(skill);
-                  const hex = icon ? `#${icon.hex}` : cat.color;
-                  const darkHex = icon && isDarkHex(icon.hex) ? "var(--ink)" : hex;
-                  return (
-                    <li key={skill}>
-                      <Tooltip content={usageTooltip(skill)} className="flex h-full w-full">
-                        <button
-                          type="button"
-                          title={usageLabel(skill)}
-                          style={{ "--tech": hex, "--tech-dark": darkHex } as React.CSSProperties}
-                          className="group/tile relative flex h-full w-full cursor-default flex-col items-center gap-2 overflow-hidden rounded-xl border border-rule bg-paper/50 px-2 py-3 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-[0_10px_30px_-14px_var(--tech)]"
+            <div className={`${card} h-full p-6`}>
+              <CornerGlow />
+              <div className="relative z-10">
+                <h3 className="mb-5 flex items-center gap-3 text-sm font-bold">
+                  <span
+                    aria-hidden="true"
+                    className="h-2 w-2 shrink-0 rounded-full"
+                    style={{
+                      backgroundColor: cat.color,
+                      boxShadow: `0 0 8px ${cat.color}80`,
+                    }}
+                  />
+                  {cat.label[language]}
+                  <span className="text-xs font-medium text-muted">
+                    {cat.tags.length}
+                  </span>
+                </h3>
+                <ul className="grid grid-cols-[repeat(auto-fill,minmax(6.25rem,1fr))] gap-2">
+                  {cat.tags.map((skill) => {
+                    const icon = getTechIcon(skill);
+                    const hex = icon ? `#${icon.hex}` : cat.color;
+                    const darkHex =
+                      icon && isDarkHex(icon.hex) ? "var(--ink)" : hex;
+                    return (
+                      <li key={skill}>
+                        <Tooltip
+                          content={usageTooltip(skill)}
+                          className="flex h-full w-full"
                         >
-                          <span
-                            aria-hidden="true"
-                            className="pointer-events-none absolute -top-8 left-1/2 h-14 w-14 -translate-x-1/2 rounded-full opacity-0 blur-xl transition-opacity duration-500 group-hover/tile:opacity-50"
-                            style={{ backgroundColor: hex }}
-                          />
-                          <TechIcon
-                            name={skill}
-                            size={22}
-                            className="relative text-muted transition-all duration-300 group-hover/tile:scale-110 group-hover/tile:text-[var(--tech)] dark:group-hover/tile:text-[var(--tech-dark)]"
-                          />
-                          <span className="relative text-[11px] font-semibold leading-tight text-ink/85">
-                            {skill}
-                          </span>
-                        </button>
-                      </Tooltip>
-                    </li>
-                  );
-                })}
-              </ul>
+                          <button
+                            type="button"
+                            title={usageLabel(skill)}
+                            style={
+                              {
+                                "--tech": hex,
+                                "--tech-dark": darkHex,
+                              } as React.CSSProperties
+                            }
+                            className="group/tile relative flex h-full w-full cursor-default flex-col items-center gap-2 overflow-hidden rounded-xl border border-rule bg-paper/50 px-2 py-3 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-brand/40 hover:shadow-[0_10px_30px_-14px_var(--tech)]"
+                          >
+                            <span
+                              aria-hidden="true"
+                              className="pointer-events-none absolute -top-8 left-1/2 h-14 w-14 -translate-x-1/2 rounded-full opacity-0 blur-xl transition-opacity duration-500 group-hover/tile:opacity-50"
+                              style={{ backgroundColor: hex }}
+                            />
+                            <TechIcon
+                              name={skill}
+                              size={22}
+                              className="relative text-muted transition-all duration-300 group-hover/tile:scale-110 group-hover/tile:text-[var(--tech)] dark:group-hover/tile:text-[var(--tech-dark)]"
+                            />
+                            <span className="relative text-[11px] font-semibold leading-tight text-ink/85">
+                              {skill}
+                            </span>
+                          </button>
+                        </Tooltip>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
             </div>
-          </div>
+          </ScrollIn>
         ))}
       </div>
 
       <div className="mt-12 flex flex-wrap items-center gap-3 border-t border-rule pt-8">
-        <span className="mr-2 text-sm font-semibold">{isEs ? "Idiomas" : "Languages"}</span>
+        <span className="mr-2 text-sm font-semibold">
+          {isEs ? "Idiomas" : "Languages"}
+        </span>
         {languages.map((lang) => (
           <span
             key={lang.name.en}
@@ -160,7 +198,9 @@ export default function SkillsSection({
             <span className="text-sm font-semibold">
               <span aria-hidden="true">{lang.flag}</span> {lang.name[language]}
             </span>
-            <span className="text-xs font-medium text-muted">{lang.level[language]}</span>
+            <span className="text-xs font-medium text-muted">
+              {lang.level[language]}
+            </span>
           </span>
         ))}
       </div>
