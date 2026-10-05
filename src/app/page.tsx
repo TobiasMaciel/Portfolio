@@ -11,14 +11,13 @@ import {
   getProjects,
 } from "@/data/content";
 import type { ExperienceItem, Project } from "@/types";
+import CaseStudy, { type CaseDetail } from "@/components/case/CaseStudy";
 import CursorGlow from "@/components/CursorGlow";
 import SmoothScroll from "@/components/fx/SmoothScroll";
 import GridWarpBackground from "@/components/GridWarpBackground";
 import SectionNav from "@/components/SectionNav";
 import ThemeToggle from "@/components/ThemeToggle";
 import LanguageToggle from "@/components/LanguageToggle";
-import ProjectModal from "@/components/ProjectModal";
-import ExperienceModal from "@/components/ExperienceModal";
 import DocumentViewer from "@/components/DocumentViewer";
 import Hero from "@/components/sections/Hero";
 import ExperienceSection from "@/components/sections/ExperienceSection";
@@ -38,9 +37,11 @@ export default function Home() {
   const education = useMemo(() => getEducation(language), [language]);
   const achievements = useMemo(() => getAchievements(language), [language]);
 
-  const [activeProject, setActiveProject] = useState<Project | null>(null);
-  const [activeExperience, setActiveExperience] = useState<ExperienceItem | null>(null);
+  const [detail, setDetail] = useState<CaseDetail | null>(null);
   const [viewerDoc, setViewerDoc] = useState<ViewerDoc | null>(null);
+
+  const openProject = (p: Project) => setDetail({ type: "project", id: p.id });
+  const openExperience = (e: ExperienceItem) => setDetail({ type: "experience", id: e.id });
 
   const openCV = () =>
     setViewerDoc({
@@ -70,19 +71,19 @@ export default function Home() {
           experiences={experiences}
           projects={projects}
           isEs={isEs}
-          onOpenExperience={setActiveExperience}
-          onOpenProject={setActiveProject}
+          onOpenExperience={openExperience}
+          onOpenProject={openProject}
         />
         <ProjectsSection
           projects={projects}
           isEs={isEs}
-          onOpenProject={setActiveProject}
+          onOpenProject={openProject}
         />
         <EducationSection education={education} isEs={isEs} />
         <SkillsSection
           projects={projects}
           experiences={experiences}
-          onOpenProject={setActiveProject}
+          onOpenProject={openProject}
         />
         <AchievementsSection
           achievements={achievements}
@@ -93,33 +94,16 @@ export default function Home() {
       </main>
 
       <AnimatePresence>
-        {activeExperience && (
-          <ExperienceModal
-            key={`exp-${activeExperience.id}`}
-            experience={activeExperience}
+        {detail && (
+          <CaseStudy
+            key="case"
+            detail={detail}
             projects={projects}
-            onClose={() => setActiveExperience(null)}
-            onViewProject={(projectId) => {
-              setActiveExperience(null);
-              const p = projects.find((proj) => proj.id === projectId);
-              if (p) setActiveProject(p);
-            }}
+            experiences={experiences}
             isEs={isEs}
-          />
-        )}
-        {activeProject && (
-          <ProjectModal
-            key={`project-${activeProject.id}`}
-            project={activeProject}
-            onClose={() => setActiveProject(null)}
-            onViewReport={(url) =>
-              setViewerDoc({
-                url,
-                title: isEs ? "Informe técnico" : "Technical report",
-                subtitle: activeProject.title,
-              })
-            }
-            isEs={isEs}
+            onNavigate={setDetail}
+            onClose={() => setDetail(null)}
+            onOpenDocument={setViewerDoc}
           />
         )}
         {viewerDoc && (

@@ -69,7 +69,7 @@ export default function ExperienceSection({
                 aria-hidden="true"
                 className={`absolute top-1.5 rounded-full border-2 border-paper transition-colors duration-300 ${
                   isCurrent
-                    ? "-left-[9px] h-4 w-4 bg-brand shadow-[0_0_12px_rgba(167,139,250,0.6)] ring-4 ring-brand/20"
+                    ? "-left-[9px] h-4 w-4 bg-brand shadow-[0_0_10px_var(--brand)] ring-4 ring-brand/20"
                     : "-left-[8px] h-3.5 w-3.5 bg-line group-hover:bg-brand"
                 }`}
               />

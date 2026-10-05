@@ -5,7 +5,7 @@
 /*
  * Design tokens. Contrast targets (WCAG 2.2): text 4.5:1, graphics that
  * carry meaning 3:1.
- * --brand   signature violet for glows, dots and fills (≥3:1 on paper)
+ * --brand   signature cyan for glows, dots and fills (≥3:1 on paper)
  * --accent  the same hue tuned for text (≥4.5:1 on paper)
  * --rule    decorative borders around cards and panels
  * --line    lines that carry meaning: nav dashes, timeline, section rules (≥3:1)
@@ -18,10 +18,10 @@
   --muted: #52525b;
   --rule: #c4c4cc;
   --line: #7f7f89;
-  --brand: #8462ec;
-  --accent: #5e3ecf;
+  --brand: #0e7490;
+  --accent: #155e75;
   --on-accent: #ffffff;
-  --tip-accent: #a78bfa;
+  --tip-accent: #22d3ee;
   --tip-green: #34d399;
 }
 
@@ -32,10 +32,10 @@
   --muted: #a1a1aa;
   --rule: #303036;
   --line: #66666f;
-  --brand: #a78bfa;
-  --accent: #a78bfa;
+  --brand: #6fb3c2;
+  --accent: #6fb3c2;
   --on-accent: #0a0a0b;
-  --tip-accent: #5b3cc9;
+  --tip-accent: #155e75;
   --tip-green: #047857;
 }
 

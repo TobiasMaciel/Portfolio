@@ -68,7 +68,7 @@ export default function ThemeToggle({ isEs }: { isEs: boolean }) {
       }
     >
       {isDark ? (
-        <Sun size={18} aria-hidden="true" className="text-emerald-400" />
+        <Sun size={18} aria-hidden="true" className="text-brand" />
       ) : (
         <Moon size={18} aria-hidden="true" className="text-accent" />
       )}

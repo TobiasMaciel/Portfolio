@@ -171,7 +171,7 @@ export default function ContactGlow() {
       className="absolute inset-0 overflow-visible pointer-events-none z-0"
       style={{ contain: "layout paint" }}
     >
-      {/* Orb 1: Orange/Amber - Optimized without blur */}
+      {/* Orb 1: Blue - Optimized without blur */}
       <div
         ref={orb1Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-1000"
@@ -179,12 +179,12 @@ export default function ContactGlow() {
           width: 450,
           height: 450,
           background: isDark
-            ? "radial-gradient(circle, rgba(245,158,11,0.1) 0%, rgba(245,158,11,0.03) 30%, rgba(245,158,11,0) 70%)"
-            : "radial-gradient(circle, rgba(245,158,11,0.3) 0%, rgba(245,158,11,0.1) 30%, rgba(245,158,11,0) 70%)",
+            ? "radial-gradient(circle, rgba(92,124,170,0.1) 0%, rgba(92,124,170,0.03) 30%, rgba(92,124,170,0) 70%)"
+            : "radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(59,130,246,0.1) 30%, rgba(59,130,246,0) 70%)",
           willChange: "transform",
         }}
       />
-      {/* Orb 2: Teal/Emerald */}
+      {/* Orb 2: Cyan */}
       <div
         ref={orb2Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-1000"
@@ -192,12 +192,12 @@ export default function ContactGlow() {
           width: 500,
           height: 500,
           background: isDark
-            ? "radial-gradient(circle, rgba(20,184,166,0.1) 0%, rgba(20,184,166,0.03) 30%, rgba(20,184,166,0) 70%)"
-            : "radial-gradient(circle, rgba(20,184,166,0.3) 0%, rgba(20,184,166,0.1) 30%, rgba(20,184,166,0) 70%)",
+            ? "radial-gradient(circle, rgba(111,179,194,0.1) 0%, rgba(111,179,194,0.03) 30%, rgba(111,179,194,0) 70%)"
+            : "radial-gradient(circle, rgba(34,211,238,0.3) 0%, rgba(34,211,238,0.1) 30%, rgba(34,211,238,0) 70%)",
           willChange: "transform",
         }}
       />
-      {/* Orb 3: Purple/Violet */}
+      {/* Orb 3: Violet */}
       <div
         ref={orb3Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-1000"
@@ -205,7 +205,7 @@ export default function ContactGlow() {
           width: 400,
           height: 400,
           background: isDark
-            ? "radial-gradient(circle, rgba(139,92,246,0.1) 0%, rgba(139,92,246,0.03) 30%, rgba(139,92,246,0) 70%)"
+            ? "radial-gradient(circle, rgba(124,108,180,0.1) 0%, rgba(124,108,180,0.03) 30%, rgba(124,108,180,0) 70%)"
             : "radial-gradient(circle, rgba(139,92,246,0.3) 0%, rgba(139,92,246,0.1) 30%, rgba(139,92,246,0) 70%)",
           willChange: "transform",
         }}

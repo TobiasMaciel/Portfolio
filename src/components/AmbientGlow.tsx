@@ -177,7 +177,7 @@ export default function AmbientGlow() {
       className="absolute inset-0 overflow-visible pointer-events-none z-0"
       suppressHydrationWarning
     >
-      {/* Luz Esmeralda/Cyan */}
+      {/* Luz Cian */}
       <div
         ref={orb1Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-700"
@@ -185,13 +185,13 @@ export default function AmbientGlow() {
           width: 500,
           height: 500,
           background: isDark
-            ? "radial-gradient(circle, rgba(16,185,129,0.3) 0%, rgba(16,185,129,0) 70%)"
-            : "radial-gradient(circle, rgba(16,185,129,0.5) 0%, rgba(16,185,129,0) 70%)",
+            ? "radial-gradient(circle, rgba(111,179,194,0.3) 0%, rgba(111,179,194,0) 70%)"
+            : "radial-gradient(circle, rgba(34,211,238,0.5) 0%, rgba(34,211,238,0) 70%)",
           filter: "blur(40px)",
           willChange: "transform",
         }}
       />
-      {/* Luz Fucsia/Purpura */}
+      {/* Luz Azul */}
       <div
         ref={orb2Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-700"
@@ -199,13 +199,13 @@ export default function AmbientGlow() {
           width: 600,
           height: 600,
           background: isDark
-            ? "radial-gradient(circle, rgba(217,70,239,0.3) 0%, rgba(217,70,239,0) 70%)"
-            : "radial-gradient(circle, rgba(217,70,239,0.5) 0%, rgba(217,70,239,0) 70%)",
+            ? "radial-gradient(circle, rgba(92,124,170,0.3) 0%, rgba(92,124,170,0) 70%)"
+            : "radial-gradient(circle, rgba(59,130,246,0.5) 0%, rgba(59,130,246,0) 70%)",
           filter: "blur(40px)",
           willChange: "transform",
         }}
       />
-      {/* Luz Azul */}
+      {/* Luz Violeta */}
       <div
         ref={orb3Ref}
         className="absolute top-0 left-0 rounded-full transition-opacity duration-700"
@@ -213,8 +213,8 @@ export default function AmbientGlow() {
           width: 400,
           height: 400,
           background: isDark
-            ? "radial-gradient(circle, rgba(59,130,246,0.3) 0%, rgba(59,130,246,0) 70%)"
-            : "radial-gradient(circle, rgba(59,130,246,0.5) 0%, rgba(59,130,246,0) 70%)",
+            ? "radial-gradient(circle, rgba(124,108,180,0.3) 0%, rgba(124,108,180,0) 70%)"
+            : "radial-gradient(circle, rgba(139,92,246,0.5) 0%, rgba(139,92,246,0) 70%)",
           filter: "blur(40px)",
           willChange: "transform",
         }}

@@ -38,7 +38,7 @@ export default function AchievementsSection({
               >
                 <span
                   aria-hidden="true"
-                  className="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand shadow-[0_0_12px_rgba(167,139,250,0.8)] transition-transform group-hover:scale-125"
+                  className="mt-2 h-2 w-2 shrink-0 rounded-full bg-brand shadow-[0_0_10px_var(--brand)] transition-transform group-hover:scale-125"
                 />
                 <div>
                   <p className="mb-1 text-xs font-bold tracking-wide text-accent">

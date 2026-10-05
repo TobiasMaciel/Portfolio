@@ -2,9 +2,9 @@
   "categories": [
     {
       "label": { "es": "Frontend", "en": "Frontend" },
-      "color": "#A78BFA",
-      "borderHover": "hover:border-[#A78BFA]/50",
-      "textHover": "hover:text-[#A78BFA]",
+      "color": "#22D3EE",
+      "borderHover": "hover:border-cyan-400/50",
+      "textHover": "hover:text-cyan-500",
       "tags": ["React", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS", "shadcn/ui", "React Native", "Angular", "Vite", "HTML", "CSS", "Chakra UI", "React Query", "Jest", "Cypress"]
     },
     {

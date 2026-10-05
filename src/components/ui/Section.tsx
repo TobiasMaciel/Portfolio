@@ -90,7 +90,7 @@ export default function Section({
   );
 }
 
-/** Soft violet light in a card corner that fades in on hover. */
+/** Soft cyan light in a card corner that fades in on hover. */
 export function CornerGlow({ always = false }: { always?: boolean }) {
   return (
     <span
