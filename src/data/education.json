@@ -2,92 +2,90 @@
   {
     "id": "isi",
     "period": {
-      "es": "2021 — 2026",
-      "en": "2021 — 2026"
+      "es": "2021 a 2026",
+      "en": "2021 to 2026"
     },
     "title": {
       "es": "Ingeniería en Sistemas de Información",
       "en": "Information Systems Engineering"
     },
     "institution": {
-      "es": "Universidad Tecnológica Nacional (UTN)",
-      "en": "National Technological University (UTN)"
+      "es": "Universidad Tecnológica Nacional, Facultad Regional Resistencia",
+      "en": "National Technological University, Resistencia Regional Faculty"
     },
     "tags": {
       "es": [
-        "Ingeniero en Sistemas",
-        "Full Stack Engineer",
-        "IA Engineer"
+        "Desarrollo de software",
+        "Inteligencia artificial",
+        "DevOps y cloud"
       ],
       "en": [
-        "Systems Engineer",
-        "Full Stack Engineer",
-        "AI Engineer"
+        "Software development",
+        "Artificial intelligence",
+        "DevOps and cloud"
       ]
     },
     "description": {
-      "es": "Graduado de Ingeniería en Sistemas de Información con formación integral en arquitectura de software, inteligencia artificial, agentes autónomos y liderazgo técnico en soluciones escalables.",
-      "en": "Graduated in Information Systems Engineering with comprehensive training in software architecture, artificial intelligence, autonomous agents, and technical leadership in scalable solutions."
+      "es": "Ingeniero en Sistemas de Información. Me formé en arquitectura de software, inteligencia artificial y gestión de proyectos, y orienté mi proyecto final a una solución con IA generativa.",
+      "en": "Information Systems Engineer. I trained in software architecture, artificial intelligence and project management, and focused my final project on a generative AI solution."
     }
   },
   {
     "id": "analista",
     "period": {
-      "es": "2021 — 2025",
-      "en": "2021 — 2025"
+      "es": "2021 a 2025",
+      "en": "2021 to 2025"
     },
     "title": {
-      "es": "Analista Desarrollador Universitario en Sistemas",
-      "en": "University Systems Developer Analyst"
+      "es": "Analista Universitario de Sistemas",
+      "en": "University Systems Analyst"
     },
     "institution": {
-      "es": "Universidad Tecnológica Nacional (UTN)",
-      "en": "National Technological University (UTN)"
+      "es": "Universidad Tecnológica Nacional, Facultad Regional Resistencia",
+      "en": "National Technological University, Resistencia Regional Faculty"
     },
     "tags": {
       "es": [
-        "Desarrollo de Software",
-        "Bases de Datos",
-        "Metodologías Ágiles"
+        "Desarrollo de software",
+        "Bases de datos",
+        "Metodologías ágiles"
       ],
       "en": [
-        "Software Development",
+        "Software development",
         "Databases",
-        "Agile Methodologies"
+        "Agile methods"
       ]
     },
     "description": {
-      "es": "Título de grado universitario enfocado en diseño, análisis, desarrollo e implementación técnica de software y estructuras de datos.",
-      "en": "University degree focused on technical design, analysis, development, and implementation of software and data structures."
+      "es": "Título intermedio de la carrera, centrado en el análisis, el diseño y el desarrollo de software y bases de datos.",
+      "en": "Intermediate degree of the program, focused on the analysis, design and development of software and databases."
     }
   },
   {
     "id": "english",
     "period": {
-      "es": "2014 — 2020",
-      "en": "2014 — 2020"
+      "es": "2014 a 2020",
+      "en": "2014 to 2020"
     },
     "title": {
-      "es": "Curso Regular de Inglés Intermedio B2",
-      "en": "Regular Intermediate English Course B2"
+      "es": "Inglés, nivel intermedio B2",
+      "en": "English, upper-intermediate B2"
     },
     "institution": {
       "es": "Instituto Josefina Contte",
-      "en": "Josefina Contte Institute"
+      "en": "Instituto Josefina Contte"
     },
     "tags": {
       "es": [
-        "Inglés B2",
-        "Comunicación Profesional"
+        "Inglés B2"
       ],
       "en": [
-        "English B2",
-        "Professional Communication"
+        "English B2"
       ]
     },
     "description": {
-      "es": "Competencia y solidez en comunicación técnica, comprensión lectora y expresión oral en idioma inglés.",
-      "en": "Competence and proficiency in technical communication, reading comprehension, and oral expression in English."
+      "es": "Lectura técnica, escritura y conversación en inglés.",
+      "en": "Technical reading, writing and conversation in English."
     }
   }
 ]

@@ -1,160 +1,62 @@
 [
   {
-    "id": "cubesat",
-    "period": {
-      "es": "MARZO 2025 — PRESENTE",
-      "en": "MARCH 2025 — PRESENT"
-    },
-    "title": {
-      "es": "CubeSat UTN — Finalista Nacional",
-      "en": "CubeSat UTN — National Finalist"
-    },
-    "subtitle": {
-      "es": "UTN FRRe / UTN Haedo — Laboratorio de Propulsión",
-      "en": "UTN FRRe / UTN Haedo — Propulsion Laboratory"
-    },
-    "role": {
-      "es": "Software, Telemetría y Datos",
-      "en": "Software, Telemetry & Data"
-    },
-    "summary": {
-      "es": "Participación en el diseño y desarrollo de un satélite a escala (CubeSat), integrando física, tecnología y programación para toma de datos en tiempo real.",
-      "en": "Participation in the design and development of a scale satellite (CubeSat), integrating physics, technology, and programming for real-time data collection."
-    },
-    "description": {
-      "es": "Proyecto interdisciplinar coordinado por la Secretaría de Extensión Universitaria y el Laboratorio de Propulsión de la UTN Haedo. El desarrollo implica el diseño de sistemas para la toma y análisis de datos en tiempo real, cumpliendo con los estándares técnicos requeridos para lanzamientos en cohetes portadores del Grupo de Lanzadores Tecnológicos. Formé parte del equipo encargado de los aspectos de software y telemetría.",
-      "en": "Interdisciplinary project coordinated by the University Extension Secretariat and the Propulsion Laboratory of UTN Haedo. Development involves designing systems for real-time data collection and analysis, meeting the technical standards required for rocket launches by the Technological Launchers Group. I was part of the team in charge of software and telemetry aspects."
-    },
-    "bullets": {
-      "es": [
-        "Diseño interdisciplinar aplicado a física y tecnología satelital con microcontroladores NodeMCU UNO.",
-        "Implementación de comunicación USB y Serial para adquisición de datos y monitoreo constante.",
-        "Desarrollo de scripts propios de prueba en C++ para simulación de lectura de sensores críticos.",
-        "Verificación y validación de sistemas de almacenamiento de datos mediante software especializado (Arduino IDE).",
-        "Cumplimiento de estándares del Grupo de Lanzadores Tecnológicos para misiones reales."
-      ],
-      "en": [
-        "Interdisciplinary design applied to physics and satellite technology with NodeMCU UNO microcontrollers.",
-        "USB and Serial communication implementation for constant data acquisition and monitoring.",
-        "Development of custom C++ test scripts for simulating critical sensor readings.",
-        "Verification and validation of data storage systems using specialized software (Arduino IDE).",
-        "Compliance with Technological Launcher Group standards for real-world missions."
-      ]
-    },
-    "stack": ["C++", "Arduino IDE", "NodeMCU UNO", "Data Acquisition"],
-    "images": [
-      "/proyectos/cubesat/Cubesat1UDelCDR (5).png",
-      "/proyectos/cubesat/Cubesat1UDelCDR (8).png",
-      "/proyectos/cubesat/ActoFinal1.png"
-    ]
-  },
-  {
-    "id": "sgi",
-    "period": {
-      "es": "ABRIL 2023 — PRESENTE",
-      "en": "APRIL 2023 — PRESENT"
-    },
-    "title": {
-      "es": "Sistema de Gestión de Investigación",
-      "en": "Research Management System"
-    },
-    "subtitle": {
-      "es": "Secretaría de Ciencia y Tecnología — UTN FRRe",
-      "en": "Sec. of Science & Technology — UTN FRRe"
-    },
-    "role": {
-      "es": "Desarrollador Full-Stack",
-      "en": "Full-Stack Developer"
-    },
-    "summary": {
-      "es": "Plataforma de gestión integral que centraliza al 100% la información de investigadores, proyectos e I+D de la Facultad Regional.",
-      "en": "Comprehensive management platform centralizing 100% of the Faculty's researchers, projects and R&D information."
-    },
-    "description": {
-      "es": "Plataforma de gestión integral desarrollada para la Secretaría de Ciencia y Tecnología de la UTN-FRRe. Centraliza al 100% la información de investigadores, proyectos e I+D de la Facultad Regional bajo una arquitectura cliente-servidor escalable. El sistema incluye módulos completos de ABM, diseño del modelo de datos (DER) y exportación de reportes, con autenticación segura basada en JWT.",
-      "en": "Comprehensive management platform developed for the Science and Technology Secretariat of UTN-FRRe. Centralizes 100% of the Faculty's researchers, projects and R&D information under a scalable client-server architecture. The system includes full CRUD modules, data model design (ERD) and report exports, with secure JWT-based authentication."
-    },
-    "bullets": {
-      "es": [
-        "Diseño e implementación de interfaces con React.js, ChakraUI y TanStack Query.",
-        "Desarrollo de API REST con Node.js y Express bajo arquitectura multicapa.",
-        "Base de datos PostgreSQL con Prisma ORM.",
-        "Ciclo completo: relevamiento, diseño, desarrollo, pruebas y despliegue continuo en Render.",
-        "Desarrollo y soporte del sistema integral utilizando Node.js, Express, Prisma y PostgreSQL.",
-        "Diseño y mantenimiento del modelo de datos y pantallas trabajando a la par del Product Owner.",
-        "Realización de pruebas y control de versiones con Git/GitHub, garantizando calidad y escalabilidad."
-      ],
-      "en": [
-        "Interface design and implementation using React.js, ChakraUI, and TanStack Query.",
-        "REST API development with Node.js and Express under multi-layer architecture.",
-        "PostgreSQL database with Prisma ORM.",
-        "Full cycle: requirement gathering, design, development, testing, and continuous deployment on Render.",
-        "Development and support of the integral system using Node.js, Express, Prisma, and PostgreSQL.",
-        "Data model and screen design and maintenance working alongside the Product Owner.",
-        "Testing and version control with Git/GitHub, ensuring quality and scalability."
-      ]
-    },
-    "stack": ["Node.js", "Express", "Prisma ORM", "PostgreSQL", "React", "Vite", "Chakra UI", "TanStack Query", "JWT", "Git", "Render"],
-    "github": "https://github.com/SixtoArrejin/frre-scyt-research-manager",
-    "images": [
-      "/proyectos/secretaria/scyt-1.png",
-      "/proyectos/secretaria/scyt-2.png",
-      "/proyectos/secretaria/scyt-3.png",
-      "/proyectos/secretaria/scyt-4.png",
-      "/proyectos/secretaria/scyt-5.png",
-      "/proyectos/secretaria/scyt-7.png",
-      "/proyectos/secretaria/scyt-6.png"
-    ]
-  },
-  {
     "id": "elepad",
     "period": {
-      "es": "MARZO 2025 — MARZO 2026",
-      "en": "MARCH 2025 — MARCH 2026"
+      "es": "Marzo 2025 a marzo 2026",
+      "en": "March 2025 to March 2026"
     },
     "title": {
-      "es": "Elepad — Bienestar Cognitivo con IA",
-      "en": "Elepad — Cognitive Wellbeing with AI"
+      "es": "Elepad",
+      "en": "Elepad"
     },
     "subtitle": {
-      "es": "Proyecto Final de Grado — UTN FRRe",
-      "en": "Final Graduation Project — UTN FRRe"
+      "es": "Proyecto final de carrera, UTN FRRe",
+      "en": "Final degree project, UTN FRRe"
     },
     "role": {
-      "es": "Desarrollador Full-Stack",
-      "en": "Full-Stack Developer"
+      "es": "Desarrollador Full Stack",
+      "en": "Full Stack Developer"
     },
     "summary": {
-      "es": "Aplicación móvil multiplataforma que integra Google Gemini AI para transformar recuerdos en álbumes digitales narrativos y bienestar cognitivo.",
-      "en": "Cross-platform mobile application integrating Google Gemini AI to transform memories into narrative digital albums and cognitive wellbeing."
+      "es": "App móvil para adultos mayores que usa Google Gemini para convertir recuerdos en álbumes narrados. Publicada en Google Play.",
+      "en": "Mobile app for older adults that uses Google Gemini to turn memories into narrated albums. Live on Google Play."
     },
     "description": {
-      "es": "Elepad es una solución tecnológica diseñada para mejorar la calidad de vida de adultos mayores mediante IA Generativa (Google Gemini), permitiendo compartir recuerdos, gestionar agendas y entrenar la mente. Originada como propuesta ganadora del Rally Latinoamericano de Innovación 2024 (3er puesto Impacto Social), evoluciona a un sistema complejo monorepo con despliegue continuo. Disponible en Google Play Store.",
-      "en": "Elepad is a technological solution designed to improve seniors' quality of life using Generative AI (Google Gemini) for sharing memories, managing schedules, and mind training. Originated as the winning proposal of the 2024 Latin American innovation Rally (3rd place Social Impact), it evolved into a complex monorepo system with continuous deployment. Available on Google Play Store."
+      "es": "Elepad nació como propuesta en el Rally Latinoamericano de Innovación 2024, donde obtuvo el 3.er puesto en Impacto Social, y se convirtió en nuestro proyecto final. Ayuda a los adultos mayores a compartir recuerdos con su familia, organizar su agenda y ejercitar la memoria. La desarrollamos en equipo con Scrum, en un monorepo con despliegue continuo, y hoy está publicada en Google Play.",
+      "en": "Elepad started as a proposal at the 2024 Latin American Innovation Rally, where it won 3rd place in Social Impact, and became our final degree project. It helps older adults share memories with their family, organize their schedule and exercise their memory. We built it as a team with Scrum, in a monorepo with continuous deployment, and it's now live on Google Play."
     },
     "bullets": {
       "es": [
-        "Integración de Google Gemini AI para la síntesis de recuerdos y creación automatizada de álbumes narrativos.",
-        "Desarrollo móvil con React Native + Expo y TypeScript para iOS/Android/Web.",
-        "Arquitectura Backend Serverless con Cloudflare Workers, Hono y OpenAPI.",
-        "Supabase para PostgreSQL, Auth (Google OAuth), Storage y Realtime.",
-        "Estructura de Monorepo con Turborepo, optimizando tiempos de build y desarrollo.",
-        "CI/CD automatizado con GitHub Actions hacia Cloudflare y Expo EAS.",
-        "Gestión de equipo bajo metodología Scrum con 7 releases documentadas."
+        "Integré Google Gemini para resumir recuerdos y armar álbumes narrados de forma automática.",
+        "Desarrollé la app con React Native, Expo y TypeScript para Android, iOS y web.",
+        "Armé el backend serverless con Cloudflare Workers, Hono y documentación OpenAPI.",
+        "Usé Supabase para la base de datos, el login con Google, los archivos y las actualizaciones en tiempo real.",
+        "Organicé el monorepo con Turborepo y automaticé los despliegues con GitHub Actions y Expo EAS.",
+        "Trabajamos con Scrum y publicamos 7 versiones documentadas."
       ],
       "en": [
-        "Google Gemini AI integration for memory synthesis and automated narrative album creation.",
-        "Mobile development with React Native + Expo and TypeScript for iOS/Android/Web.",
-        "Serverless Backend Architecture with Cloudflare Workers, Hono, and OpenAPI.",
-        "Supabase for PostgreSQL, Auth (Google OAuth), Storage, and Realtime.",
-        "Monorepo structure with Turborepo, optimizing build and development times.",
-        "Automated CI/CD with GitHub Actions to Cloudflare and Expo EAS.",
-        "Team management under Scrum methodology with 7 documented releases."
+        "Integrated Google Gemini to summarize memories and build narrated albums automatically.",
+        "Built the app with React Native, Expo and TypeScript for Android, iOS and web.",
+        "Set up the serverless backend with Cloudflare Workers, Hono and OpenAPI docs.",
+        "Used Supabase for the database, Google sign-in, file storage and real-time updates.",
+        "Organized the monorepo with Turborepo and automated deployments with GitHub Actions and Expo EAS.",
+        "We worked with Scrum and shipped 7 documented releases."
       ]
     },
-    "stack": ["Google Gemini AI", "React Native", "Expo", "TypeScript", "Cloudflare Workers", "Hono", "Supabase", "PostgreSQL", "Turborepo", "GitHub Actions", "Zod", "OpenAPI"],
-    "github": "https://github.com/elepad-org/Elepad",
-    "googleplay": "https://play.google.com/store/apps/details?id=com.proyectoelepad.elepad",
+    "stack": [
+      "Google Gemini",
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "Cloudflare Workers",
+      "Hono",
+      "Supabase",
+      "PostgreSQL",
+      "Turborepo",
+      "GitHub Actions",
+      "Zod",
+      "OpenAPI"
+    ],
     "images": [
       "/proyectos/elepad/image95.jpg",
       "/proyectos/elepad/image101.jpg",
@@ -162,53 +64,63 @@
       "/proyectos/elepad/image127.jpg",
       "/proyectos/elepad/image141.jpg",
       "/proyectos/elepad/image161.jpg"
-    ]
+    ],
+    "github": "https://github.com/elepad-org/Elepad",
+    "googleplay": "https://play.google.com/store/apps/details?id=com.proyectoelepad.elepad"
   },
   {
     "id": "ai-sales-agent",
     "period": {
-      "es": "ENERO 2026 — FEBRERO 2026",
-      "en": "JANUARY 2026 — FEBRUARY 2026"
+      "es": "Enero 2026 a febrero 2026",
+      "en": "January 2026 to February 2026"
     },
     "title": {
-      "es": "Agente de Ventas Transaccional IA",
-      "en": "AI Transactional Sales Agent"
+      "es": "Agente de ventas con IA",
+      "en": "AI sales agent"
     },
     "subtitle": {
-      "es": "Arquitectura de Agentes y MCP Backend",
-      "en": "Agent Architecture & MCP Backend"
+      "es": "Agentes de IA y MCP",
+      "en": "AI agents and MCP"
     },
     "role": {
-      "es": "AI Engineer",
-      "en": "AI Engineer"
+      "es": "Desarrollador de IA",
+      "en": "AI Developer"
     },
     "summary": {
-      "es": "Diseño e implementación de un agente de IA autónomo para ventas integrando LLMs, CRM (Chatwoot) y WhatsApp mediante arquitectura MCP.",
-      "en": "Design and implementation of an autonomous AI sales agent integrating LLMs, CRM (Chatwoot), and WhatsApp using MCP architecture."
+      "es": "Agente que vende por WhatsApp: busca productos, arma el carrito y cierra pedidos, conectado al CRM Chatwoot mediante MCP.",
+      "en": "An agent that sells over WhatsApp: it finds products, fills the cart and closes orders, connected to the Chatwoot CRM through MCP."
     },
     "description": {
-      "es": "Desarrollo de un ecosistema de ventas automatizado que orquesta Modelos de Lenguaje de Gran Escala (LLMs) con herramientas de negocio en tiempo real. La arquitectura utiliza el Model Context Protocol (MCP) desplegado sobre Cloudflare Workers para gestionar inventarios, carritos de compra y lógica transaccional con latencia mínima, garantizando una experiencia de usuario fluida y segura en el Edge.",
-      "en": "Development of an automated sales ecosystem orchestrating Large Language Models (LLMs) with real-time business tools. The architecture uses the Model Context Protocol (MCP) deployed on Cloudflare Workers to manage inventory, shopping carts, and transactional logic with minimal latency, ensuring a smooth and secure user experience at the Edge."
+      "es": "Un agente conversacional que atiende clientes por WhatsApp y concreta ventas de punta a punta. El modelo de lenguaje no inventa datos: consulta el inventario y opera el carrito a través de herramientas expuestas con Model Context Protocol (MCP), desplegadas en Cloudflare Workers con base de datos D1. Las conversaciones quedan en Chatwoot para que un vendedor pueda intervenir cuando haga falta.",
+      "en": "A conversational agent that serves customers on WhatsApp and closes sales end to end. The language model doesn't make up data: it checks inventory and operates the cart through tools exposed with the Model Context Protocol (MCP), deployed on Cloudflare Workers with a D1 database. Conversations land in Chatwoot so a salesperson can step in when needed."
     },
     "bullets": {
       "es": [
-        "Integración de GPT-5-Chat mediante WhatsApp and Chatwoot CRM para automatización de ventas en tiempo real.",
-        "MCP Backend sobre Cloudflare Workers gestionando inventario y carritos mediante bases de datos D1.",
-        "Implementación de herramientas (tools) para búsqueda de productos, gestión de stock e integraciones externas.",
-        "Prompteado avanzado y control de contexto para minimizar alucinaciones y optimizar tokens.",
-        "Diseño de flujos de compra seguros con validaciones de tipo en TypeScript.",
-        "Testing de escenarios reales y guardrails para asegurar respuestas consistentes del agente."
+        "Conecté un modelo de OpenAI con WhatsApp y Chatwoot para atender ventas en tiempo real.",
+        "Desarrollé un servidor MCP en Cloudflare Workers que maneja el inventario y los carritos sobre D1.",
+        "Creé herramientas para buscar productos, consultar stock y cerrar pedidos.",
+        "Ajusté los prompts y el contexto para reducir alucinaciones y consumo de tokens.",
+        "Validé los flujos de compra con tipos estrictos de TypeScript y casos de prueba reales."
       ],
       "en": [
-        "GPT-5-Chat integration via WhatsApp and Chatwoot CRM for real-time sales automation.",
-        "MCP Backend on Cloudflare Workers managing inventory and carts through D1 databases.",
-        "Tool implementation for product search, stock management, and external integrations.",
-        "Advanced prompting and context control to minimize hallucinations and optimize tokens.",
-        "Secure checkout flows design with TypeScript type safety validations.",
-        "Real-world scenario testing and guardrails to ensure consistent agent responses."
+        "Connected an OpenAI model to WhatsApp and Chatwoot to handle sales in real time.",
+        "Built an MCP server on Cloudflare Workers that manages inventory and carts on D1.",
+        "Created tools to search products, check stock and close orders.",
+        "Tuned prompts and context to reduce hallucinations and token usage.",
+        "Validated purchase flows with strict TypeScript types and real test cases."
       ]
     },
-    "stack": ["LLM", "MCP Protocol", "Cloudflare D1", "Cloudflare Workers", "Hono", "TypeScript", "Chatwoot", "WhatsApp Integration", "GitHub Actions", "GPT-5-Chat", "Cloudflare"],
+    "stack": [
+      "OpenAI API",
+      "MCP",
+      "Cloudflare Workers",
+      "Cloudflare D1",
+      "Hono",
+      "TypeScript",
+      "Chatwoot",
+      "WhatsApp",
+      "GitHub Actions"
+    ],
     "images": [
       "/proyectos/agenteVentas/1.jpeg",
       "/proyectos/agenteVentas/2.jpeg",
@@ -218,148 +130,301 @@
     ]
   },
   {
-    "id": "ciencia-de-datos",
+    "id": "sgi",
     "period": {
-      "es": "AGOSTO 2025 — DICIEMBRE 2025",
-      "en": "AUGUST 2025 — DECEMBER 2025"
+      "es": "Desde abril 2023",
+      "en": "Since April 2023"
     },
     "title": {
-      "es": "Ciencia de Datos — Equipo Lambda",
-      "en": "Data Science — Lambda Team"
+      "es": "Sistema de Gestión de Investigación",
+      "en": "Research Management System"
     },
     "subtitle": {
-      "es": "UTN FRRe — Ingeniería en Sistemas",
-      "en": "UTN FRRe — Systems Engineering"
+      "es": "Secretaría de Ciencia y Tecnología, UTN FRRe",
+      "en": "Secretariat of Science and Technology, UTN FRRe"
     },
     "role": {
-      "es": "Data Scientist",
-      "en": "Data Scientist"
+      "es": "Desarrollador Full Stack",
+      "en": "Full Stack Developer"
     },
     "summary": {
-      "es": "Colección de laboratorios de ciencia de datos: visualización avanzada, análisis geoespacial y encoding de variables.",
-      "en": "Data science labs collection: advanced visualization, geospatial analysis, and variable encoding."
+      "es": "Plataforma web que centraliza investigadores, becarios y proyectos de I+D de la UTN FRRe. En producción desde 2023.",
+      "en": "Web platform that centralizes UTN FRRe's researchers, fellows and R&D projects. In production since 2023."
     },
     "description": {
-      "es": "Desarrollo integral de proyectos de ciencia de datos aplicados a problemas reales. El portafolio incluye tres laboratorios fundamentales: 1) Exploración y visualización avanzada de datos con Matplotlib y Seaborn; 2) Análisis de asociaciones y visualización de datos geoespaciales (World Happiness Report); y 3) Preprocesamiento y encoding de variables categóricas para modelos de aprendizaje automático.",
-      "en": "Integral development of data science projects applied to real-world problems. The portfolio includes three fundamental labs: 1) Advanced data exploration and visualization with Matplotlib and Seaborn; 2) Association analysis and geospatial data visualization (World Happiness Report); and 3) Preprocessing and encoding of categorical variables for machine learning models."
+      "es": "Sistema cliente-servidor que reemplazó registros dispersos por una sola fuente de información para la Secretaría. Incluye la gestión completa de investigadores, becarios, proyectos y grupos, exportación de reportes y acceso seguro con JWT. Participé en todo el ciclo: relevamiento, modelo de datos, desarrollo, pruebas y despliegue.",
+      "en": "Client-server system that replaced scattered records with a single source of truth for the Secretariat. It covers full management of researchers, fellows, projects and groups, report exports and secure access with JWT. I took part in the whole cycle: requirements, data model, development, testing and deployment."
     },
     "bullets": {
       "es": [
-        "Lab 1: Implementación práctica de técnicas de visualización (McKinney) sobre Wine Dataset.",
-        "Lab 2: Análisis geoespacial con GeoPandas y visualización de asociaciones complejas.",
-        "Lab 3: Feature Engineering: One-Hot y Ordinal Encoding aplicado al Indian Food Dataset.",
-        "Stack profesional: Uso intensivo de Pandas, NumPy, Scikit-learn y Jupyter Notebooks.",
-        "Metodología: Aplicación de conceptos teóricos a flujos de trabajo de análisis real."
+        "Desarrollé la interfaz con React, Chakra UI y TanStack Query.",
+        "Construí la API REST con Node.js y Express en una arquitectura por capas.",
+        "Diseñé el modelo de datos en PostgreSQL y lo implementé con Prisma.",
+        "Implementé la autenticación con JWT y la exportación de reportes.",
+        "Configuré el despliegue continuo en Render."
       ],
       "en": [
-        "Lab 1: Practical implementation of visualization techniques (McKinney) on Wine Dataset.",
-        "Lab 2: Geospatial analysis with GeoPandas and complex association visualization.",
-        "Lab 3: Feature Engineering: One-Hot and Ordinal Encoding applied to Indian Food Dataset.",
-        "Professional Stack: Intensive use of Pandas, NumPy, Scikit-learn, and Jupyter Notebooks.",
-        "Methodology: Application of theoretical concepts to real-world analysis workflows."
+        "Built the interface with React, Chakra UI and TanStack Query.",
+        "Built the REST API with Node.js and Express in a layered architecture.",
+        "Designed the PostgreSQL data model and implemented it with Prisma.",
+        "Implemented JWT authentication and report exports.",
+        "Set up continuous deployment on Render."
       ]
     },
-    "stack": ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Scikit-learn", "GeoPandas", "Jupyter"],
-    "github": "https://github.com/TobiasMaciel/CienciaDeDatos2025",
-    "images": ["/proyectos/cienciaDeDatos/1.png", "/proyectos/cienciaDeDatos/2.png"]
+    "stack": [
+      "Node.js",
+      "Express",
+      "Prisma ORM",
+      "PostgreSQL",
+      "React",
+      "Vite",
+      "Chakra UI",
+      "TanStack Query",
+      "JWT",
+      "Git",
+      "Render"
+    ],
+    "images": [
+      "/proyectos/secretaria/scyt-1.png",
+      "/proyectos/secretaria/scyt-2.png",
+      "/proyectos/secretaria/scyt-3.png",
+      "/proyectos/secretaria/scyt-4.png",
+      "/proyectos/secretaria/scyt-5.png",
+      "/proyectos/secretaria/scyt-7.png",
+      "/proyectos/secretaria/scyt-6.png"
+    ],
+    "github": "https://github.com/SixtoArrejin/frre-scyt-research-manager"
+  },
+  {
+    "id": "tup",
+    "period": {
+      "es": "Marzo 2024 a diciembre 2024",
+      "en": "March 2024 to December 2024"
+    },
+    "title": {
+      "es": "Sistema de gestión académica TUP",
+      "en": "TUP academic management system"
+    },
+    "subtitle": {
+      "es": "Tecnicatura Universitaria en Programación, UTN FRRe",
+      "en": "University Programming Degree, UTN FRRe"
+    },
+    "role": {
+      "es": "Desarrollador Full Stack y DevOps",
+      "en": "Full Stack and DevOps Developer"
+    },
+    "summary": {
+      "es": "Sistema de gestión para la Tecnicatura Universitaria en Programación, con Django y React. El tiempo de despliegue bajó de 30 a menos de 5 minutos.",
+      "en": "Management system for the University Programming Degree, built with Django and React. Deployment time went from 30 to under 5 minutes."
+    },
+    "description": {
+      "es": "Aplicación web para gestionar la Tecnicatura Universitaria en Programación de la UTN FRRe, desarrollada en equipo durante el Seminario Integrador 2024. El frontend usa React con TypeScript y Vite, y el backend Django con una API documentada en Swagger y ReDoc. Además del desarrollo, me ocupé de los contenedores y del pipeline de integración y despliegue.",
+      "en": "Web application to manage UTN FRRe's University Programming Degree, built as a team during the 2024 Integrative Seminar. The frontend uses React with TypeScript and Vite, and the backend Django with an API documented in Swagger and ReDoc. Besides development, I took care of the containers and the integration and deployment pipeline."
+    },
+    "bullets": {
+      "es": [
+        "Desarrollé funcionalidades y APIs con Django, React, TypeScript y Vite.",
+        "Contenericé los servicios con Docker y Docker Compose.",
+        "Automaticé el build, las pruebas y el despliegue: de 30 minutos a menos de 5.",
+        "Desplegué la infraestructura en Google Cloud.",
+        "Documenté la API con Swagger UI y ReDoc.",
+        "Hice revisión de código y seguimiento de tareas en Jira con metodologías ágiles."
+      ],
+      "en": [
+        "Built features and APIs with Django, React, TypeScript and Vite.",
+        "Containerized the services with Docker and Docker Compose.",
+        "Automated build, tests and deployment: from 30 minutes to under 5.",
+        "Deployed the infrastructure on Google Cloud.",
+        "Documented the API with Swagger UI and ReDoc.",
+        "Did code review and task tracking in Jira with agile methods."
+      ]
+    },
+    "stack": [
+      "Python",
+      "Django",
+      "React",
+      "TypeScript",
+      "Vite",
+      "Docker",
+      "Docker Compose",
+      "GitHub Actions",
+      "Google Cloud",
+      "Jira",
+      "PostgreSQL"
+    ],
+    "images": [
+      "/proyectos/tup/tup-preview.png",
+      "/proyectos/tup/tup-preview-2.png",
+      "/proyectos/tup/tup-preview-3.png",
+      "/proyectos/tup/tup-preview-4.png",
+      "/proyectos/tup/tup-preview-5.png",
+      "/proyectos/tup/tup-preview-6.png"
+    ],
+    "github": "https://github.com/Seminario-Integrador-2024/GestionTUP"
+  },
+  {
+    "id": "cubesat",
+    "period": {
+      "es": "Desde marzo 2025",
+      "en": "Since March 2025"
+    },
+    "title": {
+      "es": "CubeSat UTN",
+      "en": "CubeSat UTN"
+    },
+    "subtitle": {
+      "es": "UTN FRRe y Laboratorio de Propulsión de UTN Haedo",
+      "en": "UTN FRRe and UTN Haedo Propulsion Laboratory"
+    },
+    "role": {
+      "es": "Software, telemetría y datos",
+      "en": "Software, telemetry and data"
+    },
+    "summary": {
+      "es": "Satélite a escala desarrollado en equipo para medir y transmitir datos en tiempo real. Finalistas del certamen nacional.",
+      "en": "Scale satellite built as a team to measure and transmit data in real time. National contest finalists."
+    },
+    "description": {
+      "es": "Proyecto interdisciplinario coordinado por la Secretaría de Extensión Universitaria y el Laboratorio de Propulsión de la UTN Haedo. El satélite toma y analiza datos durante el vuelo y debe cumplir los estándares del Grupo de Lanzadores Tecnológicos para viajar en sus cohetes. Dentro del equipo me encargué del software y la telemetría.",
+      "en": "Interdisciplinary project coordinated by the University Extension Secretariat and the UTN Haedo Propulsion Laboratory. The satellite collects and analyzes data during flight and must meet the Technological Launchers Group standards to fly on their rockets. Within the team I handled software and telemetry."
+    },
+    "bullets": {
+      "es": [
+        "Programé la placa NodeMCU UNO para leer sensores y registrar datos.",
+        "Implementé la comunicación USB y serie para adquirir y monitorear datos en vivo.",
+        "Escribí pruebas en C++ que simulan la lectura de los sensores críticos.",
+        "Verifiqué el almacenamiento de datos con Arduino IDE.",
+        "Ajustamos el diseño a los estándares del Grupo de Lanzadores Tecnológicos."
+      ],
+      "en": [
+        "Programmed the NodeMCU UNO board to read sensors and log data.",
+        "Implemented USB and serial communication to acquire and monitor live data.",
+        "Wrote C++ tests that simulate reading the critical sensors.",
+        "Verified data storage with Arduino IDE.",
+        "We matched the design to the Technological Launchers Group standards."
+      ]
+    },
+    "stack": [
+      "C++",
+      "Arduino IDE",
+      "NodeMCU UNO"
+    ],
+    "images": [
+      "/proyectos/cubesat/Cubesat1UDelCDR (5).png",
+      "/proyectos/cubesat/Cubesat1UDelCDR (8).png",
+      "/proyectos/cubesat/ActoFinal1.png"
+    ]
   },
   {
     "id": "mlp-ia",
     "period": {
-      "es": "AGOSTO 2025 — DICIEMBRE 2025",
-      "en": "AUGUST 2025 — DECEMBER 2025"
+      "es": "Agosto 2025 a diciembre 2025",
+      "en": "August 2025 to December 2025"
     },
     "title": {
-      "es": "MLP — Investigación y Desarrollo de Redes Neuronales",
-      "en": "MLP — Neural Network Research & Development"
+      "es": "Red neuronal MLP desde cero",
+      "en": "MLP neural network from scratch"
     },
     "subtitle": {
-      "es": "UTN FRRe — Inteligencia Artificial",
-      "en": "UTN FRRe — Artificial Intelligence"
+      "es": "Inteligencia Artificial, UTN FRRe",
+      "en": "Artificial Intelligence, UTN FRRe"
     },
     "role": {
-      "es": "AI Research & Developer",
-      "en": "AI Research & Developer"
+      "es": "Investigación y desarrollo",
+      "en": "Research and development"
     },
     "summary": {
-      "es": "Investigación y desarrollo de una red neuronal Multilayer Perceptron (MLP) implementada desde cero con NumPy, enfocada en la robustez ante ruido y optimización de hiperparámetros.",
-      "en": "Research and development of a Multilayer Perceptron (MLP) neural network implemented from scratch with NumPy, focused on noise robustness and hyperparameter optimization."
+      "es": "Perceptrón multicapa programado solo con NumPy para reconocer letras en matrices de 10x10, probado con hasta 30% de ruido.",
+      "en": "Multilayer perceptron written with NumPy alone to recognize letters on 10x10 grids, tested with up to 30% noise."
     },
     "description": {
-      "es": "Este proyecto documenta la investigación exhaustiva sobre redes neuronales profundas para el reconocimiento de patrones ('b', 'd', 'f') en matrices de 10x10. Se implementó el motor de inferencia y entrenamiento íntegramente en cuadernos de Jupyter, permitiendo un análisis detallado de la estabilidad numérica, la convergencia mediante momentum y la capacidad de generalización del modelo frente a datos con ruido aleatorio significativo.",
-      "en": "This project documents extensive research on deep neural networks for pattern recognition ('b', 'd', 'f') in 10x10 matrices. The inference and training engine was implemented entirely within Jupyter notebooks, allowing for detailed analysis of numerical stability, momentum-based convergence, and the model's generalization capabilities when faced with significant random noise."
+      "es": "Investigación sobre redes neuronales para reconocer las letras b, d y f dibujadas en matrices de 10x10. Programé el entrenamiento y la inferencia sin librerías de machine learning, en notebooks de Jupyter, para estudiar en detalle la estabilidad numérica, la convergencia con momentum y cómo generaliza el modelo cuando los datos tienen ruido.",
+      "en": "Research on neural networks to recognize the letters b, d and f drawn on 10x10 grids. I wrote training and inference without machine learning libraries, in Jupyter notebooks, to study numerical stability, convergence with momentum and how the model generalizes when the data is noisy."
     },
     "bullets": {
       "es": [
-        "Implementación manual de la arquitectura MLP (100-10-5-3) y el algoritmo de backpropagation utilizando únicamente NumPy.",
-        "Refinamiento del motor de aprendizaje mediante el uso de momentum, mejorando significativamente la velocidad y estabilidad del entrenamiento.",
-        "Análisis de robustez mediante la generación de datasets sintéticos con inyección de ruido uniforme (del 1% al 30%).",
-        "Optimización de hiperparámetros mediante un proceso de Grid Search para determinar la tasa de aprendizaje y épocas ideales.",
-        "Implementación de funciones de activación sigmoides numéricamente estables para prevenir el desbordamiento de gradientes.",
-        "Visualización científica de curvas de pérdida (MSE) y precisión para validar el rendimiento del modelo en tiempo real."
+        "Implementé la arquitectura 100-10-5-3 y el backpropagation usando solo NumPy.",
+        "Agregué momentum para que el entrenamiento converja más rápido y de forma estable.",
+        "Generé datasets sintéticos con ruido del 1% al 30% para medir la robustez.",
+        "Busqué la tasa de aprendizaje y la cantidad de épocas óptimas con Grid Search.",
+        "Usé una sigmoide numéricamente estable para evitar desbordamientos.",
+        "Grafiqué las curvas de error (MSE) y de precisión para validar el modelo."
       ],
       "en": [
-        "Manual implementation of the MLP architecture (100-10-5-3) and backpropagation algorithm using only NumPy.",
-        "Refinement of the learning engine using momentum, significantly improving training speed and stability.",
-        "Robustness analysis through synthetic dataset generation with uniform noise injection (1% to 30%).",
-        "Hyperparameter optimization using a Grid Search process to determine ideal learning rate and epochs.",
-        "Implementation of numerically stable sigmoid activation functions to prevent gradient overflow.",
-        "Scientific visualization of loss (MSE) and accuracy curves to validate model performance in real-time."
+        "Implemented the 100-10-5-3 architecture and backpropagation with NumPy alone.",
+        "Added momentum so training converges faster and more steadily.",
+        "Generated synthetic datasets with 1% to 30% noise to measure robustness.",
+        "Searched for the best learning rate and number of epochs with Grid Search.",
+        "Used a numerically stable sigmoid to avoid overflow.",
+        "Plotted error (MSE) and accuracy curves to validate the model."
       ]
     },
-    "stack": ["Python", "NumPy", "Pandas", "Matplotlib", "Jupyter Notebook", "Machine Learning"],
-    "github": "https://github.com/elepad-org/mlp",
+    "stack": [
+      "Python",
+      "NumPy",
+      "Pandas",
+      "Matplotlib",
+      "Jupyter Notebook"
+    ],
     "images": [
       "/proyectos/MLP/1.png",
       "/proyectos/MLP/2.png",
       "/proyectos/MLP/3.png",
       "/proyectos/MLP/IA - Informe MLP.pdf"
     ],
+    "github": "https://github.com/elepad-org/mlp",
     "report": "/proyectos/MLP/IA - Informe MLP.pdf"
   },
   {
     "id": "devops-k8s",
     "period": {
-      "es": "OCTUBRE 2025 — NOVIEMBRE 2025",
-      "en": "OCTOBER 2025 — NOVEMBER 2025"
+      "es": "Octubre 2025 a noviembre 2025",
+      "en": "October 2025 to November 2025"
     },
     "title": {
-      "es": "DevOps — Kubernetes, Alta Disponibilidad y Observabilidad",
-      "en": "DevOps — Kubernetes, High Availability & Observability"
+      "es": "Microservicios en Kubernetes con observabilidad",
+      "en": "Microservices on Kubernetes with observability"
     },
     "subtitle": {
-      "es": "UTN FRRe — Arquitecturas de Microservicios",
-      "en": "UTN FRRe — Microservices Architecture"
+      "es": "Arquitecturas de Microservicios, UTN FRRe",
+      "en": "Microservice Architectures, UTN FRRe"
     },
     "role": {
       "es": "DevOps",
       "en": "DevOps"
     },
     "summary": {
-      "es": "Extensión del proyecto anterior incorporando orquestación con Kubernetes, alta disponibilidad y observabilidad completa.",
-      "en": "Extension of the previous project incorporating Kubernetes orchestration, high availability, and full observability."
+      "es": "Orquestación de una aplicación de microservicios en Kubernetes, con alta disponibilidad y monitoreo con Prometheus y Grafana.",
+      "en": "Orchestration of a microservices application on Kubernetes, with high availability and monitoring with Prometheus and Grafana."
     },
     "description": {
-      "es": "Extensión del proyecto anterior incorporando orquestación con Kubernetes, alta disponibilidad y observabilidad completa.",
-      "en": "Extension of the previous project incorporating Kubernetes orchestration, high availability, and full observability."
+      "es": "Desplegué una aplicación de microservicios en un clúster local de Kubernetes y la preparé para soportar fallas. Configuré réplicas distribuidas entre nodos, chequeos de salud y un stack de observabilidad con trazas, métricas y paneles. Después simulé caídas y picos de carga para comprobar que el sistema seguía respondiendo.",
+      "en": "I deployed a microservices application on a local Kubernetes cluster and prepared it to withstand failures. I set up replicas spread across nodes, health checks and an observability stack with traces, metrics and dashboards. Then I simulated outages and load spikes to check the system kept responding."
     },
     "bullets": {
       "es": [
-        "Despliegue de Cluster K3d con 1 nodo control-plane y 2 workers para entornos locales.",
-        "Configuración de alta disponibilidad con podAntiAffinity y Health Checks automáticos (cada 5-10s).",
-        "Stack de observabilidad completa: OpenTelemetry (trazas), Prometheus (métricas) y Grafana (dashboards).",
-        "Monitoreo de métricas críticas: RPS, latencia p95/p50, consumo de CPU/Memoria y reinicios de pods.",
-        "Simulación de fallos y saturación para validar la resiliencia de la arquitectura microservicios."
+        "Armé un clúster K3d con un nodo de control y dos workers.",
+        "Configuré alta disponibilidad con podAntiAffinity y health checks cada 5 a 10 segundos.",
+        "Instrumenté trazas con OpenTelemetry, métricas con Prometheus y paneles en Grafana.",
+        "Monitoreé RPS, latencia p50 y p95, CPU, memoria y reinicios de pods.",
+        "Simulé fallas y saturación para validar la resiliencia."
       ],
       "en": [
-        "K3d Cluster deployment with 1 control-plane node and 2 workers for local environments.",
-        "High availability configuration with podAntiAffinity and automatic Health Checks (5-10s).",
-        "Full observability stack: OpenTelemetry (traces), Prometheus (metrics), and Grafana (dashboards).",
-        "Critical metrics monitoring: RPS, p95/p50 latency, CPU/Memory consumption, and pod restarts.",
-        "Fault and saturation simulation to validate the resilience of the microservices architecture."
+        "Set up a K3d cluster with one control-plane node and two workers.",
+        "Configured high availability with podAntiAffinity and health checks every 5 to 10 seconds.",
+        "Instrumented traces with OpenTelemetry, metrics with Prometheus and dashboards in Grafana.",
+        "Monitored RPS, p50 and p95 latency, CPU, memory and pod restarts.",
+        "Simulated failures and saturation to validate resilience."
       ]
     },
-    "stack": ["Kubernetes", "K3d", "Prometheus", "Grafana", "OpenTelemetry", "Docker"],
+    "stack": [
+      "Kubernetes",
+      "K3d",
+      "Docker",
+      "OpenTelemetry",
+      "Prometheus",
+      "Grafana"
+    ],
     "images": [
       "/proyectos/devopsKubernetes/1-arquitectura-de-comunicacion.png",
       "/proyectos/devopsKubernetes/2-flujo-de-datos-detallados.png",
@@ -381,46 +446,52 @@
   {
     "id": "devops-azure",
     "period": {
-      "es": "AGOSTO 2025 — SEPTIEMBRE 2025",
-      "en": "AUGUST 2025 — SEPTEMBER 2025"
+      "es": "Agosto 2025 a septiembre 2025",
+      "en": "August 2025 to September 2025"
     },
     "title": {
-      "es": "DevOps — Contenerización y CI/CD en Azure",
-      "en": "DevOps — Containerization & CI/CD in Azure"
+      "es": "Contenedores y CI/CD en Azure",
+      "en": "Containers and CI/CD on Azure"
     },
     "subtitle": {
-      "es": "UTN FRRe — Cloud Computing",
-      "en": "UTN FRRe — Cloud Computing"
+      "es": "Cloud Computing, UTN FRRe",
+      "en": "Cloud Computing, UTN FRRe"
     },
     "role": {
       "es": "DevOps",
       "en": "DevOps"
     },
     "summary": {
-      "es": "Aplicación web con API Flask, frontend Next.js y Redis, completamente contenerizada y desplegada en Azure.",
-      "en": "Web application with Flask API, Next.js frontend, and Redis, fully containerized and deployed on Azure."
+      "es": "App con API en Flask, frontend en Next.js y caché en Redis, contenerizada y desplegada en Azure con un pipeline automático.",
+      "en": "App with a Flask API, a Next.js frontend and a Redis cache, containerized and deployed on Azure with an automated pipeline."
     },
     "description": {
-      "es": "Aplicación web con API Flask, frontend Next.js y Redis, completamente contenerizada y desplegada en Azure.",
-      "en": "Web application with Flask API, Next.js frontend, and Redis, fully containerized and deployed on Azure."
+      "es": "Contenericé una aplicación de tres servicios (frontend en Next.js, API en Flask y caché en Redis) y automaticé todo el camino desde el commit hasta producción. Cada cambio en el repositorio construye las imágenes, las publica en Azure Container Registry y las despliega en Azure Container Instances.",
+      "en": "I containerized a three-service application (Next.js frontend, Flask API and Redis cache) and automated the whole path from commit to production. Every change in the repository builds the images, pushes them to Azure Container Registry and deploys them to Azure Container Instances."
     },
     "bullets": {
       "es": [
-        "Contenerización integral de servicios (Frontend, Backend, Cache) mediante Docker y Docker Compose.",
-        "Implementación de pipeline CI/CD con GitHub Actions: build, push y deploy automatizado.",
-        "Gestión de artefactos en Azure Container Registry (ACR) y despliegue en Azure Container Instances (ACI).",
-        "Estrategia de desacoplamiento de servicios utilizando Redis como capa de caché.",
-        "Automatización del flujo de trabajo desde el commit hasta el entorno de producción en la nube."
+        "Contenericé el frontend, el backend y la caché con Docker y Docker Compose.",
+        "Armé el pipeline de GitHub Actions: build, push y despliegue automático.",
+        "Publiqué las imágenes en Azure Container Registry y desplegué en Azure Container Instances.",
+        "Desacoplé los servicios usando Redis como capa de caché."
       ],
       "en": [
-        "Integral containerization of services (Frontend, Backend, Cache) using Docker and Docker Compose.",
-        "CI/CD pipeline implementation with GitHub Actions: build, push, and automated deploy.",
-        "Artifact management in Azure Container Registry (ACR) and deployment on Azure Container Instances (ACI).",
-        "Service decoupling strategy using Redis as a cache layer.",
-        "Workflow automation from commit to production cloud environment."
+        "Containerized the frontend, backend and cache with Docker and Docker Compose.",
+        "Built the GitHub Actions pipeline: build, push and automatic deployment.",
+        "Pushed images to Azure Container Registry and deployed to Azure Container Instances.",
+        "Decoupled the services using Redis as a cache layer."
       ]
     },
-    "stack": ["Azure", "Docker", "GitHub Actions", "Next.js", "Flask", "Redis", "CI/CD"],
+    "stack": [
+      "Azure",
+      "Docker",
+      "Docker Compose",
+      "GitHub Actions",
+      "Next.js",
+      "Flask",
+      "Redis"
+    ],
     "images": [
       "/proyectos/devopsAzure/1.png",
       "/proyectos/devopsAzure/2.png",
@@ -445,108 +516,119 @@
     "report": "/proyectos/devopsAzure/devops-tp1-informe.pdf"
   },
   {
-    "id": "tup",
-    "period": {
-      "es": "MARZO 2024 — DIC 2024",
-      "en": "MARCH 2024 — DEC 2024"
-    },
-    "title": {
-      "es": "Sistema Académico TUP",
-      "en": "TUP Academic System"
-    },
-    "subtitle": {
-      "es": "Tecnicatura Universitaria en Programación — UTN",
-      "en": "University Programming Technician — UTN"
-    },
-    "role": {
-      "es": "Desarrollador Full-Stack y DevOps",
-      "en": "Full-Stack Developer & DevOps"
-    },
-    "summary": {
-      "es": "Plataforma integral de gestión académica para la TUP, integrando Django, React y flujos CI/CD con Docker y Google Cloud.",
-      "en": "Comprehensive academic management platform for TUP, integrating Django, React, and CI/CD workflows with Docker and Google Cloud."
-    },
-    "description": {
-      "es": "Sistema de gestión para la Tecnicatura Universitaria en Programación (TUP) de la UTN-FRRe. El proyecto consiste en una aplicación web dividida en un frontend desarrollado con React/TS/Vite y un backend en Python con Django, incluyendo documentación con Swagger y ReDoc.",
-      "en": "Management system for the University Programming Technician (TUP) at UTN-FRRe. The project consists of a web application divided into a frontend developed with React/TS/Vite and a backend in Python with Django, including documentation with Swagger and ReDoc."
-    },
-    "bullets": {
-      "es": [
-        "Desarrollo integral del sistema y APIs utilizando Python, Django, React, TypeScript y Vite.",
-        "Administración y despliegue de aplicaciones en contenedores utilizando Docker y Docker Compose.",
-        "Implementación de pipelines CI/CD para automatización de builds, tests y deploys (30 min → menos de 5 min).",
-        "Gestión de calidad: QA, revisión de código y seguimiento de tareas en Jira bajo metodologías ágiles.",
-        "Infraestructura escalable desplegada en Google Cloud.",
-        "Documentación completa de API con Swagger UI y ReDoc."
-      ],
-      "en": [
-        "Comprehensive system and API development using Python, Django, React, TypeScript, and Vite.",
-        "Containerized application management and deployment using Docker and Docker Compose.",
-        "CI/CD pipeline implementation for automated builds, tests, and deploys (30 min → under 5 min).",
-        "Quality management: QA, code review, and task tracking in Jira under agile methodologies.",
-        "Scalable infrastructure deployed on Google Cloud.",
-        "Full API documentation with Swagger UI and ReDoc."
-      ]
-    },
-    "stack": ["Python", "Django", "React", "TypeScript", "Vite", "Docker", "Docker Compose", "GitHub Actions", "Google Cloud", "Jira", "PostgreSQL"],
-    "github": "https://github.com/Seminario-Integrador-2024/GestionTUP",
-    "images": [
-      "/proyectos/tup/tup-preview.png",
-      "/proyectos/tup/tup-preview-2.png",
-      "/proyectos/tup/tup-preview-3.png",
-      "/proyectos/tup/tup-preview-4.png",
-      "/proyectos/tup/tup-preview-5.png",
-      "/proyectos/tup/tup-preview-6.png"
-    ]
-  },
-  {
     "id": "ci-cd-pipeline",
     "period": {
-      "es": "MAYO 2024 — JUNIO 2024",
-      "en": "MAY 2024 — JUNE 2024"
+      "es": "Mayo 2024 a junio 2024",
+      "en": "May 2024 to June 2024"
     },
     "title": {
-      "es": "Pipeline de Integración Continua (CI/CD)",
-      "en": "Continuous Integration Pipeline (CI/CD)"
+      "es": "Pipeline de integración y despliegue continuo",
+      "en": "Continuous integration and deployment pipeline"
     },
     "subtitle": {
-      "es": "Automatización, Calidad y Feedback en Tiempo Real",
-      "en": "Automation, Quality & Real-Time Feedback"
+      "es": "Calidad automatizada con GitHub Actions",
+      "en": "Automated quality with GitHub Actions"
     },
     "role": {
-      "es": "DevOps Engineer",
-      "en": "DevOps Engineer"
+      "es": "DevOps",
+      "en": "DevOps"
     },
     "summary": {
-      "es": "Implementación de un ecosistema de CI/CD que automatiza el ciclo de vida del software, garantizando calidad mediante SonarCloud y feedback instantáneo vía Slack.",
-      "en": "Implementation of a CI/CD ecosystem that automates the software lifecycle, ensuring quality through SonarCloud and instant feedback via Slack."
+      "es": "Pipeline que prueba, analiza y despliega cada cambio, con control de calidad en SonarCloud y avisos en Slack.",
+      "en": "Pipeline that tests, analyzes and deploys every change, with quality gates in SonarCloud and Slack alerts."
     },
     "description": {
-      "es": "Este proyecto establece un estándar de desarrollo profesional mediante la orquestación de GitHub Actions. El pipeline integra análisis estático profundo, pruebas multinivel (Unitarias y E2E) y un flujo de despliegue automatizado hacia Render. La arquitectura incluye integración con Jira para gestión de tareas y notificaciones granulares en Slack, cerrando el ciclo de feedback del equipo.",
-      "en": "This project establishes a professional development standard through GitHub Actions orchestration. The pipeline integrates deep static analysis, multi-level testing (Unit and E2E), and an automated deployment flow to Render. The architecture includes Jira integration for task management and granular Slack notifications, closing the team's feedback loop."
+      "es": "Pipeline en GitHub Actions que automatiza el ciclo de vida de una aplicación: análisis estático, pruebas unitarias y end-to-end, y despliegue a Render. Cada etapa notifica su resultado en Slack y las tareas quedan vinculadas con Jira, así el equipo sabe al instante qué pasó con cada cambio.",
+      "en": "GitHub Actions pipeline that automates an application's lifecycle: static analysis, unit and end-to-end tests, and deployment to Render. Every stage reports its result in Slack and tasks are linked to Jira, so the team instantly knows what happened with each change."
     },
     "bullets": {
       "es": [
-        "Implementación de un pipeline de CI/CD completo utilizando GitHub Actions para automatizar el ciclo de vida del software.",
-        "Pruebas unitarias con Jest y pruebas end-to-end (E2E) con Cypress ejecutadas post-despliegue para garantizar estabilidad.",
-        "Análisis estático e inspección de calidad con SonarCloud (SonarQube), asegurando cobertura superior al 80%.",
-        "Automatización de linters para JavaScript (ESLint) y HTML (HTMLHint), manteniendo estándares consistentes.",
-        "Despliegue automatizado a Render con monitoreo en tiempo real del estado del servicio mediante API.",
-        "Sistema de notificaciones multicanal en Slack para feedback instantáneo sobre cada etapa del pipeline.",
-        "Integración con Jira y GitHub para una gestión de proyectos ágil y vinculación directa de tareas."
+        "Automaticé el ciclo completo con GitHub Actions.",
+        "Ejecuté pruebas unitarias con Jest y end-to-end con Cypress después de cada despliegue.",
+        "Integré SonarCloud con una cobertura mínima del 80%.",
+        "Sumé linters para JavaScript (ESLint) y HTML (HTMLHint).",
+        "Desplegué en Render y verifiqué el estado del servicio por API.",
+        "Envié notificaciones de cada etapa a Slack y vinculé las tareas con Jira."
       ],
       "en": [
-        "Implemented a comprehensive CI/CD pipeline using GitHub Actions to automate the entire software development lifecycle.",
-        "Developed unit tests with Jest and end-to-end (E2E) tests with Cypress triggered post-deployment for stability.",
-        "Integrated SonarCloud (SonarQube) for static code analysis, maintaining over 80% code coverage.",
-        "Automated code linting for JavaScript (ESLint) and HTML (HTMLHint) to maintain high-quality standards.",
-        "Orchestrated automated deployment to Render with real-time service status monitoring via API.",
-        "Configured multi-channel Slack notifications, providing instant feedback to the team on pipeline stages.",
-        "Integrated Jira with GitHub for streamlined project management and seamless task tracking."
+        "Automated the whole cycle with GitHub Actions.",
+        "Ran unit tests with Jest and end-to-end tests with Cypress after every deployment.",
+        "Integrated SonarCloud with a minimum coverage of 80%.",
+        "Added linters for JavaScript (ESLint) and HTML (HTMLHint).",
+        "Deployed to Render and checked the service status through its API.",
+        "Sent notifications for every stage to Slack and linked tasks to Jira."
       ]
     },
-    "stack": ["GitHub Actions", "Jest", "Cypress", "SonarCloud", "ESLint", "HTMLHint", "Render", "Slack", "Jira"],
-    "github": "https://github.com/TobiasMaciel/TrabajoCI",
-    "images": ["/proyectos/cicd/CiCd.png"]
+    "stack": [
+      "GitHub Actions",
+      "Jest",
+      "Cypress",
+      "SonarCloud",
+      "ESLint",
+      "HTMLHint",
+      "Render",
+      "Slack",
+      "Jira"
+    ],
+    "images": [
+      "/proyectos/cicd/CiCd.png"
+    ],
+    "github": "https://github.com/TobiasMaciel/TrabajoCI"
+  },
+  {
+    "id": "ciencia-de-datos",
+    "period": {
+      "es": "Agosto 2025 a diciembre 2025",
+      "en": "August 2025 to December 2025"
+    },
+    "title": {
+      "es": "Laboratorios de ciencia de datos",
+      "en": "Data science labs"
+    },
+    "subtitle": {
+      "es": "Ciencia de Datos, UTN FRRe",
+      "en": "Data Science, UTN FRRe"
+    },
+    "role": {
+      "es": "Análisis de datos",
+      "en": "Data analysis"
+    },
+    "summary": {
+      "es": "Tres laboratorios en equipo: visualización de datos, análisis geoespacial y preparación de variables para machine learning.",
+      "en": "Three team labs: data visualization, geospatial analysis and feature preparation for machine learning."
+    },
+    "description": {
+      "es": "Serie de trabajos prácticos de ciencia de datos con datasets reales, hechos con el equipo Lambda. Exploramos y visualizamos datos de vinos, analizamos asociaciones y mapas con el World Happiness Report, y preparamos variables categóricas de un dataset de comida india para entrenar modelos.",
+      "en": "A series of hands-on data science labs with real datasets, done with team Lambda. We explored and visualized wine data, analyzed associations and maps with the World Happiness Report, and prepared categorical features from an Indian food dataset to train models."
+    },
+    "bullets": {
+      "es": [
+        "Visualización exploratoria del Wine Dataset con Matplotlib y Seaborn.",
+        "Análisis geoespacial del World Happiness Report con GeoPandas.",
+        "Codificación One-Hot y Ordinal del Indian Food Dataset para modelos de machine learning.",
+        "Trabajo en Jupyter con Pandas, NumPy y Scikit-learn."
+      ],
+      "en": [
+        "Exploratory visualization of the Wine Dataset with Matplotlib and Seaborn.",
+        "Geospatial analysis of the World Happiness Report with GeoPandas.",
+        "One-Hot and Ordinal encoding of the Indian Food Dataset for machine learning models.",
+        "Work in Jupyter with Pandas, NumPy and Scikit-learn."
+      ]
+    },
+    "stack": [
+      "Python",
+      "Pandas",
+      "NumPy",
+      "Matplotlib",
+      "Seaborn",
+      "Scikit-learn",
+      "GeoPandas",
+      "Jupyter"
+    ],
+    "images": [
+      "/proyectos/cienciaDeDatos/1.png",
+      "/proyectos/cienciaDeDatos/2.png"
+    ],
+    "github": "https://github.com/TobiasMaciel/CienciaDeDatos2025"
   }
 ]

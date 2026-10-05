@@ -1,51 +1,150 @@
 {
   "categories": [
     {
-      "label": { "es": "Frontend", "en": "Frontend" },
+      "label": {
+        "es": "Frontend",
+        "en": "Frontend"
+      },
       "color": "#22D3EE",
       "borderHover": "hover:border-cyan-400/50",
       "textHover": "hover:text-cyan-500",
-      "tags": ["React", "TypeScript", "JavaScript", "Next.js", "Tailwind CSS", "shadcn/ui", "React Native", "Angular", "Vite", "HTML", "CSS", "Chakra UI", "React Query", "Jest", "Cypress"]
+      "tags": [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "Next.js",
+        "Tailwind CSS",
+        "shadcn/ui",
+        "React Native",
+        "Expo",
+        "Angular",
+        "Vite",
+        "HTML",
+        "CSS",
+        "Chakra UI",
+        "TanStack Query",
+        "Jest",
+        "Cypress"
+      ]
     },
     {
-      "label": { "es": "Backend y Datos", "en": "Backend & Data" },
+      "label": {
+        "es": "Backend y datos",
+        "en": "Backend & Data"
+      },
       "color": "#34D399",
       "borderHover": "hover:border-emerald-400/50",
       "textHover": "hover:text-emerald-500",
-      "tags": ["Python", "Django", "Django REST Framework", "Node.js", "Express", "SQL", "PostgreSQL", "MySQL", "Prisma ORM", "Redis", "JWT", "SQLite", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "PHP", "Laravel"]
+      "tags": [
+        "Python",
+        "Django",
+        "Django REST Framework",
+        "Flask",
+        "Node.js",
+        "Express",
+        "Hono",
+        "PHP",
+        "Laravel",
+        "SQL",
+        "PostgreSQL",
+        "MySQL",
+        "SQLite",
+        "Prisma ORM",
+        "Redis",
+        "JWT",
+        "Pandas",
+        "NumPy",
+        "Scikit-learn",
+        "Matplotlib"
+      ]
     },
     {
-      "label": { "es": "DevOps y Cloud", "en": "DevOps & Cloud" },
+      "label": {
+        "es": "DevOps y cloud",
+        "en": "DevOps & Cloud"
+      },
       "color": "#38BDF8",
       "borderHover": "hover:border-sky-400/50",
       "textHover": "hover:text-sky-400",
-      "tags": ["Docker", "Docker Compose", "Kubernetes", "GitHub Actions", "AWS", "Azure", "Render", "Supabase", "Cloudflare", "OpenTelemetry", "Grafana", "Prometheus", "SonarCloud", "MLOps"]
+      "tags": [
+        "Docker",
+        "Docker Compose",
+        "Kubernetes",
+        "GitHub Actions",
+        "AWS",
+        "Azure",
+        "Google Cloud",
+        "Cloudflare Workers",
+        "Render",
+        "Supabase",
+        "OpenTelemetry",
+        "Prometheus",
+        "Grafana",
+        "SonarCloud"
+      ]
     },
     {
-      "label": { "es": "Metodologías y Herramientas", "en": "Methodologies & Tools" },
+      "label": {
+        "es": "Metodologías y herramientas",
+        "en": "Methodologies & Tools"
+      },
       "color": "#E879F9",
       "borderHover": "hover:border-fuchsia-400/50",
       "textHover": "hover:text-fuchsia-400",
-      "tags": ["Scrum (Agile)", "TDD", "Git", "GitHub", "Postman", "OpenAPI", "MCP Protocol", "Chatwoot", "Jira", "Slack", "VS Code", "Teams", "D2", "Mermaid", "Excel", "Word", "PowerPoint"]
+      "tags": [
+        "Scrum",
+        "TDD",
+        "Git",
+        "GitHub",
+        "Postman",
+        "OpenAPI",
+        "Jira",
+        "Slack",
+        "Chatwoot",
+        "Mermaid",
+        "D2"
+      ]
     },
     {
-      "label": { "es": "Inteligencia Artificial", "en": "Artificial Intelligence" },
+      "label": {
+        "es": "Inteligencia artificial",
+        "en": "Artificial Intelligence"
+      },
       "color": "#F87171",
       "borderHover": "hover:border-red-400/50",
       "textHover": "hover:text-red-400",
-      "tags": ["Claude API", "Autonomous Agents", "Tool-Calling", "OpenAI API", "Whisper", "Google Gemini AI", "GPT-5-Chat"]
+      "tags": [
+        "Claude API",
+        "OpenAI API",
+        "Google Gemini",
+        "Whisper",
+        "MCP",
+        "Jupyter"
+      ]
     }
   ],
   "languages": [
     {
       "flag": "🇦🇷",
-      "name": { "es": "Español", "en": "Spanish" },
-      "level": { "es": "Nativo", "en": "Native" }
+      "name": {
+        "es": "Español",
+        "en": "Spanish"
+      },
+      "level": {
+        "es": "Nativo",
+        "en": "Native"
+      }
     },
     {
       "flag": "🇺🇸",
-      "name": { "es": "Inglés", "en": "English" },
-      "level": { "es": "Intermedio B2", "en": "Intermediate B2" }
+      "name": {
+        "es": "Inglés",
+        "en": "English"
+      },
+      "level": {
+        "es": "Intermedio B2",
+        "en": "Intermediate B2"
+      }
     }
   ]
 }

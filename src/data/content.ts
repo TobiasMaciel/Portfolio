@@ -11,11 +11,9 @@ const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
 export const withBasePath = (path: string) => `${basePath}${path}`;
 
-/** "MARZO 2025 — PRESENTE" → "Marzo 2025 — Presente" */
+/** Sentence case: "desde marzo 2025" → "Desde marzo 2025" */
 export const formatPeriod = (period: string) =>
-  period
-    .toLowerCase()
-    .replace(/(^|\s)(\p{L})/gu, (_, space: string, letter: string) => space + letter.toUpperCase());
+  period.charAt(0).toUpperCase() + period.slice(1);
 
 export function getProjects(lang: Language): Project[] {
   return portfolioData.projects.map((p) => ({
@@ -29,6 +27,7 @@ export function getProjects(lang: Language): Project[] {
     bullets: p.bullets[lang],
     stack: p.stack ?? [],
     github: p.github,
+    googleplay: p.googleplay,
     images: p.images?.map(withBasePath) ?? [],
     report: p.report ? withBasePath(p.report) : undefined,
   }));

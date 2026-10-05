@@ -9,6 +9,7 @@ export interface Project {
   bullets: string[];
   stack: string[];
   github?: string;
+  googleplay?: string;
   images: string[];
   report?: string;
 }

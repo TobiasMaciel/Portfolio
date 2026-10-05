@@ -3,11 +3,19 @@
 import Image from "next/image";
 import { useEffect, useId, useRef, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowLeft, ArrowRight, ChevronLeft, ChevronRight, FileText, Maximize2 } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  ChevronLeft,
+  ChevronRight,
+  FileText,
+  Maximize2,
+} from "lucide-react";
 import type { ExperienceItem, Project } from "@/types";
 import Lightbox from "@/components/Lightbox";
 import CompanyLogo from "@/components/ui/CompanyLogo";
 import StackList from "@/components/ui/StackList";
+import TechIcon from "@/components/ui/TechIcon";
 import { GitHubIcon } from "@/components/ui/icons";
 import { button } from "@/components/ui/styles";
 import { useDialogLayer } from "@/components/ui/useDialogLayer";
@@ -46,14 +54,23 @@ export default function CaseStudy({
 }) {
   const panelRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
-  const [lightbox, setLightbox] = useState<{ images: string[]; index: number } | null>(null);
+  const [lightbox, setLightbox] = useState<{
+    images: string[];
+    index: number;
+  } | null>(null);
   useDialogLayer(onClose, panelRef);
   useBackToClose(onClose);
 
   const list = detail.type === "project" ? projects : experiences;
-  const index = Math.max(0, list.findIndex((item) => item.id === detail.id));
+  const index = Math.max(
+    0,
+    list.findIndex((item) => item.id === detail.id),
+  );
   const go = (offset: number) =>
-    onNavigate({ type: detail.type, id: list[(index + offset + list.length) % list.length].id });
+    onNavigate({
+      type: detail.type,
+      id: list[(index + offset + list.length) % list.length].id,
+    });
 
   // New content starts at the top
   useEffect(() => {
@@ -61,7 +78,13 @@ export default function CaseStudy({
   }, [detail.type, detail.id]);
 
   const kind =
-    detail.type === "project" ? (isEs ? "Proyecto" : "Project") : isEs ? "Puesto" : "Role";
+    detail.type === "project"
+      ? isEs
+        ? "Proyecto"
+        : "Project"
+      : isEs
+        ? "Puesto"
+        : "Role";
   const position = `${String(index + 1).padStart(2, "0")} / ${String(list.length).padStart(2, "0")}`;
 
   return (
@@ -79,23 +102,34 @@ export default function CaseStudy({
         transition={{ duration: 0.75, ease }}
       >
         <div className="sticky top-0 z-20 border-b border-rule bg-paper/80 backdrop-blur-md">
-          <div className={`${wrap} flex h-16 items-center justify-between gap-4`}>
+          <div
+            className={`${wrap} flex h-16 items-center justify-between gap-4`}
+          >
             <button
               type="button"
               onClick={onClose}
               className="group inline-flex items-center gap-2 text-sm font-semibold text-ink transition-colors hover:text-accent cursor-pointer"
             >
-              <ArrowLeft size={16} aria-hidden="true" className="transition-transform group-hover:-translate-x-1" />
+              <ArrowLeft
+                size={16}
+                aria-hidden="true"
+                className="transition-transform group-hover:-translate-x-1"
+              />
               {isEs ? "Volver" : "Back"}
             </button>
             <p className="text-sm text-muted">
-              {kind} <span className="font-semibold tabular-nums text-ink">{position}</span>
+              {kind}{" "}
+              <span className="font-semibold tabular-nums text-ink">
+                {position}
+              </span>
             </p>
             <div className="flex items-center gap-1">
               <button
                 type="button"
                 onClick={() => go(-1)}
-                aria-label={isEs ? `${kind} anterior` : `Previous ${kind.toLowerCase()}`}
+                aria-label={
+                  isEs ? `${kind} anterior` : `Previous ${kind.toLowerCase()}`
+                }
                 className={`${button.ghost} rounded-full`}
               >
                 <ChevronLeft size={18} aria-hidden="true" />
@@ -103,7 +137,9 @@ export default function CaseStudy({
               <button
                 type="button"
                 onClick={() => go(1)}
-                aria-label={isEs ? `${kind} siguiente` : `Next ${kind.toLowerCase()}`}
+                aria-label={
+                  isEs ? `${kind} siguiente` : `Next ${kind.toLowerCase()}`
+                }
                 className={`${button.ghost} rounded-full`}
               >
                 <ChevronRight size={18} aria-hidden="true" />
@@ -116,7 +152,15 @@ export default function CaseStudy({
           <motion.article
             key={`${detail.type}-${detail.id}`}
             initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0, transition: { duration: 0.5, delay: 0.15, ease: [0.16, 1, 0.3, 1] } }}
+            animate={{
+              opacity: 1,
+              y: 0,
+              transition: {
+                duration: 0.5,
+                delay: 0.15,
+                ease: [0.16, 1, 0.3, 1],
+              },
+            }}
             exit={{ opacity: 0, transition: { duration: 0.2 } }}
             className="pb-8"
           >
@@ -176,13 +220,19 @@ const statCols: Record<number, string> = {
   4: "sm:grid-cols-2 lg:grid-cols-4",
 };
 
-function Facts({ items }: { items: { label: string; value: React.ReactNode }[] }) {
+function Facts({
+  items,
+}: {
+  items: { label: string; value: React.ReactNode }[];
+}) {
   return (
     <dl className="mt-12 grid grid-cols-2 border-t border-line/40 md:grid-cols-4">
       {items.map((f, i) => (
         <div key={f.label} className={`py-5 pr-4 ${factEdge[i] ?? ""}`}>
           <dt className="text-xs font-semibold text-muted">{f.label}</dt>
-          <dd className="mt-1.5 text-sm font-semibold leading-snug">{f.value}</dd>
+          <dd className="mt-1.5 text-sm font-semibold leading-snug">
+            {f.value}
+          </dd>
         </div>
       ))}
     </dl>
@@ -190,15 +240,25 @@ function Facts({ items }: { items: { label: string; value: React.ReactNode }[] }
 }
 
 function Heading({ children }: { children: React.ReactNode }) {
-  return <h2 className="font-serif text-3xl font-bold tracking-tight md:text-4xl">{children}</h2>;
+  return (
+    <h2 className="font-serif text-3xl font-bold tracking-tight md:text-4xl">
+      {children}
+    </h2>
+  );
 }
 
 function Points({ items }: { items: string[] }) {
   return (
     <ul className="mt-6 space-y-4">
       {items.map((b, i) => (
-        <li key={i} className="grid grid-cols-[1.25rem_minmax(0,1fr)] gap-3 text-base leading-7 text-ink/85">
-          <span aria-hidden="true" className="mt-[0.8rem] h-[2px] w-3 bg-brand" />
+        <li
+          key={i}
+          className="grid grid-cols-[1.25rem_minmax(0,1fr)] gap-3 text-base leading-7 text-ink/85"
+        >
+          <span
+            aria-hidden="true"
+            className="mt-[0.8rem] h-[2px] w-3 bg-brand"
+          />
           <span>{b}</span>
         </li>
       ))}
@@ -206,7 +266,15 @@ function Points({ items }: { items: string[] }) {
   );
 }
 
-function NextLink({ label, title, onClick }: { label: string; title: string; onClick: () => void }) {
+function NextLink({
+  label,
+  title,
+  onClick,
+}: {
+  label: string;
+  title: string;
+  onClick: () => void;
+}) {
   return (
     <div className={`${wrap} mt-24`}>
       <button
@@ -220,7 +288,11 @@ function NextLink({ label, title, onClick }: { label: string; title: string; onC
             {title}
           </span>
           <span className="mb-2 flex h-14 w-14 shrink-0 items-center justify-center rounded-full border border-line/50 transition-all duration-300 group-hover:border-brand group-hover:bg-brand group-hover:text-on-accent">
-            <ArrowRight size={22} aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-0.5" />
+            <ArrowRight
+              size={22}
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-0.5"
+            />
           </span>
         </span>
       </button>
@@ -261,7 +333,9 @@ function ProjectCase({
         >
           {p.title}
         </h1>
-        <p className="mt-6 max-w-[60ch] text-lg leading-8 text-muted">{p.summary}</p>
+        <p className="mt-6 max-w-[60ch] text-lg leading-8 text-muted">
+          {p.summary}
+        </p>
         <Facts
           items={[
             { label: isEs ? "Rol" : "Role", value: p.role },
@@ -280,7 +354,9 @@ function ProjectCase({
                   GitHub
                 </a>
               ) : (
-                <span className="text-muted">{isEs ? "Privado" : "Private"}</span>
+                <span className="text-muted">
+                  {isEs ? "Privado" : "Private"}
+                </span>
               ),
             },
           ]}
@@ -292,14 +368,19 @@ function ProjectCase({
           <button
             type="button"
             onClick={() => onOpenImages(pictures, 0)}
-            aria-label={isEs ? "Ampliar imagen principal" : "Enlarge main image"}
+            aria-label={
+              isEs ? "Ampliar imagen principal" : "Enlarge main image"
+            }
             className="group relative block aspect-[16/9] w-full overflow-hidden rounded-[2rem] border border-rule bg-surface/70 cursor-zoom-in dark:bg-surface/40"
           >
             <span
               aria-hidden="true"
               className="absolute inset-0 opacity-60 [background-image:radial-gradient(var(--rule)_1px,transparent_1px)] [background-size:20px_20px]"
             />
-            <span aria-hidden="true" className="absolute -bottom-24 left-1/2 h-56 w-2/3 -translate-x-1/2 rounded-full bg-brand/20 blur-3xl" />
+            <span
+              aria-hidden="true"
+              className="absolute -bottom-24 left-1/2 h-56 w-2/3 -translate-x-1/2 rounded-full bg-brand/20 blur-3xl"
+            />
             <Image
               src={cover}
               alt={p.title}
@@ -316,11 +397,17 @@ function ProjectCase({
         </div>
       )}
 
-      <div className={`${wrap} mt-20 grid gap-16 lg:grid-cols-[minmax(0,1fr)_18rem]`}>
+      <div
+        className={`${wrap} mt-20 grid gap-16 lg:grid-cols-[minmax(0,1fr)_18rem]`}
+      >
         <div className="space-y-16">
           <section>
-            <Heading>{isEs ? "Sobre el proyecto" : "About the project"}</Heading>
-            <p className="mt-6 max-w-[65ch] text-lg leading-8 text-ink/85">{p.description}</p>
+            <Heading>
+              {isEs ? "Sobre el proyecto" : "About the project"}
+            </Heading>
+            <p className="mt-6 max-w-[65ch] text-lg leading-8 text-ink/85">
+              {p.description}
+            </p>
           </section>
           <section>
             <Heading>{isEs ? "Qué hice" : "What I did"}</Heading>
@@ -330,15 +417,33 @@ function ProjectCase({
 
         <aside className="space-y-10 lg:sticky lg:top-24 lg:self-start">
           <section>
-            <h2 className="text-sm font-bold">{isEs ? "Tecnologías" : "Technologies"}</h2>
+            <h2 className="text-sm font-bold">
+              {isEs ? "Tecnologías" : "Technologies"}
+            </h2>
             <div className="mt-4">
               <StackList items={p.stack} isEs={isEs} tone="neutral" />
             </div>
           </section>
-          {(p.github || p.report) && (
+          {(p.github || p.report || p.googleplay) && (
             <section className="flex flex-col gap-3">
+              {p.googleplay && (
+                <a
+                  href={p.googleplay}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={button.primary}
+                >
+                  <TechIcon name="Google Play" size={16} />
+                  {isEs ? "Descargar en Google Play" : "Get it on Google Play"}
+                </a>
+              )}
               {p.github && (
-                <a href={p.github} target="_blank" rel="noopener noreferrer" className={button.secondary}>
+                <a
+                  href={p.github}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={button.secondary}
+                >
                   <GitHubIcon size={16} />
                   {isEs ? "Ver repositorio" : "View repository"}
                 </a>
@@ -390,14 +495,24 @@ function ProjectCase({
               <li key={doc}>
                 <button
                   type="button"
-                  onClick={() => onOpenDocument({ url: doc, title: isEs ? "Documento" : "Document", subtitle: p.title })}
+                  onClick={() =>
+                    onOpenDocument({
+                      url: doc,
+                      title: isEs ? "Documento" : "Document",
+                      subtitle: p.title,
+                    })
+                  }
                   className="group flex aspect-[4/3] w-full flex-col items-center justify-center gap-3 rounded-2xl border border-rule bg-surface/70 p-6 text-center transition-colors hover:border-brand/50 cursor-pointer dark:bg-surface/40"
                 >
                   <span className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand/10 text-accent">
                     <FileText size={22} aria-hidden="true" />
                   </span>
-                  <span className="line-clamp-2 text-sm font-semibold">{fileName(doc)}</span>
-                  <span className="text-xs font-semibold text-accent">{isEs ? "Abrir PDF" : "Open PDF"}</span>
+                  <span className="line-clamp-2 text-sm font-semibold">
+                    {fileName(doc)}
+                  </span>
+                  <span className="text-xs font-semibold text-accent">
+                    {isEs ? "Abrir PDF" : "Open PDF"}
+                  </span>
                 </button>
               </li>
             ))}
@@ -405,7 +520,11 @@ function ProjectCase({
         </section>
       )}
 
-      <NextLink label={isEs ? "Siguiente proyecto" : "Next project"} title={next.title} onClick={onNext} />
+      <NextLink
+        label={isEs ? "Siguiente proyecto" : "Next project"}
+        title={next.title}
+        onClick={onNext}
+      />
     </>
   );
 }
@@ -450,9 +569,18 @@ function ExperienceCase({
         <Facts
           items={[
             { label: isEs ? "Período" : "Period", value: e.period },
-            { label: isEs ? "Ubicación" : "Location", value: e.location ?? "—" },
-            { label: isEs ? "Tecnologías" : "Technologies", value: e.stack.length },
-            { label: isEs ? "Proyectos" : "Projects", value: related.length || "—" },
+            {
+              label: isEs ? "Ubicación" : "Location",
+              value: e.location ?? "—",
+            },
+            {
+              label: isEs ? "Tecnologías" : "Technologies",
+              value: e.stack.length,
+            },
+            {
+              label: isEs ? "Proyectos" : "Projects",
+              value: related.length || "—",
+            },
           ]}
         />
       </header>
@@ -465,8 +593,13 @@ function ExperienceCase({
             }`}
           >
             {e.highlights.map((h) => (
-              <div key={h.label} className="flex flex-col-reverse justify-end bg-surface/90 p-7 dark:bg-surface">
-                <dt className="mt-3 text-sm leading-snug text-muted">{h.label}</dt>
+              <div
+                key={h.label}
+                className="flex flex-col-reverse justify-end bg-surface/90 p-7 dark:bg-surface"
+              >
+                <dt className="mt-3 text-sm leading-snug text-muted">
+                  {h.label}
+                </dt>
                 <dd className="font-serif text-3xl font-bold leading-tight tracking-tight text-accent md:text-4xl">
                   {h.value}
                 </dd>
@@ -476,11 +609,15 @@ function ExperienceCase({
         </section>
       )}
 
-      <div className={`${wrap} mt-20 grid gap-16 lg:grid-cols-[minmax(0,1fr)_18rem]`}>
+      <div
+        className={`${wrap} mt-20 grid gap-16 lg:grid-cols-[minmax(0,1fr)_18rem]`}
+      >
         <div className="space-y-16">
           <section>
             <Heading>{isEs ? "Sobre el puesto" : "About the role"}</Heading>
-            <p className="mt-6 max-w-[65ch] text-lg leading-8 text-ink/85">{e.description || e.summary}</p>
+            <p className="mt-6 max-w-[65ch] text-lg leading-8 text-ink/85">
+              {e.description || e.summary}
+            </p>
           </section>
           <section>
             <Heading>{isEs ? "Responsabilidades" : "Responsibilities"}</Heading>
@@ -488,7 +625,9 @@ function ExperienceCase({
           </section>
         </div>
         <aside className="lg:sticky lg:top-24 lg:self-start">
-          <h2 className="text-sm font-bold">{isEs ? "Tecnologías" : "Technologies"}</h2>
+          <h2 className="text-sm font-bold">
+            {isEs ? "Tecnologías" : "Technologies"}
+          </h2>
           <div className="mt-4">
             <StackList items={e.stack} isEs={isEs} tone="neutral" />
           </div>
@@ -497,7 +636,9 @@ function ExperienceCase({
 
       {related.length > 0 && (
         <section className={`${wrap} mt-24`}>
-          <Heading>{isEs ? "Proyectos de este puesto" : "Projects from this role"}</Heading>
+          <Heading>
+            {isEs ? "Proyectos de este puesto" : "Projects from this role"}
+          </Heading>
           <ul className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2">
             {related.map((p) => {
               const cover = p.images.find((img) => !isPdf(img));
@@ -520,14 +661,22 @@ function ExperienceCase({
                       </span>
                     )}
                     <span className="flex flex-1 flex-col p-6">
-                      <span className="text-xs font-semibold text-accent">{p.period}</span>
+                      <span className="text-xs font-semibold text-accent">
+                        {p.period}
+                      </span>
                       <span className="mt-2 font-serif text-2xl font-bold leading-tight transition-colors group-hover:text-accent">
                         {p.title}
                       </span>
-                      <span className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">{p.summary}</span>
+                      <span className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted">
+                        {p.summary}
+                      </span>
                       <span className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent">
                         {isEs ? "Ver proyecto" : "View project"}
-                        <ArrowRight size={14} aria-hidden="true" className="transition-transform group-hover:translate-x-1" />
+                        <ArrowRight
+                          size={14}
+                          aria-hidden="true"
+                          className="transition-transform group-hover:translate-x-1"
+                        />
                       </span>
                     </span>
                   </button>
@@ -540,14 +689,23 @@ function ExperienceCase({
 
       {e.recommendationLetter && (
         <section className={`${wrap} mt-16`}>
-          <a href={e.recommendationLetter} target="_blank" rel="noopener noreferrer" className={button.secondary}>
+          <a
+            href={e.recommendationLetter}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={button.secondary}
+          >
             <FileText size={16} aria-hidden="true" />
             {isEs ? "Carta de recomendación" : "Recommendation letter"}
           </a>
         </section>
       )}
 
-      <NextLink label={isEs ? "Siguiente puesto" : "Next role"} title={next.company} onClick={onNext} />
+      <NextLink
+        label={isEs ? "Siguiente puesto" : "Next role"}
+        title={next.company}
+        onClick={onNext}
+      />
     </>
   );
 }

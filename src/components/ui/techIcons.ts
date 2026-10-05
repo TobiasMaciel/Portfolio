@@ -1,14 +1,71 @@
 import {
-  siAngular, siAnthropic, siArduino, siChakraui, siChatwoot, siClaude, siCloudflare,
-  siCloudflareworkers, siCplusplus, siCss, siCypress, siDjango, siDocker, siEslint,
-  siEspressif, siExpo, siExpress, siFlask, siGeopandas, siGit, siGithub, siGithubactions,
-  siGooglecloud, siGooglegemini, siGrafana, siHono, siHtml5, siJavascript, siJest, siJira,
-  siJsonwebtokens, siJupyter, siK3s, siKubernetes, siLaravel, siMermaid,
-  siModelcontextprotocol, siMysql, siNextdotjs, siNodedotjs, siNumpy, siOpenapiinitiative,
-  siOpentelemetry, siPandas, siPhp, siPostgresql, siPostman, siPrisma, siPrometheus,
-  siPython, siReact, siReactquery, siRedis, siRender, siScikitlearn, 
-  siShadcnui, siSonarqubecloud, siSqlite, siSupabase, siTailwindcss, siTurborepo,
-  siTypescript, siVite, siWhatsapp, siZod,
+  siAngular,
+  siAnthropic,
+  siArduino,
+  siChakraui,
+  siChatwoot,
+  siClaude,
+  siCloudflare,
+  siCloudflareworkers,
+  siCplusplus,
+  siCss,
+  siCypress,
+  siDjango,
+  siDocker,
+  siEslint,
+  siEspressif,
+  siExpo,
+  siExpress,
+  siFlask,
+  siGeopandas,
+  siGit,
+  siGithub,
+  siGithubactions,
+  siGooglecloud,
+  siGooglegemini,
+  siGoogleplay,
+  siGrafana,
+  siHono,
+  siHtml5,
+  siJavascript,
+  siJest,
+  siJira,
+  siJsonwebtokens,
+  siJupyter,
+  siK3s,
+  siKubernetes,
+  siLaravel,
+  siMermaid,
+  siModelcontextprotocol,
+  siMysql,
+  siNextdotjs,
+  siNodedotjs,
+  siNumpy,
+  siOpenapiinitiative,
+  siOpentelemetry,
+  siPandas,
+  siPhp,
+  siPostgresql,
+  siPostman,
+  siPrisma,
+  siPrometheus,
+  siPython,
+  siReact,
+  siReactquery,
+  siRedis,
+  siRender,
+  siScikitlearn,
+  siScrumalliance,
+  siShadcnui,
+  siSonarqubecloud,
+  siSqlite,
+  siSupabase,
+  siTailwindcss,
+  siTurborepo,
+  siTypescript,
+  siVite,
+  siWhatsapp,
+  siZod,
   type SimpleIcon,
 } from "simple-icons";
 
@@ -77,6 +134,11 @@ const icons: Record<string, SimpleIcon> = {
   "Claude API": siClaude,
   "Autonomous Agents": siAnthropic,
   "Google Gemini AI": siGooglegemini,
+  "Google Gemini": siGooglegemini,
+  "Google Play": siGoogleplay,
+  MCP: siModelcontextprotocol,
+  WhatsApp: siWhatsapp,
+  Scrum: siScrumalliance,
   "C++": siCplusplus,
   "Arduino IDE": siArduino,
   "NodeMCU UNO": siEspressif,
@@ -88,14 +150,17 @@ const icons: Record<string, SimpleIcon> = {
   ESLint: siEslint,
 };
 
-export const getTechIcon = (name: string): SimpleIcon | undefined => icons[name];
+export const getTechIcon = (name: string): SimpleIcon | undefined =>
+  icons[name];
 
 /** Initials for technologies without a logo, e.g. "AWS", "OpenAI API" → "OA". */
 export const monogram = (name: string) => {
   const clean = name.replace(/\(.*?\)/g, "").trim();
   if (/^[A-Z0-9]{2,4}$/.test(clean)) return clean;
   const words = clean.split(/[\s\-/]+/).filter(Boolean);
-  return (words.length > 1 ? words[0][0] + words[1][0] : clean.slice(0, 2)).toUpperCase();
+  return (
+    words.length > 1 ? words[0][0] + words[1][0] : clean.slice(0, 2)
+  ).toUpperCase();
 };
 
 /** Brand colours that are too dark to read on the dark theme fall back to ink. */
