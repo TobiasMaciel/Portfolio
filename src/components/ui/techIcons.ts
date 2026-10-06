@@ -66,6 +66,8 @@ import {
   siVite,
   siWhatsapp,
   siZod,
+  siVercel,
+  siMercadopago,
   type SimpleIcon,
 } from "simple-icons";
 
@@ -105,6 +107,9 @@ const icons: Record<string, SimpleIcon> = {
   Jupyter: siJupyter,
   "Jupyter Notebook": siJupyter,
   Flask: siFlask,
+  Vercel: siVercel,
+  "Mercado Pago": siMercadopago,
+  "Expo EAS": siExpo,
   FastAPI: siFastapi,
   PHP: siPhp,
   Laravel: siLaravel,

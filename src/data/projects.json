@@ -49,17 +49,23 @@
       "React Native",
       "Expo",
       "TypeScript",
+      "Zustand",
       "TanStack Query",
       "Hono",
       "Cloudflare Workers",
       "Supabase",
       "PostgreSQL",
+      "PostGIS",
       "Python",
       "FastAPI",
       "Google Gemini",
-      "AWS",
+      "AWS Lambda",
+      "AWS CDK",
+      "Mercado Pago",
+      "Expo EAS",
       "GitHub Actions",
-      "Turborepo"
+      "Turborepo",
+      "Vercel"
     ],
     "images": [
       "/proyectos/datebox/datebox-banner.webp",
@@ -435,7 +441,7 @@
       "NumPy",
       "Pandas",
       "Matplotlib",
-      "Jupyter Notebook"
+      "Jupyter"
     ],
     "images": [
       "/proyectos/MLP/1.png",

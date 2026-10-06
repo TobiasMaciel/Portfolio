@@ -24,7 +24,8 @@
         "Chakra UI",
         "TanStack Query",
         "Jest",
-        "Cypress"
+        "Cypress",
+        "Zustand"
       ]
     },
     {
@@ -56,7 +57,9 @@
         "Pandas",
         "NumPy",
         "Scikit-learn",
-        "Matplotlib"
+        "Matplotlib",
+        "Zod",
+        "PostGIS"
       ]
     },
     {
@@ -81,7 +84,11 @@
         "OpenTelemetry",
         "Prometheus",
         "Grafana",
-        "SonarCloud"
+        "SonarCloud",
+        "AWS Lambda",
+        "AWS CDK",
+        "Vercel",
+        "Turborepo"
       ]
     },
     {
