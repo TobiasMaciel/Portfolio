@@ -3,23 +3,32 @@
 import Image from "next/image";
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
+  AnimatePresence,
   motion,
+  useMotionValue,
   useMotionValueEvent,
   useReducedMotion,
   useScroll,
   useTransform,
   type MotionValue,
 } from "framer-motion";
-import { FileText, Images } from "lucide-react";
+import { ChevronLeft, ChevronRight, FileText, Images } from "lucide-react";
 import type { Project } from "@/types";
 import RevealText from "@/components/fx/RevealText";
 import StackList from "@/components/ui/StackList";
 import { GitHubIcon } from "@/components/ui/icons";
 import { button } from "@/components/ui/styles";
-import { isPdf } from "@/components/ui/useSwipe";
+import { isPdf, useSwipe } from "@/components/ui/useSwipe";
 import { ArrowIcon } from "@/components/ui/Section";
 
-const FEATURED_IDS = ["datebox", "elepad", "ai-sales-agent", "sgi", "tup", "cubesat"];
+const FEATURED_IDS = [
+  "datebox",
+  "elepad",
+  "ai-sales-agent",
+  "sgi",
+  "tup",
+  "cubesat",
+];
 
 function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(false);
@@ -368,7 +377,7 @@ function ProjectPanel({
   center?: number;
   span?: number;
 }) {
-  const cover = p.images.find((img) => !isPdf(img));
+  const pictures = p.images.filter((img) => !isPdf(img));
   const docs = p.images.filter(isPdf).length;
 
   return (
@@ -378,9 +387,10 @@ function ProjectPanel({
       }`}
     >
       <ProjectImage
-        cover={cover}
+        pictures={pictures}
         title={p.title}
         stacked={stacked}
+        isEs={isEs}
         progress={progress}
         center={center}
         span={span}
@@ -469,25 +479,37 @@ function ProjectPanel({
 
 /** Cover image; in the horizontal row it drifts against the scroll for depth. */
 function ProjectImage({
-  cover,
+  pictures,
   title,
   stacked,
+  isEs,
   progress,
   center,
   span,
   children,
 }: {
-  cover?: string;
+  pictures: string[];
   title: string;
   stacked: boolean;
+  isEs: boolean;
   progress?: MotionValue<number>;
   center: number;
   span: number;
   children: React.ReactNode;
 }) {
+  const [index, setIndex] = useState(0);
+  const n = pictures.length;
+  const go = (step: number) => setIndex((i) => (i + step + n) % n);
+  const swipe = useSwipe({ onPrev: () => go(-1), onNext: () => go(1) });
+  const src = pictures[index];
+
+  const arrow =
+    "absolute top-1/2 z-20 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-white/15 bg-black/45 text-white backdrop-blur-md transition-all hover:bg-black/70 focus-visible:opacity-100 sm:opacity-0 sm:group-hover:opacity-100 cursor-pointer";
+
   return (
     <div
-      className={`relative overflow-hidden bg-paper/70 ${
+      {...(n > 1 ? swipe : {})}
+      className={`relative select-none overflow-hidden bg-paper/70 ${
         stacked ? "aspect-[16/10] border-b border-rule" : "border-r border-rule"
       }`}
     >
@@ -499,64 +521,105 @@ function ProjectImage({
         aria-hidden="true"
         className="absolute -bottom-20 left-1/2 h-48 w-3/4 -translate-x-1/2 rounded-full bg-brand/25 blur-3xl"
       />
-      {cover ? (
-        progress ? (
-          <ParallaxImage
-            cover={cover}
-            title={title}
-            progress={progress}
-            center={center}
-            span={span}
-          />
-        ) : (
-          <Image
-            src={cover}
-            alt={title}
-            fill
-            sizes="85vw"
-            className="object-contain p-6 drop-shadow-[0_18px_30px_rgba(0,0,0,0.3)]"
-          />
-        )
+      {src ? (
+        <Parallax progress={progress} center={center} span={span}>
+          <AnimatePresence mode="popLayout" initial={false}>
+            <motion.div
+              key={src}
+              className="absolute inset-0"
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -40 }}
+              transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
+            >
+              <Image
+                src={src}
+                alt={`${title}, ${isEs ? "imagen" : "image"} ${index + 1}`}
+                fill
+                sizes={stacked ? "85vw" : "40vw"}
+                draggable={false}
+                className={`object-contain drop-shadow-[0_24px_40px_rgba(0,0,0,0.35)] ${
+                  stacked ? "p-6" : "p-10"
+                }`}
+              />
+            </motion.div>
+          </AnimatePresence>
+        </Parallax>
       ) : (
         <span className="absolute inset-0 flex items-center justify-center text-accent">
           <FileText size={48} aria-hidden="true" />
         </span>
+      )}
+
+      {n > 1 && (
+        <>
+          <button
+            type="button"
+            onClick={() => go(-1)}
+            aria-label={isEs ? "Imagen anterior" : "Previous image"}
+            className={`${arrow} left-4`}
+          >
+            <ChevronLeft size={18} aria-hidden="true" />
+          </button>
+          <button
+            type="button"
+            onClick={() => go(1)}
+            aria-label={isEs ? "Imagen siguiente" : "Next image"}
+            className={`${arrow} right-4`}
+          >
+            <ChevronRight size={18} aria-hidden="true" />
+          </button>
+          <span className="absolute bottom-4 left-1/2 z-20 flex -translate-x-1/2 gap-1.5 rounded-full bg-black/35 px-2.5 py-1.5 backdrop-blur-md">
+            {pictures.map((img, i) => (
+              <button
+                key={img}
+                type="button"
+                onClick={() => setIndex(i)}
+                aria-label={`${isEs ? "Ver imagen" : "Show image"} ${i + 1}`}
+                aria-current={i === index}
+                className={`h-1.5 rounded-full transition-all duration-300 cursor-pointer ${
+                  i === index
+                    ? "w-5 bg-white"
+                    : "w-1.5 bg-white/50 hover:bg-white/80"
+                }`}
+              />
+            ))}
+          </span>
+        </>
       )}
       {children}
     </div>
   );
 }
 
-function ParallaxImage({
-  cover,
-  title,
+/** In the horizontal row, the images drift against the scroll for depth. */
+function Parallax({
   progress,
   center,
   span,
+  children,
 }: {
-  cover: string;
-  title: string;
-  progress: MotionValue<number>;
+  progress?: MotionValue<number>;
   center: number;
   span: number;
+  children: React.ReactNode;
 }) {
+  const fallback = useMotionValue(center);
+  const source = progress ?? fallback;
   const x = useTransform(
-    progress,
+    source,
     (v) => -70 * Math.max(-1, Math.min(1, (v - center) / span)),
   );
   const scale = useTransform(
-    progress,
+    source,
     (v) => 1 + 0.08 * focusDistance(v, center, span),
   );
   return (
-    <motion.div className="absolute inset-0" style={{ x, scale }}>
-      <Image
-        src={cover}
-        alt={title}
-        fill
-        sizes="40vw"
-        className="object-contain p-10 drop-shadow-[0_24px_40px_rgba(0,0,0,0.35)] transition-transform duration-700 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.04]"
-      />
+    <motion.div
+      className="absolute inset-0"
+      style={progress ? { x, scale } : undefined}
+    >
+      {children}
     </motion.div>
   );
 }

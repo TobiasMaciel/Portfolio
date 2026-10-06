@@ -10,8 +10,8 @@
       "en": "Datebox"
     },
     "subtitle": {
-      "es": "Asymmetric Devs, equipo de 4 desarrolladores",
-      "en": "Asymmetric Devs, team of 4 developers"
+      "es": "Asymmetric Devs",
+      "en": "Asymmetric Devs"
     },
     "role": {
       "es": "Desarrollador Full Stack y Mobile",
@@ -22,25 +22,27 @@
       "en": "App to organize group outings: it syncs schedules, recommends local plans with AI and keeps shared memories. Live on Google Play."
     },
     "description": {
-      "es": "Datebox resuelve algo que todos conocemos: ponerse de acuerdo para salir. El grupo comparte sus horarios y gustos, vota entre opciones y la app recomienda actividades de la zona con un motor propio. Después de cada salida, los momentos quedan guardados en un álbum compartido. La desarrollamos entre cuatro, con app móvil, API, motor de recomendación, carga automática de eventos y un panel para comercios. Yo me centré en la app móvil, en varios módulos de la API y en el pipeline que la publica en las tiendas.",
-      "en": "Datebox solves something everyone knows: agreeing on when and where to go out. The group shares its schedules and tastes, votes between options and the app recommends nearby activities with its own engine. After each outing, the moments are saved in a shared album. Four of us built it: a mobile app, an API, a recommendation engine, automatic event ingestion and a dashboard for businesses. I focused on the mobile app, several API modules and the pipeline that ships it to the stores."
+      "es": "Datebox resuelve algo que todos conocemos: ponerse de acuerdo para salir. El grupo comparte sus horarios y gustos, vota entre opciones y la app recomienda actividades de la zona. Después de cada salida, los momentos quedan en un álbum compartido. Desarrollé el producto completo junto a mi equipo: la app para Android e iOS, la API, el motor de recomendación, la carga automática de eventos, el panel para comercios y el pipeline que publica todo en las tiendas.",
+      "en": "Datebox solves something everyone knows: agreeing on when and where to go out. The group shares its schedules and tastes, votes between options and the app recommends nearby activities. After each outing, the moments are saved in a shared album. I built the whole product with my team: the Android and iOS app, the API, the recommendation engine, automatic event ingestion, the business dashboard and the pipeline that ships everything to the stores."
     },
     "bullets": {
       "es": [
-        "Rehice la sección Momentos: grilla tipo Pinterest, fotos, video y audio, reacciones con stickers y exportación como historia de Instagram.",
-        "Desarrollé las votaciones grupales, la creación, edición y cancelación de salidas, y la coordinación de horarios del grupo.",
-        "Armé la publicación automática en Google Play con GitHub Actions y Expo EAS, con versionado y actualizaciones OTA.",
-        "Sumé links cortos de WhatsApp que confirman asistencia con un deep link a la app.",
-        "Desarrollé módulos de la API en Hono sobre Cloudflare Workers y migraciones de PostgreSQL en Supabase.",
-        "El equipo construyó un motor de recomendación en Python con puntaje ponderado y embeddings de Google Gemini, desplegado en AWS Lambda."
+        "Desarrollé la app móvil con React Native y Expo: salidas, votaciones, horarios del grupo, mapa de eventos y álbum de recuerdos con fotos, video y audio.",
+        "Construí la API con Hono sobre Cloudflare Workers, con PostgreSQL y PostGIS en Supabase, notificaciones push y recordatorios automáticos.",
+        "Diseñé un motor de recomendación en Python que combina gustos, disponibilidad, distancia y presupuesto del grupo, con búsqueda semántica usando embeddings de Google Gemini.",
+        "Desplegué el motor en AWS Lambda con FastAPI, definido como infraestructura con AWS CDK.",
+        "Armé un pipeline que todos los días recolecta eventos de Corrientes y Chaco, los geolocaliza, elimina duplicados y los enriquece con Gemini.",
+        "Automaticé la publicación en Google Play y TestFlight con GitHub Actions y Expo EAS, con versionado y actualizaciones sin pasar por la tienda.",
+        "Sumé un panel web para que los comercios locales se promocionen ante grupos con intención de salir."
       ],
       "en": [
-        "Rebuilt the Moments section: Pinterest-style grid, photos, video and audio, sticker reactions and export as an Instagram story.",
-        "Built group polls, creating, editing and cancelling outings, and group schedule coordination.",
-        "Set up automatic publishing to Google Play with GitHub Actions and Expo EAS, with versioning and OTA updates.",
-        "Added short WhatsApp links that confirm attendance through a deep link into the app.",
-        "Built API modules in Hono on Cloudflare Workers and PostgreSQL migrations in Supabase.",
-        "The team built a Python recommendation engine with weighted scoring and Google Gemini embeddings, deployed on AWS Lambda."
+        "Built the mobile app with React Native and Expo: outings, polls, group schedules, an event map and a memories album with photos, video and audio.",
+        "Built the API with Hono on Cloudflare Workers, with PostgreSQL and PostGIS on Supabase, push notifications and automatic reminders.",
+        "Designed a Python recommendation engine that combines the group's tastes, availability, distance and budget, with semantic search using Google Gemini embeddings.",
+        "Deployed the engine on AWS Lambda with FastAPI, defined as infrastructure with AWS CDK.",
+        "Built a pipeline that collects events from Corrientes and Chaco every day, geocodes them, removes duplicates and enriches them with Gemini.",
+        "Automated publishing to Google Play and TestFlight with GitHub Actions and Expo EAS, with versioning and over-the-air updates.",
+        "Added a web dashboard so local businesses can promote themselves to groups planning to go out."
       ]
     },
     "stack": [
