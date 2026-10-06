@@ -70,6 +70,8 @@ export default function Section({
             </motion.h2>
             {intro && (
               <motion.p
+                // Some intros include the current date (years of experience)
+                suppressHydrationWarning
                 className="mt-2 max-w-[60ch] text-sm font-medium text-muted"
                 style={still ? undefined : { x: introX }}
               >

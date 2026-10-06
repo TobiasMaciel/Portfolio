@@ -6,6 +6,7 @@ import { prepareWithSegments, layoutNextLine } from "@chenglou/pretext";
 
 import { useLanguage } from "@/context/LanguageContext";
 import portfolioData from "@/data";
+import { getExperienceTotal } from "@/data/content";
 
 type LineData = {
   text: string;
@@ -28,7 +29,11 @@ export default function LayoutAnimation() {
   const { isEs: isEsLang } = useLanguage();
 
   const aboutData = portfolioData.about;
-  const rawCvText = isEsLang ? aboutData.cv_text.es : aboutData.cv_text.en;
+  // {experience} is filled in from the job dates, so it stays current
+  const rawCvText = (isEsLang ? aboutData.cv_text.es : aboutData.cv_text.en).replace(
+    "{experience}",
+    getExperienceTotal(isEsLang ? "es" : "en").atLeast,
+  );
   const trimmedText = rawCvText.trim();
   const dropCapChar = trimmedText.charAt(0) || "I";
   const CV_TEXT = trimmedText.slice(1);

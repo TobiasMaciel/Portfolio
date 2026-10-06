@@ -4,6 +4,7 @@ import { useRef } from "react";
 import { motion, useReducedMotion, useScroll } from "framer-motion";
 import { ArrowUpRight } from "lucide-react";
 import ScrollIn from "@/components/fx/ScrollIn";
+import { getExperienceTotal } from "@/data/content";
 import CompanyLogo from "@/components/ui/CompanyLogo";
 import type { ExperienceItem, Project } from "@/types";
 import Section, { ArrowIcon } from "@/components/ui/Section";
@@ -23,6 +24,7 @@ export default function ExperienceSection({
   onOpenExperience: (exp: ExperienceItem) => void;
   onOpenProject: (project: Project) => void;
 }) {
+  const total = getExperienceTotal(isEs ? "es" : "en");
   const listRef = useRef<HTMLOListElement>(null);
   const reduceMotion = useReducedMotion();
   // The timeline line draws itself downward as the list scrolls through
@@ -37,8 +39,8 @@ export default function ExperienceSection({
       title={isEs ? "Experiencia" : "Experience"}
       intro={
         isEs
-          ? "Trayectoria profesional en desarrollo de software, agentes de IA y sistemas escalables."
-          : "Professional track record in software engineering, AI agents and scalable systems."
+          ? `${total.exact} de experiencia profesional en desarrollo de software, agentes de IA y sistemas en producción.`
+          : `${total.exact} of professional experience in software development, AI agents and production systems.`
       }
     >
       <ol
@@ -85,6 +87,9 @@ export default function ExperienceSection({
                 <p className="flex flex-wrap items-center gap-3 text-sm font-semibold text-muted">
                   <span className={isCurrent ? "text-accent" : ""}>
                     {exp.period}
+                  </span>
+                  <span className="font-medium" suppressHydrationWarning>
+                    {exp.duration}
                   </span>
                   {isCurrent && (
                     <span className="rounded-full border border-brand/25 bg-brand/10 px-2.5 py-0.5 text-[11px] font-bold text-accent">

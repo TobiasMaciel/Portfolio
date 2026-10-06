@@ -6,6 +6,7 @@ import type {
   Project,
 } from "@/types";
 import portfolioData from "@/data";
+import { formatAtLeast, formatDuration, formatRange, monthsBetween, totalMonths } from "./experienceTime";
 
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || "";
 
@@ -36,7 +37,8 @@ export function getProjects(lang: Language): Project[] {
 export function getExperiences(lang: Language): ExperienceItem[] {
   return portfolioData.experience.map((exp) => ({
     id: exp.id,
-    period: formatPeriod(exp.period[lang]),
+    period: formatRange(exp.start, exp.end, lang),
+    duration: formatDuration(monthsBetween(exp.start, exp.end), lang),
     company: exp.company[lang],
     logo: exp.logo ? { ...exp.logo, src: withBasePath(exp.logo.src) } : undefined,
     role: exp.role[lang],
@@ -75,3 +77,9 @@ export function getAchievements(lang: Language): AchievementItem[] {
 
 export const cvUrl = (lang: Language) =>
   withBasePath(lang === "es" ? "/CV/CV_Tobias_Maciel_ES.pdf" : "/CV/CV_Tobias_Maciel_EN.pdf");
+
+/** Professional experience across all jobs, e.g. "3 años y 7 meses". */
+export function getExperienceTotal(lang: Language) {
+  const months = totalMonths(portfolioData.experience);
+  return { months, exact: formatDuration(months, lang), atLeast: formatAtLeast(months, lang) };
+}

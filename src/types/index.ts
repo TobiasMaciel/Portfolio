@@ -53,7 +53,10 @@ export interface CompanyLogo {
 export interface ExperienceItem {
   id: string;
   logo?: CompanyLogo;
+  /** Derived from the start/end dates, e.g. "Desde abril 2023" */
   period: string;
+  /** Time in the role, e.g. "3 años y 7 meses" */
+  duration: string;
   company: string;
   role: string;
   location?: string;

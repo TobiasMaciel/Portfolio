@@ -574,8 +574,8 @@ function ExperienceCase({
               value: e.location ?? "—",
             },
             {
-              label: isEs ? "Tecnologías" : "Technologies",
-              value: e.stack.length,
+              label: isEs ? "Duración" : "Duration",
+              value: e.duration,
             },
             {
               label: isEs ? "Proyectos" : "Projects",

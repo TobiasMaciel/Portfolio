@@ -148,8 +148,8 @@
       "en": "Full Stack Developer"
     },
     "summary": {
-      "es": "Plataforma web que centraliza investigadores, becarios y proyectos de I+D de la UTN FRRe. En producción desde 2023.",
-      "en": "Web platform that centralizes UTN FRRe's researchers, fellows and R&D projects. In production since 2023."
+      "es": "Plataforma web que centraliza investigadores, becarios y proyectos de I+D de la UTN FRRe. En producción hace más de un año.",
+      "en": "Web platform that centralizes UTN FRRe's researchers, fellows and R&D projects. In production for over a year."
     },
     "description": {
       "es": "Sistema cliente-servidor que reemplazó registros dispersos por una sola fuente de información para la Secretaría. Incluye la gestión completa de investigadores, becarios, proyectos y grupos, exportación de reportes y acceso seguro con JWT. Participé en todo el ciclo: relevamiento, modelo de datos, desarrollo, pruebas y despliegue.",

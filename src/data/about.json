@@ -1,7 +1,7 @@
 {
   "cv_text": {
-    "es": "Ingeniero en Sistemas de Información con más de 3 años desarrollando aplicaciones web y móviles. Hoy me enfoco en llevar la inteligencia artificial a productos reales: agentes que atienden clientes, herramientas conectadas a APIs de modelos de lenguaje y sistemas que funcionan todos los días en producción.\n\nTrabajo cerca de las personas que usan lo que construyo. Relevo requerimientos con el Product Owner, propongo soluciones y las entrego por etapas con metodologías ágiles, para que cada versión resuelva algo concreto.\n\nMe ocupo del recorrido completo: frontend, backend, bases de datos y la infraestructura que los sostiene, con contenedores, integración continua y despliegues automáticos. Antes de escribir la primera línea de código, me gusta entender bien el problema.",
-    "en": "Information Systems Engineer with over 3 years building web and mobile applications. Today I focus on bringing artificial intelligence into real products: agents that serve customers, tools connected to language model APIs and systems that run in production every day.\n\nI work close to the people who use what I build. I gather requirements with the Product Owner, propose solutions and deliver them in stages with agile methods, so every release solves something concrete.\n\nI cover the whole path: frontend, backend, databases and the infrastructure behind them, with containers, continuous integration and automated deployments. Before writing the first line of code, I like to understand the problem well."
+    "es": "Ingeniero en Sistemas de Información con {experience} de experiencia desarrollando aplicaciones web y móviles. Me enfoco en llevar la inteligencia artificial a productos reales: agentes conectados a APIs de modelos de lenguaje y sistemas que funcionan todos los días en producción.\n\n“Un buen sistema no se mide por la tecnología que usa, sino por los problemas que les resuelve a quienes lo usan todos los días.”\n\nPor eso trabajo cerca de quienes usan lo que construyo: relevo requerimientos con el Product Owner y entrego por etapas con metodologías ágiles. Me ocupo del recorrido completo, desde el frontend y el backend hasta los contenedores, la integración continua y los despliegues.",
+    "en": "Information Systems Engineer with {experience} of experience building web and mobile applications. I focus on bringing artificial intelligence into real products: agents connected to language model APIs and systems that run in production every day.\n\n“A good system isn't measured by the technology it uses, but by the problems it solves for the people who use it every day.”\n\nThat's why I work close to the people who use what I build: I gather requirements with the Product Owner and deliver in stages with agile methods. I cover the whole path, from frontend and backend to containers, continuous integration and deployments."
   },
   "headers": {
     "es": [],
@@ -12,7 +12,13 @@
     "en": []
   },
   "quotes": {
-    "es": [],
-    "en": []
+    "es": [
+      "“Un buen sistema",
+      "todos los días.”"
+    ],
+    "en": [
+      "“A good system",
+      "every day.”"
+    ]
   }
 }
