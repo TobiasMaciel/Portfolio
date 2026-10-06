@@ -19,7 +19,7 @@ import { button } from "@/components/ui/styles";
 import { isPdf } from "@/components/ui/useSwipe";
 import { ArrowIcon } from "@/components/ui/Section";
 
-const FEATURED_IDS = ["elepad", "ai-sales-agent", "sgi", "tup", "cubesat", "mlp-ia"];
+const FEATURED_IDS = ["datebox", "elepad", "ai-sales-agent", "sgi", "tup", "cubesat"];
 
 function useMediaQuery(query: string) {
   const [matches, setMatches] = useState(false);

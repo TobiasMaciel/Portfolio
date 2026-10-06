@@ -1,5 +1,74 @@
 [
   {
+    "id": "datebox",
+    "period": {
+      "es": "Desde abril 2026",
+      "en": "Since April 2026"
+    },
+    "title": {
+      "es": "Datebox",
+      "en": "Datebox"
+    },
+    "subtitle": {
+      "es": "Asymmetric Devs, equipo de 4 desarrolladores",
+      "en": "Asymmetric Devs, team of 4 developers"
+    },
+    "role": {
+      "es": "Desarrollador Full Stack y Mobile",
+      "en": "Full Stack and Mobile Developer"
+    },
+    "summary": {
+      "es": "App para organizar salidas en grupo: coordina horarios, recomienda planes locales con IA y guarda los recuerdos compartidos. Publicada en Google Play.",
+      "en": "App to organize group outings: it syncs schedules, recommends local plans with AI and keeps shared memories. Live on Google Play."
+    },
+    "description": {
+      "es": "Datebox resuelve algo que todos conocemos: ponerse de acuerdo para salir. El grupo comparte sus horarios y gustos, vota entre opciones y la app recomienda actividades de la zona con un motor propio. Después de cada salida, los momentos quedan guardados en un álbum compartido. La desarrollamos entre cuatro, con app móvil, API, motor de recomendación, carga automática de eventos y un panel para comercios. Yo me centré en la app móvil, en varios módulos de la API y en el pipeline que la publica en las tiendas.",
+      "en": "Datebox solves something everyone knows: agreeing on when and where to go out. The group shares its schedules and tastes, votes between options and the app recommends nearby activities with its own engine. After each outing, the moments are saved in a shared album. Four of us built it: a mobile app, an API, a recommendation engine, automatic event ingestion and a dashboard for businesses. I focused on the mobile app, several API modules and the pipeline that ships it to the stores."
+    },
+    "bullets": {
+      "es": [
+        "Rehice la sección Momentos: grilla tipo Pinterest, fotos, video y audio, reacciones con stickers y exportación como historia de Instagram.",
+        "Desarrollé las votaciones grupales, la creación, edición y cancelación de salidas, y la coordinación de horarios del grupo.",
+        "Armé la publicación automática en Google Play con GitHub Actions y Expo EAS, con versionado y actualizaciones OTA.",
+        "Sumé links cortos de WhatsApp que confirman asistencia con un deep link a la app.",
+        "Desarrollé módulos de la API en Hono sobre Cloudflare Workers y migraciones de PostgreSQL en Supabase.",
+        "El equipo construyó un motor de recomendación en Python con puntaje ponderado y embeddings de Google Gemini, desplegado en AWS Lambda."
+      ],
+      "en": [
+        "Rebuilt the Moments section: Pinterest-style grid, photos, video and audio, sticker reactions and export as an Instagram story.",
+        "Built group polls, creating, editing and cancelling outings, and group schedule coordination.",
+        "Set up automatic publishing to Google Play with GitHub Actions and Expo EAS, with versioning and OTA updates.",
+        "Added short WhatsApp links that confirm attendance through a deep link into the app.",
+        "Built API modules in Hono on Cloudflare Workers and PostgreSQL migrations in Supabase.",
+        "The team built a Python recommendation engine with weighted scoring and Google Gemini embeddings, deployed on AWS Lambda."
+      ]
+    },
+    "stack": [
+      "React Native",
+      "Expo",
+      "TypeScript",
+      "TanStack Query",
+      "Hono",
+      "Cloudflare Workers",
+      "Supabase",
+      "PostgreSQL",
+      "Python",
+      "FastAPI",
+      "Google Gemini",
+      "AWS",
+      "GitHub Actions",
+      "Turborepo"
+    ],
+    "images": [
+      "/proyectos/datebox/datebox-banner.webp",
+      "/proyectos/datebox/datebox-1.webp",
+      "/proyectos/datebox/datebox-2.webp",
+      "/proyectos/datebox/datebox-3.webp",
+      "/proyectos/datebox/datebox-4.webp"
+    ],
+    "googleplay": "https://play.google.com/store/apps/details?id=datebox.com.ar"
+  },
+  {
     "id": "elepad",
     "period": {
       "es": "Marzo 2025 a marzo 2026",
