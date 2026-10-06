@@ -1,7 +1,7 @@
 {
   "cv_text": {
-    "es": "Ingeniero en Sistemas de Información con {experience} de experiencia desarrollando aplicaciones web y móviles. Me enfoco en llevar la inteligencia artificial a productos reales: agentes conectados a APIs de modelos de lenguaje y sistemas que funcionan todos los días en producción.\n\n“Un buen sistema no se mide por la tecnología que usa, sino por los problemas que les resuelve a quienes lo usan todos los días.”\n\nPor eso trabajo cerca de quienes usan lo que construyo: relevo requerimientos con el Product Owner y entrego por etapas con metodologías ágiles. Me ocupo del recorrido completo, desde el frontend y el backend hasta los contenedores, la integración continua y los despliegues.",
-    "en": "Information Systems Engineer with {experience} of experience building web and mobile applications. I focus on bringing artificial intelligence into real products: agents connected to language model APIs and systems that run in production every day.\n\n“A good system isn't measured by the technology it uses, but by the problems it solves for the people who use it every day.”\n\nThat's why I work close to the people who use what I build: I gather requirements with the Product Owner and deliver in stages with agile methods. I cover the whole path, from frontend and backend to containers, continuous integration and deployments."
+    "es": "Soy Tobías, Ingeniero en Sistemas de Información recibido en la UTN de Resistencia y nacido en Corrientes. Llevo {experience} haciendo software: empecé en la Secretaría de Ciencia y Tecnología de la facultad y hoy también trabajo en Logística Argentina, donde hago desde agentes con IA hasta la plataforma que usa toda la empresa.\n\n“Antes de escribir una línea de código, me gusta entender cómo trabaja la gente que lo va a usar.”\n\nLo que más disfruto es armar cosas completas, de la base de datos al despliegue. Hacia adelante quiero especializarme en IA aplicada y DevOps, y sumarme a equipos donde pueda seguir aprendiendo y construir productos que la gente use de verdad.",
+    "en": "I'm Tobías, an Information Systems Engineer who graduated from UTN in Resistencia and was born in Corrientes, Argentina. I've spent {experience} building software: I started at the faculty's Secretariat of Science and Technology and now I also work at Logística Argentina, where I build everything from AI agents to the platform the whole company runs on.\n\n“Before writing a line of code, I like to understand how the people who will use it actually work.”\n\nWhat I enjoy most is building complete things, from the database to deployment. Going forward I want to specialize in applied AI and DevOps, and join teams where I can keep learning and build products people really use."
   },
   "headers": {
     "es": [],
@@ -13,12 +13,12 @@
   },
   "quotes": {
     "es": [
-      "“Un buen sistema",
-      "todos los días.”"
+      "“Antes de escribir",
+      "va a usar.”"
     ],
     "en": [
-      "“A good system",
-      "every day.”"
+      "“Before writing",
+      "actually work.”"
     ]
   }
 }

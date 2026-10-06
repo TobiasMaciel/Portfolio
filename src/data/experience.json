@@ -29,36 +29,36 @@
     },
     "bullets": {
       "es": [
-        "Agentes de IA: desarrollé agentes de ventas integrados al CRM con la API de Claude, como parte del reemplazo de Kommo.",
-        "Plataforma interna: hice la reingeniería integral de más de 13 módulos (Pagos, Ventas y Logística) con React, TypeScript y shadcn/ui.",
-        "Facturación: integré la facturación electrónica con ARCA en la app móvil de los transportistas.",
-        "Soporte: acompaño en lo técnico a más de 300 transportistas que usan DistriApp y su versión web."
+        "Desarrollé agentes de ventas integrados al CRM con la API de Claude, como parte del reemplazo de Kommo.",
+        "Hice la reingeniería integral de más de 13 módulos (Pagos, Ventas y Logística) con React, TypeScript y shadcn/ui.",
+        "Integré la facturación electrónica con ARCA en la app móvil de los transportistas.",
+        "Acompaño en lo técnico a más de 300 transportistas que usan DistriApp y su versión web."
       ],
       "en": [
-        "AI agents: built sales agents integrated into the CRM with the Claude API, as part of replacing Kommo.",
-        "Internal platform: fully re-engineered 13+ modules (Payments, Sales and Logistics) with React, TypeScript and shadcn/ui.",
-        "Invoicing: integrated ARCA e-invoicing into the drivers' mobile app.",
-        "Support: I give technical support to 300+ drivers who use DistriApp and its web version."
+        "Built sales agents integrated into the CRM with the Claude API, as part of replacing Kommo.",
+        "Fully re-engineered 13+ modules (Payments, Sales and Logistics) with React, TypeScript and shadcn/ui.",
+        "Integrated ARCA e-invoicing into the drivers' mobile app.",
+        "I give technical support to 300+ drivers who use DistriApp and its web version."
       ]
     },
     "details": {
       "es": [
-        "Agentes de IA: diseñé agentes de ventas con la API de Claude que detectan intención de compra, consultan tarifas y avanzan oportunidades dentro del CRM.",
-        "Agentes de IA: desarrollé las herramientas que usan los agentes (tool calling), los recordatorios automáticos y un tono adaptado a cada operador.",
-        "Agentes de IA: armé simuladores de conversación para medir la calidad de las respuestas y reducir alucinaciones antes de cada cambio.",
-        "Plataforma interna: rehice la plataforma de gestión sobre el backend PHP existente, módulo por módulo y sin frenar la operación diaria.",
-        "Plataforma interna: implementé validaciones en tiempo real, paneles laterales, sincronización de datos y modo claro y oscuro.",
-        "Facturación: junto al área de Pagos, configuré delegaciones y puntos de venta en ARCA para que los transportistas facturen desde la app.",
-        "Soporte: resuelvo incidencias de accesos, versiones y operación diaria de DistriApp y su plataforma web."
+        "Diseñé agentes de ventas con la API de Claude que detectan intención de compra, consultan tarifas y avanzan oportunidades dentro del CRM.",
+        "Desarrollé las herramientas que usan los agentes (tool calling), los recordatorios automáticos y un tono adaptado a cada operador.",
+        "Armé simuladores de conversación para medir la calidad de las respuestas y reducir alucinaciones antes de cada cambio.",
+        "Rehice la plataforma de gestión sobre el backend PHP existente, módulo por módulo y sin frenar la operación diaria.",
+        "Implementé validaciones en tiempo real, paneles laterales, sincronización de datos y modo claro y oscuro.",
+        "Junto al área de Pagos, configuré delegaciones y puntos de venta en ARCA para que los transportistas facturen desde la app.",
+        "Resuelvo incidencias de accesos, versiones y operación diaria de DistriApp y su plataforma web."
       ],
       "en": [
-        "AI agents: designed sales agents with the Claude API that detect purchase intent, look up rates and move deals forward inside the CRM.",
-        "AI agents: built the tools the agents use (tool calling), automatic reminders and a tone adapted to each operator.",
-        "AI agents: built conversation simulators to measure answer quality and reduce hallucinations before every change.",
-        "Internal platform: rebuilt the management platform on top of the existing PHP backend, module by module and without stopping daily operations.",
-        "Internal platform: implemented real-time validation, side panels, data sync and light and dark modes.",
-        "Invoicing: together with the Payments team, set up ARCA delegations and points of sale so drivers can invoice from the app.",
-        "Support: I solve access, version and daily operation issues in DistriApp and its web platform."
+        "Designed sales agents with the Claude API that detect purchase intent, look up rates and move deals forward inside the CRM.",
+        "Built the tools the agents use (tool calling), automatic reminders and a tone adapted to each operator.",
+        "Built conversation simulators to measure answer quality and reduce hallucinations before every change.",
+        "Rebuilt the management platform on top of the existing PHP backend, module by module and without stopping daily operations.",
+        "Implemented real-time validation, side panels, data sync and light and dark modes.",
+        "Together with the Payments team, set up ARCA delegations and points of sale so drivers can invoice from the app.",
+        "I solve access, version and daily operation issues in DistriApp and its web platform."
       ]
     },
     "stack": [
@@ -147,22 +147,22 @@
     },
     "details": {
       "es": [
-        "Relevamiento: me reúno con las autoridades y el Product Owner, y convierto sus necesidades en historias de usuario priorizadas.",
-        "Datos: diseñé el modelo relacional en PostgreSQL y lo hago evolucionar con migraciones de Prisma.",
-        "Backend: desarrollo la API REST con Node.js y Express, con autenticación JWT y permisos según el rol de cada usuario.",
-        "Frontend: construyo las pantallas con React, Chakra UI y TanStack Query, con formularios claros para tareas administrativas.",
-        "Calidad: escribo pruebas y reviso el código antes de cada entrega, con flujo de ramas y pull requests en GitHub.",
-        "DevOps: gestiono el despliegue continuo en Render y sigo el estado del sistema en producción.",
-        "Soporte: acompaño a los usuarios de la facultad, resuelvo incidencias y documento cada funcionalidad nueva."
+        "Me reúno con las autoridades y el Product Owner, y convierto sus necesidades en historias de usuario priorizadas.",
+        "Diseñé el modelo relacional en PostgreSQL y lo hago evolucionar con migraciones de Prisma.",
+        "Desarrollo la API REST con Node.js y Express, con autenticación JWT y permisos según el rol de cada usuario.",
+        "Construyo las pantallas con React, Chakra UI y TanStack Query, con formularios claros para tareas administrativas.",
+        "Escribo pruebas y reviso el código antes de cada entrega, con flujo de ramas y pull requests en GitHub.",
+        "Gestiono el despliegue continuo en Render y sigo el estado del sistema en producción.",
+        "Acompaño a los usuarios de la facultad, resuelvo incidencias y documento cada funcionalidad nueva."
       ],
       "en": [
-        "Requirements: I meet with the authorities and the Product Owner and turn their needs into prioritized user stories.",
-        "Data: designed the relational model in PostgreSQL and evolve it with Prisma migrations.",
-        "Backend: I build the REST API with Node.js and Express, with JWT authentication and role-based permissions.",
-        "Frontend: I build the screens with React, Chakra UI and TanStack Query, with clear forms for administrative tasks.",
-        "Quality: I write tests and review code before every release, with a branch and pull request flow on GitHub.",
-        "DevOps: I manage continuous deployment on Render and keep track of the system in production.",
-        "Support: I help the faculty's users, solve issues and document every new feature."
+        "I meet with the authorities and the Product Owner and turn their needs into prioritized user stories.",
+        "Designed the relational model in PostgreSQL and evolve it with Prisma migrations.",
+        "I build the REST API with Node.js and Express, with JWT authentication and role-based permissions.",
+        "I build the screens with React, Chakra UI and TanStack Query, with clear forms for administrative tasks.",
+        "I write tests and review code before every release, with a branch and pull request flow on GitHub.",
+        "I manage continuous deployment on Render and keep track of the system in production.",
+        "I help the faculty's users, solve issues and document every new feature."
       ]
     },
     "stack": [
