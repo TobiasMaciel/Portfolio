@@ -77,6 +77,70 @@
     "googleplay": "https://play.google.com/store/apps/details?id=datebox.com.ar"
   },
   {
+    "id": "dosel",
+    "period": {
+      "es": "Octubre 2026",
+      "en": "October 2026"
+    },
+    "title": {
+      "es": "Dosel",
+      "en": "Dosel"
+    },
+    "subtitle": {
+      "es": "Ideathon NeaTech 2026, 1.er premio Stellar",
+      "en": "NeaTech 2026 Ideathon, 1st Stellar Prize"
+    },
+    "role": {
+      "es": "Desarrollador Full Stack",
+      "en": "Full Stack Developer"
+    },
+    "summary": {
+      "es": "Créditos de carbono de bosque nativo del Gran Chaco, verificados con imágenes satelitales y emitidos en la blockchain de Stellar. Ganó el primer premio Stellar en la Ideathon NeaTech 2026.",
+      "en": "Carbon credits from native forest in the Gran Chaco, verified with satellite imagery and issued on the Stellar blockchain. Won the first Stellar Prize at the NeaTech 2026 Ideathon."
+    },
+    "description": {
+      "es": "Dosel resuelve un problema de confianza: en lugar de creerle al dueño del campo, mide el bosque desde el satélite. Un oráculo calcula el NDVI (índice que mide qué tan sana está la vegetación) de Sentinel-2 sobre cada predio y solo con ese dato un contrato en Stellar emite los créditos. Si el bosque cae, el predio se congela y deja de emitir. Quien compensa su huella compra y quema los créditos en una sola transacción, y cada tonelada se puede rastrear hasta la imagen que la originó. Lo construimos en equipo durante la hackathon, desde cero.",
+      "en": "Dosel solves a trust problem: instead of taking the landowner's word, it measures the forest from space. An oracle computes Sentinel-2 NDVI (an index of how healthy the vegetation is) over each parcel and only with that data a Stellar contract issues the credits. If the forest drops, the parcel is frozen and stops issuing. Whoever offsets their footprint buys and burns the credits in a single transaction, and every ton can be traced back to the image that produced it. We built it from scratch as a team during the hackathon."
+    },
+    "bullets": {
+      "es": [
+        "Desarrollamos dos contratos inteligentes en Rust sobre Soroban: el token GreenTon, que emite créditos por lote, y un mercado que cobra, le paga al dueño y quema las toneladas en la misma transacción.",
+        "Armamos un oráculo en Python que calcula el NDVI (índice de vegetación) de Sentinel-2 con Planetary Computer y congela el predio si la vegetación cae por debajo del umbral.",
+        "Construimos la web con React, Vite y el SDK de Stellar: mapa de predios con Leaflet, mercado, compras firmadas con la billetera Freighter y certificados de compensación.",
+        "Sumamos una segunda señal de cobertura del suelo para detectar falsos positivos del NDVI, y un radar de noticias sobre desmonte en el Chaco.",
+        "Desplegamos los contratos en Stellar Testnet, con todas las transacciones públicas y verificables en Stellar Expert."
+      ],
+      "en": [
+        "Built two smart contracts in Rust on Soroban: the GreenTon token, which issues credits per batch, and a marketplace that charges, pays the owner and burns the tons in the same transaction.",
+        "Built a Python oracle that computes Sentinel-2 NDVI (vegetation index) with Planetary Computer and freezes the parcel if vegetation drops below the threshold.",
+        "Built the web app with React, Vite and the Stellar SDK: a parcel map with Leaflet, a marketplace, purchases signed with the Freighter wallet and offset certificates.",
+        "Added a second land cover signal to catch NDVI false positives, plus a news radar on deforestation in the Chaco.",
+        "Deployed the contracts on Stellar Testnet, with every transaction public and verifiable on Stellar Expert."
+      ]
+    },
+    "stack": [
+      "Stellar",
+      "Soroban",
+      "Rust",
+      "TypeScript",
+      "React",
+      "Vite",
+      "Leaflet",
+      "Python",
+      "Sentinel-2",
+      "GitHub Actions",
+      "Vercel"
+    ],
+    "github": "https://github.com/SixtoArrejin/ideathon",
+    "images": [
+      "/proyectos/dosel/dosel-banner.webp",
+      "/proyectos/dosel/dosel-1.webp",
+      "/proyectos/dosel/dosel-2.webp",
+      "/proyectos/dosel/dosel-3.webp",
+      "/proyectos/dosel/dosel-4.webp"
+    ]
+  },
+  {
     "id": "elepad",
     "period": {
       "es": "Marzo 2025 a marzo 2026",
