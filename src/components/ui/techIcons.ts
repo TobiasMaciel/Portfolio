@@ -18,6 +18,7 @@ import {
   siExpress, siFastapi,
   siFlask,
   siGeopandas,
+  siLeaflet,
   siGit,
   siGithub,
   siGithubactions,
@@ -59,6 +60,8 @@ import {
   siShadcnui,
   siSonarqubecloud,
   siSqlite,
+  siRust,
+  siStellar,
   siSupabase,
   siTailwindcss,
   siTurborepo,
@@ -154,6 +157,10 @@ const icons: Record<string, SimpleIcon> = {
   Zod: siZod,
   "WhatsApp Integration": siWhatsapp,
   ESLint: siEslint,
+  Stellar: siStellar,
+  Soroban: siStellar,
+  Rust: siRust,
+  Leaflet: siLeaflet,
 };
 
 export const getTechIcon = (name: string): SimpleIcon | undefined =>
