@@ -23,6 +23,7 @@ import { ArrowIcon } from "@/components/ui/Section";
 
 const FEATURED_IDS = [
   "datebox",
+  "dosel",
   "elepad",
   "ai-sales-agent",
   "sgi",
