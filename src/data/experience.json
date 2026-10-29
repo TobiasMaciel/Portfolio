@@ -20,45 +20,35 @@
       "en": "Corrientes, Argentina"
     },
     "summary": {
-      "es": "Trabajo por proyectos en el área de sistemas: agentes de IA integrados al CRM con la API de Claude, la reingeniería completa de la plataforma interna y la facturación electrónica con ARCA en la app de transportistas.",
-      "en": "I work on a project basis in the systems area: AI agents integrated into the CRM with the Claude API, a full rebuild of the internal platform and ARCA e-invoicing in the drivers' app."
+      "es": "Desarrollo y mantengo los tres sistemas principales de la empresa: el CRM con agentes de IA, la plataforma de gestión interna y DistriApp, la app de los transportistas.",
+      "en": "I build and maintain the company's three main systems: the CRM with AI agents, the internal management platform and DistriApp, the drivers' app."
     },
     "description": {
-      "es": "En Logística Argentina trabajo por proyectos: cada uno tiene su alcance y sus tiempos, y al cerrarlo paso al siguiente. Desarrollé agentes de IA integrados al CRM con la API de Claude, como parte del reemplazo de Kommo por una solución propia; rehice de punta a punta la plataforma de gestión interna que usan todas las áreas; e integré la facturación electrónica con ARCA en la app móvil. En paralelo, acompaño en lo técnico a la red de más de 300 transportistas.",
-      "en": "At Logística Argentina I work on a project basis: each one has its own scope and timeline, and when it closes I move on to the next. I built AI agents integrated into the CRM with the Claude API, as part of replacing Kommo with an in-house solution; rebuilt the internal management platform every area uses, end to end; and integrated ARCA e-invoicing into the mobile app. Alongside that, I give technical support to a network of 300+ drivers."
+      "es": "Logística Argentina trabaja con una red de más de 300 transportistas. Me ocupo de los tres sistemas que sostienen esa operación: el CRM con el que el equipo comercial vende, la plataforma de gestión que usan todas las áreas y DistriApp, la app con la que trabajan los transportistas. Los tres dependían de herramientas de terceros o de código viejo, y los renové uno por uno.",
+      "en": "Logística Argentina works with a network of 300+ drivers. I'm in charge of the three systems behind that operation: the CRM the sales team uses, the management platform every area relies on and DistriApp, the app drivers work with. All three depended on third-party tools or old code, and I renewed them one by one."
     },
     "bullets": {
       "es": [
-        "Desarrollé agentes de ventas integrados al CRM con la API de Claude, como parte del reemplazo de Kommo.",
-        "Hice la reingeniería integral de más de 13 módulos (Pagos, Ventas y Logística) con React, TypeScript y shadcn/ui.",
-        "Integré la facturación electrónica con ARCA en la app móvil de los transportistas.",
-        "Acompaño en lo técnico a más de 300 transportistas que usan DistriApp y su versión web."
+        "Desarrollé un CRM propio con agentes de IA que reemplazó a Kommo: responden consultas, cotizan con las tarifas vigentes y acompañan al cliente hasta la venta.",
+        "Refactoricé la plataforma de gestión interna y migré más de 13 módulos de Pagos, Ventas y Logística a React y TypeScript.",
+        "Modernicé DistriApp para que los transportistas facturen, armen sus rutas y sigan cada viaje desde una sola app, publicada en Google Play."
       ],
       "en": [
-        "Built sales agents integrated into the CRM with the Claude API, as part of replacing Kommo.",
-        "Fully re-engineered 13+ modules (Payments, Sales and Logistics) with React, TypeScript and shadcn/ui.",
-        "Integrated ARCA e-invoicing into the drivers' mobile app.",
-        "I give technical support to 300+ drivers who use DistriApp and its web version."
+        "Built an in-house CRM with AI agents that replaced Kommo: they answer inquiries, quote with current rates and guide customers through to the sale.",
+        "Refactored the internal management platform, migrating 13+ Payments, Sales and Logistics modules to React and TypeScript.",
+        "Modernized DistriApp so drivers can invoice, plan their routes and track every trip from a single app, published on Google Play."
       ]
     },
     "details": {
       "es": [
-        "Diseñé agentes de ventas con la API de Claude que detectan intención de compra, consultan tarifas y avanzan oportunidades dentro del CRM.",
-        "Desarrollé las herramientas que usan los agentes (tool calling), los recordatorios automáticos y un tono adaptado a cada operador.",
-        "Armé simuladores de conversación para medir la calidad de las respuestas y reducir alucinaciones antes de cada cambio.",
-        "Rehice la plataforma de gestión sobre el backend PHP existente, módulo por módulo y sin frenar la operación diaria.",
-        "Implementé validaciones en tiempo real, paneles laterales, sincronización de datos y modo claro y oscuro.",
-        "Junto al área de Pagos, configuré delegaciones y puntos de venta en ARCA para que los transportistas facturen desde la app.",
-        "Resuelvo incidencias de accesos, versiones y operación diaria de DistriApp y su plataforma web."
+        "Desarrollé un CRM propio que reemplazó a Kommo. Sumé agentes de IA con la API de Claude que responden las consultas de los clientes, cotizan con las tarifas vigentes y siguen cada oportunidad hasta cerrar la venta. Para probar cada cambio antes de ponerlo en producción, armé un simulador de conversaciones.",
+        "Refactoricé la plataforma de gestión que usan todas las áreas, que funcionaba mal y era difícil de mantener. Migré más de 13 módulos de Pagos, Ventas y Logística a React, TypeScript y shadcn/ui sobre el backend PHP existente, de a uno y sin frenar la operación.",
+        "Modernicé DistriApp, la app de los transportistas, y le sumé facturación electrónica, ruteo y seguimiento de viajes. Hoy cada transportista resuelve su trabajo diario desde una sola app, disponible en Google Play."
       ],
       "en": [
-        "Designed sales agents with the Claude API that detect purchase intent, look up rates and move deals forward inside the CRM.",
-        "Built the tools the agents use (tool calling), automatic reminders and a tone adapted to each operator.",
-        "Built conversation simulators to measure answer quality and reduce hallucinations before every change.",
-        "Rebuilt the management platform on top of the existing PHP backend, module by module and without stopping daily operations.",
-        "Implemented real-time validation, side panels, data sync and light and dark modes.",
-        "Together with the Payments team, set up ARCA delegations and points of sale so drivers can invoice from the app.",
-        "I solve access, version and daily operation issues in DistriApp and its web platform."
+        "Built an in-house CRM that replaced Kommo. Added AI agents with the Claude API that answer customer inquiries, quote with current rates and follow each opportunity through to the sale. To test every change before it reaches production, I built a conversation simulator.",
+        "Refactored the management platform every area uses, which worked poorly and was hard to maintain. Migrated 13+ Payments, Sales and Logistics modules to React, TypeScript and shadcn/ui on top of the existing PHP backend, one at a time and without stopping operations.",
+        "Modernized DistriApp, the drivers' app, and added e-invoicing, routing and trip tracking. Every driver now handles their daily work from a single app, available on Google Play."
       ]
     },
     "stack": [
@@ -76,29 +66,29 @@
       "es": [
         {
           "value": "3",
-          "label": "proyectos principales entregados"
+          "label": "sistemas centrales entregados"
         },
         {
           "value": "13+",
-          "label": "módulos de la plataforma interna rehechos"
+          "label": "módulos de la plataforma refactorizados"
         },
         {
           "value": "300+",
-          "label": "transportistas con soporte técnico"
+          "label": "transportistas pueden usar DistriApp"
         }
       ],
       "en": [
         {
           "value": "3",
-          "label": "main projects delivered"
+          "label": "core systems delivered"
         },
         {
           "value": "13+",
-          "label": "internal platform modules rebuilt"
+          "label": "platform modules refactored"
         },
         {
           "value": "300+",
-          "label": "drivers with technical support"
+          "label": "drivers can use DistriApp"
         }
       ]
     }
