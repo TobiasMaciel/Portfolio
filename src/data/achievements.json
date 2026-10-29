@@ -1,5 +1,41 @@
 [
   {
+    "id": "neatech-2026",
+    "year": "2026",
+    "title": {
+      "es": "1.er premio en la Ideathon NeaTech 2026",
+      "en": "1st prize at the NeaTech 2026 Ideathon"
+    },
+    "description": {
+      "es": "Premio Stellar con Dosel, una plataforma de créditos de carbono de bosque nativo verificados por satélite.",
+      "en": "Stellar Prize with Dosel, a platform for native forest carbon credits verified by satellite."
+    },
+    "photos": [
+      "/logros/neatech-2026/1.jpg",
+      "/logros/neatech-2026/2.jpg",
+      "/logros/neatech-2026/3.jpg"
+    ],
+    "isAchievement": true
+  },
+  {
+    "id": "rally-2026",
+    "year": "2026",
+    "title": {
+      "es": "3.er puesto en el Rally Latinoamericano de Innovación",
+      "en": "3rd place at the Latin American Innovation Rally"
+    },
+    "description": {
+      "es": "Categoría Innovación. Presentamos PolliNode, sensores con IA para proteger a los polinizadores nativos.",
+      "en": "Innovation category. We presented PolliNode, AI-powered sensors to protect native pollinators."
+    },
+    "photos": [
+      "/logros/rally-2026/1.jpg",
+      "/logros/rally-2026/2.jpg",
+      "/logros/rally-2026/3.jpg"
+    ],
+    "isAchievement": true
+  },
+  {
     "id": "aws-desarrolla",
     "year": "2026",
     "title": {
