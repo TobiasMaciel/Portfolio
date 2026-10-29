@@ -71,6 +71,7 @@ export function getAchievements(lang: Language): AchievementItem[] {
     title: a.title[lang],
     description: a.description[lang],
     file: a.file ? withBasePath(a.file) : undefined,
+    photos: a.photos?.map(withBasePath),
     isAchievement: Boolean(a.isAchievement),
   }));
 }

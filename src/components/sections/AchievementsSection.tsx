@@ -1,5 +1,11 @@
+"use client";
+
+import { useState } from "react";
+import { createPortal } from "react-dom";
+import { AnimatePresence } from "framer-motion";
 import { Eye } from "lucide-react";
 import type { AchievementItem } from "@/types";
+import Lightbox from "@/components/Lightbox";
 import ScrollIn from "@/components/fx/ScrollIn";
 import Section from "@/components/ui/Section";
 import { button } from "@/components/ui/styles";
@@ -17,6 +23,11 @@ export default function AchievementsSection({
     subtitle: string;
   }) => void;
 }) {
+  const [lightbox, setLightbox] = useState<{
+    images: string[];
+    index: number;
+  } | null>(null);
+
   return (
     <Section id="logros" title={isEs ? "Logros" : "Achievements"} from="left">
       <ul className="grid grid-cols-1 gap-10 lg:grid-cols-2">
@@ -48,15 +59,17 @@ export default function AchievementsSection({
                   <p className="mt-2 max-w-xl leading-relaxed text-muted">
                     {a.description}
                   </p>
-                  {a.file && (
+                  {(a.photos || a.file) && (
                     <button
                       type="button"
                       onClick={() =>
-                        onOpenDocument({
-                          url: a.file!,
-                          title: kind,
-                          subtitle: a.title,
-                        })
+                        a.photos
+                          ? setLightbox({ images: a.photos, index: 0 })
+                          : onOpenDocument({
+                              url: a.file!,
+                              title: kind,
+                              subtitle: a.title,
+                            })
                       }
                       className={`${button.soft} group/btn mt-4`}
                     >
@@ -76,6 +89,23 @@ export default function AchievementsSection({
           );
         })}
       </ul>
+
+      {/* Portal: the section is scaled on scroll, which would trap a fixed overlay inside it. */}
+      {typeof document !== "undefined" &&
+        createPortal(
+          <AnimatePresence>
+            {lightbox && (
+              <Lightbox
+                key="lightbox"
+                images={lightbox.images}
+                startIndex={lightbox.index}
+                onClose={() => setLightbox(null)}
+                isEs={isEs}
+              />
+            )}
+          </AnimatePresence>,
+          document.body,
+        )}
     </Section>
   );
 }

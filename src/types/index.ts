@@ -85,5 +85,6 @@ export interface AchievementItem {
   title: string;
   description: string;
   file?: string;
+  photos?: string[];
   isAchievement: boolean;
 }
